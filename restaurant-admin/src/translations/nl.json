@@ -1,0 +1,1150 @@
+{
+  "auth": {
+    "main": {
+      "header": {
+        "login": "Inloggen",
+        "resetPassword": "Wachtwoord opnieuw instellen"
+      },
+      "copyright": {
+        "1": "Auteursrecht 2025",
+        "2": "Alle rechten voorbehouden"
+      }
+    },
+    "login": {
+      "title": {
+        "1": "Inloggen op uw",
+        "2": "Admin Dashboard"
+      },
+      "form": {
+        "email": {
+          "label": "E-mail",
+          "placeholder": "admin@example.com"
+        },
+        "password": {
+          "label": "Wachtwoord",
+          "placeholder": "*********"
+        },
+        "keepLoggedIn": {
+          "label": "Herinner mij"
+        },
+        "submit": "Stuur  in",
+        "forgotPassword": "Wachtwoord vergeten?"
+      }
+    },
+    "reset": {
+      "title": {
+        "1": "E-mail invoeren naar",
+        "2": "OTP-code ontvangen"
+      },
+      "form": {
+        "password": {
+          "label": "Wachtwoord",
+          "placeholder": "********"
+        },
+        "confirmPassword": {
+          "label": "Wachtwoord bevestigen",
+          "placeholder": "*********"
+        },
+        "back": "Terug",
+        "submit": "Stuur  in"
+      }
+    },
+    "enterOtp": {
+      "title": {
+        "1": "  Voer dan de Otp-code in",
+        "2": "  Ga verder naar Wachtwoord bijwerken"
+      },
+      "form": {
+        "code": "Code invoeren",
+        "resendCode": "Code opnieuw verzenden",
+        "confirmPassword": {
+          "label": "Wachtwoord bevestigen",
+          "placeholder": "*********"
+        },
+        "back": "Terug",
+        "submit": "Stuur  in"
+      }
+    },
+    "setup": {
+      "header": " Merkopstelling",
+      "title": {
+        "1": " Uw merk toevoegen",
+        "2": "Visuele vooruitzichten"
+      },
+      "form": {
+        "brandName": {
+          "label": "Merknaam",
+          "placeholder": "Voer merknaam in"
+        },
+        "updateLogo": {
+          "label": "Logo bijwerken",
+          "placeholder": "Logo kiezen"
+        },
+        "brandSlogan": {
+          "label": "Merk Slogan",
+          "placeholder": "Voer merkslogan in"
+        },
+        "currency": {
+          "label": "Standaardvaluta",
+          "placeholder": "Valuta selecteren"
+        },
+        "language": {
+          "label": "Standaard Taal",
+          "placeholder": "Selecteer taal"
+        },
+        "back": "Terug",
+        "submit": "Stuur  in"
+      }
+    }
+  },
+  "sideNav": {
+    "dashboard": "Dashboard",
+    "menu": "Menu's",
+    "addFood": "Eten toevoegen",
+    "addDrinks": "Drankjes toevoegen",
+    "menuClass": "Menu-indelingen",
+    "review": "Beoordeling",
+    "sub": "Abonnement",
+    "settings": "Instellingen",
+    "logout": "Afmelden",
+    "audit": "Controle"
+  },
+  "admin": {
+    "dashboard": {
+      "header": "Dashboard",
+      "customersLabel": "Klanten",
+      "dishLabel": "Alle gerechten",
+      "totalDishes": "Totaal Gerechten",
+      "totalInteractions": "Totaal Interacties",
+      "dishesBtn": "Alle gerechten",
+      "lineChart": {
+        "customers": "Klanten"
+      },
+      "AI": {
+        "title": "Gebruikte AI-credits",
+        "subTitle": "Totaal aantal AI-credits gebruikt wanneer klanten de chatinterface gebruiken"
+      },
+      "customersOverview": "Overzicht klanten"
+    },
+    "dishPieChart": {
+      "title": "Taartdiagram - Gerechten per soort gerecht",
+      "footer": "Totaal aantal soorten gerechten en hun aantal."
+    },
+    "review": {
+      "header": "Beoordelingen",
+      "title": "Totaal Beoordelingen",
+      "filter": "Filterclassificatie",
+      "order": "Bestel ID"
+    },
+    "subs": {
+      "title": "Abonnementen beheren",
+      "header": {
+        "title": "Kies een plan dat past bij de grootte van je klant",
+        "buttons": {
+          "month": " Per maand",
+          "year": " Per jaar"
+        }
+      },
+      "unsubscribe": "Afmelden",
+      "subscribeNow": "Nu abonneren",
+      "subscribed": "Ingeschreven",
+      "active": "Actief"
+    },
+    "menu": {
+      "topArea": {
+        "header": "Menu",
+        "btns": {
+          "dishes": "Gerechten",
+          "drinks": "Dranken"
+        },
+        "rightSide": {
+          "searchPlaceholder": "Zoek op",
+          "add": "Voeg  toe",
+          "drinks": "dranken",
+          "dishes": "gerechten"
+        }
+      },
+      "dishes": {
+        "all": "Alle",
+        "modalTitle": "Voorbeeld Schotel",
+        "previewDish": {
+          "description": "Beschrijving",
+          "diet": "Dieet",
+          "allergens": "Allergenen",
+          "cuisine": "Keuken",
+          "ingredients": "Ingrediënten",
+          "editDish": "Schaal bewerken"
+        }
+      },
+      "drinks": {
+        "all": "Alle",
+        "modalTitle": "Voorbeeld drankje",
+        "previewDrink": {
+          "description": "Beschrijving",
+          "variants": "Varianten",
+          "notAvailable": "Type schotel",
+          "editDrink": "Drank bewerken"
+        }
+      },
+      "editDrink": {
+        "toast": {
+          "loading": "Verwijderen...",
+          "success": "Met succes verwijderd",
+          "error": "Er ging iets mis",
+          "failed": "Niet verwijderd"
+        },
+        "header": {
+          "header": "Menu",
+          "title": "Drank bewerken",
+          "remove": {
+            "btn": "Drank verwijderen",
+            "alert": {
+              "title": "Weet je het absoluut zeker?",
+              "warning": " Deze actie kan niet ongedaan worden gemaakt. Deze actie verwijdert dit gerecht en alles wat ermee verbonden is uit het systeem.",
+              "cancel": "Annuleren",
+              "continue": "Ga verder"
+            }
+          }
+        },
+        "form": {
+          "nameLabel": "naam",
+          "namePlaceholder": "Naam drankje toevoegen",
+          "descriptionLabel": "Beschrijving",
+          "descriptionPlaceholder": "Voer een gedetailleerde beschrijving van de drank in",
+          "available": {
+            "label": "Beschikbaar",
+            "description": " Maak dit drankje beschikbaar op het menu"
+          },
+          "alcoholic": {
+            "label": "Alcoholische",
+            "description": " Bevat dit drankje alcohol?"
+          }
+        },
+        "drinkType": {
+          "title": "Soorten drank",
+          "addDrinkType": "Type drank toevoegen",
+          "add": "Voeg  toe"
+        },
+        "variants": {
+          "header": {
+            "title": "Varianten",
+            "btn": "Variant toevoegen"
+          },
+          "form": {
+            "quantityLabel": "Hoeveelheid",
+            "unitLabel": "Eenheid",
+            "priceLabel": "Prijs",
+            "available": {
+              "title": "Beschikbaar",
+              "description": "Is deze variant beschikbaar?"
+            }
+          }
+        },
+        "remove": "Variant verwijderen",
+        "upload": "Hier uploaden",
+        "save": "Sla"
+      },
+      "addDrinks": {
+        "header": "Menu",
+        "title": "Nieuwe drank toevoegen",
+        "btn": "Bulkdranken uploaden",
+        "bulkUpload": {
+          "title": "Drankjes uploaden",
+          "bulkUploadBtn": "Bulk Upload Dranken",
+          "uploadBtn": "Uploaden",
+          "uploadBox": {
+            "upload": "Excel-bestand uploaden",
+            "dragAndDrop": " Slepen en neerzetten of klikken om te bladeren",
+            "btn": "Kies bestand"
+          },
+          "instructions": {
+            "1": "Klik op de",
+            "2": "knop om de sjabloon te krijgen",
+            "3": "Vul de vereiste gegevens in de sjabloon in.",
+            "4": "De eerste rij na de kopteksten is een voorbeeldrij ter referentie - verwijder deze rij voor het uploaden.",
+            "5": "Velden die meerdere waarden accepteren moeten",
+            "title": "Instructies voor bulk uploaden:",
+            "download": "Downloaden",
+            "xlsx": ".xlsx",
+            "file": "bestand.",
+            "important": "Belangrijk:",
+            "comma": "door komma's gescheiden",
+            "forExample": ". Bijvoorbeeld:",
+            "rice": "mojito, sake, bier",
+            "btn": "Sjabloon downloaden"
+          }
+        },
+        "form": {
+          "name": {
+            "label": "Naam",
+            "placeholder": "Naam drankje toevoegen"
+          },
+          "description": {
+            "label": "Beschrijving",
+            "placeholder": "Voer een gedetailleerde beschrijving van de drank in"
+          },
+          "drinkType": {
+            "label": "Soort drank",
+            "placeholder": "Selecteer een soort drankje"
+          },
+          "upload": "Hier uploaden",
+          "available": {
+            "title": "Beschikbaar",
+            "subtitle": "Maak dit drankje beschikbaar op het menu"
+          },
+          "alcoholic": {
+            "title": "Alcoholische",
+            "subtitle": "Bevat dit drankje alcohol?"
+          }
+        },
+        "types": {
+          "drinkTypes": "Soorten drank",
+          "drinkTypesBtn": "Type drank toevoegen",
+          "add": "Voeg  toe"
+        },
+        "variants": {
+          "header": {
+            "title": "Varianten",
+            "btn": "Variant toevoegen"
+          },
+          "form": {
+            "quantity": "Hoeveelheid",
+            "unit": "Eenheid",
+            "unitPlaceholder": "Selecteer een eenheid",
+            "price": "Prijs",
+            "available": "Beschikbaar",
+            "availableSub": "Is deze variant beschikbaar?",
+            "removeVariant": "Variant verwijderen"
+          }
+        },
+        "image": {
+          "title": "Afbeeldingen",
+          "upload": "Hier uploaden"
+        },
+        "saveBtn": "Sla"
+      },
+      "addDish": {
+        "appSections": {
+          "title": "App secties",
+          "chefsRecommended": {
+            "label": "Aanbevolen door chef-koks",
+            "subtitle": "Maak van dit gerecht een door chefs aanbevolen gerecht"
+          },
+          "popular": {
+            "label": "Populair",
+            "subtitle": "Maak van dit gerecht een populair gerecht"
+          },
+          "new": {
+            "label": "Nieuw",
+            "subtitle": "Maak van dit gerecht een nieuw gerecht"
+          }
+        },
+        "title": "Menu",
+        "topSide": {
+          "title": "Nieuw gerecht toevoegen",
+          "btn": "Bulkgerechten uploaden"
+        },
+        "bulkUpload": {
+          "title": "Schotel uploaden",
+          "uploadBtn": "Uploaden",
+          "uploadBox": {
+            "upload": "Excel-bestand uploaden",
+            "dragAndDrop": " Slepen en neerzetten of klikken om te bladeren",
+            "btn": "Kies bestand"
+          },
+          "instructions": {
+            "1": "Klik op de",
+            "2": "knop om de sjabloon te krijgen",
+            "3": "Vul de vereiste gegevens in de sjabloon in.",
+            "4": "De eerste rij na de kopteksten is een voorbeeldrij ter referentie - verwijder deze rij voor het uploaden.",
+            "5": "Velden die meerdere waarden accepteren moeten",
+            "title": "Instructies voor bulk uploaden:",
+            "download": "Downloaden",
+            "xlsx": ".xlsx",
+            "file": "bestand.",
+            "important": "Belangrijk:",
+            "comma": "door komma's gescheiden",
+            "forExample": ". Bijvoorbeeld:",
+            "rice": "rijst, bonen, stoofpot",
+            "btn": "Sjabloon downloaden"
+          }
+        },
+        "form": {
+          "name": {
+            "label": "Naam",
+            "placeholder": "Voedingsnaam toevoegen"
+          },
+          "price": {
+            "label": "Prijs",
+            "placeholder": "Voer voedselprijs in"
+          },
+          "description": {
+            "label": "Beschrijving",
+            "placeholder": "Voer een gedetailleerde beschrijving van het voedsel in"
+          },
+          "preparationTime": {
+            "label": "Bereidingstijd (minuten)"
+          },
+          "spiceLevel": {
+            "label": "Kruidenniveau",
+            "placeholder": "Selecteer kruidenniveau",
+            "clear": "Duidelijk",
+            "spiceLevels": {
+              "mild": {
+                "value": "mild",
+                "label": "Mild"
+              },
+              "medium": {
+                "value": "medium",
+                "label": "Medium"
+              },
+              "spicy": {
+                "value": "pittig",
+                "label": "Gekruid"
+              },
+              "verySpicy": {
+                "value": "zeer pikant",
+                "label": "Zeer pittig"
+              }
+            }
+          },
+          "available": {
+            "title": "Beschikbaar",
+            "subtitle": "Maak dit gerecht beschikbaar op het menu"
+          }
+        },
+        "ingredients": {
+          "title": "Ingrediënten",
+          "btn": "Ingrediënt toevoegen",
+          "placeholder": "Naam ingrediënt",
+          "removeBtn": "Ingrediënt verwijderen"
+        },
+        "types": {
+          "dishTypes": "Soorten schalen",
+          "dishTypesBtn": "Categorie toevoegen",
+          "dietaryPreferences": "Dieet Voorkeuren",
+          "dietaryPreferencesbtn": "Dieet toevoegen",
+          "allergens": "Allergenen",
+          "allergensBtn": "Allergenen toevoegen",
+          "addons": "Toevoegingen",
+          "addonsBtn": "Addon toevoegen",
+          "add": "Voeg  toe"
+        },
+        "image": {
+          "title": "Afbeeldingen",
+          "upload": "Hier uploaden"
+        },
+        "saveBtn": "Sla"
+      },
+      "editDish": {
+        "toast": {
+          "loading": "Verwijderen...",
+          "success": "Met succes verwijderd",
+          "error": "Er ging iets mis",
+          "failed": "Niet verwijderd"
+        },
+        "header": {
+          "header": "Menu",
+          "title": "Schotel bewerken",
+          "remove": {
+            "btn": "Schotel verwijderen",
+            "alert": {
+              "title": "Weet je het absoluut zeker?",
+              "warning": " Deze actie kan niet ongedaan worden gemaakt. Deze actie verwijdert dit gerecht en alles wat ermee verbonden is uit het systeem.",
+              "cancel": "Annuleren",
+              "continue": "Ga verder"
+            }
+          }
+        },
+        "form": {
+          "nameLabel": "naam",
+          "namePlaceholder": "Naam schotel toevoegen",
+          "descriptionLabel": "Beschrijving",
+          "priceLabel": "Prijs",
+          "pricePlaceholder": "Voer voedselprijs in",
+          "descriptionPlaceholder": "Voer een gedetailleerde beschrijving van het gerecht in",
+          "preparationLabel": "Voorbereidingstijd",
+          "spiceLabel": "Kruidenlabel",
+          "available": {
+            "label": "Beschikbaar",
+            "description": " Maak dit drankje beschikbaar op het menu"
+          },
+          "alcoholic": {
+            "label": "Alcoholische",
+            "description": " Bevat dit drankje alcohol?"
+          }
+        },
+        "drinkType": {
+          "title": "Soorten drank",
+          "addDrinkType": "Type drank toevoegen",
+          "add": "Voeg  toe"
+        },
+        "variants": {
+          "header": {
+            "title": "Varianten",
+            "btn": "Variant toevoegen"
+          },
+          "form": {
+            "name": {
+              "label": "Naam",
+              "placeholder": "Voedingsnaam toevoegen"
+            },
+            "price": {
+              "label": "Prijs",
+              "placeholder": "Voer voedselprijs in"
+            },
+            "description": {
+              "label": "Beschrijving",
+              "placeholder": "Voer een gedetailleerde beschrijving van het voedsel in"
+            },
+            "preparationTime": {
+              "label": "Bereidingstijd (minuten)"
+            },
+            "spiceLevel": {
+              "label": "Kruidenniveau",
+              "placeholder": "Selecteer kruidenniveau",
+              "clear": "Duidelijk",
+              "spiceLevels": {
+                "mild": {
+                  "value": "mild",
+                  "label": "Mild"
+                },
+                "medium": {
+                  "value": "medium",
+                  "label": "Medium"
+                },
+                "spicy": {
+                  "value": "pittig",
+                  "label": "Gekruid"
+                },
+                "verySpicy": {
+                  "value": "zeer pikant",
+                  "label": "Zeer pittig"
+                }
+              }
+            },
+            "available": {
+              "title": "Beschikbaar",
+              "subtitle": "Maak dit gerecht beschikbaar op het menu"
+            }
+          },
+          "ingredients": {
+            "title": "Ingrediënten",
+            "btn": "Ingrediënt toevoegen",
+            "placeholder": "Naam ingrediënt",
+            "removeBtn": "Ingrediënt verwijderen"
+          },
+          "types": {
+            "dishTypes": "Soorten schalen",
+            "dishTypesBtn": "Categorie toevoegen",
+            "dietaryPreferences": "Dieet Voorkeuren",
+            "dietaryPreferencesbtn": "Dieet toevoegen",
+            "allergens": "Allergenen",
+            "allergensBtn": "Allergenen toevoegen",
+            "add": "Voeg  toe"
+          },
+          "image": {
+            "title": "Afbeeldingen",
+            "upload": "Hier uploaden"
+          },
+          "saveBtn": "Sla"
+        },
+        "remove": "Variant verwijderen",
+        "upload": "Hier uploaden",
+        "save": "Sla",
+        "cancel": "Annuleren"
+      },
+      "menuClassifications": {
+        "header": {
+          "header": "Menu",
+          "title": "Menu-indelingen",
+          "btn": "Nieuwe classificatie toevoegen"
+        },
+        "card": {
+          "title": {
+            "cuisine": "Keuken",
+            "diet": "Diëten",
+            "addOns": "Toevoegingen",
+            "allergen": "Allergeen",
+            "drinkType": "Soorten drank"
+          },
+          "subTitle": "Selecteer individuele items uit de onderstaande lijst om er voedingsmiddelen aan toe te wijzen",
+          "subTitleDrink": "Selecteer individuele items uit de onderstaande lijst om er voedingsmiddelen aan toe te wijzen",
+          "description": "Selecteer individuele items uit de onderstaande lijst om er voedingsmiddelen aan toe te wijzen"
+        },
+        "editClassTitle": "Selecteer beschikbare voedingsmiddelen om ze toe te voegen als",
+        "addToList": "Toevoegen aan lijst"
+      }
+    },
+    "menus": {
+      "header": {
+        "title": "Menu's",
+        "restaurantMenu": "Menu"
+      },
+      "search": {
+        "placeholder": "Zoek op"
+      },
+      "create": {
+        "button": "Nieuw menu maken",
+        "dialog": {
+          "title": "Nieuw menu maken",
+          "description": "Voeg een nieuw menu toe aan je restaurant.",
+          "form": {
+            "name": {
+              "label": "Naam",
+              "placeholder": "Naam menu"
+            },
+            "description": {
+              "label": "Beschrijving",
+              "placeholder": "Beschrijving menu"
+            }
+          },
+          "button": {
+            "creating": "Creëren...",
+            "create": "Menu maken"
+          }
+        }
+      },
+      "sections": {
+        "header": {
+          "title": "Menu Secties"
+        },
+        "search": {
+          "placeholder": "Zoek op"
+        },
+        "menu": {
+          "suffix": " Menu",
+          "edit": {
+            "button": "Menu Bewerken",
+            "dialog": {
+              "title": "Menu Bewerken",
+              "description": "Breng hier wijzigingen aan in je menu. Klik op Opslaan als je klaar bent.",
+              "form": {
+                "name": {
+                  "label": "Naam"
+                },
+                "description": {
+                  "label": "Beschrijving"
+                }
+              },
+              "save": "Wijzigingen opslaan",
+              "saving": "Besparen..."
+            },
+            "toast": {
+              "success": "Menu succesvol bijgewerkt",
+              "error": "Menu niet bijgewerkt"
+            }
+          },
+          "delete": {
+            "button": "Menu verwijderen",
+            "dialog": {
+              "title": "Menu verwijderen",
+              "description": "Weet je zeker dat je \"{naam}\" wilt verwijderen? Deze actie kan niet ongedaan worden gemaakt.",
+              "cancel": "Annuleren",
+              "confirm": "Verwijder"
+            },
+            "toast": {
+              "success": "Menu succesvol verwijderd",
+              "error": "Menu niet verwijderd"
+            }
+          }
+        },
+        "create": {
+          "button": "Nieuwe menusectie toevoegen",
+          "dialog": {
+            "title": "Nieuwe menusectie toevoegen",
+            "description": "Maak een nieuwe sectie voor dit menu.",
+            "form": {
+              "name": {
+                "label": "Naam",
+                "placeholder": "Naam sectie"
+              },
+              "description": {
+                "label": "Beschrijving",
+                "placeholder": "Beschrijving van de sectie"
+              }
+            },
+            "button": {
+              "creating": "Creëren...",
+              "create": "Sectie maken"
+            }
+          },
+          "toast": {
+            "success": "Menu sectie succesvol aangemaakt",
+            "error": "Menu-sectie niet gemaakt"
+          }
+        },
+        "card": {
+          "edit": "Bewerk",
+          "disable": "uitschakelen",
+          "delete": "Verwijder",
+          "editDialog": {
+            "title": "Sectie bewerken",
+            "form": {
+              "name": {
+                "label": "Naam"
+              },
+              "description": {
+                "label": "Beschrijving"
+              },
+              "button": "Sla"
+            }
+          },
+          "deleteDialog": {
+            "title": "Sectie verwijderen",
+            "description": "Weet je zeker dat je deze sectie en alle bijbehorende menu-items wilt verwijderen?",
+            "cancel": "Annuleren",
+            "delete": "Verwijder"
+          }
+        }
+      },
+      "classifications": {
+        "header": {
+          "header": "Menu",
+          "title": "Menu-indelingen",
+          "back": "Menu-indelingen",
+          "btn": "Nieuwe classificatie toevoegen"
+        },
+        "search": {
+          "placeholder": "Zoek op"
+        },
+        "card": {
+          "title": {
+            "cuisine": "Keuken",
+            "diet": "Diëten",
+            "addOns": "Toevoegingen",
+            "allergen": "Allergeen",
+            "drinkType": "Soorten drank"
+          },
+          "description": "Selecteer individuele items uit de onderstaande lijst om er voedingsmiddelen aan toe te wijzen"
+        },
+        "create": {
+          "diet": {
+            "button": "Dieet creëren",
+            "title": "Dieet creëren",
+            "form": {
+              "name": {
+                "label": "Naam invoeren"
+              }
+            }
+          },
+          "addon": {
+            "button": "Addon maken",
+            "title": "Addon maken",
+            "form": {
+              "name": {
+                "label": "Naam"
+              },
+              "price": {
+                "label": "Prijs"
+              }
+            }
+          }
+        },
+        "diets": {
+          "edit": {
+            "title": "Dieet bewerken",
+            "form": {
+              "name": {
+                "label": "Naam invoeren"
+              }
+            },
+            "button": "Update"
+          },
+          "delete": {
+            "title": "Weet je zeker dat je dit dieet wilt verwijderen?",
+            "description": "Deze actie kan niet ongedaan worden gemaakt. Hierdoor wordt dit dieet permanent verwijderd.",
+            "cancel": "Annuleren",
+            "continue": "Ga verder"
+          }
+        },
+        "addons": {
+          "edit": {
+            "title": "Addon toevoegen",
+            "description": "Een nieuwe addon toevoegen aan het menu",
+            "form": {
+              "name": {
+                "label": "Naam invoeren"
+              },
+              "price": {
+                "label": "Prijs invoeren"
+              }
+            },
+            "button": "Voeg  toe"
+          },
+          "delete": {
+            "title": "Weet je zeker dat je deze addon wilt verwijderen?",
+            "description": "Deze actie kan niet ongedaan worden gemaakt. Hierdoor wordt deze addon permanent verwijderd.",
+            "cancel": "Annuleren",
+            "continue": "Ga verder"
+          }
+        },
+        "listItem": {
+          "edit": "Bewerk",
+          "delete": "Verwijder"
+        }
+      },
+      "items": {
+        "add": {
+          "form": {
+            "preparationTime": {
+              "placeholder": "0"
+            }
+          },
+          "validation": {
+            "name": "Voer een geldige naam in",
+            "description": "Voer een beschrijving in",
+            "price": "Voer een geldige prijs in",
+            "ingredients": "Voeg de ingrediënten toe"
+          },
+          "appSections": {
+            "title": "App secties",
+            "chefsRecommended": {
+              "label": "Aanbevolen door chef-koks",
+              "subtitle": "Maak van dit gerecht een door chefs aanbevolen gerecht"
+            },
+            "popular": {
+              "label": "Populair",
+              "subtitle": "Maak van dit gerecht een populair gerecht"
+            },
+            "new": {
+              "label": "Nieuw",
+              "subtitle": "Maak van dit gerecht een nieuw gerecht"
+            }
+          },
+          "components": {
+            "diets": {
+              "label": "Dieet Voorkeuren",
+              "button": "Dieet toevoegen",
+              "modal": {
+                "title": "Dieet toevoegen",
+                "button": "Voeg  toe",
+                "form": {
+                  "name": {
+                    "label": "Naam invoeren"
+                  }
+                }
+              }
+            },
+            "addons": {
+              "label": "Toevoegingen",
+              "button": "Addon toevoegen",
+              "modal": {
+                "title": "Addon toevoegen",
+                "button": "Voeg  toe",
+                "form": {
+                  "name": {
+                    "label": "Naam invoeren"
+                  }
+                }
+              }
+            },
+            "allergens": {
+              "label": "Allergenen"
+            },
+            "ingredients": {
+              "empty": "Klik om ingrediënten te selecteren",
+              "modal": {
+                "title": "Selecteer ingrediënten",
+                "search": {
+                  "placeholder": "Zoeken..."
+                },
+                "add": "Voeg  toe",
+                "remove": "Verwijder",
+                "buttons": {
+                  "cancel": "Annuleren",
+                  "done": "Gedaan"
+                }
+              },
+              "toast": {
+                "success": "ingrediënt toegevoegd aan de lijst",
+                "deleteSuccess": "ingrediënt succesvol verwijderd"
+              }
+            },
+            "variants": {
+              "title": "Varianten",
+              "description": "Verschillende variaties van dit menu-item toevoegen (bijv. maten, stijlen, porties)",
+              "empty": "Er zijn nog geen varianten toegevoegd. Klik op \"Variant toevoegen\" om te beginnen.",
+              "button": "Variant toevoegen",
+              "variant": "Variant",
+              "form": {
+                "name": {
+                  "label": "Naam",
+                  "placeholder": "bijv. klein, middelgroot, groot"
+                },
+                "price": {
+                  "label": "Prijs",
+                  "placeholder": "0.00"
+                },
+                "available": {
+                  "label": "Beschikbaar voor bestelling"
+                }
+              },
+              "remove": "Variant verwijderen"
+            },
+            "discount": {
+              "empty": {
+                "title": "Geen korting toegevoegd",
+                "description": "Voeg een korting toe om speciale prijzen aan te bieden",
+                "button": "Korting toevoegen"
+              },
+              "title": "Korting Details",
+              "form": {
+                "label": {
+                  "label": "Label met korting"
+                },
+                "type": {
+                  "label": "Korting Type",
+                  "placeholder": "Selecteer kortingstype",
+                  "percentage": "Percentage",
+                  "fixed": "Vast"
+                },
+                "value": {
+                  "label": "Korting Waarde"
+                },
+                "startDate": {
+                  "label": "Startdatum en -tijd"
+                },
+                "endDate": {
+                  "label": "Einddatum en -tijd"
+                }
+              }
+            }
+          },
+          "bulk": {
+            "title": "Menu-items in bulk uploaden",
+            "description": "Upload een CSV-bestand en breng kolommen in kaart om menu-items in bulk te creëren",
+            "tabs": {
+              "upload": "CSV uploaden",
+              "map": "Kaart Kolommen",
+              "preview": "Voorbeeld bekijken en bevestigen"
+            },
+            "upload": {
+              "dragDrop": "Sleep je CSV-bestand hierheen",
+              "clickBrowse": "of klik om te bladeren",
+              "formatRequirements": {
+                "title": "Vereisten voor CSV-indeling",
+                "firstRow": "De eerste rij moet kolomkoppen bevatten",
+                "supportedFormats": "Ondersteunde indelingen: tekst/csv of .csv-extensie",
+                "columnNames": "Zorg ervoor dat kolomnamen overeenkomen met je gegevens",
+                "nextStep": "In de volgende stap zet je deze kolommen om in menu-itemvelden"
+              }
+            },
+            "mapper": {
+              "csvColumnsFound": "CSV-kolommen gevonden",
+              "sampleData": "Voorbeeldgegevens (eerste rij)",
+              "columnMappings": "Kolom toewijzingen",
+              "addMapping": "+ Mapping toevoegen",
+              "noMappings": "Nog geen mappings. Voeg je eerste kolomtoewijzing toe.",
+              "csvColumn": "CSV-kolom",
+              "menuItemField": "Menu-item Veld",
+              "allRequiredMapped": "✓ Alle verplichte velden in kaart gebracht",
+              "missingRequired": "⚠ Verplichte velden ontbreken",
+              "required": "Vereist",
+              "continueToPreview": "Doorgaan naar voorbeeld"
+            },
+            "preview": {
+              "totalRows": "Totaal rijen",
+              "selected": "Geselecteerd",
+              "fieldsMapped": "In kaart gebrachte velden",
+              "dataPreview": "Gegevensvoorbeeld",
+              "showAll": "Alles weergeven",
+              "showFirst10": "Toon eerste 10",
+              "showing": "10 van",
+              "rows": "rijen",
+              "yes": "Ja",
+              "no": "Geen",
+              "empty": "—",
+              "startOver": "Opnieuw beginnen",
+              "uploading": "Uploaden...",
+              "upload": "Uploaden",
+              "items": "Items",
+              "fieldNames": {
+                "name": "Naam",
+                "section": "Sectie",
+                "type": "Type",
+                "description": "Beschrijving",
+                "price": "Prijs",
+                "spiceLevel": "Kruidenniveau",
+                "cookTime": "Kooktijd",
+                "ingredients": "Ingrediënten",
+                "images": "Afbeeldingen",
+                "translations": "Vertalingen",
+                "variants": "Varianten",
+                "addons": "Toevoegingen",
+                "allergens": "Allergenen"
+              }
+            }
+          }
+        },
+        "edit": {
+          "validation": {
+            "name": "Voer een geldige naam in"
+          },
+          "appSections": {
+            "title": "App secties",
+            "chefsRecommended": {
+              "label": "Aanbevolen door chef-koks",
+              "subtitle": "Maak van dit gerecht een door chefs aanbevolen gerecht"
+            },
+            "popular": {
+              "label": "Populair",
+              "subtitle": "Maak van dit gerecht een populair gerecht"
+            },
+            "new": {
+              "label": "Nieuw",
+              "subtitle": "Maak van dit gerecht een nieuw gerecht"
+            }
+          }
+        },
+        "preview": {
+          "description": "Beschrijving",
+          "diet": "Dieet",
+          "allergens": "Allergenen",
+          "ingredients": "Ingrediënten",
+          "editDish": "Schaal bewerken"
+        }
+      },
+      "components": {
+        "menuCard": {
+          "active": "Actief",
+          "inactive": "Inactief",
+          "viewMenuSections": "Menu-onderdelen weergeven",
+          "delete": {
+            "title": "Menu verwijderen",
+            "description": "Weet je zeker dat je \"{naam}\" wilt verwijderen? Deze actie kan niet ongedaan worden gemaakt.",
+            "cancel": "Annuleren",
+            "confirm": "Verwijder"
+          },
+          "edit": {
+            "title": "Menu Bewerken",
+            "description": "Breng hier wijzigingen aan in je menu. Klik op Opslaan als je klaar bent.",
+            "form": {
+              "name": "Naam",
+              "description": "Beschrijving"
+            },
+            "save": "Wijzigingen opslaan",
+            "saving": "Besparen..."
+          },
+          "toast": {
+            "authRequired": "Authenticatie vereist. Log opnieuw in.",
+            "deleteSuccess": "Menu succesvol verwijderd",
+            "deleteError": "Menu niet verwijderd",
+            "updateSuccess": "Menu succesvol bijgewerkt",
+            "updateError": "Menu niet bijgewerkt"
+          }
+        }
+      }
+    },
+    "settings": {
+      "header": "Instellingen",
+      "headerBtns": {
+        "profile": "Profiel",
+        "qrCode": "Menu QR Code"
+      },
+      "email": {
+        "title": "E-mail wijzigen",
+        "subtitle": " Werk je e-mailadres bij door het nieuwe e-mailadres in te voeren. We sturen een OTP naar je huidige e-mailadres om te bevestigen",
+        "updateEmail": "E-mail bijwerken",
+        "resendOtp": "OTP opnieuw verzenden",
+        "save": "Sla",
+        "update": "Update",
+        "modalLabel": "Code invoeren"
+      },
+      "password": {
+        "title": "Wachtwoord wijzigen",
+        "subtitle": " Werk je wachtwoord bij door het gewenste wachtwoord in te voeren. We sturen ter bevestiging een OTP naar je e-mail.",
+        "oldPassword": "Huidig wachtwoord",
+        "newPassword": "Nieuw wachtwoord",
+        "confirmPassword": "Wachtwoord bevestigen",
+        "resendOtp": "OTP opnieuw verzenden",
+        "save": "Sla",
+        "update": "Update",
+        "modalLabel": "Code invoeren"
+      },
+      "brand": {
+        "title": " Andere informatie",
+        "subtitle": "Informatie met betrekking tot je account bijwerken",
+        "form": {
+          "logoLabel": "Logo bijwerken",
+          "sloganLabel": "Slogan bijwerken",
+          "sloganPlaceholder": "De slogan bijwerken",
+          "addressLabel": "Je adres bijwerken",
+          "addressPlaceholder": "Het adres bijwerken",
+          "languageLabel": "Standaard Taal",
+          "currencyLabel": "Standaardvaluta",
+          "bannerLabel": "Banner bijwerken"
+        },
+        "buttons": {
+          "cancel": "Annuleren",
+          "update": "Update"
+        }
+      },
+      "brandCustomisation": {
+        "title": "Merkaanpassing",
+        "subTitle": " De weergave-informatie voor de klant bijwerken",
+        "form": {
+          "updateName": "Naam bijwerken",
+          "updateSlogan": "Slogan bijwerken",
+          "updateColors": "Kleuren bijwerken",
+          "updateLogo": "Logo bijwerken",
+          "defaultLanguage": "Standaard Taal",
+          "cancel": "Annuleren",
+          "save": "Sla"
+        }
+      },
+      "personalInformation": {
+        "title": "Persoonlijke informatie",
+        "subTitle": " Je accountgegevens bijwerken",
+        "form": {
+          "pictureEdit": "Bewerk",
+          "updateEmail": "E-mail bijwerken",
+          "updatePassword": "Wachtwoord bijwerken",
+          "cancel": "Annuleren",
+          "save": "Sla"
+        }
+      },
+      "qrCode": {
+        "header": {
+          "title": "Menu QR Code",
+          "subTitle": " Deel deze QR-code met je klanten zodat ze gemakkelijk toegang hebben tot je digitale menu"
+        },
+        "body": {
+          "qrCodeTitle": "Klanten scannen deze code om je menu te bekijken",
+          "menuUrl": "Menu URL",
+          "copied": "URL gekopieerd naar klembord!"
+        },
+        "button": "QR-code downloaden",
+        "footer": {
+          "title": "Hoe te gebruiken:",
+          "step1": "- Druk de QR code af en plaats deze op tafels",
+          "step2": "- Voeg het toe aan het promotiemateriaal van je restaurant",
+          "step3": "- Deel de URL direct met klanten",
+          "step4": "- Weergeven op schermen of digitale bewegwijzering"
+        }
+      }
+    },
+    "audit": {
+      "header": "Controle",
+      "error": "Fout bij het laden van auditlogboeken. Probeer het opnieuw.",
+      "table": {
+        "entity": "Entiteit",
+        "action": "Actie",
+        "entityName": "Naam entiteit",
+        "performedBy": "Uitgevoerd door",
+        "createdAt": "Gemaakt op"
+      },
+      "notAvailable": "N.V.T.",
+      "filters": {
+        "allEntities": "Alle entiteiten",
+        "allActions": "Alle acties",
+        "limit": "Beperk"
+      }
+    }
+  },
+  "paginator": {
+    "previous": "Vorige",
+    "next": "Volgende",
+    "more": "Meer pagina's"
+  }
+}

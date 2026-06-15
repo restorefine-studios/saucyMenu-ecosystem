@@ -1,0 +1,236 @@
+{
+  "languageSelect": {
+    "title": "Selecteer uw voorkeurstaal",
+    "continueBtn": "Ga verder",
+    "loading": "talen ophalen...",
+    "notFound": "Niet gevonden"
+  },
+  "optionsSelect": {
+    "backBtn": "Terug",
+    "title": {
+      "1": "Kies een actie",
+      "2": "Hoe wil je beginnen met verkennen?"
+    },
+    "options": {
+      "1": {
+        "label": "Voedselvoorkeuren",
+        "subtext": "Stel je smaak en dieetvoorkeuren in voor een menu-ervaring op maat"
+      },
+      "2": {
+        "label": "Vraag SaucyChat",
+        "subtext": "Chat met onze AI voor directe, slimme gerechtaanbevelingen"
+      },
+      "3": {
+        "label": "Ga naar menu's",
+        "subtext": "Blader door het volledige menu zonder filters of instellingen"
+      }
+    },
+    "continueBtn": "Ga verder"
+  },
+  "selectDiet": {
+    "toast": {
+      "success": "Succesvol opgeslagen diëten",
+      "warning": "Er ging iets mis"
+    },
+    "title": "Kies je Dieetplan",
+    "subTitle": "Laten we je smaak leren kennen. Kies een plan dat bij je past.",
+    "searchPlaceholder": "Zoek op",
+    "Buttons": {
+      "Back": "Terug",
+      "Proceed": "Ga verder",
+      "Skip": "Skip"
+    }
+  },
+  "allergens": {
+    "toast": {
+      "success": "Allergieën met succes gered",
+      "warning": "Er ging iets mis"
+    },
+    "title": "Waar ben je allergisch voor?",
+    "subTitle": "Je helpen om je op je best te voelen begint met wat we weglaten.",
+    "searchPlaceholder": "Zoek op",
+    "Buttons": {
+      "Back": "Terug",
+      "Proceed": "Ga verder",
+      "Skip": "Skip"
+    }
+  },
+  "menuItems": {
+    "title": "Menu-items",
+    "searchPlaceholder": "Menu-items zoeken",
+    "loadingMessage": {
+      "more": "Meer laden...",
+      "scroll": "Scroll voor meer"
+    }
+  },
+  "craftedFood": {
+    "title": "Dit hebben we speciaal voor jou samengesteld",
+    "subTitle": "Handgemaakte maaltijden geïnspireerd door jouw smaak, voorkeuren en levensstijl.",
+    "searchPlaceholder": "Zoek op",
+    "Buttons": {
+      "goToFoodMenu": "Ga naar het menu Eten",
+      "goToDrinksMenu": "Ga naar het drankenmenu",
+      "Skip": "Skip"
+    },
+    "suggest": "Stel iets anders voor",
+    "seeOriginal": " Bekijk het originele menu",
+    "youMayAlsoLike": "Dit vind je misschien ook leuk"
+  },
+  "foodMenu": {
+    "title": "Ontdek onze gerechten",
+    "headerBtn": "Ga naar het drankenmenu",
+    "searchPlaceholder": "Zoek op",
+    "all": "Alle",
+    "forYou": "Voor jou",
+    "loadingMessage": {
+      "more": "Meer laden...",
+      "scroll": "Scroll om meer te laden"
+    }
+  },
+  "foodProfile": {
+    "title": "Voedselprofiel",
+    "toast": {
+      "success": "Review succesvol ingediend",
+      "warning": "Er ging iets mis"
+    },
+    "details": {
+      "ingredients": "Ingrediënten",
+      "spice": "Kruidenniveau",
+      "dietary": "Dieet tags",
+      "allergens": "Allergenen",
+      "diets": "Diëten"
+    },
+    "discount": {
+      "off": "uit",
+      "validUntil": "Geldig tot",
+      "validFrom": "Geldig vanaf"
+    },
+    "review": {
+      "rate": "Prijs",
+      "review": "Laat een beoordeling achter",
+      "submit": "Beoordeling indienen"
+    },
+    "addons": "Toevoegingen",
+    "variants": "Varianten",
+    "askSaucyChat": "Vraag SaucyChat",
+    "timeUnspecified": "Tijd niet gespecificeerd"
+  },
+  "drinkMenu": {
+    "title": "Ontdek onze dranken",
+    "headerBtn": "Ga naar het menu Eten",
+    "searchPlaceholder": "Zoek op",
+    "all": "Alle",
+    "tapToView": " Tik om details weer te geven",
+    "forYou": "Voor jou",
+    "modal": {
+      "drinkType": "Soort drank",
+      "alcoholic": "Alcoholische",
+      "available": "Beschikbaar",
+      "variants": "Varianten"
+    },
+    "loadingMessage": {
+      "more": "Meer laden...",
+      "scroll": "Scroll om meer te laden"
+    }
+  },
+  "aiPretext": {
+    "0": {
+      "title": "Bevat dit artikel allergenen?",
+      "subtext": "Controleer op noten, zuivel, gluten, schaaldieren of andere veelvoorkomende allergenen"
+    },
+    "1": {
+      "title": "Is dit geschikt voor mijn dieet?",
+      "subtext": "Kijk of het vegetarisch, veganistisch, keto, halal of glutenvrij is"
+    },
+    "2": {
+      "title": "Hoe pittig is dit gerecht?",
+      "subtext": "Begrijp het warmteniveau voordat je bestelt"
+    },
+    "3": {
+      "title": "Kan dit artikel worden aangepast?",
+      "subtext": "Wijzig ingrediënten, verwijder toppings of pas het kruidenniveau aan"
+    },
+    "4": {
+      "title": "Welke ingrediënten zijn inbegrepen?",
+      "subtext": "Bekijk de volledige lijst met componenten in dit gerecht"
+    },
+    "5": {
+      "title": "Wat is de portiegrootte?",
+      "subtext": "Weet of het ideaal is voor één persoon of om te delen"
+    },
+    "6": {
+      "title": "Hoe wordt dit voorbereid?",
+      "subtext": "Leer meer over bereidingswijzen zoals gegrild, gebakken of gefrituurd"
+    },
+    "7": {
+      "title": "Wat zijn de voedingsdetails?",
+      "subtext": "Bekijk informatie over calorieën, proteïne, koolhydraten en vet"
+    },
+    "8": {
+      "title": "Is dit product vers of vooraf bereid?",
+      "subtext": "Begrijpen hoe en wanneer het wordt gemaakt"
+    },
+    "9": {
+      "title": "Zijn er premium add-ons beschikbaar?",
+      "subtext": "Verrijk dit gerecht met extra toppings of upgrades"
+    }
+  },
+  "ai": {
+    "header": "Saai menu AI",
+    "hiText": "Hallo ik ben SaucyAI",
+    "message": " Vraag me naar de specials van vandaag, menu-items of iets anders.",
+    "thinking": "denken...",
+    "searchPlaceholder": "Vraag iets...",
+    "logoAlt": "Logo Saucy Menu"
+  },
+  "common": {
+    "mins": "mins",
+    "back": "Terug",
+    "notFound": "Niet gevonden"
+  },
+  "menus": {
+    "addAllergensDiets": "Allergenen en diëten toevoegen",
+    "seeOurMenus": "Bekijk onze menu's",
+    "chefsRecommendations": "Aanbevelingen van de chef",
+    "whatsPopular": "Populair",
+    "allergenDietsMode": "Allergenen- en diëtenmodus",
+    "search": "Zoek op",
+    "menuItems": "menu-items",
+    "menu": "Menu",
+    "searchPlaceholderTemplate": "Menu {menuNaam} zoeken"
+  },
+  "modal": {
+    "addAllergensDiets": "Allergenen en diëten toevoegen",
+    "description": "Selecteer allergenen en diëten om voedingsmiddelen en dranken te filteren",
+    "cancel": "Annuleren",
+    "updating": "Bijwerken...",
+    "applyFilters": "Filters toepassen",
+    "allergens": "Allergenen",
+    "searchAllergens": "Allergenen zoeken",
+    "diets": "Diëten",
+    "searchDiets": "Diëten zoeken",
+    "preferencesUpdated": "Voorkeuren succesvol bijgewerkt!",
+    "failedUpdate": "Mislukt bij het bijwerken van voorkeuren"
+  },
+  "ui": {
+    "starRating": {
+      "outOf": "van",
+      "star": "ster",
+      "stars": "sterren"
+    },
+    "spiceLevel": {
+      "mild": "MILD",
+      "medium": "MEDIUM",
+      "hot": "HOT",
+      "extraHot": "EXTRA HEET",
+      "extreme": "EXTREME"
+    },
+    "nullState": {
+      "title": "Nog niets hier",
+      "subtitle": "Geen items beschikbaar, kom snel terug."
+    },
+    "spinner": {
+      "loading": "Menu wordt geladen..."
+    }
+  }
+}

@@ -1,0 +1,236 @@
+{
+  "languageSelect": {
+    "title": "选择您喜欢的语言",
+    "continueBtn": "继续",
+    "loading": "获取语言...",
+    "notFound": "未找到"
+  },
+  "optionsSelect": {
+    "backBtn": "返回",
+    "title": {
+      "1": "选择一项行动",
+      "2": "您想如何开始探索？"
+    },
+    "options": {
+      "1": {
+        "label": "食物偏好",
+        "subtext": "设置您的口味和饮食偏好，体验定制菜单"
+      },
+      "2": {
+        "label": "询问 SaucyChat",
+        "subtext": "与我们的人工智能聊天，获得即时、智能的菜肴推荐"
+      },
+      "3": {
+        "label": "转到菜单",
+        "subtext": "浏览完整菜单，无需任何筛选或设置"
+      }
+    },
+    "continueBtn": "继续"
+  },
+  "selectDiet": {
+    "toast": {
+      "success": "成功挽救饮食",
+      "warning": "出了问题"
+    },
+    "title": "选择您的饮食计划",
+    "subTitle": "让我们来了解您的品味。选择适合您的计划。",
+    "searchPlaceholder": "搜索",
+    "Buttons": {
+      "Back": "返回",
+      "Proceed": "继续",
+      "Skip": "跳过"
+    }
+  },
+  "allergens": {
+    "toast": {
+      "success": "成功挽救过敏症",
+      "warning": "出了问题"
+    },
+    "title": "你对什么过敏？",
+    "subTitle": "帮助您保持最佳状态，从我们不做的事情开始。",
+    "searchPlaceholder": "搜索",
+    "Buttons": {
+      "Back": "返回",
+      "Proceed": "继续",
+      "Skip": "跳过"
+    }
+  },
+  "menuItems": {
+    "title": "菜单项目",
+    "searchPlaceholder": "搜索菜单项",
+    "loadingMessage": {
+      "more": "加载更多...",
+      "scroll": "滚动查看更多"
+    }
+  },
+  "craftedFood": {
+    "title": "以下是我们为您精心准备的内容",
+    "subTitle": "根据您的口味、喜好和生活方式精心挑选的餐点。",
+    "searchPlaceholder": "搜索",
+    "Buttons": {
+      "goToFoodMenu": "前往食品菜单",
+      "goToDrinksMenu": "前往饮料菜单",
+      "Skip": "跳过"
+    },
+    "suggest": "提出其他建议",
+    "seeOriginal": "查看原始菜单",
+    "youMayAlsoLike": "您可能还喜欢"
+  },
+  "foodMenu": {
+    "title": "探索我们的菜肴",
+    "headerBtn": "前往饮料菜单",
+    "searchPlaceholder": "搜索",
+    "all": "全部",
+    "forYou": "为您",
+    "loadingMessage": {
+      "more": "加载更多...",
+      "scroll": "滚动以加载更多内容"
+    }
+  },
+  "foodProfile": {
+    "title": "食品简介",
+    "toast": {
+      "success": "审查已成功提交",
+      "warning": "出了问题"
+    },
+    "details": {
+      "ingredients": "配料",
+      "spice": "香料级",
+      "dietary": "饮食标签",
+      "allergens": "过敏原",
+      "diets": "饮食"
+    },
+    "discount": {
+      "off": "关闭",
+      "validUntil": "有效期至",
+      "validFrom": "有效期从"
+    },
+    "review": {
+      "rate": "费率",
+      "review": "发表评论",
+      "submit": "提交评论"
+    },
+    "addons": "附加组件",
+    "variants": "变体",
+    "askSaucyChat": "询问 SaucyChat",
+    "timeUnspecified": "时间不详"
+  },
+  "drinkMenu": {
+    "title": "了解我们的饮品",
+    "headerBtn": "前往食品菜单",
+    "searchPlaceholder": "搜索",
+    "all": "全部",
+    "tapToView": "轻点查看详情",
+    "forYou": "为您",
+    "modal": {
+      "drinkType": "饮料类型",
+      "alcoholic": "酒精",
+      "available": "可用",
+      "variants": "变体"
+    },
+    "loadingMessage": {
+      "more": "加载更多...",
+      "scroll": "滚动以加载更多内容"
+    }
+  },
+  "aiPretext": {
+    "0": {
+      "title": "此商品是否含有过敏原？",
+      "subtext": "检查是否有坚果、乳制品、麸质、贝类或其他常见过敏原"
+    },
+    "1": {
+      "title": "这适合我的饮食习惯吗？",
+      "subtext": "看看它是否符合素食、纯素、克托、清真或无麸质食品的需求"
+    },
+    "2": {
+      "title": "这道菜有多辣？",
+      "subtext": "订购前了解加热程度"
+    },
+    "3": {
+      "title": "此商品可以定制吗？",
+      "subtext": "修改配料、去除配料或调整香料浓度"
+    },
+    "4": {
+      "title": "包括哪些成分？",
+      "subtext": "查看这道菜的全部成分清单"
+    },
+    "5": {
+      "title": "份量是多少？",
+      "subtext": "了解它是适合一个人使用还是共享使用"
+    },
+    "6": {
+      "title": "如何准备？",
+      "subtext": "了解烧烤、油炸或烘烤等烹饪方法"
+    },
+    "7": {
+      "title": "营养详情如何？",
+      "subtext": "查看卡路里、蛋白质、碳水化合物和脂肪信息"
+    },
+    "8": {
+      "title": "该物品是新鲜的还是预先准备的？",
+      "subtext": "了解制作方法和时间"
+    },
+    "9": {
+      "title": "是否有高级附加组件？",
+      "subtext": "为这道菜添加配料或进行升级"
+    }
+  },
+  "ai": {
+    "header": "Saucy Menu AI",
+    "hiText": "大家好，我是 SaucyAI",
+    "message": "请向我咨询今天的特价菜、菜单项目或其他任何问题。",
+    "thinking": "思考...",
+    "searchPlaceholder": "问点什么...",
+    "logoAlt": "Saucy Menu 徽标"
+  },
+  "common": {
+    "mins": "分钟",
+    "back": "返回",
+    "notFound": "未找到"
+  },
+  "menus": {
+    "addAllergensDiets": "添加过敏原和饮食",
+    "seeOurMenus": "查看我们的菜单",
+    "chefsRecommendations": "厨师推荐",
+    "whatsPopular": "热门话题",
+    "allergenDietsMode": "过敏原和饮食模式",
+    "search": "搜索",
+    "menuItems": "菜单项",
+    "menu": "菜单",
+    "searchPlaceholderTemplate": "搜索 {menuName} 菜单"
+  },
+  "modal": {
+    "addAllergensDiets": "添加过敏原和饮食",
+    "description": "选择过敏原和饮食，过滤食物和饮料",
+    "cancel": "取消",
+    "updating": "更新...",
+    "applyFilters": "应用过滤器",
+    "allergens": "过敏原",
+    "searchAllergens": "搜索过敏原",
+    "diets": "饮食",
+    "searchDiets": "搜索饮食",
+    "preferencesUpdated": "首选项更新成功！",
+    "failedUpdate": "更新首选项失败"
+  },
+  "ui": {
+    "starRating": {
+      "outOf": "由于",
+      "star": "明星",
+      "stars": "星空"
+    },
+    "spiceLevel": {
+      "mild": "轻度",
+      "medium": "中型",
+      "hot": "热",
+      "extraHot": "特热",
+      "extreme": "极端"
+    },
+    "nullState": {
+      "title": "这里还什么都没有",
+      "subtitle": "暂无商品，请稍后查看。"
+    },
+    "spinner": {
+      "loading": "正在加载菜单..."
+    }
+  }
+}

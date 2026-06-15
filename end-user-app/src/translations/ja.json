@@ -1,0 +1,236 @@
+{
+  "languageSelect": {
+    "title": "ご希望の言語をお選びください",
+    "continueBtn": "続ける",
+    "loading": "言語検索...",
+    "notFound": "見つかりません"
+  },
+  "optionsSelect": {
+    "backBtn": "バック",
+    "title": {
+      "1": "アクションを選択する",
+      "2": "どのように探検を始めたい？"
+    },
+    "options": {
+      "1": {
+        "label": "食べ物の好み",
+        "subtext": "お好みと食事の好みを設定し、カスタムメニューを体験できる"
+      },
+      "2": {
+        "label": "SaucyChatに聞く",
+        "subtext": "AIとチャットして、スマートなおすすめ料理を即座に提供"
+      },
+      "3": {
+        "label": "メニューへ",
+        "subtext": "フィルターや設定なしでフルメニューをブラウズする"
+      }
+    },
+    "continueBtn": "続ける"
+  },
+  "selectDiet": {
+    "toast": {
+      "success": "ダイエットに成功",
+      "warning": "何かが間違っていた"
+    },
+    "title": "ダイエットプランの選択",
+    "subTitle": "あなたの好みを知ろうあなたにぴったりのプランをお選びください。",
+    "searchPlaceholder": "検索",
+    "Buttons": {
+      "Back": "バック",
+      "Proceed": "進む",
+      "Skip": "スキップ"
+    }
+  },
+  "allergens": {
+    "toast": {
+      "success": "アレルギーの保存に成功",
+      "warning": "何かが間違っていた"
+    },
+    "title": "あなたのアレルギーは？",
+    "subTitle": "あなたが最高の気分でいられるようサポートすることは、私たちが何を残すかから始まる。",
+    "searchPlaceholder": "検索",
+    "Buttons": {
+      "Back": "バック",
+      "Proceed": "進む",
+      "Skip": "スキップ"
+    }
+  },
+  "menuItems": {
+    "title": "メニュー項目",
+    "searchPlaceholder": "検索メニュー",
+    "loadingMessage": {
+      "more": "続きを読む...",
+      "scroll": "もっと見る"
+    }
+  },
+  "craftedFood": {
+    "title": "私たちがあなたのために作ったものはこれだ",
+    "subTitle": "お客様の嗜好、好み、ライフスタイルにインスパイアされた厳選されたお食事。",
+    "searchPlaceholder": "検索",
+    "Buttons": {
+      "goToFoodMenu": "フードメニューへ",
+      "goToDrinksMenu": "ドリンクメニューへ",
+      "Skip": "スキップ"
+    },
+    "suggest": "他のことを提案する",
+    "seeOriginal": "オリジナルメニューを見る",
+    "youMayAlsoLike": "こちらもおすすめ"
+  },
+  "foodMenu": {
+    "title": "料理について",
+    "headerBtn": "ドリンクメニューへ",
+    "searchPlaceholder": "検索",
+    "all": "すべて",
+    "forYou": "あなたのために",
+    "loadingMessage": {
+      "more": "続きを読む...",
+      "scroll": "もっと読み込むにはスクロールしてください"
+    }
+  },
+  "foodProfile": {
+    "title": "フードプロフィール",
+    "toast": {
+      "success": "レビューの提出に成功",
+      "warning": "何かが間違っていた"
+    },
+    "details": {
+      "ingredients": "原材料",
+      "spice": "スパイス・レベル",
+      "dietary": "ダイエット・タグ",
+      "allergens": "アレルゲン",
+      "diets": "食生活"
+    },
+    "discount": {
+      "off": "オフ",
+      "validUntil": "有効期限",
+      "validFrom": "有効期限"
+    },
+    "review": {
+      "rate": "レート",
+      "review": "レビューを書く",
+      "submit": "レビューを投稿する"
+    },
+    "addons": "アドオン",
+    "variants": "バリエーション",
+    "askSaucyChat": "SaucyChatに聞く",
+    "timeUnspecified": "時期不明"
+  },
+  "drinkMenu": {
+    "title": "ドリンク",
+    "headerBtn": "フードメニューへ",
+    "searchPlaceholder": "検索",
+    "all": "すべて",
+    "tapToView": "タップして詳細を表示",
+    "forYou": "あなたのために",
+    "modal": {
+      "drinkType": "ドリンクタイプ",
+      "alcoholic": "アルコール",
+      "available": "利用可能",
+      "variants": "バリエーション"
+    },
+    "loadingMessage": {
+      "more": "続きを読む...",
+      "scroll": "もっと読み込むにはスクロールしてください"
+    }
+  },
+  "aiPretext": {
+    "0": {
+      "title": "この商品はアレルゲンを含んでいますか？",
+      "subtext": "ナッツ類、乳製品、グルテン、貝類、その他一般的なアレルゲンのチェック"
+    },
+    "1": {
+      "title": "これは私のダイエットに適していますか？",
+      "subtext": "ベジタリアン、ビーガン、ケト、ハラル、グルテンフリーのニーズに合うかどうかを確認する。"
+    },
+    "2": {
+      "title": "この料理の辛さは？",
+      "subtext": "注文の前に熱レベルを理解する"
+    },
+    "3": {
+      "title": "この商品はカスタマイズできますか？",
+      "subtext": "材料の変更、トッピングの除去、スパイスのレベルの調整"
+    },
+    "4": {
+      "title": "どのような成分が含まれていますか？",
+      "subtext": "この料理の全コンポーネントリストを見る"
+    },
+    "5": {
+      "title": "ポーションサイズは？",
+      "subtext": "一人用かシェア用かを知る"
+    },
+    "6": {
+      "title": "これはどのように準備されるのですか？",
+      "subtext": "焼く、揚げる、焼くなどの調理法を学ぶ"
+    },
+    "7": {
+      "title": "栄養の詳細は？",
+      "subtext": "カロリー、タンパク質、炭水化物、脂肪情報を見る"
+    },
+    "8": {
+      "title": "この商品は新鮮ですか、それとも調理済みですか？",
+      "subtext": "いつ、どのように作られるかを理解する"
+    },
+    "9": {
+      "title": "プレミアムアドオンはありますか？",
+      "subtext": "追加トッピングやアップグレードで、この料理をさらに引き立てる。"
+    }
+  },
+  "ai": {
+    "header": "ソーシー・メニューAI",
+    "hiText": "こんにちは、SaucyAIです。",
+    "message": "本日のスペシャル、メニュー、その他何でも聞いてください。",
+    "thinking": "考えて...",
+    "searchPlaceholder": "何かを尋ねる...",
+    "logoAlt": "ソーシー・メニューのロゴ"
+  },
+  "common": {
+    "mins": "分",
+    "back": "バック",
+    "notFound": "見つかりません"
+  },
+  "menus": {
+    "addAllergensDiets": "アレルゲンと食事療法を追加する",
+    "seeOurMenus": "メニューを見る",
+    "chefsRecommendations": "シェフのおすすめ",
+    "whatsPopular": "人気商品",
+    "allergenDietsMode": "アレルゲン・ダイエットモード",
+    "search": "検索",
+    "menuItems": "メニュー項目",
+    "menu": "メニュー",
+    "searchPlaceholderTemplate": "メニュー名}メニューを検索"
+  },
+  "modal": {
+    "addAllergensDiets": "アレルゲンと食事療法を追加する",
+    "description": "アレルゲンと食事療法を選択して、食品と飲料をフィルタリングする",
+    "cancel": "キャンセル",
+    "updating": "更新中...",
+    "applyFilters": "フィルタを適用する",
+    "allergens": "アレルゲン",
+    "searchAllergens": "アレルゲンを検索する",
+    "diets": "食生活",
+    "searchDiets": "検索ダイエット",
+    "preferencesUpdated": "環境設定が正常に更新されました！",
+    "failedUpdate": "環境設定の更新に失敗しました"
+  },
+  "ui": {
+    "starRating": {
+      "outOf": "より",
+      "star": "スター",
+      "stars": "星"
+    },
+    "spiceLevel": {
+      "mild": "マイルド",
+      "medium": "中",
+      "hot": "ホット",
+      "extraHot": "エクストラ・ホット",
+      "extreme": "エクストリーム"
+    },
+    "nullState": {
+      "title": "まだ何もない",
+      "subtitle": "商品はありません。"
+    },
+    "spinner": {
+      "loading": "メニューの読み込み中..."
+    }
+  }
+}

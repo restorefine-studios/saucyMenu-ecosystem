@@ -1,0 +1,133 @@
+{
+    "auth": {
+        "main": {
+            "copyright": {
+                "1": "Copyright 2025",
+                "2": "All Rights Reserved"
+            },
+            "login": "Login",
+            "resetPassword": "Reset Password"
+        },
+        "login": {
+            "title": {
+                "1": "Login To Your",
+                "2": "Admin Dashboard"
+            },
+            "form": {
+                "email": {
+                    "label": "Email",
+                    "placeholder": "admin@example.com"
+                },
+                "password": {
+                    "label": "Password",
+                    "placeholder": "*********"
+                },
+                "keepLoggedIn": {
+                    "label": "Remember me"
+                },
+                "submit": "Submit",
+                "forgotPassword": "Forgot Password?"
+            }
+        },
+        "reset": {
+            "title": {
+                "1": "Enter Email To",
+                "2": "  Receive OTP Code"
+            },
+            "form": {
+                "password": {
+                    "label": "Password",
+                    "placeholder": "********"
+                },
+                "confirmPassword": {
+                    "label": "Confirm Password",
+                    "placeholder": "*********"
+                },
+                "back": "Back",
+                "submit": "Submit"
+            }
+        },
+        "enterOtp": {
+            "title": {
+                "1": "  Enter Otp Code Then",
+                "2": "  Proceed to Update Password"
+            },
+            "form": {
+                "code": "Enter Code",
+                "resendCode": "Resend Code ",
+                "confirmPassword": {
+                    "label": "Confirm Password",
+                    "placeholder": "*********"
+                },
+                "back": "Back",
+                "submit": "Submit"
+            }
+        }
+    },
+    "admin": {
+        "restaurants": {
+            "pending": {
+                "topBar": {
+                    "addRestaurant": "Add Restaurant",
+                    "searchPlaceholder": "Search",
+                    "Export": "Export",
+                    "Filter": "Filter"
+                },
+                "table": {
+                    "Email": "Email",
+                    "Source": "Source",
+                    "Action": "Action",
+                    "approve": "Approve",
+                    "remove": "Remove"
+                },
+                "footer": {
+                    "showing": "Showing",
+                    "previous": "Previous",
+                    "next": "Next"
+                }
+            },
+            "approved": {
+                "topBar": {
+                    "searchPlaceholder": "Search",
+                    "export": "Export",
+                    "filter": "Filter"
+                },
+                "table": {
+                    "name": "Name",
+                    "email": "Email",
+                    "branches": "Branches",
+                    "plan": "Plan",
+                    "dateAdded": "Date Added",
+                    "status": "Status",
+                    "action": "Action"
+                },
+                "footer": {
+                    "showing": "Showing",
+                    "previous": "Previous",
+                    "next": "Next"
+                }
+            },
+            "addRestaurantModal": {
+                "title": "Add Restaurant",
+                "subTitle": " To add a restaurant as an admin user, add their details below",
+                "nameLabel": "Contact Name",
+                "namePlaceholder": "Enter contact name",
+                "restaurantNameLabel": "Restaurant Name",
+                "restaurantNamePlaceholder": "Enter restaurant name",
+                "emailLabel": "Email",
+                "emailPlaceholder": "Enter email",
+                "currencyLabel": "Currency",
+                "currencyPlaceholder": "Select currency",
+                "addButton": "Add More",
+                "cancelButton": "Cancel",
+                "saveButton": "Save"
+            }
+        }
+    },
+    "components": {
+        "pagination": {
+            "previous": "Previous",
+            "next": "Next"
+        }
+    }
+}

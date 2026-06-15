@@ -1,0 +1,1150 @@
+{
+  "auth": {
+    "main": {
+      "header": {
+        "login": "登录",
+        "resetPassword": "重置密码"
+      },
+      "copyright": {
+        "1": "版权 2025",
+        "2": "版权所有"
+      }
+    },
+    "login": {
+      "title": {
+        "1": "登录您的",
+        "2": "管理员控制面板"
+      },
+      "form": {
+        "email": {
+          "label": "电子邮件",
+          "placeholder": "admin@example.com"
+        },
+        "password": {
+          "label": "密码",
+          "placeholder": "*********"
+        },
+        "keepLoggedIn": {
+          "label": "记住我"
+        },
+        "submit": "提交",
+        "forgotPassword": "忘记密码？"
+      }
+    },
+    "reset": {
+      "title": {
+        "1": "输入电子邮件收件人",
+        "2": "接收 OTP 码"
+      },
+      "form": {
+        "password": {
+          "label": "密码",
+          "placeholder": "********"
+        },
+        "confirmPassword": {
+          "label": "确认密码",
+          "placeholder": "*********"
+        },
+        "back": "返回",
+        "submit": "提交"
+      }
+    },
+    "enterOtp": {
+      "title": {
+        "1": "  然后输入密码",
+        "2": "  继续更新密码"
+      },
+      "form": {
+        "code": "输入代码",
+        "resendCode": "重新发送代码",
+        "confirmPassword": {
+          "label": "确认密码",
+          "placeholder": "*********"
+        },
+        "back": "返回",
+        "submit": "提交"
+      }
+    },
+    "setup": {
+      "header": "品牌设置",
+      "title": {
+        "1": "添加您的品牌",
+        "2": "视觉展望"
+      },
+      "form": {
+        "brandName": {
+          "label": "品牌名称",
+          "placeholder": "输入品牌名称"
+        },
+        "updateLogo": {
+          "label": "更新徽标",
+          "placeholder": "选择徽标"
+        },
+        "brandSlogan": {
+          "label": "品牌标语",
+          "placeholder": "输入品牌标语"
+        },
+        "currency": {
+          "label": "默认货币",
+          "placeholder": "选择货币"
+        },
+        "language": {
+          "label": "默认语言",
+          "placeholder": "选择语言"
+        },
+        "back": "返回",
+        "submit": "提交"
+      }
+    }
+  },
+  "sideNav": {
+    "dashboard": "仪表板",
+    "menu": "菜单",
+    "addFood": "添加食物",
+    "addDrinks": "添加饮料",
+    "menuClass": "菜单分类",
+    "review": "评论",
+    "sub": "订阅",
+    "settings": "设置",
+    "logout": "注销",
+    "audit": "审计"
+  },
+  "admin": {
+    "dashboard": {
+      "header": "仪表板",
+      "customersLabel": "客户",
+      "dishLabel": "所有菜肴",
+      "totalDishes": "菜肴总数",
+      "totalInteractions": "互动总数",
+      "dishesBtn": "所有菜肴",
+      "lineChart": {
+        "customers": "客户"
+      },
+      "AI": {
+        "title": "使用的人工智能学分",
+        "subTitle": "客户使用聊天界面时使用的人工智能点数总数"
+      },
+      "customersOverview": "客户概览"
+    },
+    "dishPieChart": {
+      "title": "饼图 - 按菜肴类型分列的菜肴",
+      "footer": "显示所有菜肴类型及其数量。"
+    },
+    "review": {
+      "header": "评论",
+      "title": "总评论",
+      "filter": "过滤器等级",
+      "order": "订单编号"
+    },
+    "subs": {
+      "title": "管理订阅",
+      "header": {
+        "title": "选择适合您的客户规模的计划",
+        "buttons": {
+          "month": "每月",
+          "year": "每年"
+        }
+      },
+      "unsubscribe": "取消订阅",
+      "subscribeNow": "立即订阅",
+      "subscribed": "已订阅",
+      "active": "活跃"
+    },
+    "menu": {
+      "topArea": {
+        "header": "菜单",
+        "btns": {
+          "dishes": "菜肴",
+          "drinks": "饮料"
+        },
+        "rightSide": {
+          "searchPlaceholder": "搜索",
+          "add": "添加",
+          "drinks": "饮料",
+          "dishes": "菜肴"
+        }
+      },
+      "dishes": {
+        "all": "全部",
+        "modalTitle": "预览菜肴",
+        "previewDish": {
+          "description": "说明",
+          "diet": "饮食",
+          "allergens": "过敏原",
+          "cuisine": "美食",
+          "ingredients": "配料",
+          "editDish": "编辑菜肴"
+        }
+      },
+      "drinks": {
+        "all": "全部",
+        "modalTitle": "预览饮料",
+        "previewDrink": {
+          "description": "说明",
+          "variants": "变体",
+          "notAvailable": "碟型",
+          "editDrink": "编辑饮料"
+        }
+      },
+      "editDrink": {
+        "toast": {
+          "loading": "移除...",
+          "success": "成功移除",
+          "error": "出了问题",
+          "failed": "删除失败"
+        },
+        "header": {
+          "header": "菜单",
+          "title": "编辑饮品",
+          "remove": {
+            "btn": "移除饮料",
+            "alert": {
+              "title": "你确定吗？",
+              "warning": "此操作不可撤销。此操作将从系统中删除此菜肴及其相关内容。",
+              "cancel": "取消",
+              "continue": "继续"
+            }
+          }
+        },
+        "form": {
+          "nameLabel": "名字",
+          "namePlaceholder": "添加饮料名称",
+          "descriptionLabel": "说明",
+          "descriptionPlaceholder": "输入饮料的详细描述",
+          "available": {
+            "label": "可用",
+            "description": "在菜单上提供这种饮料"
+          },
+          "alcoholic": {
+            "label": "酒精",
+            "description": "这种饮料含酒精吗？"
+          }
+        },
+        "drinkType": {
+          "title": "饮料类型",
+          "addDrinkType": "添加饮料类型",
+          "add": "添加"
+        },
+        "variants": {
+          "header": {
+            "title": "变体",
+            "btn": "添加变体"
+          },
+          "form": {
+            "quantityLabel": "数量",
+            "unitLabel": "单位",
+            "priceLabel": "价格",
+            "available": {
+              "title": "可用",
+              "description": "有这种变体吗？"
+            }
+          }
+        },
+        "remove": "删除变量",
+        "upload": "在此上传",
+        "save": "节省"
+      },
+      "addDrinks": {
+        "header": "菜单",
+        "title": "添加新饮品",
+        "btn": "上传批量饮料",
+        "bulkUpload": {
+          "title": "上传饮料",
+          "bulkUploadBtn": "批量上传饮料",
+          "uploadBtn": "上传",
+          "uploadBox": {
+            "upload": "上传 Excel 文件",
+            "dragAndDrop": "拖放或点击浏览",
+            "btn": "选择文件"
+          },
+          "instructions": {
+            "1": "点击",
+            "2": "按钮获取模板",
+            "3": "在模板中填写所需的详细信息。",
+            "4": "页眉后的第一行是供参考的样本行--请在上传前删除该行。",
+            "5": "接受多个值的字段应",
+            "title": "批量上传说明：",
+            "download": "下载",
+            "xlsx": ".xlsx",
+            "file": "锉刀",
+            "important": "重要：",
+            "comma": "逗号分隔",
+            "forExample": ".例如",
+            "rice": "莫吉托、清酒、啤酒",
+            "btn": "下载模板"
+          }
+        },
+        "form": {
+          "name": {
+            "label": "名称",
+            "placeholder": "添加饮料名称"
+          },
+          "description": {
+            "label": "说明",
+            "placeholder": "输入饮料的详细描述"
+          },
+          "drinkType": {
+            "label": "饮料类型",
+            "placeholder": "选择饮料类型"
+          },
+          "upload": "在此上传",
+          "available": {
+            "title": "可用",
+            "subtitle": "在菜单上提供这种饮料"
+          },
+          "alcoholic": {
+            "title": "酒精",
+            "subtitle": "这种饮料含酒精吗？"
+          }
+        },
+        "types": {
+          "drinkTypes": "饮料类型",
+          "drinkTypesBtn": "添加饮料类型",
+          "add": "添加"
+        },
+        "variants": {
+          "header": {
+            "title": "变体",
+            "btn": "添加变体"
+          },
+          "form": {
+            "quantity": "数量",
+            "unit": "单位",
+            "unitPlaceholder": "选择单位",
+            "price": "价格",
+            "available": "可用",
+            "availableSub": "有这种变体吗？",
+            "removeVariant": "删除变量"
+          }
+        },
+        "image": {
+          "title": "图片",
+          "upload": "在此上传"
+        },
+        "saveBtn": "节省"
+      },
+      "addDish": {
+        "appSections": {
+          "title": "应用程序部分",
+          "chefsRecommended": {
+            "label": "厨师推荐",
+            "subtitle": "让这道菜成为厨师推荐菜肴"
+          },
+          "popular": {
+            "label": "热门",
+            "subtitle": "让这道菜成为一道受欢迎的菜肴"
+          },
+          "new": {
+            "label": "新",
+            "subtitle": "让这道菜成为一道新菜"
+          }
+        },
+        "title": "菜单",
+        "topSide": {
+          "title": "添加新菜肴",
+          "btn": "上传批量菜肴"
+        },
+        "bulkUpload": {
+          "title": "上传菜肴",
+          "uploadBtn": "上传",
+          "uploadBox": {
+            "upload": "上传 Excel 文件",
+            "dragAndDrop": "拖放或点击浏览",
+            "btn": "选择文件"
+          },
+          "instructions": {
+            "1": "点击",
+            "2": "按钮获取模板",
+            "3": "在模板中填写所需的详细信息。",
+            "4": "页眉后的第一行是供参考的样本行--请在上传前删除该行。",
+            "5": "接受多个值的字段应",
+            "title": "批量上传说明：",
+            "download": "下载",
+            "xlsx": ".xlsx",
+            "file": "锉刀",
+            "important": "重要：",
+            "comma": "逗号分隔",
+            "forExample": ".例如",
+            "rice": "米饭、豆类、炖菜",
+            "btn": "下载模板"
+          }
+        },
+        "form": {
+          "name": {
+            "label": "名称",
+            "placeholder": "添加食品名称"
+          },
+          "price": {
+            "label": "价格",
+            "placeholder": "输入食品价格"
+          },
+          "description": {
+            "label": "说明",
+            "placeholder": "输入食品的详细描述"
+          },
+          "preparationTime": {
+            "label": "准备时间（分钟）"
+          },
+          "spiceLevel": {
+            "label": "香料级",
+            "placeholder": "选择香料等级",
+            "clear": "清晰",
+            "spiceLevels": {
+              "mild": {
+                "value": "淡味",
+                "label": "温和"
+              },
+              "medium": {
+                "value": "中等",
+                "label": "中型"
+              },
+              "spicy": {
+                "value": "辣味",
+                "label": "辣味"
+              },
+              "verySpicy": {
+                "value": "非常辣",
+                "label": "非常辣"
+              }
+            }
+          },
+          "available": {
+            "title": "可用",
+            "subtitle": "将这道菜列入菜单"
+          }
+        },
+        "ingredients": {
+          "title": "配料",
+          "btn": "添加配料",
+          "placeholder": "成分名称",
+          "removeBtn": "移除成分"
+        },
+        "types": {
+          "dishTypes": "菜肴类型",
+          "dishTypesBtn": "添加类别",
+          "dietaryPreferences": "饮食偏好",
+          "dietaryPreferencesbtn": "添加饮食",
+          "allergens": "过敏原",
+          "allergensBtn": "添加过敏原",
+          "addons": "附加装置",
+          "addonsBtn": "添加插件",
+          "add": "添加"
+        },
+        "image": {
+          "title": "图片",
+          "upload": "在此上传"
+        },
+        "saveBtn": "节省"
+      },
+      "editDish": {
+        "toast": {
+          "loading": "移除...",
+          "success": "成功移除",
+          "error": "出了问题",
+          "failed": "删除失败"
+        },
+        "header": {
+          "header": "菜单",
+          "title": "编辑菜肴",
+          "remove": {
+            "btn": "移除盘子",
+            "alert": {
+              "title": "你确定吗？",
+              "warning": "此操作不可撤销。此操作将从系统中删除此菜肴及其相关内容。",
+              "cancel": "取消",
+              "continue": "继续"
+            }
+          }
+        },
+        "form": {
+          "nameLabel": "名字",
+          "namePlaceholder": "添加菜肴名称",
+          "descriptionLabel": "说明",
+          "priceLabel": "价格",
+          "pricePlaceholder": "输入食品价格",
+          "descriptionPlaceholder": "输入菜肴的详细描述",
+          "preparationLabel": "准备时间",
+          "spiceLabel": "香料标签",
+          "available": {
+            "label": "可用",
+            "description": "在菜单上提供这种饮料"
+          },
+          "alcoholic": {
+            "label": "酒精",
+            "description": "这种饮料含酒精吗？"
+          }
+        },
+        "drinkType": {
+          "title": "饮料类型",
+          "addDrinkType": "添加饮料类型",
+          "add": "添加"
+        },
+        "variants": {
+          "header": {
+            "title": "变体",
+            "btn": "添加变体"
+          },
+          "form": {
+            "name": {
+              "label": "名称",
+              "placeholder": "添加食品名称"
+            },
+            "price": {
+              "label": "价格",
+              "placeholder": "输入食品价格"
+            },
+            "description": {
+              "label": "说明",
+              "placeholder": "输入食品的详细描述"
+            },
+            "preparationTime": {
+              "label": "准备时间（分钟）"
+            },
+            "spiceLevel": {
+              "label": "香料级",
+              "placeholder": "选择香料等级",
+              "clear": "清晰",
+              "spiceLevels": {
+                "mild": {
+                  "value": "淡味",
+                  "label": "温和"
+                },
+                "medium": {
+                  "value": "中等",
+                  "label": "中型"
+                },
+                "spicy": {
+                  "value": "辣味",
+                  "label": "辣味"
+                },
+                "verySpicy": {
+                  "value": "非常辣",
+                  "label": "非常辣"
+                }
+              }
+            },
+            "available": {
+              "title": "可用",
+              "subtitle": "将这道菜列入菜单"
+            }
+          },
+          "ingredients": {
+            "title": "配料",
+            "btn": "添加配料",
+            "placeholder": "成分名称",
+            "removeBtn": "移除成分"
+          },
+          "types": {
+            "dishTypes": "菜肴类型",
+            "dishTypesBtn": "添加类别",
+            "dietaryPreferences": "饮食偏好",
+            "dietaryPreferencesbtn": "添加饮食",
+            "allergens": "过敏原",
+            "allergensBtn": "添加过敏原",
+            "add": "添加"
+          },
+          "image": {
+            "title": "图片",
+            "upload": "在此上传"
+          },
+          "saveBtn": "节省"
+        },
+        "remove": "删除变量",
+        "upload": "在此上传",
+        "save": "节省",
+        "cancel": "取消"
+      },
+      "menuClassifications": {
+        "header": {
+          "header": "菜单",
+          "title": "菜单分类",
+          "btn": "添加新分类"
+        },
+        "card": {
+          "title": {
+            "cuisine": "美食",
+            "diet": "饮食",
+            "addOns": "附加装置",
+            "allergen": "过敏原",
+            "drinkType": "饮料类型"
+          },
+          "subTitle": "从下面的列表中选择单个项目，为其分配食物",
+          "subTitleDrink": "从下面的列表中选择单个项目，为其分配食物",
+          "description": "从下面的列表中选择单个项目，为其分配食物"
+        },
+        "editClassTitle": "选择可用的食物，将其添加为",
+        "addToList": "添加到列表"
+      }
+    },
+    "menus": {
+      "header": {
+        "title": "菜单",
+        "restaurantMenu": "菜单"
+      },
+      "search": {
+        "placeholder": "搜索"
+      },
+      "create": {
+        "button": "创建新菜单",
+        "dialog": {
+          "title": "创建新菜单",
+          "description": "为餐厅添加新菜单",
+          "form": {
+            "name": {
+              "label": "名称",
+              "placeholder": "菜单名称"
+            },
+            "description": {
+              "label": "说明",
+              "placeholder": "菜单描述"
+            }
+          },
+          "button": {
+            "creating": "创建...",
+            "create": "创建菜单"
+          }
+        }
+      },
+      "sections": {
+        "header": {
+          "title": "菜单部分"
+        },
+        "search": {
+          "placeholder": "搜索"
+        },
+        "menu": {
+          "suffix": "菜单",
+          "edit": {
+            "button": "编辑菜单",
+            "dialog": {
+              "title": "编辑菜单",
+              "description": "在此更改菜单。完成后点击保存。",
+              "form": {
+                "name": {
+                  "label": "名称"
+                },
+                "description": {
+                  "label": "说明"
+                }
+              },
+              "save": "保存更改",
+              "saving": "节约..."
+            },
+            "toast": {
+              "success": "菜单更新成功",
+              "error": "更新菜单失败"
+            }
+          },
+          "delete": {
+            "button": "删除菜单",
+            "dialog": {
+              "title": "删除菜单",
+              "description": "您确定要删除\"{name}\"吗？此操作无法撤销。",
+              "cancel": "取消",
+              "confirm": "删除"
+            },
+            "toast": {
+              "success": "成功删除菜单",
+              "error": "删除菜单失败"
+            }
+          }
+        },
+        "create": {
+          "button": "添加新菜单部分",
+          "dialog": {
+            "title": "添加新菜单部分",
+            "description": "为该菜单创建一个新部分。",
+            "form": {
+              "name": {
+                "label": "名称",
+                "placeholder": "科室名称"
+              },
+              "description": {
+                "label": "说明",
+                "placeholder": "部门说明"
+              }
+            },
+            "button": {
+              "creating": "创建...",
+              "create": "创建科室"
+            }
+          },
+          "toast": {
+            "success": "成功创建菜单部分",
+            "error": "创建菜单部分失败"
+          }
+        },
+        "card": {
+          "edit": "编辑",
+          "disable": "禁用",
+          "delete": "删除",
+          "editDialog": {
+            "title": "编辑部分",
+            "form": {
+              "name": {
+                "label": "名称"
+              },
+              "description": {
+                "label": "说明"
+              },
+              "button": "节省"
+            }
+          },
+          "deleteDialog": {
+            "title": "删除部分",
+            "description": "您确定要删除此部分及其所有菜单项吗？",
+            "cancel": "取消",
+            "delete": "删除"
+          }
+        }
+      },
+      "classifications": {
+        "header": {
+          "header": "菜单",
+          "title": "菜单分类",
+          "back": "菜单分类",
+          "btn": "添加新分类"
+        },
+        "search": {
+          "placeholder": "搜索"
+        },
+        "card": {
+          "title": {
+            "cuisine": "美食",
+            "diet": "饮食",
+            "addOns": "附加装置",
+            "allergen": "过敏原",
+            "drinkType": "饮料类型"
+          },
+          "description": "从下面的列表中选择单个项目，为其分配食物"
+        },
+        "create": {
+          "diet": {
+            "button": "创建饮食",
+            "title": "创建饮食",
+            "form": {
+              "name": {
+                "label": "输入名称"
+              }
+            }
+          },
+          "addon": {
+            "button": "创建插件",
+            "title": "创建插件",
+            "form": {
+              "name": {
+                "label": "名称"
+              },
+              "price": {
+                "label": "价格"
+              }
+            }
+          }
+        },
+        "diets": {
+          "edit": {
+            "title": "编辑饮食",
+            "form": {
+              "name": {
+                "label": "输入名称"
+              }
+            },
+            "button": "更新"
+          },
+          "delete": {
+            "title": "你确定要删除这个饮食吗？",
+            "description": "此操作无法撤销。这将永久删除该饮食。",
+            "cancel": "取消",
+            "continue": "继续"
+          }
+        },
+        "addons": {
+          "edit": {
+            "title": "添加插件",
+            "description": "在菜单中添加新插件",
+            "form": {
+              "name": {
+                "label": "输入名称"
+              },
+              "price": {
+                "label": "输入价格"
+              }
+            },
+            "button": "添加"
+          },
+          "delete": {
+            "title": "您确定要删除此插件吗？",
+            "description": "此操作无法撤销。这将永久删除该插件。",
+            "cancel": "取消",
+            "continue": "继续"
+          }
+        },
+        "listItem": {
+          "edit": "编辑",
+          "delete": "删除"
+        }
+      },
+      "items": {
+        "add": {
+          "form": {
+            "preparationTime": {
+              "placeholder": "0"
+            }
+          },
+          "validation": {
+            "name": "请输入有效名称",
+            "description": "请输入描述",
+            "price": "请输入有效价格",
+            "ingredients": "添加配料"
+          },
+          "appSections": {
+            "title": "应用程序部分",
+            "chefsRecommended": {
+              "label": "厨师推荐",
+              "subtitle": "让这道菜成为厨师推荐菜肴"
+            },
+            "popular": {
+              "label": "热门",
+              "subtitle": "让这道菜成为一道受欢迎的菜肴"
+            },
+            "new": {
+              "label": "新",
+              "subtitle": "让这道菜成为一道新菜"
+            }
+          },
+          "components": {
+            "diets": {
+              "label": "饮食偏好",
+              "button": "添加饮食",
+              "modal": {
+                "title": "添加饮食",
+                "button": "添加",
+                "form": {
+                  "name": {
+                    "label": "输入名称"
+                  }
+                }
+              }
+            },
+            "addons": {
+              "label": "附加装置",
+              "button": "添加插件",
+              "modal": {
+                "title": "添加插件",
+                "button": "添加",
+                "form": {
+                  "name": {
+                    "label": "输入名称"
+                  }
+                }
+              }
+            },
+            "allergens": {
+              "label": "过敏原"
+            },
+            "ingredients": {
+              "empty": "点击选择成分",
+              "modal": {
+                "title": "选择成分",
+                "search": {
+                  "placeholder": "搜索..."
+                },
+                "add": "添加",
+                "remove": "移除",
+                "buttons": {
+                  "cancel": "取消",
+                  "done": "已完成"
+                }
+              },
+              "toast": {
+                "success": "新增成分",
+                "deleteSuccess": "成功删除成分"
+              }
+            },
+            "variants": {
+              "title": "变体",
+              "description": "添加该菜单项目的不同变化（如尺寸、样式、份量等）",
+              "empty": "尚未添加变体。点击 \"添加变量 \"开始操作。",
+              "button": "添加变体",
+              "variant": "变体",
+              "form": {
+                "name": {
+                  "label": "名称",
+                  "placeholder": "例如，小号、中号、大号"
+                },
+                "price": {
+                  "label": "价格",
+                  "placeholder": "0.00"
+                },
+                "available": {
+                  "label": "可供订购"
+                }
+              },
+              "remove": "删除变体"
+            },
+            "discount": {
+              "empty": {
+                "title": "无附加折扣",
+                "description": "添加折扣以提供特价",
+                "button": "添加折扣"
+              },
+              "title": "折扣详情",
+              "form": {
+                "label": {
+                  "label": "折扣标签"
+                },
+                "type": {
+                  "label": "折扣类型",
+                  "placeholder": "选择折扣类型",
+                  "percentage": "百分比",
+                  "fixed": "固定式"
+                },
+                "value": {
+                  "label": "折扣价值"
+                },
+                "startDate": {
+                  "label": "开始日期和时间"
+                },
+                "endDate": {
+                  "label": "结束日期和时间"
+                }
+              }
+            }
+          },
+          "bulk": {
+            "title": "批量上传菜单项",
+            "description": "上传 CSV 文件并映射列，批量创建菜单项",
+            "tabs": {
+              "upload": "上传 CSV",
+              "map": "地图列",
+              "preview": "预览和确认"
+            },
+            "upload": {
+              "dragDrop": "将 CSV 文件拖放到此处",
+              "clickBrowse": "或点击浏览",
+              "formatRequirements": {
+                "title": "CSV 格式要求",
+                "firstRow": "第一行应包含列标题",
+                "supportedFormats": "支持的格式：文本/csv 或 .csv 扩展名",
+                "columnNames": "确保列名与数据相匹配",
+                "nextStep": "下一步将把这些列映射到菜单项字段中"
+              }
+            },
+            "mapper": {
+              "csvColumnsFound": "找到的 CSV 列",
+              "sampleData": "样本数据（第一行）",
+              "columnMappings": "列映射",
+              "addMapping": "+ 添加映射",
+              "noMappings": "还没有映射。添加第一个列映射。",
+              "csvColumn": "CSV 列",
+              "menuItemField": "菜单项字段",
+              "allRequiredMapped": "✓ 映射所有必填字段",
+              "missingRequired": "⚠ 缺少必填字段",
+              "required": "需要",
+              "continueToPreview": "继续预览"
+            },
+            "preview": {
+              "totalRows": "总行数",
+              "selected": "精选",
+              "fieldsMapped": "映射的字段",
+              "dataPreview": "数据预览",
+              "showAll": "显示全部",
+              "showFirst10": "显示前 10",
+              "showing": "显示 10 个",
+              "rows": "行数",
+              "yes": "是",
+              "no": "没有",
+              "empty": "—",
+              "startOver": "重新开始",
+              "uploading": "上传...",
+              "upload": "上传",
+              "items": "项目",
+              "fieldNames": {
+                "name": "名称",
+                "section": "部门",
+                "type": "类型",
+                "description": "说明",
+                "price": "价格",
+                "spiceLevel": "香料级",
+                "cookTime": "烹饪时间",
+                "ingredients": "配料",
+                "images": "图片",
+                "translations": "翻译",
+                "variants": "变体",
+                "addons": "附加装置",
+                "allergens": "过敏原"
+              }
+            }
+          }
+        },
+        "edit": {
+          "validation": {
+            "name": "请输入有效名称"
+          },
+          "appSections": {
+            "title": "应用程序部分",
+            "chefsRecommended": {
+              "label": "厨师推荐",
+              "subtitle": "让这道菜成为厨师推荐菜肴"
+            },
+            "popular": {
+              "label": "热门",
+              "subtitle": "让这道菜成为一道受欢迎的菜肴"
+            },
+            "new": {
+              "label": "新",
+              "subtitle": "让这道菜成为一道新菜"
+            }
+          }
+        },
+        "preview": {
+          "description": "说明",
+          "diet": "饮食",
+          "allergens": "过敏原",
+          "ingredients": "配料",
+          "editDish": "编辑菜肴"
+        }
+      },
+      "components": {
+        "menuCard": {
+          "active": "活跃",
+          "inactive": "不活动",
+          "viewMenuSections": "查看菜单部分",
+          "delete": {
+            "title": "删除菜单",
+            "description": "您确定要删除\"{name}\"吗？此操作无法撤销。",
+            "cancel": "取消",
+            "confirm": "删除"
+          },
+          "edit": {
+            "title": "编辑菜单",
+            "description": "在此更改菜单。完成后点击保存。",
+            "form": {
+              "name": "名称",
+              "description": "说明"
+            },
+            "save": "保存更改",
+            "saving": "节约..."
+          },
+          "toast": {
+            "authRequired": "需要验证。请重新登录。",
+            "deleteSuccess": "成功删除菜单",
+            "deleteError": "删除菜单失败",
+            "updateSuccess": "菜单更新成功",
+            "updateError": "更新菜单失败"
+          }
+        }
+      }
+    },
+    "settings": {
+      "header": "设置",
+      "headerBtns": {
+        "profile": "简介",
+        "qrCode": "菜单 QR 码"
+      },
+      "email": {
+        "title": "更改电子邮件",
+        "subtitle": "输入新的电子邮件地址，更新您的电子邮件。我们将向您当前的邮箱发送一个 OTP 以确认",
+        "updateEmail": "更新电子邮件",
+        "resendOtp": "重新发送 OTP",
+        "save": "节省",
+        "update": "更新",
+        "modalLabel": "输入代码"
+      },
+      "password": {
+        "title": "更改密码",
+        "subtitle": "输入所需的密码更新密码。我们将向您的电子邮件发送一个 OTP 以供确认。",
+        "oldPassword": "当前密码",
+        "newPassword": "新密码",
+        "confirmPassword": "确认密码",
+        "resendOtp": "重新发送 OTP",
+        "save": "节省",
+        "update": "更新",
+        "modalLabel": "输入代码"
+      },
+      "brand": {
+        "title": "其他信息",
+        "subtitle": "更新与您的账户有关的信息",
+        "form": {
+          "logoLabel": "更新徽标",
+          "sloganLabel": "更新标语",
+          "sloganPlaceholder": "更新标语",
+          "addressLabel": "更新您的地址",
+          "addressPlaceholder": "更新地址",
+          "languageLabel": "默认语言",
+          "currencyLabel": "默认货币",
+          "bannerLabel": "更新横幅"
+        },
+        "buttons": {
+          "cancel": "取消",
+          "update": "更新"
+        }
+      },
+      "brandCustomisation": {
+        "title": "品牌定制",
+        "subTitle": "更新向客户显示的显示信息",
+        "form": {
+          "updateName": "更新名称",
+          "updateSlogan": "更新标语",
+          "updateColors": "更新颜色",
+          "updateLogo": "更新徽标",
+          "defaultLanguage": "默认语言",
+          "cancel": "取消",
+          "save": "节省"
+        }
+      },
+      "personalInformation": {
+        "title": "个人信息",
+        "subTitle": "更新您的账户信息",
+        "form": {
+          "pictureEdit": "编辑",
+          "updateEmail": "更新电子邮件",
+          "updatePassword": "更新密码",
+          "cancel": "取消",
+          "save": "节省"
+        }
+      },
+      "qrCode": {
+        "header": {
+          "title": "菜单 QR 码",
+          "subTitle": "与客户分享此二维码，让他们轻松访问您的电子菜单"
+        },
+        "body": {
+          "qrCodeTitle": "客户扫描此代码即可查看您的菜单",
+          "menuUrl": "菜单 URL",
+          "copied": "URL 复制到剪贴板！"
+        },
+        "button": "下载 QR 码",
+        "footer": {
+          "title": "如何使用",
+          "step1": "- 打印 QR 码并将其放在桌子上",
+          "step2": "- 将其添加到餐厅的宣传材料中",
+          "step3": "- 直接与客户分享 URL",
+          "step4": "- 在屏幕或数字标牌上显示"
+        }
+      }
+    },
+    "audit": {
+      "header": "审计",
+      "error": "加载审计日志时出错。请重试。",
+      "table": {
+        "entity": "实体",
+        "action": "行动",
+        "entityName": "实体名称",
+        "performedBy": "表演者",
+        "createdAt": "创建于"
+      },
+      "notAvailable": "不适用",
+      "filters": {
+        "allEntities": "所有实体",
+        "allActions": "所有行动",
+        "limit": "限制"
+      }
+    }
+  },
+  "paginator": {
+    "previous": "上一页",
+    "next": "下一页",
+    "more": "更多页面"
+  }
+}

@@ -1,0 +1,1150 @@
+{
+  "auth": {
+    "main": {
+      "header": {
+        "login": "تسجيل الدخول",
+        "resetPassword": "إعادة تعيين كلمة المرور"
+      },
+      "copyright": {
+        "1": "حقوق الطبع والنشر 2025",
+        "2": "جميع الحقوق محفوظة"
+      }
+    },
+    "login": {
+      "title": {
+        "1": "تسجيل الدخول إلى",
+        "2": "لوحة تحكم المسؤول"
+      },
+      "form": {
+        "email": {
+          "label": "البريد الإلكتروني",
+          "placeholder": "admin@example.com"
+        },
+        "password": {
+          "label": "كلمة المرور",
+          "placeholder": "*********"
+        },
+        "keepLoggedIn": {
+          "label": "تذكّرني"
+        },
+        "submit": "إرسال",
+        "forgotPassword": "هل نسيت كلمة المرور؟"
+      }
+    },
+    "reset": {
+      "title": {
+        "1": "أدخل البريد الإلكتروني إلى",
+        "2": "استلام رمز OTP"
+      },
+      "form": {
+        "password": {
+          "label": "كلمة المرور",
+          "placeholder": "********"
+        },
+        "confirmPassword": {
+          "label": "تأكيد كلمة المرور",
+          "placeholder": "*********"
+        },
+        "back": "رجوع",
+        "submit": "إرسال"
+      }
+    },
+    "enterOtp": {
+      "title": {
+        "1": "  أدخل رمز أوتب ثم",
+        "2": "  المتابعة إلى تحديث كلمة المرور"
+      },
+      "form": {
+        "code": "أدخل الرمز",
+        "resendCode": "إعادة إرسال الرمز",
+        "confirmPassword": {
+          "label": "تأكيد كلمة المرور",
+          "placeholder": "*********"
+        },
+        "back": "رجوع",
+        "submit": "إرسال"
+      }
+    },
+    "setup": {
+      "header": " إعداد العلامة التجارية",
+      "title": {
+        "1": " أضف علامتك التجارية",
+        "2": "التوقعات البصرية"
+      },
+      "form": {
+        "brandName": {
+          "label": "اسم العلامة التجارية",
+          "placeholder": "أدخل اسم العلامة التجارية"
+        },
+        "updateLogo": {
+          "label": "تحديث الشعار",
+          "placeholder": "اختر الشعار"
+        },
+        "brandSlogan": {
+          "label": "شعار العلامة التجارية",
+          "placeholder": "أدخل شعار العلامة التجارية"
+        },
+        "currency": {
+          "label": "العملة الافتراضية",
+          "placeholder": "اختر العملة"
+        },
+        "language": {
+          "label": "اللغة الافتراضية",
+          "placeholder": "اختر اللغة"
+        },
+        "back": "رجوع",
+        "submit": "إرسال"
+      }
+    }
+  },
+  "sideNav": {
+    "dashboard": "لوحة التحكم",
+    "menu": "القوائم",
+    "addFood": "إضافة طعام",
+    "addDrinks": "إضافة مشروبات",
+    "menuClass": "تصنيفات القائمة",
+    "review": "المراجعة",
+    "sub": "الاشتراك",
+    "settings": "الإعدادات",
+    "logout": "تسجيل الخروج",
+    "audit": "التدقيق"
+  },
+  "admin": {
+    "dashboard": {
+      "header": "لوحة التحكم",
+      "customersLabel": "الزبائن",
+      "dishLabel": "جميع الأطباق",
+      "totalDishes": "إجمالي الأطباق",
+      "totalInteractions": "إجمالي التفاعلات",
+      "dishesBtn": "جميع الأطباق",
+      "lineChart": {
+        "customers": "الزبائن"
+      },
+      "AI": {
+        "title": "أرصدة الذكاء الاصطناعي المستخدمة",
+        "subTitle": "إجمالي عدد أرصدة الذكاء الاصطناعي المستخدمة عند استخدام العملاء لواجهة المحادثة"
+      },
+      "customersOverview": "نظرة عامة على العملاء"
+    },
+    "dishPieChart": {
+      "title": "رسم بياني دائري - الأطباق حسب أنواع الأطباق",
+      "footer": "عرض إجمالي أنواع الأطباق وعددها."
+    },
+    "review": {
+      "header": "المراجعات",
+      "title": "إجمالي المراجعات",
+      "filter": "تصنيف المرشح",
+      "order": "معرّف الطلب"
+    },
+    "subs": {
+      "title": "إدارة الاشتراكات",
+      "header": {
+        "title": "اختر الخطة المناسبة لحجم عميلك",
+        "buttons": {
+          "month": " شهرياً",
+          "year": " في السنة"
+        }
+      },
+      "unsubscribe": "إلغاء الاشتراك",
+      "subscribeNow": "اشترك الآن",
+      "subscribed": "مشترك",
+      "active": "نشط"
+    },
+    "menu": {
+      "topArea": {
+        "header": "قائمة الطعام",
+        "btns": {
+          "dishes": "الأطباق",
+          "drinks": "المشروبات"
+        },
+        "rightSide": {
+          "searchPlaceholder": "بحث",
+          "add": "إضافة",
+          "drinks": "المشروبات",
+          "dishes": "أطباق"
+        }
+      },
+      "dishes": {
+        "all": "الكل",
+        "modalTitle": "طبق المعاينة",
+        "previewDish": {
+          "description": "الوصف",
+          "diet": "النظام الغذائي",
+          "allergens": "مسببات الحساسية",
+          "cuisine": "المطبخ",
+          "ingredients": "المكونات",
+          "editDish": "تحرير الطبق"
+        }
+      },
+      "drinks": {
+        "all": "الكل",
+        "modalTitle": "مشروب معاينة",
+        "previewDrink": {
+          "description": "الوصف",
+          "variants": "المتغيرات",
+          "notAvailable": "نوع الطبق",
+          "editDrink": "تحرير الشراب"
+        }
+      },
+      "editDrink": {
+        "toast": {
+          "loading": "إزالة...",
+          "success": "تمت الإزالة بنجاح",
+          "error": "حدث خطأ ما",
+          "failed": "فشل في الإزالة"
+        },
+        "header": {
+          "header": "قائمة الطعام",
+          "title": "تحرير المشروب",
+          "remove": {
+            "btn": "إزالة الشراب",
+            "alert": {
+              "title": "هل أنت متأكد تماماً؟",
+              "warning": " لا يمكن التراجع عن هذا الإجراء. سيؤدي هذا الإجراء إلى إزالة هذا الطبق وأي شيء مرتبط به من النظام.",
+              "cancel": "إلغاء",
+              "continue": "تابع"
+            }
+          }
+        },
+        "form": {
+          "nameLabel": "الاسم",
+          "namePlaceholder": "إضافة اسم المشروب",
+          "descriptionLabel": "الوصف",
+          "descriptionPlaceholder": "أدخل وصفاً مفصلاً للمشروب",
+          "available": {
+            "label": "متوفرة",
+            "description": " اجعل هذا المشروب متاحاً في قائمة الطعام"
+          },
+          "alcoholic": {
+            "label": "الكحوليات",
+            "description": " هل يحتوي هذا المشروب على كحول؟"
+          }
+        },
+        "drinkType": {
+          "title": "أنواع المشروبات",
+          "addDrinkType": "إضافة نوع المشروب",
+          "add": "إضافة"
+        },
+        "variants": {
+          "header": {
+            "title": "المتغيرات",
+            "btn": "إضافة متغير"
+          },
+          "form": {
+            "quantityLabel": "الكمية",
+            "unitLabel": "الوحدة",
+            "priceLabel": "السعر",
+            "available": {
+              "title": "متوفرة",
+              "description": "هل هذا البديل متاح؟"
+            }
+          }
+        },
+        "remove": "إزالة المتغير",
+        "upload": "ارفع هنا",
+        "save": "الحفظ"
+      },
+      "addDrinks": {
+        "header": "قائمة الطعام",
+        "title": "إضافة مشروب جديد",
+        "btn": "تحميل المشروبات السائبة",
+        "bulkUpload": {
+          "title": "تحميل المشروبات",
+          "bulkUploadBtn": "تحميل المشروبات بالجملة",
+          "uploadBtn": "التحميل",
+          "uploadBox": {
+            "upload": "تحميل ملف Excel",
+            "dragAndDrop": " السحب والإفلات أو النقر للتصفح",
+            "btn": "اختر ملف"
+          },
+          "instructions": {
+            "1": "انقر فوق",
+            "2": "للحصول على القالب",
+            "3": "املأ التفاصيل المطلوبة في النموذج.",
+            "4": "الصف الأول بعد الرؤوس هو صف نموذج للرجوع إليه - يرجى حذف هذا الصف قبل التحميل.",
+            "5": "يجب أن تكون الحقول التي تقبل قيمًا متعددة",
+            "title": "تعليمات التحميل المجمع:",
+            "download": "تنزيل",
+            "xlsx": ".xlsx",
+            "file": "الملف.",
+            "important": "مهم:",
+            "comma": "مفصولة بفاصلة",
+            "forExample": ". على سبيل المثال:",
+            "rice": "الموهيتو والساكي والبيرة",
+            "btn": "تنزيل القالب"
+          }
+        },
+        "form": {
+          "name": {
+            "label": "الاسم",
+            "placeholder": "إضافة اسم المشروب"
+          },
+          "description": {
+            "label": "الوصف",
+            "placeholder": "أدخل وصفاً مفصلاً للمشروب"
+          },
+          "drinkType": {
+            "label": "نوع المشروب",
+            "placeholder": "اختر نوع المشروب"
+          },
+          "upload": "ارفع هنا",
+          "available": {
+            "title": "متوفرة",
+            "subtitle": "اجعل هذا المشروب متاحاً في قائمة الطعام"
+          },
+          "alcoholic": {
+            "title": "الكحوليات",
+            "subtitle": "هل يحتوي هذا المشروب على كحول؟"
+          }
+        },
+        "types": {
+          "drinkTypes": "أنواع المشروبات",
+          "drinkTypesBtn": "إضافة نوع المشروب",
+          "add": "إضافة"
+        },
+        "variants": {
+          "header": {
+            "title": "المتغيرات",
+            "btn": "إضافة متغير"
+          },
+          "form": {
+            "quantity": "الكمية",
+            "unit": "الوحدة",
+            "unitPlaceholder": "اختر وحدة",
+            "price": "السعر",
+            "available": "متوفرة",
+            "availableSub": "هل هذا البديل متاح؟",
+            "removeVariant": "إزالة المتغير"
+          }
+        },
+        "image": {
+          "title": "الصور",
+          "upload": "ارفع هنا"
+        },
+        "saveBtn": "الحفظ"
+      },
+      "addDish": {
+        "appSections": {
+          "title": "أقسام التطبيق",
+          "chefsRecommended": {
+            "label": "الطهاة الموصى بهم",
+            "subtitle": "اجعل هذا الطبق من الأطباق التي ينصح بها الطهاة"
+          },
+          "popular": {
+            "label": "مشهور",
+            "subtitle": "اجعل هذا الطبق طبق شعبي"
+          },
+          "new": {
+            "label": "جديد",
+            "subtitle": "اجعل هذا الطبق طبقًا جديدًا"
+          }
+        },
+        "title": "قائمة الطعام",
+        "topSide": {
+          "title": "إضافة طبق جديد",
+          "btn": "تحميل أطباق مجمعة"
+        },
+        "bulkUpload": {
+          "title": "تحميل الطبق",
+          "uploadBtn": "التحميل",
+          "uploadBox": {
+            "upload": "تحميل ملف Excel",
+            "dragAndDrop": " السحب والإفلات أو النقر للتصفح",
+            "btn": "اختر ملف"
+          },
+          "instructions": {
+            "1": "انقر فوق",
+            "2": "للحصول على القالب",
+            "3": "املأ التفاصيل المطلوبة في النموذج.",
+            "4": "الصف الأول بعد الرؤوس هو صف نموذج للرجوع إليه - يرجى حذف هذا الصف قبل التحميل.",
+            "5": "يجب أن تكون الحقول التي تقبل قيمًا متعددة",
+            "title": "تعليمات التحميل المجمع:",
+            "download": "تنزيل",
+            "xlsx": ".xlsx",
+            "file": "الملف.",
+            "important": "مهم:",
+            "comma": "مفصولة بفاصلة",
+            "forExample": ". على سبيل المثال:",
+            "rice": "أرز، فاصوليا، يخنة",
+            "btn": "تنزيل القالب"
+          }
+        },
+        "form": {
+          "name": {
+            "label": "الاسم",
+            "placeholder": "إضافة اسم الطعام"
+          },
+          "price": {
+            "label": "السعر",
+            "placeholder": "أدخل سعر الطعام"
+          },
+          "description": {
+            "label": "الوصف",
+            "placeholder": "أدخل وصفاً مفصلاً للطعام"
+          },
+          "preparationTime": {
+            "label": "وقت التحضير (بالدقائق)"
+          },
+          "spiceLevel": {
+            "label": "مستوى التوابل",
+            "placeholder": "اختر مستوى التوابل",
+            "clear": "واضح",
+            "spiceLevels": {
+              "mild": {
+                "value": "خفيف",
+                "label": "خفيف"
+              },
+              "medium": {
+                "value": "متوسط",
+                "label": "متوسط"
+              },
+              "spicy": {
+                "value": "حار",
+                "label": "حار"
+              },
+              "verySpicy": {
+                "value": "حار جداً",
+                "label": "حار جداً"
+              }
+            }
+          },
+          "available": {
+            "title": "متوفرة",
+            "subtitle": "اجعل هذا الطبق متاحاً على قائمة الطعام"
+          }
+        },
+        "ingredients": {
+          "title": "المكونات",
+          "btn": "أضف المكوِّن",
+          "placeholder": "اسم المكون",
+          "removeBtn": "إزالة المكون"
+        },
+        "types": {
+          "dishTypes": "أنواع الأطباق",
+          "dishTypesBtn": "إضافة فئة",
+          "dietaryPreferences": "التفضيلات الغذائية",
+          "dietaryPreferencesbtn": "إضافة نظام غذائي",
+          "allergens": "مسببات الحساسية",
+          "allergensBtn": "إضافة مسببات الحساسية",
+          "addons": "الإضافات",
+          "addonsBtn": "الملحق",
+          "add": "إضافة"
+        },
+        "image": {
+          "title": "الصور",
+          "upload": "ارفع هنا"
+        },
+        "saveBtn": "الحفظ"
+      },
+      "editDish": {
+        "toast": {
+          "loading": "إزالة...",
+          "success": "تمت الإزالة بنجاح",
+          "error": "حدث خطأ ما",
+          "failed": "فشل في الإزالة"
+        },
+        "header": {
+          "header": "قائمة الطعام",
+          "title": "تحرير الطبق",
+          "remove": {
+            "btn": "إزالة الطبق",
+            "alert": {
+              "title": "هل أنت متأكد تماماً؟",
+              "warning": " لا يمكن التراجع عن هذا الإجراء. سيؤدي هذا الإجراء إلى إزالة هذا الطبق وأي شيء مرتبط به من النظام.",
+              "cancel": "إلغاء",
+              "continue": "تابع"
+            }
+          }
+        },
+        "form": {
+          "nameLabel": "الاسم",
+          "namePlaceholder": "إضافة اسم الطبق",
+          "descriptionLabel": "الوصف",
+          "priceLabel": "السعر",
+          "pricePlaceholder": "أدخل سعر الطعام",
+          "descriptionPlaceholder": "أدخل وصفاً مفصلاً للطبق",
+          "preparationLabel": "وقت التحضير",
+          "spiceLabel": "ملصق التوابل",
+          "available": {
+            "label": "متوفرة",
+            "description": " اجعل هذا المشروب متاحاً في قائمة الطعام"
+          },
+          "alcoholic": {
+            "label": "الكحوليات",
+            "description": " هل يحتوي هذا المشروب على كحول؟"
+          }
+        },
+        "drinkType": {
+          "title": "أنواع المشروبات",
+          "addDrinkType": "إضافة نوع المشروب",
+          "add": "إضافة"
+        },
+        "variants": {
+          "header": {
+            "title": "المتغيرات",
+            "btn": "إضافة متغير"
+          },
+          "form": {
+            "name": {
+              "label": "الاسم",
+              "placeholder": "إضافة اسم الطعام"
+            },
+            "price": {
+              "label": "السعر",
+              "placeholder": "أدخل سعر الطعام"
+            },
+            "description": {
+              "label": "الوصف",
+              "placeholder": "أدخل وصفاً مفصلاً للطعام"
+            },
+            "preparationTime": {
+              "label": "وقت التحضير (بالدقائق)"
+            },
+            "spiceLevel": {
+              "label": "مستوى التوابل",
+              "placeholder": "اختر مستوى التوابل",
+              "clear": "واضح",
+              "spiceLevels": {
+                "mild": {
+                  "value": "خفيف",
+                  "label": "خفيف"
+                },
+                "medium": {
+                  "value": "متوسط",
+                  "label": "متوسط"
+                },
+                "spicy": {
+                  "value": "حار",
+                  "label": "حار"
+                },
+                "verySpicy": {
+                  "value": "حار جداً",
+                  "label": "حار جداً"
+                }
+              }
+            },
+            "available": {
+              "title": "متوفرة",
+              "subtitle": "اجعل هذا الطبق متاحاً على قائمة الطعام"
+            }
+          },
+          "ingredients": {
+            "title": "المكونات",
+            "btn": "أضف المكوِّن",
+            "placeholder": "اسم المكون",
+            "removeBtn": "إزالة المكون"
+          },
+          "types": {
+            "dishTypes": "أنواع الأطباق",
+            "dishTypesBtn": "إضافة فئة",
+            "dietaryPreferences": "التفضيلات الغذائية",
+            "dietaryPreferencesbtn": "إضافة نظام غذائي",
+            "allergens": "مسببات الحساسية",
+            "allergensBtn": "إضافة مسببات الحساسية",
+            "add": "إضافة"
+          },
+          "image": {
+            "title": "الصور",
+            "upload": "ارفع هنا"
+          },
+          "saveBtn": "الحفظ"
+        },
+        "remove": "إزالة المتغير",
+        "upload": "ارفع هنا",
+        "save": "الحفظ",
+        "cancel": "إلغاء"
+      },
+      "menuClassifications": {
+        "header": {
+          "header": "قائمة الطعام",
+          "title": "تصنيفات القائمة",
+          "btn": "إضافة تصنيف جديد"
+        },
+        "card": {
+          "title": {
+            "cuisine": "المطبخ",
+            "diet": "الوجبات الغذائية",
+            "addOns": "الإضافات",
+            "allergen": "مسببات الحساسية",
+            "drinkType": "أنواع المشروبات"
+          },
+          "subTitle": "اختر عناصر فردية من القائمة أدناه لتخصيص الأطعمة لها",
+          "subTitleDrink": "اختر عناصر فردية من القائمة أدناه لتخصيص الأطعمة لها",
+          "description": "اختر عناصر فردية من القائمة أدناه لتخصيص الأطعمة لها"
+        },
+        "editClassTitle": "حدد الأطعمة المتاحة لإضافتها كـ",
+        "addToList": "إضافة إلى القائمة"
+      }
+    },
+    "menus": {
+      "header": {
+        "title": "القوائم",
+        "restaurantMenu": "قائمة الطعام"
+      },
+      "search": {
+        "placeholder": "بحث"
+      },
+      "create": {
+        "button": "إنشاء قائمة جديدة",
+        "dialog": {
+          "title": "إنشاء قائمة جديدة",
+          "description": "أضف قائمة جديدة إلى مطعمك.",
+          "form": {
+            "name": {
+              "label": "الاسم",
+              "placeholder": "اسم القائمة"
+            },
+            "description": {
+              "label": "الوصف",
+              "placeholder": "وصف القائمة"
+            }
+          },
+          "button": {
+            "creating": "إنشاء...",
+            "create": "إنشاء قائمة"
+          }
+        }
+      },
+      "sections": {
+        "header": {
+          "title": "أقسام القائمة"
+        },
+        "search": {
+          "placeholder": "بحث"
+        },
+        "menu": {
+          "suffix": " قائمة الطعام",
+          "edit": {
+            "button": "تحرير القائمة",
+            "dialog": {
+              "title": "تحرير القائمة",
+              "description": "قم بإجراء تغييرات على قائمتك هنا. انقر على حفظ عند الانتهاء.",
+              "form": {
+                "name": {
+                  "label": "الاسم"
+                },
+                "description": {
+                  "label": "الوصف"
+                }
+              },
+              "save": "حفظ التغييرات",
+              "saving": "التوفير..."
+            },
+            "toast": {
+              "success": "تم تحديث القائمة بنجاح",
+              "error": "فشل تحديث القائمة"
+            }
+          },
+          "delete": {
+            "button": "حذف القائمة",
+            "dialog": {
+              "title": "حذف القائمة",
+              "description": "هل أنت متأكد من أنك تريد حذف \"{الاسم}\"؟ لا يمكن التراجع عن هذا الإجراء.",
+              "cancel": "إلغاء",
+              "confirm": "حذف"
+            },
+            "toast": {
+              "success": "تم حذف القائمة بنجاح",
+              "error": "فشل في حذف القائمة"
+            }
+          }
+        },
+        "create": {
+          "button": "إضافة قسم قائمة جديدة",
+          "dialog": {
+            "title": "إضافة قسم قائمة جديدة",
+            "description": "إنشاء قسم جديد لهذه القائمة.",
+            "form": {
+              "name": {
+                "label": "الاسم",
+                "placeholder": "اسم القسم"
+              },
+              "description": {
+                "label": "الوصف",
+                "placeholder": "وصف القسم"
+              }
+            },
+            "button": {
+              "creating": "إنشاء...",
+              "create": "إنشاء قسم"
+            }
+          },
+          "toast": {
+            "success": "تم إنشاء قسم القائمة بنجاح",
+            "error": "فشل في إنشاء قسم القائمة"
+          }
+        },
+        "card": {
+          "edit": "تحرير",
+          "disable": "تعطيل",
+          "delete": "حذف",
+          "editDialog": {
+            "title": "تحرير القسم",
+            "form": {
+              "name": {
+                "label": "الاسم"
+              },
+              "description": {
+                "label": "الوصف"
+              },
+              "button": "الحفظ"
+            }
+          },
+          "deleteDialog": {
+            "title": "حذف القسم",
+            "description": "هل أنت متأكد من رغبتك في حذف هذا القسم وجميع عناصر القائمة الخاصة به؟",
+            "cancel": "إلغاء",
+            "delete": "حذف"
+          }
+        }
+      },
+      "classifications": {
+        "header": {
+          "header": "قائمة الطعام",
+          "title": "تصنيفات القائمة",
+          "back": "تصنيفات القائمة",
+          "btn": "إضافة تصنيف جديد"
+        },
+        "search": {
+          "placeholder": "بحث"
+        },
+        "card": {
+          "title": {
+            "cuisine": "المطبخ",
+            "diet": "الوجبات الغذائية",
+            "addOns": "الإضافات",
+            "allergen": "مسببات الحساسية",
+            "drinkType": "أنواع المشروبات"
+          },
+          "description": "اختر عناصر فردية من القائمة أدناه لتخصيص الأطعمة لها"
+        },
+        "create": {
+          "diet": {
+            "button": "إنشاء نظام غذائي",
+            "title": "إنشاء نظام غذائي",
+            "form": {
+              "name": {
+                "label": "أدخل الاسم"
+              }
+            }
+          },
+          "addon": {
+            "button": "إنشاء ملحق",
+            "title": "إنشاء ملحق",
+            "form": {
+              "name": {
+                "label": "الاسم"
+              },
+              "price": {
+                "label": "السعر"
+              }
+            }
+          }
+        },
+        "diets": {
+          "edit": {
+            "title": "تعديل النظام الغذائي",
+            "form": {
+              "name": {
+                "label": "أدخل الاسم"
+              }
+            },
+            "button": "تحديث"
+          },
+          "delete": {
+            "title": "هل أنت متأكد من رغبتك في حذف هذا النظام الغذائي؟",
+            "description": "لا يمكن التراجع عن هذا الإجراء. سيؤدي هذا إلى حذف هذا النظام الغذائي بشكل دائم.",
+            "cancel": "إلغاء",
+            "continue": "تابع"
+          }
+        },
+        "addons": {
+          "edit": {
+            "title": "الملحق",
+            "description": "إضافة ملحق جديد إلى القائمة",
+            "form": {
+              "name": {
+                "label": "أدخل الاسم"
+              },
+              "price": {
+                "label": "أدخل السعر"
+              }
+            },
+            "button": "إضافة"
+          },
+          "delete": {
+            "title": "هل أنت متأكد أنك تريد حذف هذا الملحق؟",
+            "description": "لا يمكن التراجع عن هذا الإجراء. سيؤدي ذلك إلى حذف هذا الملحق نهائيًا.",
+            "cancel": "إلغاء",
+            "continue": "تابع"
+          }
+        },
+        "listItem": {
+          "edit": "تحرير",
+          "delete": "حذف"
+        }
+      },
+      "items": {
+        "add": {
+          "form": {
+            "preparationTime": {
+              "placeholder": "0"
+            }
+          },
+          "validation": {
+            "name": "الرجاء إدخال اسم صحيح",
+            "description": "الرجاء إدخال وصف",
+            "price": "يُرجى إدخال سعر صحيح",
+            "ingredients": "أضف المكونات"
+          },
+          "appSections": {
+            "title": "أقسام التطبيق",
+            "chefsRecommended": {
+              "label": "الطهاة الموصى بهم",
+              "subtitle": "اجعل هذا الطبق من الأطباق التي ينصح بها الطهاة"
+            },
+            "popular": {
+              "label": "مشهور",
+              "subtitle": "اجعل هذا الطبق طبق شعبي"
+            },
+            "new": {
+              "label": "جديد",
+              "subtitle": "اجعل هذا الطبق طبقًا جديدًا"
+            }
+          },
+          "components": {
+            "diets": {
+              "label": "التفضيلات الغذائية",
+              "button": "إضافة نظام غذائي",
+              "modal": {
+                "title": "إضافة نظام غذائي",
+                "button": "إضافة",
+                "form": {
+                  "name": {
+                    "label": "أدخل الاسم"
+                  }
+                }
+              }
+            },
+            "addons": {
+              "label": "الإضافات",
+              "button": "الملحق",
+              "modal": {
+                "title": "الملحق",
+                "button": "إضافة",
+                "form": {
+                  "name": {
+                    "label": "أدخل الاسم"
+                  }
+                }
+              }
+            },
+            "allergens": {
+              "label": "مسببات الحساسية"
+            },
+            "ingredients": {
+              "empty": "انقر لتحديد المكونات",
+              "modal": {
+                "title": "اختر المكونات",
+                "search": {
+                  "placeholder": "بحث..."
+                },
+                "add": "إضافة",
+                "remove": "إزالة",
+                "buttons": {
+                  "cancel": "إلغاء",
+                  "done": "تم"
+                }
+              },
+              "toast": {
+                "success": "مكون يضاف إلى القائمة",
+                "deleteSuccess": "تم حذف المكون بنجاح"
+              }
+            },
+            "variants": {
+              "title": "المتغيرات",
+              "description": "إضافة أشكال مختلفة لعنصر القائمة هذا (مثل الأحجام والأنماط والحصص)",
+              "empty": "لم تتم إضافة أي متغيرات حتى الآن. انقر على \"إضافة متغير\" للبدء.",
+              "button": "إضافة متغير",
+              "variant": "المتغير",
+              "form": {
+                "name": {
+                  "label": "الاسم",
+                  "placeholder": "على سبيل المثال، صغير، متوسط، كبير"
+                },
+                "price": {
+                  "label": "السعر",
+                  "placeholder": "0.00"
+                },
+                "available": {
+                  "label": "متاح للطلب"
+                }
+              },
+              "remove": "إزالة المتغير"
+            },
+            "discount": {
+              "empty": {
+                "title": "لا يوجد خصم مضاف",
+                "description": "إضافة خصم لتقديم أسعار خاصة",
+                "button": "إضافة خصم"
+              },
+              "title": "تفاصيل الخصم",
+              "form": {
+                "label": {
+                  "label": "ملصق الخصم"
+                },
+                "type": {
+                  "label": "نوع الخصم",
+                  "placeholder": "اختر نوع الخصم",
+                  "percentage": "النسبة المئوية",
+                  "fixed": "ثابت"
+                },
+                "value": {
+                  "label": "قيمة الخصم"
+                },
+                "startDate": {
+                  "label": "تاريخ البدء والوقت"
+                },
+                "endDate": {
+                  "label": "تاريخ ووقت الانتهاء"
+                }
+              }
+            }
+          },
+          "bulk": {
+            "title": "عناصر قائمة التحميل المجمّع",
+            "description": "تحميل ملف CSV وتعيين الأعمدة لإنشاء عناصر القائمة بشكل مجمّع",
+            "tabs": {
+              "upload": "تحميل ملف CSV",
+              "map": "أعمدة الخريطة",
+              "preview": "المعاينة والتأكيد"
+            },
+            "upload": {
+              "dragDrop": "قم بسحب ملف CSV وإفلاته هنا",
+              "clickBrowse": "أو انقر للتصفح",
+              "formatRequirements": {
+                "title": "متطلبات تنسيق CSV",
+                "firstRow": "يجب أن يحتوي الصف الأول على رؤوس الأعمدة",
+                "supportedFormats": "التنسيقات المدعومة: نص/sv أو .csv الامتداد .csv",
+                "columnNames": "تأكد من تطابق أسماء الأعمدة مع بياناتك",
+                "nextStep": "ستقوم بتعيين هذه الأعمدة إلى حقول عناصر القائمة في الخطوة التالية"
+              }
+            },
+            "mapper": {
+              "csvColumnsFound": "تم العثور على أعمدة CSV",
+              "sampleData": "بيانات العينة (الصف الأول)",
+              "columnMappings": "تعيينات الأعمدة",
+              "addMapping": "+ إضافة تخطيط",
+              "noMappings": "لا توجد تعيينات حتى الآن. أضف تعيين العمود الأول.",
+              "csvColumn": "عمود CSV",
+              "menuItemField": "حقل عنصر القائمة",
+              "allRequiredMapped": "تم تعيين جميع الحقول المطلوبة",
+              "missingRequired": "الحقول المفقودة المطلوبة",
+              "required": "مطلوب",
+              "continueToPreview": "المتابعة إلى المعاينة"
+            },
+            "preview": {
+              "totalRows": "إجمالي الصفوف",
+              "selected": "مختارة",
+              "fieldsMapped": "الحقول المعينة",
+              "dataPreview": "معاينة البيانات",
+              "showAll": "إظهار الكل",
+              "showFirst10": "عرض أول 10",
+              "showing": "عرض 10 من",
+              "rows": "الصفوف",
+              "yes": "نعم",
+              "no": "لا يوجد",
+              "empty": "—",
+              "startOver": "ابدأ من جديد",
+              "uploading": "تحميل...",
+              "upload": "التحميل",
+              "items": "العناصر",
+              "fieldNames": {
+                "name": "الاسم",
+                "section": "القسم",
+                "type": "النوع",
+                "description": "الوصف",
+                "price": "السعر",
+                "spiceLevel": "مستوى التوابل",
+                "cookTime": "وقت الطهي",
+                "ingredients": "المكونات",
+                "images": "الصور",
+                "translations": "الترجمات",
+                "variants": "المتغيرات",
+                "addons": "الإضافات",
+                "allergens": "مسببات الحساسية"
+              }
+            }
+          }
+        },
+        "edit": {
+          "validation": {
+            "name": "الرجاء إدخال اسم صحيح"
+          },
+          "appSections": {
+            "title": "أقسام التطبيق",
+            "chefsRecommended": {
+              "label": "الطهاة الموصى بهم",
+              "subtitle": "اجعل هذا الطبق من الأطباق التي ينصح بها الطهاة"
+            },
+            "popular": {
+              "label": "مشهور",
+              "subtitle": "اجعل هذا الطبق طبق شعبي"
+            },
+            "new": {
+              "label": "جديد",
+              "subtitle": "اجعل هذا الطبق طبقًا جديدًا"
+            }
+          }
+        },
+        "preview": {
+          "description": "الوصف",
+          "diet": "النظام الغذائي",
+          "allergens": "مسببات الحساسية",
+          "ingredients": "المكونات",
+          "editDish": "تحرير الطبق"
+        }
+      },
+      "components": {
+        "menuCard": {
+          "active": "نشط",
+          "inactive": "غير نشط",
+          "viewMenuSections": "عرض أقسام القائمة",
+          "delete": {
+            "title": "حذف القائمة",
+            "description": "هل أنت متأكد من أنك تريد حذف \"{الاسم}\"؟ لا يمكن التراجع عن هذا الإجراء.",
+            "cancel": "إلغاء",
+            "confirm": "حذف"
+          },
+          "edit": {
+            "title": "تحرير القائمة",
+            "description": "قم بإجراء تغييرات على قائمتك هنا. انقر على حفظ عند الانتهاء.",
+            "form": {
+              "name": "الاسم",
+              "description": "الوصف"
+            },
+            "save": "حفظ التغييرات",
+            "saving": "التوفير..."
+          },
+          "toast": {
+            "authRequired": "المصادقة مطلوبة. يرجى تسجيل الدخول مرة أخرى.",
+            "deleteSuccess": "تم حذف القائمة بنجاح",
+            "deleteError": "فشل في حذف القائمة",
+            "updateSuccess": "تم تحديث القائمة بنجاح",
+            "updateError": "فشل تحديث القائمة"
+          }
+        }
+      }
+    },
+    "settings": {
+      "header": "الإعدادات",
+      "headerBtns": {
+        "profile": "الملف الشخصي",
+        "qrCode": "رمز الاستجابة السريعة للقائمة"
+      },
+      "email": {
+        "title": "تغيير البريد الإلكتروني",
+        "subtitle": " قم بتحديث بريدك الإلكتروني بإدخال عنوان البريد الإلكتروني الجديد. سنرسل لك بريداً إلكترونياً لمرة واحدة إلى بريدك الحالي لتأكيد",
+        "updateEmail": "تحديث البريد الإلكتروني",
+        "resendOtp": "إعادة إرسال OTP",
+        "save": "الحفظ",
+        "update": "تحديث",
+        "modalLabel": "أدخل الرمز"
+      },
+      "password": {
+        "title": "تغيير كلمة المرور",
+        "subtitle": " قم بتحديث كلمة المرور الخاصة بك عن طريق إدخال كلمة المرور المطلوبة. سنقوم بإرسال كلمة مرور لمرة واحدة إلى بريدك الإلكتروني للتأكيد.",
+        "oldPassword": "كلمة المرور الحالية",
+        "newPassword": "كلمة مرور جديدة",
+        "confirmPassword": "تأكيد كلمة المرور",
+        "resendOtp": "إعادة إرسال OTP",
+        "save": "الحفظ",
+        "update": "تحديث",
+        "modalLabel": "أدخل الرمز"
+      },
+      "brand": {
+        "title": " معلومات أخرى",
+        "subtitle": "تحديث المعلومات المتعلقة بحسابك",
+        "form": {
+          "logoLabel": "تحديث الشعار",
+          "sloganLabel": "شعار التحديث",
+          "sloganPlaceholder": "تحديث الشعار",
+          "addressLabel": "تحديث عنوانك",
+          "addressPlaceholder": "تحديث العنوان",
+          "languageLabel": "اللغة الافتراضية",
+          "currencyLabel": "العملة الافتراضية",
+          "bannerLabel": "تحديث البانر"
+        },
+        "buttons": {
+          "cancel": "إلغاء",
+          "update": "تحديث"
+        }
+      },
+      "brandCustomisation": {
+        "title": "تخصيص العلامة التجارية",
+        "subTitle": " تحديث معلومات العرض المعروضة للعميل",
+        "form": {
+          "updateName": "اسم التحديث",
+          "updateSlogan": "شعار التحديث",
+          "updateColors": "تحديث الألوان",
+          "updateLogo": "تحديث الشعار",
+          "defaultLanguage": "اللغة الافتراضية",
+          "cancel": "إلغاء",
+          "save": "الحفظ"
+        }
+      },
+      "personalInformation": {
+        "title": "المعلومات الشخصية",
+        "subTitle": " تحديث معلومات حسابك",
+        "form": {
+          "pictureEdit": "تحرير",
+          "updateEmail": "تحديث البريد الإلكتروني",
+          "updatePassword": "تحديث كلمة المرور",
+          "cancel": "إلغاء",
+          "save": "الحفظ"
+        }
+      },
+      "qrCode": {
+        "header": {
+          "title": "رمز الاستجابة السريعة للقائمة",
+          "subTitle": " شارك رمز الاستجابة السريعة هذا مع عملائك حتى يتمكنوا من الوصول بسهولة إلى قائمتك الرقمية"
+        },
+        "body": {
+          "qrCodeTitle": "يقوم العملاء بمسح هذا الرمز ضوئياً لعرض قائمتك",
+          "menuUrl": "عنوان URL للقائمة",
+          "copied": "تم نسخ عنوان URL إلى الحافظة!"
+        },
+        "button": "تنزيل رمز الاستجابة السريعة",
+        "footer": {
+          "title": "كيفية الاستخدام:",
+          "step1": "- اطبع رمز الاستجابة السريعة وضعه على الطاولات",
+          "step2": "- أضفها إلى المواد الترويجية لمطعمك",
+          "step3": "- مشاركة عنوان URL مباشرة مع العملاء",
+          "step4": "- عرضها على الشاشات أو اللافتات الرقمية"
+        }
+      }
+    },
+    "audit": {
+      "header": "التدقيق",
+      "error": "خطأ في تحميل سجلات التدقيق. يرجى المحاولة مرة أخرى.",
+      "table": {
+        "entity": "الكيان",
+        "action": "الإجراء",
+        "entityName": "اسم الكيان",
+        "performedBy": "قام بها",
+        "createdAt": "تم إنشاؤها في"
+      },
+      "notAvailable": "غير متاح",
+      "filters": {
+        "allEntities": "جميع الكيانات",
+        "allActions": "جميع الإجراءات",
+        "limit": "الحد"
+      }
+    }
+  },
+  "paginator": {
+    "previous": "السابق",
+    "next": "التالي",
+    "more": "المزيد من الصفحات"
+  }
+}

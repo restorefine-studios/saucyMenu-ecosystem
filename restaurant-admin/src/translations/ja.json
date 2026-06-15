@@ -1,0 +1,1150 @@
+{
+  "auth": {
+    "main": {
+      "header": {
+        "login": "ログイン",
+        "resetPassword": "パスワードのリセット"
+      },
+      "copyright": {
+        "1": "著作権 2025",
+        "2": "無断複写・転載を禁じます。"
+      }
+    },
+    "login": {
+      "title": {
+        "1": "ログイン",
+        "2": "管理者ダッシュボード"
+      },
+      "form": {
+        "email": {
+          "label": "電子メール",
+          "placeholder": "admin@example.com"
+        },
+        "password": {
+          "label": "パスワード",
+          "placeholder": "*********"
+        },
+        "keepLoggedIn": {
+          "label": "リメンバー・ミー"
+        },
+        "submit": "投稿する",
+        "forgotPassword": "パスワードをお忘れですか？"
+      }
+    },
+    "reset": {
+      "title": {
+        "1": "電子メールの宛先を入力",
+        "2": "OTPコードの受信"
+      },
+      "form": {
+        "password": {
+          "label": "パスワード",
+          "placeholder": "********"
+        },
+        "confirmPassword": {
+          "label": "パスワードの確認",
+          "placeholder": "*********"
+        },
+        "back": "バック",
+        "submit": "投稿する"
+      }
+    },
+    "enterOtp": {
+      "title": {
+        "1": "  OTPコードを入力",
+        "2": "  パスワードの更新に進む"
+      },
+      "form": {
+        "code": "コードを入力",
+        "resendCode": "コード再送",
+        "confirmPassword": {
+          "label": "パスワードの確認",
+          "placeholder": "*********"
+        },
+        "back": "バック",
+        "submit": "投稿する"
+      }
+    },
+    "setup": {
+      "header": "ブランドセットアップ",
+      "title": {
+        "1": "ブランドを追加する",
+        "2": "ビジュアル・アウトルック"
+      },
+      "form": {
+        "brandName": {
+          "label": "ブランド名",
+          "placeholder": "ブランド名を入力"
+        },
+        "updateLogo": {
+          "label": "ロゴの更新",
+          "placeholder": "ロゴを選択"
+        },
+        "brandSlogan": {
+          "label": "ブランドスローガン",
+          "placeholder": "ブランドスローガンを入力"
+        },
+        "currency": {
+          "label": "デフォルト通貨",
+          "placeholder": "通貨を選択"
+        },
+        "language": {
+          "label": "デフォルト言語",
+          "placeholder": "言語選択"
+        },
+        "back": "バック",
+        "submit": "投稿する"
+      }
+    }
+  },
+  "sideNav": {
+    "dashboard": "ダッシュボード",
+    "menu": "メニュー",
+    "addFood": "食品を追加する",
+    "addDrinks": "飲み物の追加",
+    "menuClass": "メニュー分類",
+    "review": "レビュー",
+    "sub": "サブスクリプション",
+    "settings": "設定",
+    "logout": "ログアウト",
+    "audit": "監査"
+  },
+  "admin": {
+    "dashboard": {
+      "header": "ダッシュボード",
+      "customersLabel": "お客様",
+      "dishLabel": "すべての料理",
+      "totalDishes": "総料理数",
+      "totalInteractions": "総対話数",
+      "dishesBtn": "すべての料理",
+      "lineChart": {
+        "customers": "お客様"
+      },
+      "AI": {
+        "title": "使用AIクレジット",
+        "subTitle": "顧客がチャット・インターフェースを使用した際に使用されたAIクレジットの総数"
+      },
+      "customersOverview": "顧客概要"
+    },
+    "dishPieChart": {
+      "title": "円グラフ - 料理の種類別",
+      "footer": "料理の種類と数を表示。"
+    },
+    "review": {
+      "header": "レビュー",
+      "title": "総評",
+      "filter": "フィルター評価",
+      "order": "オーダーID"
+    },
+    "subs": {
+      "title": "サブスクリプションの管理",
+      "header": {
+        "title": "お客様のサイズに合ったプランをお選びください",
+        "buttons": {
+          "month": "1ヶ月あたり",
+          "year": "年間"
+        }
+      },
+      "unsubscribe": "登録解除",
+      "subscribeNow": "今すぐ申し込む",
+      "subscribed": "購読済み",
+      "active": "アクティブ"
+    },
+    "menu": {
+      "topArea": {
+        "header": "メニュー",
+        "btns": {
+          "dishes": "食器",
+          "drinks": "飲み物"
+        },
+        "rightSide": {
+          "searchPlaceholder": "検索",
+          "add": "追加",
+          "drinks": "飲み物",
+          "dishes": "食器類"
+        }
+      },
+      "dishes": {
+        "all": "すべて",
+        "modalTitle": "プレビュー・ディッシュ",
+        "previewDish": {
+          "description": "説明",
+          "diet": "ダイエット",
+          "allergens": "アレルゲン",
+          "cuisine": "料理",
+          "ingredients": "原材料",
+          "editDish": "編集皿"
+        }
+      },
+      "drinks": {
+        "all": "すべて",
+        "modalTitle": "プレビュー・ドリンク",
+        "previewDrink": {
+          "description": "説明",
+          "variants": "バリエーション",
+          "notAvailable": "ディッシュ・タイプ",
+          "editDrink": "編集ドリンク"
+        }
+      },
+      "editDrink": {
+        "toast": {
+          "loading": "取り外す...",
+          "success": "削除成功",
+          "error": "何かが間違っていた",
+          "failed": "削除に失敗"
+        },
+        "header": {
+          "header": "メニュー",
+          "title": "編集ドリンク",
+          "remove": {
+            "btn": "ドリンクを取り除く",
+            "alert": {
+              "title": "本当にいいんですか？",
+              "warning": "この操作は取り消すことができません。このアクションはこの料理とそれに関連するものをシステムから削除します。",
+              "cancel": "キャンセル",
+              "continue": "続ける"
+            }
+          }
+        },
+        "form": {
+          "nameLabel": "名称",
+          "namePlaceholder": "ドリンクの名前を追加",
+          "descriptionLabel": "説明",
+          "descriptionPlaceholder": "飲み物の詳しい説明を入力する",
+          "available": {
+            "label": "利用可能",
+            "description": "このドリンクをメニューに加える"
+          },
+          "alcoholic": {
+            "label": "アルコール",
+            "description": "この飲み物にアルコールは含まれていますか？"
+          }
+        },
+        "drinkType": {
+          "title": "ドリンクの種類",
+          "addDrinkType": "ドリンクの種類を追加する",
+          "add": "追加"
+        },
+        "variants": {
+          "header": {
+            "title": "バリエーション",
+            "btn": "バリアント追加"
+          },
+          "form": {
+            "quantityLabel": "数量",
+            "unitLabel": "単位",
+            "priceLabel": "価格",
+            "available": {
+              "title": "利用可能",
+              "description": "このバリエーションはありますか？"
+            }
+          }
+        },
+        "remove": "バリアントの削除",
+        "upload": "アップロードはこちら",
+        "save": "セーブ"
+      },
+      "addDrinks": {
+        "header": "メニュー",
+        "title": "新しいドリンクを追加する",
+        "btn": "バルクドリンクのアップロード",
+        "bulkUpload": {
+          "title": "ドリンクのアップロード",
+          "bulkUploadBtn": "ドリンクの一括アップロード",
+          "uploadBtn": "アップロード",
+          "uploadBox": {
+            "upload": "エクセルファイルのアップロード",
+            "dragAndDrop": "ドラッグ＆ドロップまたはクリックでブラウズ",
+            "btn": "ファイルを選択"
+          },
+          "instructions": {
+            "1": "をクリックする。",
+            "2": "ボタンをクリックしてテンプレートを取得する。",
+            "3": "テンプレートに必要事項を記入してください。",
+            "4": "ヘッダーの後の最初の行は、参照用のサンプル行です - アップロードする前にこの行を削除してください。",
+            "5": "複数の値を受け付けるフィールドは",
+            "title": "一括アップロードの手順",
+            "download": "ダウンロード",
+            "xlsx": ".xlsx",
+            "file": "ファイル。",
+            "important": "重要だ：",
+            "comma": "カンマ区切り",
+            "forExample": ".例えば：",
+            "rice": "モヒート、日本酒、ビール",
+            "btn": "テンプレートのダウンロード"
+          }
+        },
+        "form": {
+          "name": {
+            "label": "名称",
+            "placeholder": "ドリンクの名前を追加"
+          },
+          "description": {
+            "label": "説明",
+            "placeholder": "飲み物の詳しい説明を入力する"
+          },
+          "drinkType": {
+            "label": "ドリンクタイプ",
+            "placeholder": "ドリンクの種類を選ぶ"
+          },
+          "upload": "アップロードはこちら",
+          "available": {
+            "title": "利用可能",
+            "subtitle": "このドリンクをメニューに加える"
+          },
+          "alcoholic": {
+            "title": "アルコール",
+            "subtitle": "この飲み物にアルコールは含まれていますか？"
+          }
+        },
+        "types": {
+          "drinkTypes": "ドリンクの種類",
+          "drinkTypesBtn": "ドリンクの種類を追加する",
+          "add": "追加"
+        },
+        "variants": {
+          "header": {
+            "title": "バリエーション",
+            "btn": "バリアント追加"
+          },
+          "form": {
+            "quantity": "数量",
+            "unit": "単位",
+            "unitPlaceholder": "ユニットを選択",
+            "price": "価格",
+            "available": "利用可能",
+            "availableSub": "このバリエーションはありますか？",
+            "removeVariant": "バリアントの削除"
+          }
+        },
+        "image": {
+          "title": "画像",
+          "upload": "アップロードはこちら"
+        },
+        "saveBtn": "セーブ"
+      },
+      "addDish": {
+        "appSections": {
+          "title": "アプリ・セクション",
+          "chefsRecommended": {
+            "label": "シェフのおすすめ",
+            "subtitle": "シェフおすすめの一品に"
+          },
+          "popular": {
+            "label": "ポピュラー",
+            "subtitle": "この料理を人気メニューにする"
+          },
+          "new": {
+            "label": "新しい",
+            "subtitle": "この料理を新しい料理にする"
+          }
+        },
+        "title": "メニュー",
+        "topSide": {
+          "title": "新しい料理を追加する",
+          "btn": "料理の一括アップロード"
+        },
+        "bulkUpload": {
+          "title": "料理のアップロード",
+          "uploadBtn": "アップロード",
+          "uploadBox": {
+            "upload": "エクセルファイルのアップロード",
+            "dragAndDrop": "ドラッグ＆ドロップまたはクリックでブラウズ",
+            "btn": "ファイルを選択"
+          },
+          "instructions": {
+            "1": "をクリックする。",
+            "2": "ボタンをクリックしてテンプレートを取得する。",
+            "3": "テンプレートに必要事項を記入してください。",
+            "4": "ヘッダーの後の最初の行は、参照用のサンプル行です - アップロードする前にこの行を削除してください。",
+            "5": "複数の値を受け付けるフィールドは",
+            "title": "一括アップロードの手順",
+            "download": "ダウンロード",
+            "xlsx": ".xlsx",
+            "file": "ファイル。",
+            "important": "重要だ：",
+            "comma": "カンマ区切り",
+            "forExample": ".例えば：",
+            "rice": "米、豆、シチュー",
+            "btn": "テンプレートのダウンロード"
+          }
+        },
+        "form": {
+          "name": {
+            "label": "名称",
+            "placeholder": "食品名の追加"
+          },
+          "price": {
+            "label": "価格",
+            "placeholder": "食品価格を入力"
+          },
+          "description": {
+            "label": "説明",
+            "placeholder": "料理の詳しい説明を入力する"
+          },
+          "preparationTime": {
+            "label": "準備時間（分）"
+          },
+          "spiceLevel": {
+            "label": "スパイス・レベル",
+            "placeholder": "スパイスレベルの選択",
+            "clear": "クリア",
+            "spiceLevels": {
+              "mild": {
+                "value": "マイルド",
+                "label": "マイルド"
+              },
+              "medium": {
+                "value": "ミディアム",
+                "label": "ミディアム"
+              },
+              "spicy": {
+                "value": "スパイシー",
+                "label": "スパイシー"
+              },
+              "verySpicy": {
+                "value": "ベリー・スパイシー",
+                "label": "とてもスパイシー"
+              }
+            }
+          },
+          "available": {
+            "title": "利用可能",
+            "subtitle": "この料理をメニューに加える"
+          }
+        },
+        "ingredients": {
+          "title": "原材料",
+          "btn": "食材の追加",
+          "placeholder": "成分名",
+          "removeBtn": "成分を取り除く"
+        },
+        "types": {
+          "dishTypes": "皿の種類",
+          "dishTypesBtn": "カテゴリーを追加する",
+          "dietaryPreferences": "食事の好み",
+          "dietaryPreferencesbtn": "ダイエットを追加する",
+          "allergens": "アレルゲン",
+          "allergensBtn": "アレルゲンの追加",
+          "addons": "アドオン",
+          "addonsBtn": "アドオン追加",
+          "add": "追加"
+        },
+        "image": {
+          "title": "画像",
+          "upload": "アップロードはこちら"
+        },
+        "saveBtn": "セーブ"
+      },
+      "editDish": {
+        "toast": {
+          "loading": "取り外す...",
+          "success": "削除成功",
+          "error": "何かが間違っていた",
+          "failed": "削除に失敗"
+        },
+        "header": {
+          "header": "メニュー",
+          "title": "エディット・ディッシュ",
+          "remove": {
+            "btn": "皿を取り外す",
+            "alert": {
+              "title": "本当にいいんですか？",
+              "warning": "この操作は取り消すことができません。このアクションはこの料理とそれに関連するものをシステムから削除します。",
+              "cancel": "キャンセル",
+              "continue": "続ける"
+            }
+          }
+        },
+        "form": {
+          "nameLabel": "名称",
+          "namePlaceholder": "料理名の追加",
+          "descriptionLabel": "説明",
+          "priceLabel": "価格",
+          "pricePlaceholder": "食品価格を入力",
+          "descriptionPlaceholder": "料理の詳しい説明を入力する",
+          "preparationLabel": "準備期間",
+          "spiceLabel": "スパイス・ラベル",
+          "available": {
+            "label": "利用可能",
+            "description": "このドリンクをメニューに加える"
+          },
+          "alcoholic": {
+            "label": "アルコール",
+            "description": "この飲み物にアルコールは含まれていますか？"
+          }
+        },
+        "drinkType": {
+          "title": "ドリンクの種類",
+          "addDrinkType": "ドリンクの種類を追加する",
+          "add": "追加"
+        },
+        "variants": {
+          "header": {
+            "title": "バリエーション",
+            "btn": "バリアント追加"
+          },
+          "form": {
+            "name": {
+              "label": "名称",
+              "placeholder": "食品名の追加"
+            },
+            "price": {
+              "label": "価格",
+              "placeholder": "食品価格を入力"
+            },
+            "description": {
+              "label": "説明",
+              "placeholder": "料理の詳しい説明を入力する"
+            },
+            "preparationTime": {
+              "label": "準備時間（分）"
+            },
+            "spiceLevel": {
+              "label": "スパイス・レベル",
+              "placeholder": "スパイスレベルの選択",
+              "clear": "クリア",
+              "spiceLevels": {
+                "mild": {
+                  "value": "マイルド",
+                  "label": "マイルド"
+                },
+                "medium": {
+                  "value": "ミディアム",
+                  "label": "ミディアム"
+                },
+                "spicy": {
+                  "value": "スパイシー",
+                  "label": "スパイシー"
+                },
+                "verySpicy": {
+                  "value": "ベリー・スパイシー",
+                  "label": "とてもスパイシー"
+                }
+              }
+            },
+            "available": {
+              "title": "利用可能",
+              "subtitle": "この料理をメニューに加える"
+            }
+          },
+          "ingredients": {
+            "title": "原材料",
+            "btn": "食材の追加",
+            "placeholder": "成分名",
+            "removeBtn": "成分を取り除く"
+          },
+          "types": {
+            "dishTypes": "皿の種類",
+            "dishTypesBtn": "カテゴリーを追加する",
+            "dietaryPreferences": "食事の好み",
+            "dietaryPreferencesbtn": "ダイエットを追加する",
+            "allergens": "アレルゲン",
+            "allergensBtn": "アレルゲンの追加",
+            "add": "追加"
+          },
+          "image": {
+            "title": "画像",
+            "upload": "アップロードはこちら"
+          },
+          "saveBtn": "セーブ"
+        },
+        "remove": "バリアントの削除",
+        "upload": "アップロードはこちら",
+        "save": "セーブ",
+        "cancel": "キャンセル"
+      },
+      "menuClassifications": {
+        "header": {
+          "header": "メニュー",
+          "title": "メニュー分類",
+          "btn": "新しい分類を追加する"
+        },
+        "card": {
+          "title": {
+            "cuisine": "料理",
+            "diet": "食生活",
+            "addOns": "アドオン",
+            "allergen": "アレルゲン",
+            "drinkType": "ドリンクの種類"
+          },
+          "subTitle": "以下のリストから個々の項目を選択し、食品を割り当てます。",
+          "subTitleDrink": "以下のリストから個々の項目を選択し、食品を割り当てます。",
+          "description": "以下のリストから個々の項目を選択し、食品を割り当てます。"
+        },
+        "editClassTitle": "利用可能な食品を選択し、追加する",
+        "addToList": "リストに追加"
+      }
+    },
+    "menus": {
+      "header": {
+        "title": "メニュー",
+        "restaurantMenu": "メニュー"
+      },
+      "search": {
+        "placeholder": "検索"
+      },
+      "create": {
+        "button": "新規メニューの作成",
+        "dialog": {
+          "title": "新規メニューの作成",
+          "description": "レストランに新しいメニューを追加してください。",
+          "form": {
+            "name": {
+              "label": "名称",
+              "placeholder": "メニュー名"
+            },
+            "description": {
+              "label": "説明",
+              "placeholder": "メニュー説明"
+            }
+          },
+          "button": {
+            "creating": "創造...",
+            "create": "メニュー作成"
+          }
+        }
+      },
+      "sections": {
+        "header": {
+          "title": "メニューセクション"
+        },
+        "search": {
+          "placeholder": "検索"
+        },
+        "menu": {
+          "suffix": "メニュー",
+          "edit": {
+            "button": "編集メニュー",
+            "dialog": {
+              "title": "編集メニュー",
+              "description": "ここでメニューを変更します。終わったら保存をクリックしてください。",
+              "form": {
+                "name": {
+                  "label": "名称"
+                },
+                "description": {
+                  "label": "説明"
+                }
+              },
+              "save": "変更を保存する",
+              "saving": "節約..."
+            },
+            "toast": {
+              "success": "メニューの更新に成功",
+              "error": "メニューの更新に失敗しました"
+            }
+          },
+          "delete": {
+            "button": "削除メニュー",
+            "dialog": {
+              "title": "削除メニュー",
+              "description": "本当に\"{名前}\"を削除しますか？この操作は取り消せません。",
+              "cancel": "キャンセル",
+              "confirm": "削除"
+            },
+            "toast": {
+              "success": "メニューの削除に成功",
+              "error": "メニューの削除に失敗しました"
+            }
+          }
+        },
+        "create": {
+          "button": "新しいメニューセクションの追加",
+          "dialog": {
+            "title": "新しいメニューセクションの追加",
+            "description": "このメニューの新しいセクションを作成する。",
+            "form": {
+              "name": {
+                "label": "名称",
+                "placeholder": "セクション名"
+              },
+              "description": {
+                "label": "説明",
+                "placeholder": "セクションの説明"
+              }
+            },
+            "button": {
+              "creating": "創造...",
+              "create": "セクションの作成"
+            }
+          },
+          "toast": {
+            "success": "メニューセクションの作成に成功",
+            "error": "メニューセクションの作成に失敗しました"
+          }
+        },
+        "card": {
+          "edit": "編集",
+          "disable": "無効",
+          "delete": "削除",
+          "editDialog": {
+            "title": "編集セクション",
+            "form": {
+              "name": {
+                "label": "名称"
+              },
+              "description": {
+                "label": "説明"
+              },
+              "button": "セーブ"
+            }
+          },
+          "deleteDialog": {
+            "title": "セクションの削除",
+            "description": "このセクションとすべてのメニュー項目を削除してもよろしいですか？",
+            "cancel": "キャンセル",
+            "delete": "削除"
+          }
+        }
+      },
+      "classifications": {
+        "header": {
+          "header": "メニュー",
+          "title": "メニュー分類",
+          "back": "メニュー分類",
+          "btn": "新しい分類を追加する"
+        },
+        "search": {
+          "placeholder": "検索"
+        },
+        "card": {
+          "title": {
+            "cuisine": "料理",
+            "diet": "食生活",
+            "addOns": "アドオン",
+            "allergen": "アレルゲン",
+            "drinkType": "ドリンクの種類"
+          },
+          "description": "以下のリストから個々の項目を選択し、食品を割り当てます。"
+        },
+        "create": {
+          "diet": {
+            "button": "クリエイト・ダイエット",
+            "title": "クリエイト・ダイエット",
+            "form": {
+              "name": {
+                "label": "名前を入力"
+              }
+            }
+          },
+          "addon": {
+            "button": "アドオンの作成",
+            "title": "アドオンの作成",
+            "form": {
+              "name": {
+                "label": "名称"
+              },
+              "price": {
+                "label": "価格"
+              }
+            }
+          }
+        },
+        "diets": {
+          "edit": {
+            "title": "エディット・ダイエット",
+            "form": {
+              "name": {
+                "label": "名前を入力"
+              }
+            },
+            "button": "更新"
+          },
+          "delete": {
+            "title": "本当にこの食事を削除したいのですか？",
+            "description": "この操作は元に戻せません。これでこのダイエットは永久に削除されます。",
+            "cancel": "キャンセル",
+            "continue": "続ける"
+          }
+        },
+        "addons": {
+          "edit": {
+            "title": "アドオン追加",
+            "description": "メニューに新しいアドオンを追加する",
+            "form": {
+              "name": {
+                "label": "名前を入力"
+              },
+              "price": {
+                "label": "価格を入力"
+              }
+            },
+            "button": "追加"
+          },
+          "delete": {
+            "title": "本当にこのアドオンを削除しますか？",
+            "description": "この操作は元に戻せません。このアドオンは永久に削除されます。",
+            "cancel": "キャンセル",
+            "continue": "続ける"
+          }
+        },
+        "listItem": {
+          "edit": "編集",
+          "delete": "削除"
+        }
+      },
+      "items": {
+        "add": {
+          "form": {
+            "preparationTime": {
+              "placeholder": "0"
+            }
+          },
+          "validation": {
+            "name": "有効な名前を入力してください",
+            "description": "説明を入力してください",
+            "price": "有効な価格を入力してください",
+            "ingredients": "材料を加える"
+          },
+          "appSections": {
+            "title": "アプリ・セクション",
+            "chefsRecommended": {
+              "label": "シェフのおすすめ",
+              "subtitle": "シェフおすすめの一品に"
+            },
+            "popular": {
+              "label": "ポピュラー",
+              "subtitle": "この料理を人気メニューにする"
+            },
+            "new": {
+              "label": "新しい",
+              "subtitle": "この料理を新しい料理にする"
+            }
+          },
+          "components": {
+            "diets": {
+              "label": "食事の好み",
+              "button": "ダイエットを追加する",
+              "modal": {
+                "title": "ダイエットを追加する",
+                "button": "追加",
+                "form": {
+                  "name": {
+                    "label": "名前を入力"
+                  }
+                }
+              }
+            },
+            "addons": {
+              "label": "アドオン",
+              "button": "アドオン追加",
+              "modal": {
+                "title": "アドオン追加",
+                "button": "追加",
+                "form": {
+                  "name": {
+                    "label": "名前を入力"
+                  }
+                }
+              }
+            },
+            "allergens": {
+              "label": "アレルゲン"
+            },
+            "ingredients": {
+              "empty": "クリックして食材を選択",
+              "modal": {
+                "title": "厳選素材",
+                "search": {
+                  "placeholder": "検索..."
+                },
+                "add": "追加",
+                "remove": "削除",
+                "buttons": {
+                  "cancel": "キャンセル",
+                  "done": "完了"
+                }
+              },
+              "toast": {
+                "success": "成分リストに追加",
+                "deleteSuccess": "成分削除成功"
+              }
+            },
+            "variants": {
+              "title": "バリエーション",
+              "description": "このメニューのさまざまなバリエーションを追加する（サイズ、スタイル、分量など）",
+              "empty": "まだバリアントは追加されていません。バリアントを追加」をクリックしてください。",
+              "button": "バリアント追加",
+              "variant": "バリアント",
+              "form": {
+                "name": {
+                  "label": "名称",
+                  "placeholder": "例：スモール、ミディアム、ラージ"
+                },
+                "price": {
+                  "label": "価格",
+                  "placeholder": "0.00"
+                },
+                "available": {
+                  "label": "注文可能"
+                }
+              },
+              "remove": "バリアントの削除"
+            },
+            "discount": {
+              "empty": {
+                "title": "割引なし",
+                "description": "割引を追加して特別価格を提供する",
+                "button": "割引の追加"
+              },
+              "title": "割引内容",
+              "form": {
+                "label": {
+                  "label": "割引ラベル"
+                },
+                "type": {
+                  "label": "割引タイプ",
+                  "placeholder": "割引タイプを選択",
+                  "percentage": "パーセント",
+                  "fixed": "固定"
+                },
+                "value": {
+                  "label": "割引額"
+                },
+                "startDate": {
+                  "label": "開始日時"
+                },
+                "endDate": {
+                  "label": "終了日時"
+                }
+              }
+            }
+          },
+          "bulk": {
+            "title": "メニュー項目の一括アップロード",
+            "description": "CSVファイルをアップロードして列をマッピングし、メニュー項目を一括作成する",
+            "tabs": {
+              "upload": "CSVアップロード",
+              "map": "地図コラム",
+              "preview": "プレビュー＆確認"
+            },
+            "upload": {
+              "dragDrop": "CSVファイルをここにドラッグ＆ドロップ",
+              "clickBrowse": "またはクリックしてブラウズ",
+              "formatRequirements": {
+                "title": "CSVフォーマットの要件",
+                "firstRow": "最初の行は列のヘッダーを含む",
+                "supportedFormats": "対応フォーマット：テキスト/csvまたは拡張子.csv",
+                "columnNames": "カラム名がデータと一致していることを確認する",
+                "nextStep": "次のステップで、これらのカラムをメニュー項目のフィールドにマッピングする。"
+              }
+            },
+            "mapper": {
+              "csvColumnsFound": "見つかったCSVカラム",
+              "sampleData": "サンプルデータ（1行目）",
+              "columnMappings": "カラムマッピング",
+              "addMapping": "+ マッピングの追加",
+              "noMappings": "マッピングはまだありません。最初のカラムマッピングを追加します。",
+              "csvColumn": "CSVコラム",
+              "menuItemField": "メニュー項目フィールド",
+              "allRequiredMapped": "すべての必須フィールドのマッピング",
+              "missingRequired": "必須項目の記入漏れ",
+              "required": "必須",
+              "continueToPreview": "プレビューへ続く"
+            },
+            "preview": {
+              "totalRows": "行数",
+              "selected": "厳選された",
+              "fieldsMapped": "マッピングされたフィールド",
+              "dataPreview": "データプレビュー",
+              "showAll": "すべて表示",
+              "showFirst10": "最初の10件を表示",
+              "showing": "10件を表示",
+              "rows": "行",
+              "yes": "はい",
+              "no": "いいえ",
+              "empty": "—",
+              "startOver": "やり直し",
+              "uploading": "アップロード...",
+              "upload": "アップロード",
+              "items": "アイテム",
+              "fieldNames": {
+                "name": "名称",
+                "section": "セクション",
+                "type": "タイプ",
+                "description": "説明",
+                "price": "価格",
+                "spiceLevel": "スパイス・レベル",
+                "cookTime": "調理時間",
+                "ingredients": "原材料",
+                "images": "画像",
+                "translations": "翻訳",
+                "variants": "バリエーション",
+                "addons": "アドオン",
+                "allergens": "アレルゲン"
+              }
+            }
+          }
+        },
+        "edit": {
+          "validation": {
+            "name": "有効な名前を入力してください"
+          },
+          "appSections": {
+            "title": "アプリ・セクション",
+            "chefsRecommended": {
+              "label": "シェフのおすすめ",
+              "subtitle": "シェフおすすめの一品に"
+            },
+            "popular": {
+              "label": "ポピュラー",
+              "subtitle": "この料理を人気メニューにする"
+            },
+            "new": {
+              "label": "新しい",
+              "subtitle": "この料理を新しい料理にする"
+            }
+          }
+        },
+        "preview": {
+          "description": "説明",
+          "diet": "ダイエット",
+          "allergens": "アレルゲン",
+          "ingredients": "原材料",
+          "editDish": "編集皿"
+        }
+      },
+      "components": {
+        "menuCard": {
+          "active": "アクティブ",
+          "inactive": "活動休止中",
+          "viewMenuSections": "メニューセクションを見る",
+          "delete": {
+            "title": "削除メニュー",
+            "description": "本当に\"{名前}\"を削除しますか？この操作は取り消せません。",
+            "cancel": "キャンセル",
+            "confirm": "削除"
+          },
+          "edit": {
+            "title": "編集メニュー",
+            "description": "ここでメニューを変更します。終わったら保存をクリックしてください。",
+            "form": {
+              "name": "名称",
+              "description": "説明"
+            },
+            "save": "変更を保存する",
+            "saving": "節約..."
+          },
+          "toast": {
+            "authRequired": "認証が必要です。もう一度ログインしてください。",
+            "deleteSuccess": "メニューの削除に成功",
+            "deleteError": "メニューの削除に失敗しました",
+            "updateSuccess": "メニューの更新に成功",
+            "updateError": "メニューの更新に失敗しました"
+          }
+        }
+      }
+    },
+    "settings": {
+      "header": "設定",
+      "headerBtns": {
+        "profile": "プロフィール",
+        "qrCode": "メニューQRコード"
+      },
+      "email": {
+        "title": "電子メールの変更",
+        "subtitle": "新しいEメールアドレスを入力してEメールを更新してください。現在のメールアドレスに確認のためOTPを送信します。",
+        "updateEmail": "電子メールの更新",
+        "resendOtp": "OTPの再送信",
+        "save": "セーブ",
+        "update": "更新",
+        "modalLabel": "コードを入力"
+      },
+      "password": {
+        "title": "パスワードの変更",
+        "subtitle": "ご希望のパスワードを入力してパスワードを更新してください。確認のため、EメールにOTPを送信します。",
+        "oldPassword": "現在のパスワード",
+        "newPassword": "新しいパスワード",
+        "confirmPassword": "パスワードの確認",
+        "resendOtp": "OTPの再送信",
+        "save": "セーブ",
+        "update": "更新",
+        "modalLabel": "コードを入力"
+      },
+      "brand": {
+        "title": "その他の情報",
+        "subtitle": "アカウントに関する情報の更新",
+        "form": {
+          "logoLabel": "ロゴの更新",
+          "sloganLabel": "スローガンの更新",
+          "sloganPlaceholder": "スローガンの更新",
+          "addressLabel": "住所の更新",
+          "addressPlaceholder": "住所の更新",
+          "languageLabel": "デフォルト言語",
+          "currencyLabel": "デフォルト通貨",
+          "bannerLabel": "更新バナー"
+        },
+        "buttons": {
+          "cancel": "キャンセル",
+          "update": "更新"
+        }
+      },
+      "brandCustomisation": {
+        "title": "ブランドのカスタマイズ",
+        "subTitle": "顧客に表示するディスプレイ情報を更新する",
+        "form": {
+          "updateName": "更新名",
+          "updateSlogan": "スローガンの更新",
+          "updateColors": "アップデートカラー",
+          "updateLogo": "ロゴの更新",
+          "defaultLanguage": "デフォルト言語",
+          "cancel": "キャンセル",
+          "save": "セーブ"
+        }
+      },
+      "personalInformation": {
+        "title": "個人情報",
+        "subTitle": "アカウント情報の更新",
+        "form": {
+          "pictureEdit": "編集",
+          "updateEmail": "電子メールの更新",
+          "updatePassword": "パスワードの更新",
+          "cancel": "キャンセル",
+          "save": "セーブ"
+        }
+      },
+      "qrCode": {
+        "header": {
+          "title": "メニューQRコード",
+          "subTitle": "このQRコードをお客様と共有することで、お客様は簡単にデジタルメニューにアクセスすることができます。"
+        },
+        "body": {
+          "qrCodeTitle": "お客様はこのコードをスキャンしてメニューを表示します。",
+          "menuUrl": "メニューURL",
+          "copied": "クリップボードにコピーされたURL！"
+        },
+        "button": "QRコードをダウンロード",
+        "footer": {
+          "title": "使用方法",
+          "step1": "- QRコードを印刷してテーブルに貼る",
+          "step2": "- レストランの販促資料に加える",
+          "step3": "- 顧客に直接URLを共有する",
+          "step4": "- スクリーンやデジタルサイネージに表示する"
+        }
+      }
+    },
+    "audit": {
+      "header": "監査",
+      "error": "監査ログの読み込みエラー。再試行してください。",
+      "table": {
+        "entity": "エンティティ",
+        "action": "アクション",
+        "entityName": "団体名",
+        "performedBy": "出演",
+        "createdAt": "作成日時"
+      },
+      "notAvailable": "該当なし",
+      "filters": {
+        "allEntities": "すべての団体",
+        "allActions": "すべての行動",
+        "limit": "制限"
+      }
+    }
+  },
+  "paginator": {
+    "previous": "前へ",
+    "next": "次のページ",
+    "more": "その他のページ"
+  }
+}

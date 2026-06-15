@@ -1,0 +1,16 @@
+export default {
+  login: "super/auth/login",
+  fetchRestaurant: "super/restaurants/",
+  createRestaurant: "super/restaurants/",
+  fetchSubscriptions: "super/subscriptions/",
+  setup: "shared/base/setup",
+  forgotPassword: "shared/auth/forgot-password",
+  verifyOtp: "shared/auth/verify-otp",
+  resetPassword: "shared/auth/reset-password",
+  releaseAccount: "super/restaurants/release-account",
+  alterSuspend: (id: string) => `super/restaurants/alter-suspend/${id}`,
+  subscriptionStats: "super/stats/subscriptions",
+  totals: "super/stats/total",
+  viewRestaurant: (id: string) => `super/restaurants/${id}`,
+  restaurantAiUsage: (id: string) => `super/restaurants/${id}/ai-usage`,
+};

@@ -1,0 +1,236 @@
+{
+  "languageSelect": {
+    "title": "Selecione o seu idioma preferido",
+    "continueBtn": "Continuar",
+    "loading": "a buscar línguas...",
+    "notFound": "Não encontrado"
+  },
+  "optionsSelect": {
+    "backBtn": "Voltar",
+    "title": {
+      "1": "Escolher uma ação",
+      "2": "Como gostaria de começar a explorar?"
+    },
+    "options": {
+      "1": {
+        "label": "Preferências alimentares",
+        "subtext": "Defina as suas preferências de gosto e dieta para uma experiência de menu personalizada"
+      },
+      "2": {
+        "label": "Perguntar ao SaucyChat",
+        "subtext": "Converse com a nossa IA para obter recomendações instantâneas e inteligentes de pratos"
+      },
+      "3": {
+        "label": "Ir para Menus",
+        "subtext": "Navegue pelo menu completo sem filtros ou configurações"
+      }
+    },
+    "continueBtn": "Continuar"
+  },
+  "selectDiet": {
+    "toast": {
+      "success": "Dietas salvas com sucesso",
+      "warning": "Algo correu mal"
+    },
+    "title": "Selecione o seu plano de dieta",
+    "subTitle": "Vamos conhecer o seu gosto. Selecione um plano que seja adequado para si.",
+    "searchPlaceholder": "Pesquisar",
+    "Buttons": {
+      "Back": "Voltar",
+      "Proceed": "Prosseguir",
+      "Skip": "Saltar"
+    }
+  },
+  "allergens": {
+    "toast": {
+      "success": "Alergias salvas com sucesso",
+      "warning": "Algo correu mal"
+    },
+    "title": "A que é que é alérgico?",
+    "subTitle": "Ajudá-lo a sentir-se no seu melhor começa com o que deixamos de fora.",
+    "searchPlaceholder": "Pesquisar",
+    "Buttons": {
+      "Back": "Voltar",
+      "Proceed": "Prosseguir",
+      "Skip": "Saltar"
+    }
+  },
+  "menuItems": {
+    "title": "Itens do menu",
+    "searchPlaceholder": "Itens do menu de pesquisa",
+    "loadingMessage": {
+      "more": "Carregando mais...",
+      "scroll": "Deslocar-se para mais"
+    }
+  },
+  "craftedFood": {
+    "title": "Eis o que criámos só para si",
+    "subTitle": "Refeições escolhidas a dedo, inspiradas nos seus gostos, preferências e estilo de vida.",
+    "searchPlaceholder": "Pesquisar",
+    "Buttons": {
+      "goToFoodMenu": "Ir para o menu de comida",
+      "goToDrinksMenu": "Ir para o menu de bebidas",
+      "Skip": "Saltar"
+    },
+    "suggest": "Sugerir outra coisa",
+    "seeOriginal": " Ver menu original",
+    "youMayAlsoLike": "Também pode gostar"
+  },
+  "foodMenu": {
+    "title": "Explore os nossos pratos",
+    "headerBtn": "Ir para o menu de bebidas",
+    "searchPlaceholder": "Pesquisar",
+    "all": "Todos",
+    "forYou": "Para si",
+    "loadingMessage": {
+      "more": "Carregando mais...",
+      "scroll": "Percorrer para ver mais"
+    }
+  },
+  "foodProfile": {
+    "title": "Perfil alimentar",
+    "toast": {
+      "success": "Revisão submetida com sucesso",
+      "warning": "Algo correu mal"
+    },
+    "details": {
+      "ingredients": "Ingredientes",
+      "spice": "Nível de especiarias",
+      "dietary": "Etiquetas dietéticas",
+      "allergens": "Alergénios",
+      "diets": "Dietas"
+    },
+    "discount": {
+      "off": "desligado",
+      "validUntil": "Válido até",
+      "validFrom": "Válido a partir de"
+    },
+    "review": {
+      "rate": "Taxa",
+      "review": "Deixar um comentário",
+      "submit": "Enviar avaliação"
+    },
+    "addons": "Complementos",
+    "variants": "Variantes",
+    "askSaucyChat": "Perguntar ao SaucyChat",
+    "timeUnspecified": "Tempo não especificado"
+  },
+  "drinkMenu": {
+    "title": "Explore as nossas bebidas",
+    "headerBtn": "Ir para o menu de comida",
+    "searchPlaceholder": "Pesquisar",
+    "all": "Todos",
+    "tapToView": " Toque para ver os detalhes",
+    "forYou": "Para si",
+    "modal": {
+      "drinkType": "Tipo de bebida",
+      "alcoholic": "Alcoólico",
+      "available": "Disponível",
+      "variants": "Variantes"
+    },
+    "loadingMessage": {
+      "more": "Carregando mais...",
+      "scroll": "Percorrer para ver mais"
+    }
+  },
+  "aiPretext": {
+    "0": {
+      "title": "Este artigo contém algum alergénio?",
+      "subtext": "Verificar se existem frutos secos, lacticínios, glúten, marisco ou outros alergénios comuns"
+    },
+    "1": {
+      "title": "É adequado para a minha dieta?",
+      "subtext": "Ver se se adequa a necessidades vegetarianas, veganas, keto, halal ou sem glúten"
+    },
+    "2": {
+      "title": "Quão picante é este prato?",
+      "subtext": "Compreender o nível de calor antes de encomendar"
+    },
+    "3": {
+      "title": "Este artigo pode ser personalizado?",
+      "subtext": "Modificar os ingredientes, retirar os toppings ou ajustar o nível de especiarias"
+    },
+    "4": {
+      "title": "Que ingredientes estão incluídos?",
+      "subtext": "Ver a lista completa dos componentes deste prato"
+    },
+    "5": {
+      "title": "Qual é o tamanho da porção?",
+      "subtext": "Saber se é ideal para uma pessoa ou para partilhar"
+    },
+    "6": {
+      "title": "Como é que isto é preparado?",
+      "subtext": "Aprender sobre métodos de cozedura como grelhar, fritar ou assar"
+    },
+    "7": {
+      "title": "Quais são os pormenores nutricionais?",
+      "subtext": "Ver informações sobre calorias, proteínas, hidratos de carbono e gorduras"
+    },
+    "8": {
+      "title": "Este produto é fresco ou pré-preparado?",
+      "subtext": "Compreender como e quando é fabricado"
+    },
+    "9": {
+      "title": "Existem suplementos premium disponíveis?",
+      "subtext": "Melhore este prato com coberturas extra ou actualizações"
+    }
+  },
+  "ai": {
+    "header": "Menu picante IA",
+    "hiText": "Olá, chamo-me SaucyAI",
+    "message": " Pergunte-me sobre as promoções do dia, os itens do menu ou qualquer outra coisa.",
+    "thinking": "pensar...",
+    "searchPlaceholder": "Perguntar algo...",
+    "logoAlt": "Logótipo Saucy Menu"
+  },
+  "common": {
+    "mins": "minas",
+    "back": "Voltar",
+    "notFound": "Não encontrado"
+  },
+  "menus": {
+    "addAllergensDiets": "Adicionar alergénios e dietas",
+    "seeOurMenus": "Ver os nossos menus",
+    "chefsRecommendations": "Recomendações do Chef",
+    "whatsPopular": "O que é popular",
+    "allergenDietsMode": "Modo de alergénios e dietas",
+    "search": "Pesquisar",
+    "menuItems": "itens do menu",
+    "menu": "Menu",
+    "searchPlaceholderTemplate": "Pesquisar {menuName} Menu"
+  },
+  "modal": {
+    "addAllergensDiets": "Adicionar alergénios e dietas",
+    "description": "Selecionar alergénios e dietas para filtrar alimentos e bebidas",
+    "cancel": "Cancelar",
+    "updating": "Atualização...",
+    "applyFilters": "Aplicar filtros",
+    "allergens": "Alergénios",
+    "searchAllergens": "Pesquisar alergénios",
+    "diets": "Dietas",
+    "searchDiets": "Pesquisar dietas",
+    "preferencesUpdated": "As preferências foram actualizadas com sucesso!",
+    "failedUpdate": "Falha ao atualizar as preferências"
+  },
+  "ui": {
+    "starRating": {
+      "outOf": "fora de",
+      "star": "estrela",
+      "stars": "estrelas"
+    },
+    "spiceLevel": {
+      "mild": "LEVE",
+      "medium": "MÉDIO",
+      "hot": "QUENTE",
+      "extraHot": "EXTRA QUENTE",
+      "extreme": "EXTREMO"
+    },
+    "nullState": {
+      "title": "Nada aqui ainda",
+      "subtitle": "Não há artigos disponíveis, volte a consultar em breve."
+    },
+    "spinner": {
+      "loading": "A carregar o menu..."
+    }
+  }
+}

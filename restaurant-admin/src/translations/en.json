@@ -1,0 +1,1172 @@
+{
+    "auth": {
+        "main": {
+            "header": {
+                "login": "Login",
+                "resetPassword": "Reset Password"
+            },
+            "copyright": {
+                "1": "Copyright 2025",
+                "2": "All Rights Reserved"
+            }
+        },
+        "login": {
+            "title": {
+                "1": "Login To Your",
+                "2": "Admin Dashboard"
+            },
+            "form": {
+                "email": {
+                    "label": "Email",
+                    "placeholder": "admin@example.com"
+                },
+                "password": {
+                    "label": "Password",
+                    "placeholder": "*********"
+                },
+                "keepLoggedIn": {
+                    "label": "Remember me"
+                },
+                "submit": "Submit",
+                "forgotPassword": "Forgot Password?"
+            }
+        },
+        "reset": {
+            "title": {
+                "1": "Enter Email To",
+                "2": "Receive OTP Code"
+            },
+            "form": {
+                "password": {
+                    "label": "Password",
+                    "placeholder": "********"
+                },
+                "confirmPassword": {
+                    "label": "Confirm Password",
+                    "placeholder": "*********"
+                },
+                "back": "Back",
+                "submit": "Submit"
+            }
+        },
+        "enterOtp": {
+            "title": {
+                "1": "  Enter Otp Code Then",
+                "2": "  Proceed to Update Password"
+            },
+            "form": {
+                "code": "Enter Code",
+                "resendCode": "Resend Code ",
+                "confirmPassword": {
+                    "label": "Confirm Password",
+                    "placeholder": "*********"
+                },
+                "back": "Back",
+                "submit": "Submit"
+            }
+        },
+        "setup": {
+            "header": " Brand Setup",
+            "title": {
+                "1": " Add Your Brand's",
+                "2": "Visual Outlook"
+            },
+            "form": {
+                "brandName": {
+                    "label": "Brand Name",
+                    "placeholder": "Enter Brand Name"
+                },
+                "updateLogo": {
+                    "label": "Update Logo",
+                    "placeholder": "Choose logo"
+                },
+                "brandSlogan": {
+                    "label": "Brand Slogan",
+                    "placeholder": "Enter Brand Slogan"
+                },
+                "currency": {
+                    "label": "Default Currency",
+                    "placeholder": "Select Currency"
+                },
+                "language": {
+                    "label": "Default Language",
+                    "placeholder": "Select Language"
+                },
+                "back": "Back",
+                "submit": "Submit"
+            }
+        }
+    },
+    "sideNav": {
+        "dashboard": "Dashboard",
+        "menu": "Menus",
+        "menusAndSections": "Menus and Sections",
+        "menuItems": "Menu Items",
+        "addFood": "Add Food",
+        "addDrinks": "Add Drinks",
+        "menuClass": "Menu Classifications",
+        "review": "Review",
+        "sub": "Subscription",
+        "audit": "Audit",
+        "settings": "Settings",
+        "logout": "Logout",
+        "updatePlan": {
+            "title": "Update Your Plan",
+            "subtitle": "Edit your plan to suit your preference",
+            "cta": "Update Now",
+            "imageAlt": "Grilled meats and dipping sauces"
+        }
+    },
+    "admin": {
+        "dashboard": {
+            "header": "Dashboard",
+            "customersLabel": "Customers",
+            "dishLabel": "All Dishes",
+            "totalDishes": "Total Dishes",
+            "totalInteractions": "Total Interactions",
+            "dishesBtn": "All Dishes",
+            "lineChart": {
+                "customers": "Customers"
+            },
+            "AI": {
+                "title": "AI credits Used",
+                "subTitle": "Total number of AI credits used when customers use the chat interface"
+            },
+            "customersOverview": "Customers Overview"
+        },
+        "dishPieChart": {
+            "title": "Pie Chart - Dishes by Dish Types",
+            "footer": "Showing total dish types and their count."
+        },
+        "review": {
+            "header": "Reviews",
+            "title": "Total Reviews",
+            "filter": "Filter Rating",
+            "order": "Order ID "
+        },
+        "audit": {
+            "header": "Audit",
+            "error": "Error loading audit logs. Please try again.",
+            "table": {
+                "entity": "Entity",
+                "action": "Action",
+                "entityName": "Entity Name",
+                "performedBy": "Performed By",
+                "createdAt": "Created At"
+            },
+            "notAvailable": "N/A",
+            "filters": {
+                "allEntities": "All Entities",
+                "allActions": "All Actions",
+                "limit": "Limit"
+            }
+        },
+        "subs": {
+            "title": "Manage Subscriptions",
+            "header": {
+                "title": "Choose A Plan Fitting For Your Customer Size",
+                "buttons": {
+                    "month": " Per Month",
+                    "year": " Per Year"
+                }
+            },
+            "unsubscribe": "Unsubscribe",
+            "subscribeNow": "Subscribe Now",
+            "subscribed": "Subscribed ",
+            "active": "Active "
+        },
+        "menu": {
+            "topArea": {
+                "header": "Menu",
+                "btns": {
+                    "dishes": "Dishes",
+                    "drinks": "Drinks"
+                },
+                "rightSide": {
+                    "searchPlaceholder": "Search",
+                    "add": "Add",
+                    "drinks": "drinks",
+                    "dishes": "dishes"
+                }
+            },
+            "dishes": {
+                "all": "All",
+                "modalTitle": "Preview Dish",
+                "emptyState": {
+                    "title": "No menus or sections yet",
+                    "description": "Add menus and sections before you can add menu items. Go to the Menus and Sections screen to get started.",
+                    "goToMenusAndSections": "Go to Menus and Sections"
+                },
+                "previewDish": {
+                    "description": "Description",
+                    "diet": "Diet",
+                    "allergens": "Allergens",
+                    "cuisine": "Cuisine",
+                    "ingredients": "Ingredients",
+                    "editDish": "Edit dish"
+                }
+            },
+            "drinks": {
+                "all": "All",
+                "modalTitle": "Preview Drink",
+                "previewDrink": {
+                    "description": "Description",
+                    "variants": "Variants",
+                    "notAvailable": "Dish Type",
+                    "editDrink": "Edit drink"
+                }
+            },
+            "editDrink": {
+                "toast": {
+                    "loading": "Removing...",
+                    "success": "Removed successfully",
+                    "error": "Something went wrong",
+                    "failed": "Failed to remove"
+                },
+                "header": {
+                    "header": "Menu",
+                    "title": "Edit Drink",
+                    "remove": {
+                        "btn": "Remove Drink",
+                        "alert": {
+                            "title": "Are you absolutely sure?",
+                            "warning": " This action cannot be undone. This action will remove this dish and anything associated to it from the system.",
+                            "cancel": "Cancel",
+                            "continue": "Continue"
+                        }
+                    }
+                },
+                "form": {
+                    "nameLabel": "name",
+                    "namePlaceholder": "Add Drink Name",
+                    "descriptionLabel": "Description",
+                    "descriptionPlaceholder": "Enter a detailed description of the drink",
+                    "available": {
+                        "label": "Available",
+                        "description": " Make this drink available on the menu"
+                    },
+                    "alcoholic": {
+                        "label": "Alcoholic",
+                        "description": " Does this drink contain alcohol?"
+                    }
+                },
+                "drinkType": {
+                    "title": "Drink Types",
+                    "addDrinkType": "Add Drink Type",
+                    "add": "Add"
+                },
+                "variants": {
+                    "header": {
+                        "title": "Variants",
+                        "btn": "Add Variant"
+                    },
+                    "form": {
+                        "quantityLabel": "Quantity",
+                        "unitLabel": "Unit",
+                        "priceLabel": "Price",
+                        "available": {
+                            "title": "Available",
+                            "description": "is this variant available?"
+                        }
+                    }
+                },
+                "remove": "Remove Variant",
+                "upload": "Upload Here",
+                "save": "Save"
+            },
+            "addDrinks": {
+                "header": "Menu",
+                "title": "Add New Drink",
+                "btn": "Upload Bulk Drinks",
+                "bulkUpload": {
+                    "title": "Upload Drinks",
+                    "bulkUploadBtn": "Bulk Upload Drinks",
+                    "uploadBtn": "Upload",
+                    "uploadBox": {
+                        "upload": "Upload Excel File",
+                        "dragAndDrop": " Drag and drop or click to browse",
+                        "btn": "Choose File"
+                    },
+                    "instructions": {
+                        "title": "Bulk Upload Instructions:",
+                        "1": "Click the",
+                        "download": "Download",
+                        "2": "button to get the template",
+                        "xlsx": ".xlsx",
+                        "file": "file.",
+                        "3": "Fill in the required details in the template.",
+                        "important": "Important:",
+                        "4": "The first row after the headers is a sample row for reference — please delete this row before uploading.",
+                        "5": "Fields that accept multiple values should be ",
+                        "comma": "comma-separated",
+                        "forExample": ". For example:",
+                        "rice": "mojito, sake, beer",
+                        "btn": "Download Template"
+                    }
+                },
+                "form": {
+                    "name": {
+                        "label": "Name",
+                        "placeholder": "Add Drink Name"
+                    },
+                    "description": {
+                        "label": "Description",
+                        "placeholder": "Enter a detailed description of the drink"
+                    },
+                    "drinkType": {
+                        "label": "Drink Type",
+                        "placeholder": "Select a drink type"
+                    },
+                    "upload": "Upload Here",
+                    "available": {
+                        "title": "Available",
+                        "subtitle": "Make this drink available on the menu"
+                    },
+                    "alcoholic": {
+                        "title": "Alcoholic",
+                        "subtitle": "Does this drink contain alcohol? "
+                    }
+                },
+                "types": {
+                    "drinkTypes": "Drink Types",
+                    "drinkTypesBtn": "Add Drink Type",
+                    "add": "Add"
+                },
+                "variants": {
+                    "header": {
+                        "title": "Variants",
+                        "btn": "Add Variant"
+                    },
+                    "form": {
+                        "quantity": "Quantity",
+                        "unit": "Unit",
+                        "unitPlaceholder": "Select a unit",
+                        "price": "Price",
+                        "available": "Available",
+                        "availableSub": "is this variant available?",
+                        "removeVariant": "Remove Variant"
+                    }
+                },
+                "image": {
+                    "title": "Images",
+                    "upload": "Upload Here"
+                },
+                "saveBtn": "Save"
+            },
+            "addDish": {
+                "appSections": {
+                    "title": "App Sections",
+                    "chefsRecommended": {
+                        "label": "Chefs Recommended",
+                        "subtitle": "Make this dish a chefs recommended dish"
+                    },
+                    "popular": {
+                        "label": "Popular",
+                        "subtitle": "Make this dish a popular dish"
+                    },
+                    "new": {
+                        "label": "New",
+                        "subtitle": "Make this dish a new dish"
+                    }
+                },
+                "title": "Menu",
+                "topSide": {
+                    "title": "Add New Dish",
+                    "btn": "Upload Bulk Dishes"
+                },
+                "bulkUpload": {
+                    "title": "Upload Dish",
+                    "uploadBtn": "Upload",
+                    "uploadBox": {
+                        "upload": "Upload Excel File",
+                        "dragAndDrop": " Drag and drop or click to browse",
+                        "btn": "Choose File"
+                    },
+                    "instructions": {
+                        "title": "Bulk Upload Instructions:",
+                        "1": "Click the",
+                        "download": "Download",
+                        "2": "button to get the template",
+                        "xlsx": ".xlsx",
+                        "file": "file.",
+                        "3": "Fill in the required details in the template.",
+                        "important": "Important:",
+                        "4": "The first row after the headers is a sample row for reference — please delete this row before uploading.",
+                        "5": "Fields that accept multiple values should be ",
+                        "comma": "comma-separated",
+                        "forExample": ". For example:",
+                        "rice": "rice, beans, stew",
+                        "btn": "Download Template"
+                    }
+                },
+                "form": {
+                    "name": {
+                        "label": "Name",
+                        "placeholder": "Add Food Name"
+                    },
+                    "price": {
+                        "label": "Price",
+                        "placeholder": "Enter Food Price "
+                    },
+                    "description": {
+                        "label": "Description",
+                        "placeholder": "Enter a detailed description of the food"
+                    },
+                    "preparationTime": {
+                        "label": "Preparation Time (minutes)"
+                    },
+                    "spiceLevel": {
+                        "label": "Spice Level ",
+                        "placeholder": "Select spice level",
+                        "clear": "Clear",
+                        "spiceLevels": {
+                            "mild": {
+                                "value": "mild",
+                                "label": "Mild"
+                            },
+                            "medium": {
+                                "value": "medium",
+                                "label": "Medium"
+                            },
+                            "spicy": {
+                                "value": "spicy",
+                                "label": "Spicy"
+                            },
+                            "verySpicy": {
+                                "value": "very_spicy",
+                                "label": "Very Spicy"
+                            }
+                        }
+                    },
+                    "available": {
+                        "title": "Available",
+                        "subtitle": "Make this dish available on the menu"
+                    }
+                },
+                "ingredients": {
+                    "title": "Ingredients",
+                    "btn": "Add ingredient",
+                    "placeholder": "Ingredient name",
+                    "removeBtn": "Remove Ingredient"
+                },
+                "types": {
+                    "dishTypes": "Dish Types",
+                    "dishTypesBtn": "Add category",
+                    "dietaryPreferences": "Dietary Preferences",
+                    "dietaryPreferencesbtn": "Add Diet",
+                    "allergens": "Allergens",
+                    "allergensBtn": "Add Allergens",
+                    "addons": "Add Ons",
+                    "addonsBtn": "Add Addon",
+                    "add": "Add"
+                },
+                "image": {
+                    "title": "Images",
+                    "upload": "Upload Here"
+                },
+                "saveBtn": "Save"
+            },
+            "editDish": {
+                "toast": {
+                    "loading": "Removing...",
+                    "success": "Removed successfully",
+                    "error": "Something went wrong",
+                    "failed": "Failed to remove"
+                },
+                "header": {
+                    "header": "Menu",
+                    "title": "Edit Dish",
+                    "remove": {
+                        "btn": "Remove Dish",
+                        "alert": {
+                            "title": "Are you absolutely sure?",
+                            "warning": " This action cannot be undone. This action will remove this dish and anything associated to it from the system.",
+                            "cancel": "Cancel",
+                            "continue": "Continue"
+                        }
+                    }
+                },
+                "form": {
+                    "nameLabel": "name",
+                    "namePlaceholder": "Add Dish Name",
+                    "descriptionLabel": "Description",
+                    "priceLabel": "Price",
+                    "pricePlaceholder": "Enter Food Price",
+                    "descriptionPlaceholder": "Enter a detailed description of the dish",
+                    "preparationLabel": "Preparation Time",
+                    "spiceLabel": "Spice Label",
+                    "available": {
+                        "label": "Available",
+                        "description": " Make this drink available on the menu"
+                    },
+                    "alcoholic": {
+                        "label": "Alcoholic",
+                        "description": " Does this drink contain alcohol?"
+                    }
+                },
+                "drinkType": {
+                    "title": "Drink Types",
+                    "addDrinkType": "Add Drink Type",
+                    "add": "Add"
+                },
+                "variants": {
+                    "header": {
+                        "title": "Variants",
+                        "btn": "Add Variant"
+                    },
+                    "form": {
+                        "name": {
+                            "label": "Name",
+                            "placeholder": "Add Food Name"
+                        },
+                        "price": {
+                            "label": "Price",
+                            "placeholder": "Enter Food Price "
+                        },
+                        "description": {
+                            "label": "Description",
+                            "placeholder": "Enter a detailed description of the food"
+                        },
+                        "preparationTime": {
+                            "label": "Preparation Time (minutes)"
+                        },
+                        "spiceLevel": {
+                            "label": "Spice Level ",
+                            "placeholder": "Select spice level",
+                            "clear": "Clear",
+                            "spiceLevels": {
+                                "mild": {
+                                    "value": "mild",
+                                    "label": "Mild"
+                                },
+                                "medium": {
+                                    "value": "medium",
+                                    "label": "Medium"
+                                },
+                                "spicy": {
+                                    "value": "spicy",
+                                    "label": "Spicy"
+                                },
+                                "verySpicy": {
+                                    "value": "very_spicy",
+                                    "label": "Very Spicy"
+                                }
+                            }
+                        },
+                        "available": {
+                            "title": "Available",
+                            "subtitle": "Make this dish available on the menu"
+                        }
+                    },
+                    "ingredients": {
+                        "title": "Ingredients",
+                        "btn": "Add ingredient",
+                        "placeholder": "Ingredient name",
+                        "removeBtn": "Remove Ingredient"
+                    },
+                    "types": {
+                        "dishTypes": "Dish Types",
+                        "dishTypesBtn": "Add category",
+                        "dietaryPreferences": "Dietary Preferences",
+                        "dietaryPreferencesbtn": "Add Diet",
+                        "allergens": "Allergens",
+                        "allergensBtn": "Add Allergens",
+                        "add": "Add"
+                    },
+                    "image": {
+                        "title": "Images",
+                        "upload": "Upload Here"
+                    },
+                    "saveBtn": "Save"
+                },
+                "remove": "Remove Variant",
+                "upload": "Upload Here",
+                "save": "Save",
+                "cancel": "Cancel"
+            },
+            "menuClassifications": {
+                "header": {
+                    "header": "Menu",
+                    "title": "Menu Classifications",
+                    "btn": "Add New Classification"
+                },
+                "card": {
+                    "title": {
+                        "cuisine": "Cuisine",
+                        "diet": "Diets",
+                        "addOns": "Add Ons",
+                        "allergen": "Allergen",
+                        "drinkType": "Drink Types"
+                    },
+                    "subTitle": "Select individual items from the list below to assign foods tothem",
+                    "subTitleDrink": "Select individual items from the list below to assign foods tothem",
+                    "description": "Select individual items from the list below to assign foods to them"
+                },
+                "editClassTitle": "Select available foods to add them as",
+                "addToList": "Add to list"
+            }
+        },
+        "menus": {
+            "header": {
+                "title": "Menus",
+                "restaurantMenu": "Menu"
+            },
+            "search": {
+                "placeholder": "Search"
+            },
+            "create": {
+                "button": "Create New Menu",
+                "dialog": {
+                    "title": "Create New Menu",
+                    "description": "Add a new menu to your restaurant.",
+                    "form": {
+                        "name": {
+                            "label": "Name",
+                            "placeholder": "Menu name"
+                        },
+                        "description": {
+                            "label": "Description",
+                            "placeholder": "Menu description"
+                        }
+                    },
+                    "button": {
+                        "creating": "Creating...",
+                        "create": "Create Menu"
+                    }
+                }
+            },
+            "sections": {
+                "header": {
+                    "title": "Menu Sections"
+                },
+                "search": {
+                    "placeholder": "Search"
+                },
+                "menu": {
+                    "suffix": " Menu",
+                    "edit": {
+                        "button": "Edit Menu",
+                        "dialog": {
+                            "title": "Edit Menu",
+                            "description": "Make changes to your menu here. Click save when you're done.",
+                            "form": {
+                                "name": {
+                                    "label": "Name"
+                                },
+                                "description": {
+                                    "label": "Description"
+                                }
+                            },
+                            "save": "Save changes",
+                            "saving": "Saving..."
+                        },
+                        "toast": {
+                            "success": "Menu updated successfully",
+                            "error": "Failed to update menu"
+                        }
+                    },
+                    "delete": {
+                        "button": "Delete Menu",
+                        "dialog": {
+                            "title": "Delete Menu",
+                            "description": "Are you sure you want to delete \"{name}\"? This action cannot be undone.",
+                            "cancel": "Cancel",
+                            "confirm": "Delete"
+                        },
+                        "toast": {
+                            "success": "Menu deleted successfully",
+                            "error": "Failed to delete menu"
+                        }
+                    }
+                },
+                "create": {
+                    "button": "Add New Menu Section",
+                    "dialog": {
+                        "title": "Add New Menu Section",
+                        "description": "Create a new section for this menu.",
+                        "form": {
+                            "name": {
+                                "label": "Name",
+                                "placeholder": "Section name"
+                            },
+                            "description": {
+                                "label": "Description",
+                                "placeholder": "Section description"
+                            }
+                        },
+                        "button": {
+                            "creating": "Creating...",
+                            "create": "Create Section"
+                        }
+                    },
+                    "toast": {
+                        "success": "Menu section created successfully",
+                        "error": "Failed to create menu section"
+                    }
+                },
+                "card": {
+                    "edit": "Edit",
+                    "disable": "Disable",
+                    "delete": "Delete",
+                    "editDialog": {
+                        "title": "Edit Section",
+                        "form": {
+                            "name": {
+                                "label": "Name"
+                            },
+                            "description": {
+                                "label": "Description"
+                            },
+                            "button": "Save"
+                        }
+                    },
+                    "deleteDialog": {
+                        "title": "Delete Section",
+                        "description": "Are you sure you want to delete this section and all its menu items?",
+                        "cancel": "Cancel",
+                        "delete": "Delete"
+                    }
+                }
+            },
+            "classifications": {
+                "header": {
+                    "header": "Menu",
+                    "title": "Menu Classifications",
+                    "back": "Menu Classifications",
+                    "btn": "Add New Classification"
+                },
+                "search": {
+                    "placeholder": "Search"
+                },
+                "card": {
+                    "title": {
+                        "cuisine": "Cuisine",
+                        "diet": "Diets",
+                        "addOns": "Add Ons",
+                        "allergen": "Allergen",
+                        "drinkType": "Drink Types"
+                    },
+                    "description": "Select individual items from the list below to assign foods to them"
+                },
+                "create": {
+                    "diet": {
+                        "button": "Create Diet",
+                        "title": "Create Diet",
+                        "form": {
+                            "name": {
+                                "label": "Enter Name"
+                            }
+                        }
+                    },
+                    "addon": {
+                        "button": "Create Addon",
+                        "title": "Create Addon",
+                        "form": {
+                            "name": {
+                                "label": "Name"
+                            },
+                            "price": {
+                                "label": "Price"
+                            }
+                        }
+                    }
+                },
+                "diets": {
+                    "edit": {
+                        "title": "Edit Diet",
+                        "form": {
+                            "name": {
+                                "label": "Enter Name"
+                            }
+                        },
+                        "button": "Update"
+                    },
+                    "delete": {
+                        "title": "Are you sure you want to delete this diet?",
+                        "description": "This action cannot be undone. This will permanently delete this diet.",
+                        "cancel": "Cancel",
+                        "continue": "Continue"
+                    }
+                },
+                "addons": {
+                    "edit": {
+                        "title": "Add Addon",
+                        "description": "Add a new addon to the menu",
+                        "form": {
+                            "name": {
+                                "label": "Enter Name"
+                            },
+                            "price": {
+                                "label": "Enter Price"
+                            }
+                        },
+                        "button": "Add"
+                    },
+                    "delete": {
+                        "title": "Are you sure you want to delete this addon?",
+                        "description": "This action cannot be undone. This will permanently delete this addon.",
+                        "cancel": "Cancel",
+                        "continue": "Continue"
+                    }
+                },
+                "listItem": {
+                    "edit": "Edit",
+                    "delete": "Delete"
+                }
+            },
+            "items": {
+                "add": {
+                    "form": {
+                        "preparationTime": {
+                            "placeholder": "0"
+                        }
+                    },
+                    "validation": {
+                        "name": "Please enter a valid name",
+                        "description": "Please enter a description",
+                        "price": "Please enter a valid price",
+                        "ingredients": "Add the ingredients"
+                    },
+                    "appSections": {
+                        "title": "App Sections",
+                        "chefsRecommended": {
+                            "label": "Chefs Recommended",
+                            "subtitle": "Make this dish a chefs recommended dish"
+                        },
+                        "popular": {
+                            "label": "Popular",
+                            "subtitle": "Make this dish a popular dish"
+                        },
+                        "new": {
+                            "label": "New",
+                            "subtitle": "Make this dish a new dish"
+                        }
+                    },
+                    "components": {
+                        "diets": {
+                            "label": "Dietary Preferences",
+                            "button": "Add Diet",
+                            "modal": {
+                                "title": "Add Diet",
+                                "button": "Add",
+                                "form": {
+                                    "name": {
+                                        "label": "Enter Name"
+                                    }
+                                }
+                            }
+                        },
+                        "addons": {
+                            "label": "Add Ons",
+                            "button": "Add Addon",
+                            "modal": {
+                                "title": "Add Addon",
+                                "button": "Add",
+                                "form": {
+                                    "name": {
+                                        "label": "Enter Name"
+                                    }
+                                }
+                            }
+                        },
+                        "allergens": {
+                            "label": "Allergens"
+                        },
+                        "ingredients": {
+                            "empty": "Click to select ingredients",
+                            "modal": {
+                                "title": "Select Ingredients",
+                                "search": {
+                                    "placeholder": "Search..."
+                                },
+                                "add": "Add",
+                                "remove": "Remove",
+                                "buttons": {
+                                    "cancel": "Cancel",
+                                    "done": "Done"
+                                }
+                            },
+                            "toast": {
+                                "success": "ingredient added to the list",
+                                "deleteSuccess": "ingredient deleted successfully"
+                            }
+                        },
+                        "variants": {
+                            "title": "Variants",
+                            "description": "Add different variations of this menu item (e.g., sizes, styles, portions)",
+                            "empty": "No variants added yet. Click \"Add Variant\" to get started.",
+                            "button": "Add Variant",
+                            "variant": "Variant",
+                            "form": {
+                                "name": {
+                                    "label": "Name",
+                                    "placeholder": "e.g., Small, Medium, Large"
+                                },
+                                "price": {
+                                    "label": "Price",
+                                    "placeholder": "0.00"
+                                },
+                                "available": {
+                                    "label": "Available for order"
+                                }
+                            },
+                            "remove": "Remove variant"
+                        },
+                        "discount": {
+                            "empty": {
+                                "title": "No discount added",
+                                "description": "Add a discount to offer special pricing",
+                                "button": "Add Discount"
+                            },
+                            "title": "Discount Details",
+                            "form": {
+                                "label": {
+                                    "label": "Discount Label"
+                                },
+                                "type": {
+                                    "label": "Discount Type",
+                                    "placeholder": "Select Discount Type",
+                                    "percentage": "Percentage",
+                                    "fixed": "Fixed"
+                                },
+                                "value": {
+                                    "label": "Discount Value"
+                                },
+                                "startDate": {
+                                    "label": "Start Date & Time"
+                                },
+                                "endDate": {
+                                    "label": "End Date & Time"
+                                }
+                            }
+                        }
+                    },
+                    "bulk": {
+                        "title": "Bulk Upload Menu Items",
+                        "description": "Upload a CSV file and map columns to create menu items in bulk",
+                        "tabs": {
+                            "upload": "Upload CSV",
+                            "map": "Map Columns",
+                            "preview": "Preview & Confirm"
+                        },
+                        "upload": {
+                            "dragDrop": "Drag and drop your CSV file here",
+                            "clickBrowse": "or click to browse",
+                            "formatRequirements": {
+                                "title": "CSV Format Requirements",
+                                "firstRow": "First row should contain column headers",
+                                "supportedFormats": "Supported formats: text/csv or .csv extension",
+                                "columnNames": "Ensure column names match your data",
+                                "nextStep": "You'll map these columns to menu item fields in the next step"
+                            }
+                        },
+                        "mapper": {
+                            "csvColumnsFound": "CSV Columns Found",
+                            "sampleData": "Sample Data (First Row)",
+                            "columnMappings": "Column Mappings",
+                            "addMapping": "+ Add Mapping",
+                            "noMappings": "No mappings yet. Add your first column mapping.",
+                            "csvColumn": "CSV Column",
+                            "menuItemField": "Menu Item Field",
+                            "allRequiredMapped": "✓ All required fields mapped",
+                            "missingRequired": "⚠ Missing required fields",
+                            "required": "Required",
+                            "continueToPreview": "Continue to Preview"
+                        },
+                        "preview": {
+                            "totalRows": "Total Rows",
+                            "selected": "Selected",
+                            "fieldsMapped": "Fields Mapped",
+                            "dataPreview": "Data Preview",
+                            "showAll": "Show all",
+                            "showFirst10": "Show first 10",
+                            "showing": "Showing 10 of",
+                            "rows": "rows",
+                            "yes": "Yes",
+                            "no": "No",
+                            "empty": "—",
+                            "startOver": "Start Over",
+                            "uploading": "Uploading...",
+                            "upload": "Upload",
+                            "items": "Items",
+                            "fieldNames": {
+                                "name": "Name",
+                                "section": "Section",
+                                "type": "Type",
+                                "description": "Description",
+                                "price": "Price",
+                                "spiceLevel": "Spice Level",
+                                "cookTime": "Cook Time",
+                                "ingredients": "Ingredients",
+                                "images": "Images",
+                                "translations": "Translations",
+                                "variants": "Variants",
+                                "addons": "Add Ons",
+                                "allergens": "Allergens"
+                            }
+                        }
+                    }
+                },
+                "edit": {
+                    "validation": {
+                        "name": "Please enter a valid name"
+                    },
+                    "appSections": {
+                        "title": "App Sections",
+                        "chefsRecommended": {
+                            "label": "Chefs Recommended",
+                            "subtitle": "Make this dish a chefs recommended dish"
+                        },
+                        "popular": {
+                            "label": "Popular",
+                            "subtitle": "Make this dish a popular dish"
+                        },
+                        "new": {
+                            "label": "New",
+                            "subtitle": "Make this dish a new dish"
+                        }
+                    }
+                },
+                "preview": {
+                    "description": "Description",
+                    "diet": "Diet",
+                    "allergens": "Allergens",
+                    "ingredients": "Ingredients",
+                    "editDish": "Edit dish"
+                }
+            },
+            "components": {
+                "menuCard": {
+                    "active": "Active",
+                    "inactive": "Inactive",
+                    "viewMenuSections": "View Menu Sections",
+                    "delete": {
+                        "title": "Delete Menu",
+                        "description": "Are you sure you want to delete \"{name}\"? This action cannot be undone.",
+                        "cancel": "Cancel",
+                        "confirm": "Delete"
+                    },
+                    "edit": {
+                        "title": "Edit Menu",
+                        "description": "Make changes to your menu here. Click save when you're done.",
+                        "form": {
+                            "name": "Name",
+                            "description": "Description"
+                        },
+                        "save": "Save changes",
+                        "saving": "Saving..."
+                    },
+                    "toast": {
+                        "authRequired": "Authentication required. Please log in again.",
+                        "deleteSuccess": "Menu deleted successfully",
+                        "deleteError": "Failed to delete menu",
+                        "updateSuccess": "Menu updated successfully",
+                        "updateError": "Failed to update menu"
+                    }
+                }
+            }
+        },
+        "settings": {
+            "header": "Settings",
+            "headerBtns": {
+                "profile": "Profile",
+                "qrCode": "Menu QR Code"
+            },
+            "email": {
+                "title": "Change Email",
+                "subtitle": "Update your email by entering the new email address. We will send a verification code to confirm.",
+                "updateEmail": "New email address",
+                "sendCode": "Send verification code",
+                "sending": "Sending…",
+                "update": "Update",
+                "resendOtp": "Resend code",
+                "resendIn": "until you can resend",
+                "confirm": "Confirm",
+                "save": "Save",
+                "modalTitle": "Verify your email",
+                "modalDescription": "Enter the verification code we sent to your new email address.",
+                "modalLabel": "Verification code",
+                "otpSent": "Verification code sent",
+                "changeSuccess": "Email changed successfully",
+                "expires": "until code expires"
+            },
+            "password": {
+                "title": "Change Password",
+                "subtitle": " Update your password by entering the desired password.",
+                "oldPassword": "Current Password",
+                "newPassword": "New Password",
+                "confirmPassword": "Confirm Password",
+                "resendOtp": "Resend OTP",
+                "save": "Save",
+                "update": "Update",
+                "modalLabel": "Enter Code"
+            },
+            "brand": {
+                "title": " Other Information",
+                "subtitle": "Update information relating to your account",
+                "form": {
+                    "logoLabel": "Update Logo",
+                    "sloganLabel": "Update Slogan",
+                    "sloganPlaceholder": "Update the Slogan",
+                    "addressLabel": "Update your Address",
+                    "addressPlaceholder": "Update the Address",
+                    "languageLabel": "Default Language",
+                    "currencyLabel": "Default Currency",
+                    "bannerLabel": "Update Banner"
+                },
+                "buttons": {
+                    "cancel": "Cancel",
+                    "update": "Update"
+                }
+            },
+            "brandCustomisation": {
+                "title": "Brand Customisation",
+                "subTitle": " Update the display information shown to the customer",
+                "form": {
+                    "updateName": "Update Name",
+                    "updateSlogan": "Update Slogan",
+                    "updateColors": "Update Colors",
+                    "updateLogo": "Update Logo",
+                    "defaultLanguage": "Default Language",
+                    "cancel": "Cancel",
+                    "save": "Save"
+                }
+            },
+            "personalInformation": {
+                "title": "Personal Information",
+                "subTitle": " Update your account information",
+                "form": {
+                    "pictureEdit": "Edit",
+                    "updateEmail": "Update Email",
+                    "updatePassword": "Update Password",
+                    "cancel": "Cancel",
+                    "save": "Save"
+                }
+            },
+            "qrCode": {
+                "header": {
+                    "title": "Menu QR Code",
+                    "subTitle": " Share this QR code with your customers so they can easily accessyour digital menu"
+                },
+                "body": {
+                    "qrCodeTitle": "Customers scan this code to view your menu",
+                    "menuUrl": "Menu URL",
+                    "copied": "URL copied to clipboard!"
+                },
+                "button": "Download QR Code",
+                "footer": {
+                    "title": "How to use:",
+                    "step1": "• Print the QR code and place it on tables",
+                    "step2": "• Add it to your restaurant's promotional materials",
+                    "step3": "• Share the URL directly with customers",
+                    "step4": "• Display it on screens or digital signage"
+                }
+            }
+        }
+    },
+    "paginator": {
+        "previous": "Previous",
+        "next": "Next",
+        "more": "More Pages"
+    }
+}

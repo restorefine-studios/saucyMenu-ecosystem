@@ -1,0 +1,236 @@
+{
+  "languageSelect": {
+    "title": "Selectați limba preferată",
+    "continueBtn": "Continuați",
+    "loading": "preluarea limbilor...",
+    "notFound": "Nu a fost găsit"
+  },
+  "optionsSelect": {
+    "backBtn": "Înapoi",
+    "title": {
+      "1": "Alegeți o acțiune",
+      "2": "Cum ați dori să începeți explorarea?"
+    },
+    "options": {
+      "1": {
+        "label": "Preferințe alimentare",
+        "subtext": "Setați gusturile și preferințele dietetice pentru o experiență personalizată a meniului"
+      },
+      "2": {
+        "label": "Întrebați SaucyChat",
+        "subtext": "Discutați cu AI-ul nostru pentru recomandări instantanee și inteligente"
+      },
+      "3": {
+        "label": "Du-te la meniuri",
+        "subtext": "Răsfoiți meniul complet fără niciun filtru sau configurare"
+      }
+    },
+    "continueBtn": "Continuați"
+  },
+  "selectDiet": {
+    "toast": {
+      "success": "Diete salvate cu succes",
+      "warning": "Ceva nu a mers bine"
+    },
+    "title": "Selectați planul dvs. de dietă",
+    "subTitle": "Haideți să vă cunoaștem gusturile. Selectați un plan care vi se potrivește.",
+    "searchPlaceholder": "Căutare",
+    "Buttons": {
+      "Back": "Înapoi",
+      "Proceed": "Continuați",
+      "Skip": "Salt"
+    }
+  },
+  "allergens": {
+    "toast": {
+      "success": "Alergiile salvate cu succes",
+      "warning": "Ceva nu a mers bine"
+    },
+    "title": "La ce sunteți alergic?",
+    "subTitle": "A vă ajuta să vă simțiți cel mai bine începe cu ceea ce lăsăm deoparte.",
+    "searchPlaceholder": "Căutare",
+    "Buttons": {
+      "Back": "Înapoi",
+      "Proceed": "Continuați",
+      "Skip": "Salt"
+    }
+  },
+  "menuItems": {
+    "title": "Elemente de meniu",
+    "searchPlaceholder": "Elemente de meniu Căutare",
+    "loadingMessage": {
+      "more": "Încărcați mai mult...",
+      "scroll": "Derulați pentru mai multe"
+    }
+  },
+  "craftedFood": {
+    "title": "Iată ce am creat doar pentru tine",
+    "subTitle": "Mese alese manual, inspirate de gusturile, preferințele și stilul tău de viață.",
+    "searchPlaceholder": "Căutare",
+    "Buttons": {
+      "goToFoodMenu": "Du-te la meniul alimentar",
+      "goToDrinksMenu": "Du-te la meniul de băuturi",
+      "Skip": "Salt"
+    },
+    "suggest": "Sugerați altceva",
+    "seeOriginal": " Vezi meniul original",
+    "youMayAlsoLike": "S-ar putea să vă placă și"
+  },
+  "foodMenu": {
+    "title": "Explorați preparatele noastre",
+    "headerBtn": "Du-te la meniul de băuturi",
+    "searchPlaceholder": "Căutare",
+    "all": "Toate",
+    "forYou": "Pentru tine",
+    "loadingMessage": {
+      "more": "Încărcați mai mult...",
+      "scroll": "Derulați pentru a încărca mai multe"
+    }
+  },
+  "foodProfile": {
+    "title": "Profil alimentar",
+    "toast": {
+      "success": "Recenzie depusă cu succes",
+      "warning": "Ceva nu a mers bine"
+    },
+    "details": {
+      "ingredients": "Ingrediente",
+      "spice": "Nivelul de condimente",
+      "dietary": "Etichete dietetice",
+      "allergens": "Alergeni",
+      "diets": "Diete"
+    },
+    "discount": {
+      "off": "oprit",
+      "validUntil": "Valabil până la",
+      "validFrom": "Valabil de la"
+    },
+    "review": {
+      "rate": "Rata",
+      "review": "Lăsați un comentariu",
+      "submit": "Trimite comentariu"
+    },
+    "addons": "Suplimente",
+    "variants": "Variante",
+    "askSaucyChat": "Întrebați SaucyChat",
+    "timeUnspecified": "Timp nespecificat"
+  },
+  "drinkMenu": {
+    "title": "Explorați băuturile noastre",
+    "headerBtn": "Du-te la meniul alimentar",
+    "searchPlaceholder": "Căutare",
+    "all": "Toate",
+    "tapToView": " Atingeți pentru a vizualiza detaliile",
+    "forYou": "Pentru tine",
+    "modal": {
+      "drinkType": "Tip băutură",
+      "alcoholic": "Alcoolic",
+      "available": "Disponibil",
+      "variants": "Variante"
+    },
+    "loadingMessage": {
+      "more": "Încărcați mai mult...",
+      "scroll": "Derulați pentru a încărca mai multe"
+    }
+  },
+  "aiPretext": {
+    "0": {
+      "title": "Acest articol conține alergeni?",
+      "subtext": "Verificați dacă există nuci, produse lactate, gluten, crustacee sau alți alergeni comuni"
+    },
+    "1": {
+      "title": "Este potrivit pentru dieta mea?",
+      "subtext": "Vedeți dacă se potrivește nevoilor vegetariene, vegane, keto, halal sau fără gluten"
+    },
+    "2": {
+      "title": "Cât de picant este acest fel de mâncare?",
+      "subtext": "Înțelegeți nivelul de căldură înainte de a comanda"
+    },
+    "3": {
+      "title": "Acest articol poate fi personalizat?",
+      "subtext": "Modificați ingredientele, eliminați garniturile sau ajustați nivelul condimentelor"
+    },
+    "4": {
+      "title": "Ce ingrediente sunt incluse?",
+      "subtext": "Vezi lista completă a componentelor din acest fel de mâncare"
+    },
+    "5": {
+      "title": "Care este mărimea porției?",
+      "subtext": "Știți dacă este ideal pentru o singură persoană sau pentru a fi împărțit"
+    },
+    "6": {
+      "title": "Cum se prepară aceasta?",
+      "subtext": "Învățați despre metodele de gătit, cum ar fi la grătar, prăjit sau copt"
+    },
+    "7": {
+      "title": "Care sunt detaliile nutriționale?",
+      "subtext": "Vezi informații despre calorii, proteine, carbohidrați și grăsimi"
+    },
+    "8": {
+      "title": "Acest produs este proaspăt sau pre-preparat?",
+      "subtext": "Înțelegeți cum și când este fabricat"
+    },
+    "9": {
+      "title": "Există add-on-uri premium disponibile?",
+      "subtext": "Îmbunătățiți acest fel de mâncare cu toppinguri suplimentare sau upgrade-uri"
+    }
+  },
+  "ai": {
+    "header": "Meniu sălciu AI",
+    "hiText": "Bună Sunt SaucyAI",
+    "message": " Întrebați-mă despre promoțiile de astăzi, despre meniu sau despre orice altceva.",
+    "thinking": "gândire...",
+    "searchPlaceholder": "Întreabă ceva...",
+    "logoAlt": "Logo-ul meniului Saucy"
+  },
+  "common": {
+    "mins": "minute",
+    "back": "Înapoi",
+    "notFound": "Nu a fost găsit"
+  },
+  "menus": {
+    "addAllergensDiets": "Adăugați alergeni și diete",
+    "seeOurMenus": "Vezi meniurile noastre",
+    "chefsRecommendations": "Recomandările bucătarului-șef",
+    "whatsPopular": "Ce este popular",
+    "allergenDietsMode": "Modul alergeni și diete",
+    "search": "Căutare",
+    "menuItems": "elemente de meniu",
+    "menu": "Meniu",
+    "searchPlaceholderTemplate": "Căutare {menuName} Meniu"
+  },
+  "modal": {
+    "addAllergensDiets": "Adăugați alergeni și diete",
+    "description": "Selectați alergenii și dietele pentru a filtra alimentele și băuturile",
+    "cancel": "Anulează",
+    "updating": "Actualizarea...",
+    "applyFilters": "Aplicați filtre",
+    "allergens": "Alergeni",
+    "searchAllergens": "Căutare alergeni",
+    "diets": "Diete",
+    "searchDiets": "Dietă de căutare",
+    "preferencesUpdated": "Preferințele au fost actualizate cu succes!",
+    "failedUpdate": "A eșuat actualizarea preferințelor"
+  },
+  "ui": {
+    "starRating": {
+      "outOf": "din",
+      "star": "stea",
+      "stars": "stele"
+    },
+    "spiceLevel": {
+      "mild": "MILD",
+      "medium": "MEDIU",
+      "hot": "HOT",
+      "extraHot": "EXTRA HOT",
+      "extreme": "EXTREM"
+    },
+    "nullState": {
+      "title": "Nimic aici încă",
+      "subtitle": "Nu există articole disponibile, reveniți în curând."
+    },
+    "spinner": {
+      "loading": "Meniu de încărcare..."
+    }
+  }
+}

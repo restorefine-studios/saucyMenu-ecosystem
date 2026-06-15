@@ -1,0 +1,1150 @@
+{
+  "auth": {
+    "main": {
+      "header": {
+        "login": "Iniciar sessão",
+        "resetPassword": "Redefinir a palavra-passe"
+      },
+      "copyright": {
+        "1": "Direitos de autor 2025",
+        "2": "Todos os direitos reservados"
+      }
+    },
+    "login": {
+      "title": {
+        "1": "Iniciar sessão no seu",
+        "2": "Painel de controlo do administrador"
+      },
+      "form": {
+        "email": {
+          "label": "Correio eletrónico",
+          "placeholder": "admin@example.com"
+        },
+        "password": {
+          "label": "Palavra-passe",
+          "placeholder": "*********"
+        },
+        "keepLoggedIn": {
+          "label": "Lembrar-se de mim"
+        },
+        "submit": "Enviar",
+        "forgotPassword": "Esqueceu-se da palavra-passe?"
+      }
+    },
+    "reset": {
+      "title": {
+        "1": "Introduzir e-mail para",
+        "2": "Receber código OTP"
+      },
+      "form": {
+        "password": {
+          "label": "Palavra-passe",
+          "placeholder": "********"
+        },
+        "confirmPassword": {
+          "label": "Confirmar a palavra-passe",
+          "placeholder": "*********"
+        },
+        "back": "Voltar",
+        "submit": "Enviar"
+      }
+    },
+    "enterOtp": {
+      "title": {
+        "1": "  Introduzir o código Otp",
+        "2": "  Avançar para Atualizar a palavra-passe"
+      },
+      "form": {
+        "code": "Introduzir código",
+        "resendCode": "Reenviar código",
+        "confirmPassword": {
+          "label": "Confirmar a palavra-passe",
+          "placeholder": "*********"
+        },
+        "back": "Voltar",
+        "submit": "Enviar"
+      }
+    },
+    "setup": {
+      "header": " Configuração da marca",
+      "title": {
+        "1": " Adicionar o nome da sua marca",
+        "2": "Perspetiva visual"
+      },
+      "form": {
+        "brandName": {
+          "label": "Nome da marca",
+          "placeholder": "Introduzir o nome da marca"
+        },
+        "updateLogo": {
+          "label": "Atualizar logótipo",
+          "placeholder": "Escolher logótipo"
+        },
+        "brandSlogan": {
+          "label": "Slogan da marca",
+          "placeholder": "Introduzir o slogan da marca"
+        },
+        "currency": {
+          "label": "Moeda por defeito",
+          "placeholder": "Selecionar moeda"
+        },
+        "language": {
+          "label": "Língua por defeito",
+          "placeholder": "Selecionar idioma"
+        },
+        "back": "Voltar",
+        "submit": "Enviar"
+      }
+    }
+  },
+  "sideNav": {
+    "dashboard": "Painel de controlo",
+    "menu": "Menus",
+    "addFood": "Adicionar alimentos",
+    "addDrinks": "Adicionar bebidas",
+    "menuClass": "Classificações dos menus",
+    "review": "Revisão",
+    "sub": "Assinatura",
+    "settings": "Definições",
+    "logout": "Terminar sessão",
+    "audit": "Auditoria"
+  },
+  "admin": {
+    "dashboard": {
+      "header": "Painel de controlo",
+      "customersLabel": "Clientes",
+      "dishLabel": "Todos os pratos",
+      "totalDishes": "Total de pratos",
+      "totalInteractions": "Total de Interações",
+      "dishesBtn": "Todos os pratos",
+      "lineChart": {
+        "customers": "Clientes"
+      },
+      "AI": {
+        "title": "Créditos de IA utilizados",
+        "subTitle": "Número total de créditos de IA utilizados quando os clientes utilizam a interface de conversação"
+      },
+      "customersOverview": "Visão geral dos clientes"
+    },
+    "dishPieChart": {
+      "title": "Gráfico de pizza - Pratos por tipos de pratos",
+      "footer": "Mostra o total de tipos de pratos e a sua contagem."
+    },
+    "review": {
+      "header": "Comentários",
+      "title": "Total de comentários",
+      "filter": "Classificação do filtro",
+      "order": "ID da encomenda"
+    },
+    "subs": {
+      "title": "Gerir subscrições",
+      "header": {
+        "title": "Escolha um plano adequado ao tamanho do seu cliente",
+        "buttons": {
+          "month": " Por mês",
+          "year": " Por ano"
+        }
+      },
+      "unsubscribe": "Cancelar a subscrição",
+      "subscribeNow": "Subscrever agora",
+      "subscribed": "Subscrito",
+      "active": "Ativo"
+    },
+    "menu": {
+      "topArea": {
+        "header": "Menu",
+        "btns": {
+          "dishes": "Pratos",
+          "drinks": "Bebidas"
+        },
+        "rightSide": {
+          "searchPlaceholder": "Pesquisar",
+          "add": "Adicionar",
+          "drinks": "bebidas",
+          "dishes": "pratos"
+        }
+      },
+      "dishes": {
+        "all": "Todos",
+        "modalTitle": "Pré-visualização do prato",
+        "previewDish": {
+          "description": "Descrição",
+          "diet": "Dieta",
+          "allergens": "Alergénios",
+          "cuisine": "Cozinha",
+          "ingredients": "Ingredientes",
+          "editDish": "Editar prato"
+        }
+      },
+      "drinks": {
+        "all": "Todos",
+        "modalTitle": "Pré-visualização Bebida",
+        "previewDrink": {
+          "description": "Descrição",
+          "variants": "Variantes",
+          "notAvailable": "Tipo de prato",
+          "editDrink": "Editar bebida"
+        }
+      },
+      "editDrink": {
+        "toast": {
+          "loading": "Remoção de...",
+          "success": "Removido com sucesso",
+          "error": "Algo correu mal",
+          "failed": "Falha ao remover"
+        },
+        "header": {
+          "header": "Menu",
+          "title": "Editar bebida",
+          "remove": {
+            "btn": "Remover bebida",
+            "alert": {
+              "title": "Tem a certeza absoluta?",
+              "warning": " Esta ação não pode ser anulada. Esta ação remove este prato e tudo o que lhe está associado do sistema.",
+              "cancel": "Cancelar",
+              "continue": "Continuar"
+            }
+          }
+        },
+        "form": {
+          "nameLabel": "nome",
+          "namePlaceholder": "Adicionar nome da bebida",
+          "descriptionLabel": "Descrição",
+          "descriptionPlaceholder": "Introduzir uma descrição pormenorizada da bebida",
+          "available": {
+            "label": "Disponível",
+            "description": " Disponibilizar esta bebida no menu"
+          },
+          "alcoholic": {
+            "label": "Alcoólico",
+            "description": " Esta bebida contém álcool?"
+          }
+        },
+        "drinkType": {
+          "title": "Tipos de bebidas",
+          "addDrinkType": "Adicionar tipo de bebida",
+          "add": "Adicionar"
+        },
+        "variants": {
+          "header": {
+            "title": "Variantes",
+            "btn": "Adicionar variante"
+          },
+          "form": {
+            "quantityLabel": "Quantidade",
+            "unitLabel": "Unidade",
+            "priceLabel": "Preço",
+            "available": {
+              "title": "Disponível",
+              "description": "esta variante está disponível?"
+            }
+          }
+        },
+        "remove": "Remover variante",
+        "upload": "Carregar aqui",
+        "save": "Guardar"
+      },
+      "addDrinks": {
+        "header": "Menu",
+        "title": "Adicionar nova bebida",
+        "btn": "Carregar bebidas a granel",
+        "bulkUpload": {
+          "title": "Carregar bebidas",
+          "bulkUploadBtn": "Carregamento em massa de bebidas",
+          "uploadBtn": "Carregar",
+          "uploadBox": {
+            "upload": "Carregar ficheiro Excel",
+            "dragAndDrop": " Arrastar e largar ou clicar para navegar",
+            "btn": "Escolher ficheiro"
+          },
+          "instructions": {
+            "1": "Clique no botão",
+            "2": "para obter o modelo",
+            "3": "Preencha os dados necessários no modelo.",
+            "4": "A primeira linha após os cabeçalhos é uma linha de amostra para referência - por favor, apague esta linha antes de a carregar.",
+            "5": "Os campos que aceitam valores múltiplos devem ser",
+            "title": "Instruções de carregamento em massa:",
+            "download": "Descarregar",
+            "xlsx": ".xlsx",
+            "file": "ficheiro.",
+            "important": "Importante:",
+            "comma": "separada por vírgulas",
+            "forExample": ". Por exemplo:",
+            "rice": "mojito, saqué, cerveja",
+            "btn": "Descarregar o modelo"
+          }
+        },
+        "form": {
+          "name": {
+            "label": "Nome",
+            "placeholder": "Adicionar nome da bebida"
+          },
+          "description": {
+            "label": "Descrição",
+            "placeholder": "Introduzir uma descrição pormenorizada da bebida"
+          },
+          "drinkType": {
+            "label": "Tipo de bebida",
+            "placeholder": "Selecionar um tipo de bebida"
+          },
+          "upload": "Carregar aqui",
+          "available": {
+            "title": "Disponível",
+            "subtitle": "Disponibilizar esta bebida no menu"
+          },
+          "alcoholic": {
+            "title": "Alcoólico",
+            "subtitle": "Esta bebida contém álcool?"
+          }
+        },
+        "types": {
+          "drinkTypes": "Tipos de bebidas",
+          "drinkTypesBtn": "Adicionar tipo de bebida",
+          "add": "Adicionar"
+        },
+        "variants": {
+          "header": {
+            "title": "Variantes",
+            "btn": "Adicionar variante"
+          },
+          "form": {
+            "quantity": "Quantidade",
+            "unit": "Unidade",
+            "unitPlaceholder": "Selecionar uma unidade",
+            "price": "Preço",
+            "available": "Disponível",
+            "availableSub": "esta variante está disponível?",
+            "removeVariant": "Remover variante"
+          }
+        },
+        "image": {
+          "title": "Imagens",
+          "upload": "Carregar aqui"
+        },
+        "saveBtn": "Guardar"
+      },
+      "addDish": {
+        "appSections": {
+          "title": "Secções da aplicação",
+          "chefsRecommended": {
+            "label": "Recomendado pelos chefes",
+            "subtitle": "Faça deste prato um prato recomendado pelos chefes"
+          },
+          "popular": {
+            "label": "Popular",
+            "subtitle": "Fazer deste prato um prato popular"
+          },
+          "new": {
+            "label": "Novo",
+            "subtitle": "Fazer deste prato um novo prato"
+          }
+        },
+        "title": "Menu",
+        "topSide": {
+          "title": "Adicionar novo prato",
+          "btn": "Carregar pratos em massa"
+        },
+        "bulkUpload": {
+          "title": "Carregar prato",
+          "uploadBtn": "Carregar",
+          "uploadBox": {
+            "upload": "Carregar ficheiro Excel",
+            "dragAndDrop": " Arrastar e largar ou clicar para navegar",
+            "btn": "Escolher ficheiro"
+          },
+          "instructions": {
+            "1": "Clique no botão",
+            "2": "para obter o modelo",
+            "3": "Preencha os dados necessários no modelo.",
+            "4": "A primeira linha após os cabeçalhos é uma linha de amostra para referência - por favor, apague esta linha antes de a carregar.",
+            "5": "Os campos que aceitam valores múltiplos devem ser",
+            "title": "Instruções de carregamento em massa:",
+            "download": "Descarregar",
+            "xlsx": ".xlsx",
+            "file": "ficheiro.",
+            "important": "Importante:",
+            "comma": "separada por vírgulas",
+            "forExample": ". Por exemplo:",
+            "rice": "arroz, feijão, guisado",
+            "btn": "Descarregar o modelo"
+          }
+        },
+        "form": {
+          "name": {
+            "label": "Nome",
+            "placeholder": "Adicionar nome do alimento"
+          },
+          "price": {
+            "label": "Preço",
+            "placeholder": "Introduzir o preço dos alimentos"
+          },
+          "description": {
+            "label": "Descrição",
+            "placeholder": "Introduzir uma descrição pormenorizada do alimento"
+          },
+          "preparationTime": {
+            "label": "Tempo de preparação (minutos)"
+          },
+          "spiceLevel": {
+            "label": "Nível de especiarias",
+            "placeholder": "Selecionar o nível de especiarias",
+            "clear": "Limpo",
+            "spiceLevels": {
+              "mild": {
+                "value": "suave",
+                "label": "Suave"
+              },
+              "medium": {
+                "value": "médio",
+                "label": "Médio"
+              },
+              "spicy": {
+                "value": "picante",
+                "label": "Picante"
+              },
+              "verySpicy": {
+                "value": "muito_picante",
+                "label": "Muito picante"
+              }
+            }
+          },
+          "available": {
+            "title": "Disponível",
+            "subtitle": "Disponibilizar este prato no menu"
+          }
+        },
+        "ingredients": {
+          "title": "Ingredientes",
+          "btn": "Adicionar ingrediente",
+          "placeholder": "Nome do ingrediente",
+          "removeBtn": "Remover ingrediente"
+        },
+        "types": {
+          "dishTypes": "Tipos de pratos",
+          "dishTypesBtn": "Adicionar categoria",
+          "dietaryPreferences": "Preferências alimentares",
+          "dietaryPreferencesbtn": "Adicionar dieta",
+          "allergens": "Alergénios",
+          "allergensBtn": "Adicionar alergénios",
+          "addons": "Adicionais",
+          "addonsBtn": "Adicionar complemento",
+          "add": "Adicionar"
+        },
+        "image": {
+          "title": "Imagens",
+          "upload": "Carregar aqui"
+        },
+        "saveBtn": "Guardar"
+      },
+      "editDish": {
+        "toast": {
+          "loading": "Remoção de...",
+          "success": "Removido com sucesso",
+          "error": "Algo correu mal",
+          "failed": "Falha ao remover"
+        },
+        "header": {
+          "header": "Menu",
+          "title": "Editar prato",
+          "remove": {
+            "btn": "Retirar o prato",
+            "alert": {
+              "title": "Tem a certeza absoluta?",
+              "warning": " Esta ação não pode ser anulada. Esta ação remove este prato e tudo o que lhe está associado do sistema.",
+              "cancel": "Cancelar",
+              "continue": "Continuar"
+            }
+          }
+        },
+        "form": {
+          "nameLabel": "nome",
+          "namePlaceholder": "Adicionar nome do prato",
+          "descriptionLabel": "Descrição",
+          "priceLabel": "Preço",
+          "pricePlaceholder": "Introduzir o preço dos alimentos",
+          "descriptionPlaceholder": "Introduzir uma descrição pormenorizada do prato",
+          "preparationLabel": "Tempo de preparação",
+          "spiceLabel": "Rótulo de especiarias",
+          "available": {
+            "label": "Disponível",
+            "description": " Disponibilizar esta bebida no menu"
+          },
+          "alcoholic": {
+            "label": "Alcoólico",
+            "description": " Esta bebida contém álcool?"
+          }
+        },
+        "drinkType": {
+          "title": "Tipos de bebidas",
+          "addDrinkType": "Adicionar tipo de bebida",
+          "add": "Adicionar"
+        },
+        "variants": {
+          "header": {
+            "title": "Variantes",
+            "btn": "Adicionar variante"
+          },
+          "form": {
+            "name": {
+              "label": "Nome",
+              "placeholder": "Adicionar nome do alimento"
+            },
+            "price": {
+              "label": "Preço",
+              "placeholder": "Introduzir o preço dos alimentos"
+            },
+            "description": {
+              "label": "Descrição",
+              "placeholder": "Introduzir uma descrição pormenorizada do alimento"
+            },
+            "preparationTime": {
+              "label": "Tempo de preparação (minutos)"
+            },
+            "spiceLevel": {
+              "label": "Nível de especiarias",
+              "placeholder": "Selecionar o nível de especiarias",
+              "clear": "Limpo",
+              "spiceLevels": {
+                "mild": {
+                  "value": "suave",
+                  "label": "Suave"
+                },
+                "medium": {
+                  "value": "médio",
+                  "label": "Médio"
+                },
+                "spicy": {
+                  "value": "picante",
+                  "label": "Picante"
+                },
+                "verySpicy": {
+                  "value": "muito_picante",
+                  "label": "Muito picante"
+                }
+              }
+            },
+            "available": {
+              "title": "Disponível",
+              "subtitle": "Disponibilizar este prato no menu"
+            }
+          },
+          "ingredients": {
+            "title": "Ingredientes",
+            "btn": "Adicionar ingrediente",
+            "placeholder": "Nome do ingrediente",
+            "removeBtn": "Remover ingrediente"
+          },
+          "types": {
+            "dishTypes": "Tipos de pratos",
+            "dishTypesBtn": "Adicionar categoria",
+            "dietaryPreferences": "Preferências alimentares",
+            "dietaryPreferencesbtn": "Adicionar dieta",
+            "allergens": "Alergénios",
+            "allergensBtn": "Adicionar alergénios",
+            "add": "Adicionar"
+          },
+          "image": {
+            "title": "Imagens",
+            "upload": "Carregar aqui"
+          },
+          "saveBtn": "Guardar"
+        },
+        "remove": "Remover variante",
+        "upload": "Carregar aqui",
+        "save": "Guardar",
+        "cancel": "Cancelar"
+      },
+      "menuClassifications": {
+        "header": {
+          "header": "Menu",
+          "title": "Classificações dos menus",
+          "btn": "Adicionar nova classificação"
+        },
+        "card": {
+          "title": {
+            "cuisine": "Cozinha",
+            "diet": "Dietas",
+            "addOns": "Adicionais",
+            "allergen": "Alergénio",
+            "drinkType": "Tipos de bebidas"
+          },
+          "subTitle": "Selecione itens individuais da lista abaixo para lhes atribuir alimentos",
+          "subTitleDrink": "Selecione itens individuais da lista abaixo para lhes atribuir alimentos",
+          "description": "Selecione itens individuais da lista abaixo para lhes atribuir alimentos"
+        },
+        "editClassTitle": "Selecione os alimentos disponíveis para os adicionar como",
+        "addToList": "Adicionar à lista"
+      }
+    },
+    "menus": {
+      "header": {
+        "title": "Menus",
+        "restaurantMenu": "Menu"
+      },
+      "search": {
+        "placeholder": "Pesquisar"
+      },
+      "create": {
+        "button": "Criar novo menu",
+        "dialog": {
+          "title": "Criar novo menu",
+          "description": "Adicione um novo menu ao seu restaurante.",
+          "form": {
+            "name": {
+              "label": "Nome",
+              "placeholder": "Nome do menu"
+            },
+            "description": {
+              "label": "Descrição",
+              "placeholder": "Descrição do menu"
+            }
+          },
+          "button": {
+            "creating": "Criar...",
+            "create": "Criar menu"
+          }
+        }
+      },
+      "sections": {
+        "header": {
+          "title": "Secções do menu"
+        },
+        "search": {
+          "placeholder": "Pesquisar"
+        },
+        "menu": {
+          "suffix": " Menu",
+          "edit": {
+            "button": "Menu Editar",
+            "dialog": {
+              "title": "Menu Editar",
+              "description": "Faça alterações ao seu menu aqui. Clique em guardar quando tiver terminado.",
+              "form": {
+                "name": {
+                  "label": "Nome"
+                },
+                "description": {
+                  "label": "Descrição"
+                }
+              },
+              "save": "Guardar alterações",
+              "saving": "Poupar..."
+            },
+            "toast": {
+              "success": "Menu atualizado com sucesso",
+              "error": "Falha na atualização do menu"
+            }
+          },
+          "delete": {
+            "button": "Menu Apagar",
+            "dialog": {
+              "title": "Menu Apagar",
+              "description": "Tem a certeza de que pretende apagar \"{nome}\"? Esta ação não pode ser anulada.",
+              "cancel": "Cancelar",
+              "confirm": "Eliminar"
+            },
+            "toast": {
+              "success": "Menu eliminado com êxito",
+              "error": "Falha ao eliminar o menu"
+            }
+          }
+        },
+        "create": {
+          "button": "Adicionar nova secção de menu",
+          "dialog": {
+            "title": "Adicionar nova secção de menu",
+            "description": "Criar uma nova secção para este menu.",
+            "form": {
+              "name": {
+                "label": "Nome",
+                "placeholder": "Nome da secção"
+              },
+              "description": {
+                "label": "Descrição",
+                "placeholder": "Descrição da secção"
+              }
+            },
+            "button": {
+              "creating": "Criar...",
+              "create": "Criar secção"
+            }
+          },
+          "toast": {
+            "success": "Secção de menu criada com sucesso",
+            "error": "Falha ao criar secção de menu"
+          }
+        },
+        "card": {
+          "edit": "Editar",
+          "disable": "Desativar",
+          "delete": "Eliminar",
+          "editDialog": {
+            "title": "Editar secção",
+            "form": {
+              "name": {
+                "label": "Nome"
+              },
+              "description": {
+                "label": "Descrição"
+              },
+              "button": "Guardar"
+            }
+          },
+          "deleteDialog": {
+            "title": "Eliminar secção",
+            "description": "Tem a certeza de que pretende eliminar esta secção e todos os seus itens de menu?",
+            "cancel": "Cancelar",
+            "delete": "Eliminar"
+          }
+        }
+      },
+      "classifications": {
+        "header": {
+          "header": "Menu",
+          "title": "Classificações dos menus",
+          "back": "Classificações dos menus",
+          "btn": "Adicionar nova classificação"
+        },
+        "search": {
+          "placeholder": "Pesquisar"
+        },
+        "card": {
+          "title": {
+            "cuisine": "Cozinha",
+            "diet": "Dietas",
+            "addOns": "Adicionais",
+            "allergen": "Alergénio",
+            "drinkType": "Tipos de bebidas"
+          },
+          "description": "Selecione itens individuais da lista abaixo para lhes atribuir alimentos"
+        },
+        "create": {
+          "diet": {
+            "button": "Criar dieta",
+            "title": "Criar dieta",
+            "form": {
+              "name": {
+                "label": "Introduzir nome"
+              }
+            }
+          },
+          "addon": {
+            "button": "Criar addon",
+            "title": "Criar addon",
+            "form": {
+              "name": {
+                "label": "Nome"
+              },
+              "price": {
+                "label": "Preço"
+              }
+            }
+          }
+        },
+        "diets": {
+          "edit": {
+            "title": "Editar dieta",
+            "form": {
+              "name": {
+                "label": "Introduzir nome"
+              }
+            },
+            "button": "Atualização"
+          },
+          "delete": {
+            "title": "Tem a certeza de que pretende eliminar esta dieta?",
+            "description": "Esta ação não pode ser anulada. Esta ação irá eliminar permanentemente esta dieta.",
+            "cancel": "Cancelar",
+            "continue": "Continuar"
+          }
+        },
+        "addons": {
+          "edit": {
+            "title": "Adicionar complemento",
+            "description": "Adicionar um novo addon ao menu",
+            "form": {
+              "name": {
+                "label": "Introduzir nome"
+              },
+              "price": {
+                "label": "Introduzir preço"
+              }
+            },
+            "button": "Adicionar"
+          },
+          "delete": {
+            "title": "Tem a certeza de que pretende apagar esta extensão?",
+            "description": "Esta ação não pode ser anulada. Esta ação eliminará permanentemente este addon.",
+            "cancel": "Cancelar",
+            "continue": "Continuar"
+          }
+        },
+        "listItem": {
+          "edit": "Editar",
+          "delete": "Eliminar"
+        }
+      },
+      "items": {
+        "add": {
+          "form": {
+            "preparationTime": {
+              "placeholder": "0"
+            }
+          },
+          "validation": {
+            "name": "Introduzir um nome válido",
+            "description": "Introduzir uma descrição",
+            "price": "Introduzir um preço válido",
+            "ingredients": "Adicionar os ingredientes"
+          },
+          "appSections": {
+            "title": "Secções da aplicação",
+            "chefsRecommended": {
+              "label": "Recomendado pelos chefes",
+              "subtitle": "Fazer deste prato um prato recomendado pelos chefes"
+            },
+            "popular": {
+              "label": "Popular",
+              "subtitle": "Fazer deste prato um prato popular"
+            },
+            "new": {
+              "label": "Novo",
+              "subtitle": "Fazer deste prato um novo prato"
+            }
+          },
+          "components": {
+            "diets": {
+              "label": "Preferências alimentares",
+              "button": "Adicionar dieta",
+              "modal": {
+                "title": "Adicionar dieta",
+                "button": "Adicionar",
+                "form": {
+                  "name": {
+                    "label": "Introduzir nome"
+                  }
+                }
+              }
+            },
+            "addons": {
+              "label": "Adicionais",
+              "button": "Adicionar complemento",
+              "modal": {
+                "title": "Adicionar complemento",
+                "button": "Adicionar",
+                "form": {
+                  "name": {
+                    "label": "Introduzir nome"
+                  }
+                }
+              }
+            },
+            "allergens": {
+              "label": "Alergénios"
+            },
+            "ingredients": {
+              "empty": "Clique para selecionar ingredientes",
+              "modal": {
+                "title": "Selecionar ingredientes",
+                "search": {
+                  "placeholder": "Procurar..."
+                },
+                "add": "Adicionar",
+                "remove": "Remover",
+                "buttons": {
+                  "cancel": "Cancelar",
+                  "done": "Feito"
+                }
+              },
+              "toast": {
+                "success": "ingrediente acrescentado à lista",
+                "deleteSuccess": "ingrediente eliminado com sucesso"
+              }
+            },
+            "variants": {
+              "title": "Variantes",
+              "description": "Adicionar diferentes variações deste item de menu (por exemplo, tamanhos, estilos, porções)",
+              "empty": "Ainda não foram adicionadas variantes. Clique em \"Adicionar variante\" para começar.",
+              "button": "Adicionar variante",
+              "variant": "Variante",
+              "form": {
+                "name": {
+                  "label": "Nome",
+                  "placeholder": "por exemplo, Pequeno, Médio, Grande"
+                },
+                "price": {
+                  "label": "Preço",
+                  "placeholder": "0.00"
+                },
+                "available": {
+                  "label": "Disponível para encomenda"
+                }
+              },
+              "remove": "Remover variante"
+            },
+            "discount": {
+              "empty": {
+                "title": "Nenhum desconto adicionado",
+                "description": "Adicionar um desconto para oferecer preços especiais",
+                "button": "Adicionar desconto"
+              },
+              "title": "Detalhes do desconto",
+              "form": {
+                "label": {
+                  "label": "Etiqueta de desconto"
+                },
+                "type": {
+                  "label": "Tipo de desconto",
+                  "placeholder": "Selecionar tipo de desconto",
+                  "percentage": "Percentagem",
+                  "fixed": "Fixo"
+                },
+                "value": {
+                  "label": "Valor do desconto"
+                },
+                "startDate": {
+                  "label": "Data e hora de início"
+                },
+                "endDate": {
+                  "label": "Data e hora de fim"
+                }
+              }
+            }
+          },
+          "bulk": {
+            "title": "Itens de menu de carregamento em massa",
+            "description": "Carregue um ficheiro CSV e mapeie colunas para criar itens de menu em massa",
+            "tabs": {
+              "upload": "Carregar CSV",
+              "map": "Colunas do mapa",
+              "preview": "Pré-visualizar e confirmar"
+            },
+            "upload": {
+              "dragDrop": "Arraste e largue o seu ficheiro CSV aqui",
+              "clickBrowse": "ou clique para navegar",
+              "formatRequirements": {
+                "title": "Requisitos do formato CSV",
+                "firstRow": "A primeira linha deve conter os cabeçalhos das colunas",
+                "supportedFormats": "Formatos suportados: texto/csv ou extensão .csv",
+                "columnNames": "Assegurar que os nomes das colunas correspondem aos seus dados",
+                "nextStep": "Estas colunas serão mapeadas para campos de itens de menu no passo seguinte"
+              }
+            },
+            "mapper": {
+              "csvColumnsFound": "Colunas CSV encontradas",
+              "sampleData": "Dados de amostra (primeira linha)",
+              "columnMappings": "Mapeamentos de colunas",
+              "addMapping": "+ Adicionar mapeamento",
+              "noMappings": "Ainda não há mapeamentos. Adicione o seu primeiro mapeamento de coluna.",
+              "csvColumn": "Coluna CSV",
+              "menuItemField": "Campo de item de menu",
+              "allRequiredMapped": "Todos os campos obrigatórios mapeados",
+              "missingRequired": "Campos obrigatórios em falta",
+              "required": "Necessário",
+              "continueToPreview": "Continuar para Pré-visualização"
+            },
+            "preview": {
+              "totalRows": "Total de linhas",
+              "selected": "Selecionado",
+              "fieldsMapped": "Campos mapeados",
+              "dataPreview": "Pré-visualização de dados",
+              "showAll": "Mostrar tudo",
+              "showFirst10": "Mostrar os primeiros 10",
+              "showing": "Mostrando 10 de",
+              "rows": "linhas",
+              "yes": "Sim",
+              "no": "Não",
+              "empty": "—",
+              "startOver": "Começar de novo",
+              "uploading": "Carregando...",
+              "upload": "Carregar",
+              "items": "Artigos",
+              "fieldNames": {
+                "name": "Nome",
+                "section": "Secção",
+                "type": "Tipo",
+                "description": "Descrição",
+                "price": "Preço",
+                "spiceLevel": "Nível de especiarias",
+                "cookTime": "Tempo de cozedura",
+                "ingredients": "Ingredientes",
+                "images": "Imagens",
+                "translations": "Traduções",
+                "variants": "Variantes",
+                "addons": "Adicionais",
+                "allergens": "Alergénios"
+              }
+            }
+          }
+        },
+        "edit": {
+          "validation": {
+            "name": "Introduzir um nome válido"
+          },
+          "appSections": {
+            "title": "Secções da aplicação",
+            "chefsRecommended": {
+              "label": "Recomendado pelos chefes",
+              "subtitle": "Fazer deste prato um prato recomendado pelos chefes"
+            },
+            "popular": {
+              "label": "Popular",
+              "subtitle": "Fazer deste prato um prato popular"
+            },
+            "new": {
+              "label": "Novo",
+              "subtitle": "Fazer deste prato um novo prato"
+            }
+          }
+        },
+        "preview": {
+          "description": "Descrição",
+          "diet": "Dieta",
+          "allergens": "Alergénios",
+          "ingredients": "Ingredientes",
+          "editDish": "Editar prato"
+        }
+      },
+      "components": {
+        "menuCard": {
+          "active": "Ativo",
+          "inactive": "Inativo",
+          "viewMenuSections": "Ver secções do menu",
+          "delete": {
+            "title": "Menu Apagar",
+            "description": "Tem a certeza de que pretende apagar \"{nome}\"? Esta ação não pode ser anulada.",
+            "cancel": "Cancelar",
+            "confirm": "Eliminar"
+          },
+          "edit": {
+            "title": "Menu Editar",
+            "description": "Faça alterações ao seu menu aqui. Clique em guardar quando tiver terminado.",
+            "form": {
+              "name": "Nome",
+              "description": "Descrição"
+            },
+            "save": "Guardar alterações",
+            "saving": "Poupar..."
+          },
+          "toast": {
+            "authRequired": "Autenticação necessária. Por favor, inicie sessão novamente.",
+            "deleteSuccess": "Menu eliminado com êxito",
+            "deleteError": "Falha ao eliminar o menu",
+            "updateSuccess": "Menu atualizado com sucesso",
+            "updateError": "Falha na atualização do menu"
+          }
+        }
+      }
+    },
+    "settings": {
+      "header": "Definições",
+      "headerBtns": {
+        "profile": "Perfil",
+        "qrCode": "Menu Código QR"
+      },
+      "email": {
+        "title": "Alterar e-mail",
+        "subtitle": " Actualize o seu correio eletrónico introduzindo o novo endereço de correio eletrónico. Enviaremos um OTP para o seu correio atual para confirmar",
+        "updateEmail": "Atualizar e-mail",
+        "resendOtp": "Reenviar OTP",
+        "save": "Guardar",
+        "update": "Atualização",
+        "modalLabel": "Introduzir código"
+      },
+      "password": {
+        "title": "Alterar a palavra-passe",
+        "subtitle": " Actualize a sua palavra-passe introduzindo a palavra-passe pretendida. Enviaremos um OTP para o seu e-mail para confirmação.",
+        "oldPassword": "Palavra-passe atual",
+        "newPassword": "Nova palavra-passe",
+        "confirmPassword": "Confirmar a palavra-passe",
+        "resendOtp": "Reenviar OTP",
+        "save": "Guardar",
+        "update": "Atualização",
+        "modalLabel": "Introduzir código"
+      },
+      "brand": {
+        "title": " Outras informações",
+        "subtitle": "Atualizar informações relativas à sua conta",
+        "form": {
+          "logoLabel": "Atualizar logótipo",
+          "sloganLabel": "Atualizar o slogan",
+          "sloganPlaceholder": "Atualizar o slogan",
+          "addressLabel": "Atualizar o seu endereço",
+          "addressPlaceholder": "Atualizar o endereço",
+          "languageLabel": "Língua por defeito",
+          "currencyLabel": "Moeda por defeito",
+          "bannerLabel": "Atualizar o banner"
+        },
+        "buttons": {
+          "cancel": "Cancelar",
+          "update": "Atualização"
+        }
+      },
+      "brandCustomisation": {
+        "title": "Personalização da marca",
+        "subTitle": " Atualizar as informações apresentadas ao cliente no ecrã",
+        "form": {
+          "updateName": "Atualizar nome",
+          "updateSlogan": "Atualizar o slogan",
+          "updateColors": "Atualizar cores",
+          "updateLogo": "Atualizar logótipo",
+          "defaultLanguage": "Língua por defeito",
+          "cancel": "Cancelar",
+          "save": "Guardar"
+        }
+      },
+      "personalInformation": {
+        "title": "Informações pessoais",
+        "subTitle": " Atualizar as informações da sua conta",
+        "form": {
+          "pictureEdit": "Editar",
+          "updateEmail": "Atualizar e-mail",
+          "updatePassword": "Atualizar a palavra-passe",
+          "cancel": "Cancelar",
+          "save": "Guardar"
+        }
+      },
+      "qrCode": {
+        "header": {
+          "title": "Menu Código QR",
+          "subTitle": " Partilhe este código QR com os seus clientes para que possam aceder facilmente ao seu menu digital"
+        },
+        "body": {
+          "qrCodeTitle": "Os clientes lêem este código para ver o seu menu",
+          "menuUrl": "URL do menu",
+          "copied": "URL copiado para a área de transferência!"
+        },
+        "button": "Descarregar o código QR",
+        "footer": {
+          "title": "Modo de utilização:",
+          "step1": "- Imprimir o código QR e colocá-lo nas mesas",
+          "step2": "- Adicione-o aos materiais promocionais do seu restaurante",
+          "step3": "- Partilhar o URL diretamente com os clientes",
+          "step4": "- Exibi-lo em ecrãs ou sinalização digital"
+        }
+      }
+    },
+    "audit": {
+      "header": "Auditoria",
+      "error": "Erro ao carregar os registos de auditoria. Por favor, tente novamente.",
+      "table": {
+        "entity": "Entidade",
+        "action": "Ação",
+        "entityName": "Nome da entidade",
+        "performedBy": "Realizado por",
+        "createdAt": "Criado em"
+      },
+      "notAvailable": "N/A",
+      "filters": {
+        "allEntities": "Todas as entidades",
+        "allActions": "Todas as acções",
+        "limit": "Limite"
+      }
+    }
+  },
+  "paginator": {
+    "previous": "Anterior",
+    "next": "Seguinte",
+    "more": "Mais páginas"
+  }
+}

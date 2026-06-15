@@ -1,0 +1,1150 @@
+{
+  "auth": {
+    "main": {
+      "header": {
+        "login": "Autentificare",
+        "resetPassword": "Resetați parola"
+      },
+      "copyright": {
+        "1": "Copyright 2025",
+        "2": "Toate drepturile rezervate"
+      }
+    },
+    "login": {
+      "title": {
+        "1": "Conectați-vă la",
+        "2": "Tablou de bord administrativ"
+      },
+      "form": {
+        "email": {
+          "label": "E-mail",
+          "placeholder": "admin@example.com"
+        },
+        "password": {
+          "label": "Parolă",
+          "placeholder": "*********"
+        },
+        "keepLoggedIn": {
+          "label": "Amintește-ți de mine"
+        },
+        "submit": "Trimite",
+        "forgotPassword": "Ați uitat parola?"
+      }
+    },
+    "reset": {
+      "title": {
+        "1": "Introduceți adresa de e-mail",
+        "2": "Primiți codul OTP"
+      },
+      "form": {
+        "password": {
+          "label": "Parolă",
+          "placeholder": "********"
+        },
+        "confirmPassword": {
+          "label": "Confirmați parola",
+          "placeholder": "*********"
+        },
+        "back": "Înapoi",
+        "submit": "Trimite"
+      }
+    },
+    "enterOtp": {
+      "title": {
+        "1": "  Introduceți apoi codul Otp",
+        "2": "  Procedați la actualizarea parolei"
+      },
+      "form": {
+        "code": "Introduceți codul",
+        "resendCode": "Cod de retrimitere",
+        "confirmPassword": {
+          "label": "Confirmați parola",
+          "placeholder": "*********"
+        },
+        "back": "Înapoi",
+        "submit": "Trimite"
+      }
+    },
+    "setup": {
+      "header": " Brand Setup",
+      "title": {
+        "1": " Adăugați marca dvs.",
+        "2": "Perspective vizuale"
+      },
+      "form": {
+        "brandName": {
+          "label": "Nume de marcă",
+          "placeholder": "Introduceți numele mărcii"
+        },
+        "updateLogo": {
+          "label": "Actualizare logo",
+          "placeholder": "Alegeți logo-ul"
+        },
+        "brandSlogan": {
+          "label": "Sloganul mărcii",
+          "placeholder": "Introduceți sloganul mărcii"
+        },
+        "currency": {
+          "label": "Moneda implicită",
+          "placeholder": "Selectați moneda"
+        },
+        "language": {
+          "label": "Limba implicită",
+          "placeholder": "Selectați limba"
+        },
+        "back": "Înapoi",
+        "submit": "Trimite"
+      }
+    }
+  },
+  "sideNav": {
+    "dashboard": "Tablou de bord",
+    "menu": "Meniuri",
+    "addFood": "Adaugă alimente",
+    "addDrinks": "Adaugă băuturi",
+    "menuClass": "Clasificări meniu",
+    "review": "Recenzie",
+    "sub": "Abonament",
+    "settings": "Setări",
+    "logout": "Ieșire",
+    "audit": "Audit"
+  },
+  "admin": {
+    "dashboard": {
+      "header": "Tablou de bord",
+      "customersLabel": "Clienți",
+      "dishLabel": "Toate felurile de mâncare",
+      "totalDishes": "Total feluri de mâncare",
+      "totalInteractions": "Interacțiuni totale",
+      "dishesBtn": "Toate felurile de mâncare",
+      "lineChart": {
+        "customers": "Clienți"
+      },
+      "AI": {
+        "title": "Credite AI utilizate",
+        "subTitle": "Numărul total de credite AI utilizate atunci când clienții utilizează interfața de chat"
+      },
+      "customersOverview": "Prezentare generală a clienților"
+    },
+    "dishPieChart": {
+      "title": "Grafic circular - Farfurii pe tipuri de farfurii",
+      "footer": "Afișează numărul total de tipuri de vase și numărul lor."
+    },
+    "review": {
+      "header": "Recenzii",
+      "title": "Recenzii totale",
+      "filter": "Capacitate de filtrare",
+      "order": "ID comandă"
+    },
+    "subs": {
+      "title": "Gestionarea abonamentelor",
+      "header": {
+        "title": "Alegeți un plan potrivit pentru dimensiunea clientului dvs.",
+        "buttons": {
+          "month": " Pe lună",
+          "year": " Pe an"
+        }
+      },
+      "unsubscribe": "Dezabonare",
+      "subscribeNow": "Abonați-vă acum",
+      "subscribed": "Abonat",
+      "active": "Activ"
+    },
+    "menu": {
+      "topArea": {
+        "header": "Meniu",
+        "btns": {
+          "dishes": "Veselă",
+          "drinks": "Băuturi"
+        },
+        "rightSide": {
+          "searchPlaceholder": "Căutare",
+          "add": "Adaugă",
+          "drinks": "băuturi",
+          "dishes": "feluri de mâncare"
+        }
+      },
+      "dishes": {
+        "all": "Toate",
+        "modalTitle": "Previzualizare Farfurie",
+        "previewDish": {
+          "description": "Descriere",
+          "diet": "Dieta",
+          "allergens": "Alergeni",
+          "cuisine": "Bucătărie",
+          "ingredients": "Ingrediente",
+          "editDish": "Editează vasul"
+        }
+      },
+      "drinks": {
+        "all": "Toate",
+        "modalTitle": "Previzualizare băutură",
+        "previewDrink": {
+          "description": "Descriere",
+          "variants": "Variante",
+          "notAvailable": "Tip farfurie",
+          "editDrink": "Editează băutura"
+        }
+      },
+      "editDrink": {
+        "toast": {
+          "loading": "Îndepărtarea...",
+          "success": "Eliminat cu succes",
+          "error": "Ceva nu a mers bine",
+          "failed": "Nu a reușit să elimine"
+        },
+        "header": {
+          "header": "Meniu",
+          "title": "Editare băutură",
+          "remove": {
+            "btn": "Îndepărtați băutura",
+            "alert": {
+              "title": "Sunteți absolut sigur?",
+              "warning": " Această acțiune nu poate fi anulată. Această acțiune va elimina din sistem acest vas și tot ceea ce îi este asociat.",
+              "cancel": "Anulează",
+              "continue": "Continuați"
+            }
+          }
+        },
+        "form": {
+          "nameLabel": "nume",
+          "namePlaceholder": "Adăugați numele băuturii",
+          "descriptionLabel": "Descriere",
+          "descriptionPlaceholder": "Introduceți o descriere detaliată a băuturii",
+          "available": {
+            "label": "Disponibil",
+            "description": " Introduceți această băutură în meniu"
+          },
+          "alcoholic": {
+            "label": "Alcoolic",
+            "description": " Această băutură conține alcool?"
+          }
+        },
+        "drinkType": {
+          "title": "Tipuri de băuturi",
+          "addDrinkType": "Adaugă tip de băutură",
+          "add": "Adaugă"
+        },
+        "variants": {
+          "header": {
+            "title": "Variante",
+            "btn": "Adaugă variantă"
+          },
+          "form": {
+            "quantityLabel": "Cantitate",
+            "unitLabel": "Unitate",
+            "priceLabel": "Preț",
+            "available": {
+              "title": "Disponibil",
+              "description": "este disponibilă această variantă?"
+            }
+          }
+        },
+        "remove": "Eliminarea variantei",
+        "upload": "Încărcați aici",
+        "save": "Salvați"
+      },
+      "addDrinks": {
+        "header": "Meniu",
+        "title": "Adaugă o băutură nouă",
+        "btn": "Încărcați băuturi în vrac",
+        "bulkUpload": {
+          "title": "Încărcați băuturi",
+          "bulkUploadBtn": "Bulk Upload Băuturi",
+          "uploadBtn": "Încărcare",
+          "uploadBox": {
+            "upload": "Încărcați fișierul Excel",
+            "dragAndDrop": " Glisați și fixați sau faceți clic pentru a naviga",
+            "btn": "Alegeți fișierul"
+          },
+          "instructions": {
+            "1": "Faceți clic pe",
+            "2": "pentru a obține șablonul",
+            "3": "Completați detaliile solicitate în șablon.",
+            "4": "Primul rând după antet este un rând de probă pentru referință - vă rugăm să ștergeți acest rând înainte de încărcare.",
+            "5": "Câmpurile care acceptă valori multiple trebuie să fie",
+            "title": "Instrucțiuni de încărcare masivă:",
+            "download": "Descărcare",
+            "xlsx": ".xlsx",
+            "file": "fișier.",
+            "important": "Important:",
+            "comma": "separate prin virgulă",
+            "forExample": ". De exemplu:",
+            "rice": "mojito, sake, bere",
+            "btn": "Descărcați șablonul"
+          }
+        },
+        "form": {
+          "name": {
+            "label": "Nume și prenume",
+            "placeholder": "Adăugați numele băuturii"
+          },
+          "description": {
+            "label": "Descriere",
+            "placeholder": "Introduceți o descriere detaliată a băuturii"
+          },
+          "drinkType": {
+            "label": "Tip băutură",
+            "placeholder": "Selectați un tip de băutură"
+          },
+          "upload": "Încărcați aici",
+          "available": {
+            "title": "Disponibil",
+            "subtitle": "Introduceți această băutură în meniu"
+          },
+          "alcoholic": {
+            "title": "Alcoolic",
+            "subtitle": "Această băutură conține alcool?"
+          }
+        },
+        "types": {
+          "drinkTypes": "Tipuri de băuturi",
+          "drinkTypesBtn": "Adaugă tip de băutură",
+          "add": "Adaugă"
+        },
+        "variants": {
+          "header": {
+            "title": "Variante",
+            "btn": "Adaugă variantă"
+          },
+          "form": {
+            "quantity": "Cantitate",
+            "unit": "Unitate",
+            "unitPlaceholder": "Selectați o unitate",
+            "price": "Preț",
+            "available": "Disponibil",
+            "availableSub": "este disponibilă această variantă?",
+            "removeVariant": "Eliminarea variantei"
+          }
+        },
+        "image": {
+          "title": "Imagini",
+          "upload": "Încărcați aici"
+        },
+        "saveBtn": "Salvați"
+      },
+      "addDish": {
+        "appSections": {
+          "title": "Secțiuni ale aplicației",
+          "chefsRecommended": {
+            "label": "Chefi recomandați",
+            "subtitle": "Faceți din acest fel de mâncare un fel de mâncare recomandat de bucătari"
+          },
+          "popular": {
+            "label": "Populare",
+            "subtitle": "Faceți din acest fel de mâncare un fel de mâncare popular"
+          },
+          "new": {
+            "label": "Nou",
+            "subtitle": "Faceți din acest fel de mâncare un fel de mâncare nou"
+          }
+        },
+        "title": "Meniu",
+        "topSide": {
+          "title": "Adăugați o farfurie nouă",
+          "btn": "Încărcați feluri de mâncare în vrac"
+        },
+        "bulkUpload": {
+          "title": "Încărcați vasul",
+          "uploadBtn": "Încărcare",
+          "uploadBox": {
+            "upload": "Încărcați fișierul Excel",
+            "dragAndDrop": " Glisați și fixați sau faceți clic pentru a naviga",
+            "btn": "Alegeți fișierul"
+          },
+          "instructions": {
+            "1": "Faceți clic pe",
+            "2": "pentru a obține șablonul",
+            "3": "Completați detaliile solicitate în șablon.",
+            "4": "Primul rând după antet este un rând de probă pentru referință - vă rugăm să ștergeți acest rând înainte de încărcare.",
+            "5": "Câmpurile care acceptă valori multiple trebuie să fie",
+            "title": "Instrucțiuni de încărcare masivă:",
+            "download": "Descărcare",
+            "xlsx": ".xlsx",
+            "file": "fișier.",
+            "important": "Important:",
+            "comma": "separate prin virgulă",
+            "forExample": ". De exemplu:",
+            "rice": "orez, fasole, tocană",
+            "btn": "Descărcați șablonul"
+          }
+        },
+        "form": {
+          "name": {
+            "label": "Nume și prenume",
+            "placeholder": "Adăugați numele alimentelor"
+          },
+          "price": {
+            "label": "Preț",
+            "placeholder": "Introduceți prețul alimentelor"
+          },
+          "description": {
+            "label": "Descriere",
+            "placeholder": "Introduceți o descriere detaliată a alimentelor"
+          },
+          "preparationTime": {
+            "label": "Timp de preparare (minute)"
+          },
+          "spiceLevel": {
+            "label": "Nivelul de condimente",
+            "placeholder": "Selectați nivelul de condimente",
+            "clear": "Clar",
+            "spiceLevels": {
+              "mild": {
+                "value": "ușoară",
+                "label": "Ușoară"
+              },
+              "medium": {
+                "value": "mediu",
+                "label": "Mediu"
+              },
+              "spicy": {
+                "value": "picant",
+                "label": "Picant"
+              },
+              "verySpicy": {
+                "value": "foarte_picant",
+                "label": "Foarte picant"
+              }
+            }
+          },
+          "available": {
+            "title": "Disponibil",
+            "subtitle": "Introduceți acest fel de mâncare în meniu"
+          }
+        },
+        "ingredients": {
+          "title": "Ingrediente",
+          "btn": "Adăugați un ingredient",
+          "placeholder": "Denumirea ingredientului",
+          "removeBtn": "Eliminați ingredientul"
+        },
+        "types": {
+          "dishTypes": "Tipuri de farfurii",
+          "dishTypesBtn": "Adaugă categorie",
+          "dietaryPreferences": "Preferințe alimentare",
+          "dietaryPreferencesbtn": "Adaugă dietă",
+          "allergens": "Alergeni",
+          "allergensBtn": "Adăugați alergeni",
+          "addons": "Add Ons",
+          "addonsBtn": "Adaugă addon",
+          "add": "Adaugă"
+        },
+        "image": {
+          "title": "Imagini",
+          "upload": "Încărcați aici"
+        },
+        "saveBtn": "Salvați"
+      },
+      "editDish": {
+        "toast": {
+          "loading": "Îndepărtarea...",
+          "success": "Eliminat cu succes",
+          "error": "Ceva nu a mers bine",
+          "failed": "Nu a reușit să elimine"
+        },
+        "header": {
+          "header": "Meniu",
+          "title": "Editează vasul",
+          "remove": {
+            "btn": "Îndepărtați vasul",
+            "alert": {
+              "title": "Sunteți absolut sigur?",
+              "warning": " Această acțiune nu poate fi anulată. Această acțiune va elimina din sistem acest vas și tot ceea ce îi este asociat.",
+              "cancel": "Anulează",
+              "continue": "Continuați"
+            }
+          }
+        },
+        "form": {
+          "nameLabel": "nume",
+          "namePlaceholder": "Adăugați numele vasului",
+          "descriptionLabel": "Descriere",
+          "priceLabel": "Preț",
+          "pricePlaceholder": "Introduceți prețul alimentelor",
+          "descriptionPlaceholder": "Introduceți o descriere detaliată a felului de mâncare",
+          "preparationLabel": "Timp de preparare",
+          "spiceLabel": "Etichetă Spice",
+          "available": {
+            "label": "Disponibil",
+            "description": " Introduceți această băutură în meniu"
+          },
+          "alcoholic": {
+            "label": "Alcoolic",
+            "description": " Această băutură conține alcool?"
+          }
+        },
+        "drinkType": {
+          "title": "Tipuri de băuturi",
+          "addDrinkType": "Adaugă tip de băutură",
+          "add": "Adaugă"
+        },
+        "variants": {
+          "header": {
+            "title": "Variante",
+            "btn": "Adaugă variantă"
+          },
+          "form": {
+            "name": {
+              "label": "Nume și prenume",
+              "placeholder": "Adăugați numele alimentelor"
+            },
+            "price": {
+              "label": "Preț",
+              "placeholder": "Introduceți prețul alimentelor"
+            },
+            "description": {
+              "label": "Descriere",
+              "placeholder": "Introduceți o descriere detaliată a alimentelor"
+            },
+            "preparationTime": {
+              "label": "Timp de preparare (minute)"
+            },
+            "spiceLevel": {
+              "label": "Nivelul de condimente",
+              "placeholder": "Selectați nivelul de condimente",
+              "clear": "Clar",
+              "spiceLevels": {
+                "mild": {
+                  "value": "ușoară",
+                  "label": "Ușoară"
+                },
+                "medium": {
+                  "value": "mediu",
+                  "label": "Mediu"
+                },
+                "spicy": {
+                  "value": "picant",
+                  "label": "Picant"
+                },
+                "verySpicy": {
+                  "value": "foarte_picant",
+                  "label": "Foarte picant"
+                }
+              }
+            },
+            "available": {
+              "title": "Disponibil",
+              "subtitle": "Introduceți acest fel de mâncare în meniu"
+            }
+          },
+          "ingredients": {
+            "title": "Ingrediente",
+            "btn": "Adăugați un ingredient",
+            "placeholder": "Denumirea ingredientului",
+            "removeBtn": "Eliminați ingredientul"
+          },
+          "types": {
+            "dishTypes": "Tipuri de farfurii",
+            "dishTypesBtn": "Adaugă categorie",
+            "dietaryPreferences": "Preferințe alimentare",
+            "dietaryPreferencesbtn": "Adaugă dietă",
+            "allergens": "Alergeni",
+            "allergensBtn": "Adăugați alergeni",
+            "add": "Adaugă"
+          },
+          "image": {
+            "title": "Imagini",
+            "upload": "Încărcați aici"
+          },
+          "saveBtn": "Salvați"
+        },
+        "remove": "Eliminarea variantei",
+        "upload": "Încărcați aici",
+        "save": "Salvați",
+        "cancel": "Anulează"
+      },
+      "menuClassifications": {
+        "header": {
+          "header": "Meniu",
+          "title": "Clasificări meniu",
+          "btn": "Adăugați o nouă clasificare"
+        },
+        "card": {
+          "title": {
+            "cuisine": "Bucătărie",
+            "diet": "Diete",
+            "addOns": "Add Ons",
+            "allergen": "Alergen",
+            "drinkType": "Tipuri de băuturi"
+          },
+          "subTitle": "Selectați elemente individuale din lista de mai jos pentru a le atribui alimente",
+          "subTitleDrink": "Selectați elemente individuale din lista de mai jos pentru a le atribui alimente",
+          "description": "Selectați elemente individuale din lista de mai jos pentru a le atribui alimente"
+        },
+        "editClassTitle": "Selectați alimentele disponibile pentru a le adăuga ca",
+        "addToList": "Adaugă la listă"
+      }
+    },
+    "menus": {
+      "header": {
+        "title": "Meniuri",
+        "restaurantMenu": "Meniu"
+      },
+      "search": {
+        "placeholder": "Căutare"
+      },
+      "create": {
+        "button": "Creați un meniu nou",
+        "dialog": {
+          "title": "Creați un meniu nou",
+          "description": "Adăugați un meniu nou la restaurantul dvs.",
+          "form": {
+            "name": {
+              "label": "Nume și prenume",
+              "placeholder": "Numele meniului"
+            },
+            "description": {
+              "label": "Descriere",
+              "placeholder": "Descrierea meniului"
+            }
+          },
+          "button": {
+            "creating": "Crearea...",
+            "create": "Creare meniu"
+          }
+        }
+      },
+      "sections": {
+        "header": {
+          "title": "Secțiuni de meniu"
+        },
+        "search": {
+          "placeholder": "Căutare"
+        },
+        "menu": {
+          "suffix": " Meniu",
+          "edit": {
+            "button": "Meniul Editare",
+            "dialog": {
+              "title": "Meniul Editare",
+              "description": "Faceți modificări la meniul dvs. aici. Faceți clic pe Salvare când ați terminat.",
+              "form": {
+                "name": {
+                  "label": "Nume și prenume"
+                },
+                "description": {
+                  "label": "Descriere"
+                }
+              },
+              "save": "Salvați modificările",
+              "saving": "Salvarea..."
+            },
+            "toast": {
+              "success": "Meniu actualizat cu succes",
+              "error": "A eșuat actualizarea meniului"
+            }
+          },
+          "delete": {
+            "button": "Meniu Ștergere",
+            "dialog": {
+              "title": "Meniu Ștergere",
+              "description": "Sunteți sigur că doriți să ștergeți \"{numele}\"? Această acțiune nu poate fi anulată.",
+              "cancel": "Anulează",
+              "confirm": "Ștergeți"
+            },
+            "toast": {
+              "success": "Meniu șters cu succes",
+              "error": "Eșec la ștergerea meniului"
+            }
+          }
+        },
+        "create": {
+          "button": "Adăugați o nouă secțiune de meniu",
+          "dialog": {
+            "title": "Adăugați o nouă secțiune de meniu",
+            "description": "Creați o secțiune nouă pentru acest meniu.",
+            "form": {
+              "name": {
+                "label": "Nume și prenume",
+                "placeholder": "Denumirea secțiunii"
+              },
+              "description": {
+                "label": "Descriere",
+                "placeholder": "Descrierea secțiunii"
+              }
+            },
+            "button": {
+              "creating": "Crearea...",
+              "create": "Crearea secțiunii"
+            }
+          },
+          "toast": {
+            "success": "Secțiunea de meniu creată cu succes",
+            "error": "A eșuat crearea secțiunii de meniu"
+          }
+        },
+        "card": {
+          "edit": "Editare",
+          "disable": "Dezactivare",
+          "delete": "Ștergeți",
+          "editDialog": {
+            "title": "Editare secțiune",
+            "form": {
+              "name": {
+                "label": "Nume și prenume"
+              },
+              "description": {
+                "label": "Descriere"
+              },
+              "button": "Salvați"
+            }
+          },
+          "deleteDialog": {
+            "title": "Ștergeți secțiunea",
+            "description": "Sunteți sigur că doriți să ștergeți această secțiune și toate elementele sale de meniu?",
+            "cancel": "Anulează",
+            "delete": "Ștergeți"
+          }
+        }
+      },
+      "classifications": {
+        "header": {
+          "header": "Meniu",
+          "title": "Clasificări meniu",
+          "back": "Clasificări meniu",
+          "btn": "Adăugați o nouă clasificare"
+        },
+        "search": {
+          "placeholder": "Căutare"
+        },
+        "card": {
+          "title": {
+            "cuisine": "Bucătărie",
+            "diet": "Diete",
+            "addOns": "Add Ons",
+            "allergen": "Alergen",
+            "drinkType": "Tipuri de băuturi"
+          },
+          "description": "Selectați elemente individuale din lista de mai jos pentru a le atribui alimente"
+        },
+        "create": {
+          "diet": {
+            "button": "Creați o dietă",
+            "title": "Creați o dietă",
+            "form": {
+              "name": {
+                "label": "Introduceți numele"
+              }
+            }
+          },
+          "addon": {
+            "button": "Creați addon",
+            "title": "Creați addon",
+            "form": {
+              "name": {
+                "label": "Nume și prenume"
+              },
+              "price": {
+                "label": "Preț"
+              }
+            }
+          }
+        },
+        "diets": {
+          "edit": {
+            "title": "Editează dieta",
+            "form": {
+              "name": {
+                "label": "Introduceți numele"
+              }
+            },
+            "button": "Actualizare"
+          },
+          "delete": {
+            "title": "Sunteți sigur că doriți să ștergeți această dietă?",
+            "description": "Această acțiune nu poate fi anulată. Acest lucru va șterge definitiv această dietă.",
+            "cancel": "Anulează",
+            "continue": "Continuați"
+          }
+        },
+        "addons": {
+          "edit": {
+            "title": "Adaugă addon",
+            "description": "Adăugați un nou addon la meniu",
+            "form": {
+              "name": {
+                "label": "Introduceți numele"
+              },
+              "price": {
+                "label": "Introduceți prețul"
+              }
+            },
+            "button": "Adaugă"
+          },
+          "delete": {
+            "title": "Sunteți sigur că doriți să ștergeți acest addon?",
+            "description": "Această acțiune nu poate fi anulată. Acest lucru va șterge definitiv acest addon.",
+            "cancel": "Anulează",
+            "continue": "Continuați"
+          }
+        },
+        "listItem": {
+          "edit": "Editare",
+          "delete": "Ștergeți"
+        }
+      },
+      "items": {
+        "add": {
+          "form": {
+            "preparationTime": {
+              "placeholder": "0"
+            }
+          },
+          "validation": {
+            "name": "Vă rugăm să introduceți un nume valid",
+            "description": "Vă rugăm să introduceți o descriere",
+            "price": "Vă rugăm să introduceți un preț valid",
+            "ingredients": "Adăugați ingredientele"
+          },
+          "appSections": {
+            "title": "Secțiuni ale aplicației",
+            "chefsRecommended": {
+              "label": "Chefi recomandați",
+              "subtitle": "Faceți din acest fel de mâncare un fel de mâncare recomandat de bucătari"
+            },
+            "popular": {
+              "label": "Populare",
+              "subtitle": "Faceți din acest fel de mâncare un fel de mâncare popular"
+            },
+            "new": {
+              "label": "Nou",
+              "subtitle": "Faceți din acest fel de mâncare un fel de mâncare nou"
+            }
+          },
+          "components": {
+            "diets": {
+              "label": "Preferințe alimentare",
+              "button": "Adaugă dietă",
+              "modal": {
+                "title": "Adaugă dietă",
+                "button": "Adaugă",
+                "form": {
+                  "name": {
+                    "label": "Introduceți numele"
+                  }
+                }
+              }
+            },
+            "addons": {
+              "label": "Add Ons",
+              "button": "Adaugă addon",
+              "modal": {
+                "title": "Adaugă addon",
+                "button": "Adaugă",
+                "form": {
+                  "name": {
+                    "label": "Introduceți numele"
+                  }
+                }
+              }
+            },
+            "allergens": {
+              "label": "Alergeni"
+            },
+            "ingredients": {
+              "empty": "Faceți clic pentru a selecta ingredientele",
+              "modal": {
+                "title": "Selectați ingredientele",
+                "search": {
+                  "placeholder": "Căutare..."
+                },
+                "add": "Adaugă",
+                "remove": "Eliminați",
+                "buttons": {
+                  "cancel": "Anulează",
+                  "done": "Efectuat"
+                }
+              },
+              "toast": {
+                "success": "ingredient adăugat la listă",
+                "deleteSuccess": "ingredient șters cu succes"
+              }
+            },
+            "variants": {
+              "title": "Variante",
+              "description": "Adăugați diferite variante ale acestui element de meniu (de exemplu, dimensiuni, stiluri, porții)",
+              "empty": "Nu s-au adăugat încă variante. Faceți clic pe \"Adaugă variantă\" pentru a începe.",
+              "button": "Adaugă variantă",
+              "variant": "Variantă",
+              "form": {
+                "name": {
+                  "label": "Nume și prenume",
+                  "placeholder": "de exemplu, mic, mediu, mare"
+                },
+                "price": {
+                  "label": "Preț",
+                  "placeholder": "0.00"
+                },
+                "available": {
+                  "label": "Disponibil pentru comandă"
+                }
+              },
+              "remove": "Eliminați varianta"
+            },
+            "discount": {
+              "empty": {
+                "title": "Nu se adaugă nicio reducere",
+                "description": "Adăugați o reducere pentru a oferi prețuri speciale",
+                "button": "Adaugă reducere"
+              },
+              "title": "Detalii privind reducerile",
+              "form": {
+                "label": {
+                  "label": "Etichetă de reducere"
+                },
+                "type": {
+                  "label": "Tip de reducere",
+                  "placeholder": "Selectați tipul de reducere",
+                  "percentage": "Procentaj",
+                  "fixed": "Fix"
+                },
+                "value": {
+                  "label": "Discount Valoare"
+                },
+                "startDate": {
+                  "label": "Data și ora de începere"
+                },
+                "endDate": {
+                  "label": "Data și ora de încheiere"
+                }
+              }
+            }
+          },
+          "bulk": {
+            "title": "Elemente de meniu Bulk Upload",
+            "description": "Încărcați un fișier CSV și mapați coloanele pentru a crea elemente de meniu în masă",
+            "tabs": {
+              "upload": "Încărcați CSV",
+              "map": "Coloane de hartă",
+              "preview": "Previzualizare și confirmare"
+            },
+            "upload": {
+              "dragDrop": "Trageți și plasați fișierul CSV aici",
+              "clickBrowse": "sau faceți clic pentru a naviga",
+              "formatRequirements": {
+                "title": "Cerințe privind formatul CSV",
+                "firstRow": "Primul rând trebuie să conțină titluri de coloană",
+                "supportedFormats": "Formate acceptate: text/csv sau extensie .csv",
+                "columnNames": "Asigurați-vă că numele coloanelor corespund datelor dvs.",
+                "nextStep": "Aceste coloane vor fi asociate cu câmpuri de elemente de meniu în etapa următoare"
+              }
+            },
+            "mapper": {
+              "csvColumnsFound": "Coloane CSV găsite",
+              "sampleData": "Date eșantion (primul rând)",
+              "columnMappings": "Maparea coloanelor",
+              "addMapping": "+ Adăugați maparea",
+              "noMappings": "Nu există încă corespondențe. Adăugați prima corespondență de coloană.",
+              "csvColumn": "Coloană CSV",
+              "menuItemField": "Câmp element de meniu",
+              "allRequiredMapped": "✓ Toate câmpurile obligatorii sunt completate",
+              "missingRequired": "⚠ Lipsa câmpurilor obligatorii",
+              "required": "Necesar",
+              "continueToPreview": "Continuați la Previzualizare"
+            },
+            "preview": {
+              "totalRows": "Total rânduri",
+              "selected": "Selectate",
+              "fieldsMapped": "Câmpuri cartografiate",
+              "dataPreview": "Previzualizare date",
+              "showAll": "Arată toate",
+              "showFirst10": "Afișați primele 10",
+              "showing": "Afișând 10 de",
+              "rows": "rânduri",
+              "yes": "Da",
+              "no": "Nu",
+              "empty": "—",
+              "startOver": "Începeți din nou",
+              "uploading": "Încărcare...",
+              "upload": "Încărcare",
+              "items": "Articole",
+              "fieldNames": {
+                "name": "Nume și prenume",
+                "section": "Secțiunea",
+                "type": "Tip",
+                "description": "Descriere",
+                "price": "Preț",
+                "spiceLevel": "Nivelul de condimente",
+                "cookTime": "Timp de gătire",
+                "ingredients": "Ingrediente",
+                "images": "Imagini",
+                "translations": "Traduceri",
+                "variants": "Variante",
+                "addons": "Add Ons",
+                "allergens": "Alergeni"
+              }
+            }
+          }
+        },
+        "edit": {
+          "validation": {
+            "name": "Vă rugăm să introduceți un nume valid"
+          },
+          "appSections": {
+            "title": "Secțiuni ale aplicației",
+            "chefsRecommended": {
+              "label": "Chefi recomandați",
+              "subtitle": "Faceți din acest fel de mâncare un fel de mâncare recomandat de bucătari"
+            },
+            "popular": {
+              "label": "Populare",
+              "subtitle": "Faceți din acest fel de mâncare un fel de mâncare popular"
+            },
+            "new": {
+              "label": "Nou",
+              "subtitle": "Faceți din acest fel de mâncare un fel de mâncare nou"
+            }
+          }
+        },
+        "preview": {
+          "description": "Descriere",
+          "diet": "Dieta",
+          "allergens": "Alergeni",
+          "ingredients": "Ingrediente",
+          "editDish": "Editează vasul"
+        }
+      },
+      "components": {
+        "menuCard": {
+          "active": "Activ",
+          "inactive": "Inactiv",
+          "viewMenuSections": "Vezi secțiunile meniului",
+          "delete": {
+            "title": "Meniu Ștergere",
+            "description": "Sunteți sigur că doriți să ștergeți \"{numele}\"? Această acțiune nu poate fi anulată.",
+            "cancel": "Anulează",
+            "confirm": "Ștergeți"
+          },
+          "edit": {
+            "title": "Meniul Editare",
+            "description": "Faceți modificări la meniul dvs. aici. Faceți clic pe Salvare când ați terminat.",
+            "form": {
+              "name": "Nume și prenume",
+              "description": "Descriere"
+            },
+            "save": "Salvați modificările",
+            "saving": "Salvarea..."
+          },
+          "toast": {
+            "authRequired": "Este necesară autentificarea. Vă rugăm să vă autentificați din nou.",
+            "deleteSuccess": "Meniu șters cu succes",
+            "deleteError": "Eșec la ștergerea meniului",
+            "updateSuccess": "Meniu actualizat cu succes",
+            "updateError": "A eșuat actualizarea meniului"
+          }
+        }
+      }
+    },
+    "settings": {
+      "header": "Setări",
+      "headerBtns": {
+        "profile": "Profil",
+        "qrCode": "Meniu Cod QR"
+      },
+      "email": {
+        "title": "Schimbare e-mail",
+        "subtitle": " Actualizați-vă adresa de e-mail introducând noua adresă de e-mail. Vom trimite un OTP la adresa dvs. de e-mail curentă pentru confirmare",
+        "updateEmail": "Actualizare e-mail",
+        "resendOtp": "Trimiteți din nou OTP",
+        "save": "Salvați",
+        "update": "Actualizare",
+        "modalLabel": "Introduceți codul"
+      },
+      "password": {
+        "title": "Schimbare parolă",
+        "subtitle": " Actualizați-vă parola introducând parola dorită. Vom trimite un OTP pe adresa dvs. de e-mail pentru confirmare.",
+        "oldPassword": "Parolă curentă",
+        "newPassword": "Parolă nouă",
+        "confirmPassword": "Confirmați parola",
+        "resendOtp": "Trimiteți din nou OTP",
+        "save": "Salvați",
+        "update": "Actualizare",
+        "modalLabel": "Introduceți codul"
+      },
+      "brand": {
+        "title": " Alte informații",
+        "subtitle": "Actualizarea informațiilor referitoare la contul dvs.",
+        "form": {
+          "logoLabel": "Actualizare logo",
+          "sloganLabel": "Slogan de actualizare",
+          "sloganPlaceholder": "Actualizați sloganul",
+          "addressLabel": "Actualizați-vă adresa",
+          "addressPlaceholder": "Actualizarea adresei",
+          "languageLabel": "Limba implicită",
+          "currencyLabel": "Moneda implicită",
+          "bannerLabel": "Actualizare banner"
+        },
+        "buttons": {
+          "cancel": "Anulează",
+          "update": "Actualizare"
+        }
+      },
+      "brandCustomisation": {
+        "title": "Personalizarea mărcii",
+        "subTitle": " Actualizarea informațiilor afișate clientului",
+        "form": {
+          "updateName": "Nume actualizare",
+          "updateSlogan": "Slogan de actualizare",
+          "updateColors": "Actualizarea culorilor",
+          "updateLogo": "Actualizare logo",
+          "defaultLanguage": "Limba implicită",
+          "cancel": "Anulează",
+          "save": "Salvați"
+        }
+      },
+      "personalInformation": {
+        "title": "Informații personale",
+        "subTitle": " Actualizați informațiile contului dvs.",
+        "form": {
+          "pictureEdit": "Editare",
+          "updateEmail": "Actualizare e-mail",
+          "updatePassword": "Actualizare parolă",
+          "cancel": "Anulează",
+          "save": "Salvați"
+        }
+      },
+      "qrCode": {
+        "header": {
+          "title": "Meniu Cod QR",
+          "subTitle": " Partajați acest cod QR cu clienții dvs., astfel încât aceștia să poată accesa cu ușurință meniul dvs. digital"
+        },
+        "body": {
+          "qrCodeTitle": "Clienții scanează acest cod pentru a vizualiza meniul dvs.",
+          "menuUrl": "Meniu URL",
+          "copied": "URL copiat în clipboard!"
+        },
+        "button": "Descărcați codul QR",
+        "footer": {
+          "title": "Mod de utilizare:",
+          "step1": "- Imprimați codul QR și puneți-l pe mese",
+          "step2": "- Adăugați-l la materialele promoționale ale restaurantului dvs.",
+          "step3": "- Partajați URL-ul direct cu clienții",
+          "step4": "- Afișarea pe ecrane sau semnalizare digitală"
+        }
+      }
+    },
+    "audit": {
+      "header": "Audit",
+      "error": "Eroare la încărcarea jurnalelor de audit. Vă rugăm să încercați din nou.",
+      "table": {
+        "entity": "Entitate",
+        "action": "Acțiune",
+        "entityName": "Numele entității",
+        "performedBy": "Realizat de",
+        "createdAt": "Creat la"
+      },
+      "notAvailable": "N/A",
+      "filters": {
+        "allEntities": "Toate entitățile",
+        "allActions": "Toate acțiunile",
+        "limit": "Limite"
+      }
+    }
+  },
+  "paginator": {
+    "previous": "Articolul precedent",
+    "next": "Următorul",
+    "more": "Mai multe pagini"
+  }
+}

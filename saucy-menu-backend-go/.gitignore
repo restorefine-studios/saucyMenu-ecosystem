@@ -1,0 +1,16 @@
+# binaries
+/bin/
+/tmp/
+*.test
+*.out
+
+# env
+.env
+.env.*
+!.env.example
+
+# os
+.DS_Store
+
+# local db dumps
+/backups/
