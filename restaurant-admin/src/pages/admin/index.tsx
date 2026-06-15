@@ -9,6 +9,7 @@ import { useEffect } from 'react'
 import { useAtom } from 'jotai'
 import { userAtom } from '@/atoms/user'
 import { authClient } from '@/lib/auth-client'
+import { posthog } from '@/lib/posthog'
 
 const Admin = () => {
   const [, setUser] = useAtom(userAtom)
@@ -22,7 +23,22 @@ const Admin = () => {
   useEffect(() => {
     authClient.getSession({
       fetchOptions: {
-        onSuccess: (data: any) => setUser(data?.data?.user),
+        onSuccess: (data: any) => {
+          const user = data?.data?.user
+          setUser(user)
+          if (user?.id) {
+            posthog.identify(user.id, {
+              email: user.email,
+              restaurant_id: user.restaurant?.id,
+              restaurant_name: user.restaurant?.name,
+            })
+            if (user.restaurant?.id) {
+              posthog.group('restaurant', user.restaurant.id, {
+                name: user.restaurant.name,
+              })
+            }
+          }
+        },
       },
     })
     // eslint-disable-next-line react-hooks/exhaustive-deps

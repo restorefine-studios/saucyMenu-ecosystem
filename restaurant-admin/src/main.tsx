@@ -5,6 +5,9 @@ import App from "./App.tsx";
 import { Toaster } from "sonner";
 import "./i18n";
 import { NuqsAdapter } from "nuqs/adapters/react";
+import { initPostHog } from "./lib/posthog";
+
+initPostHog();
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>

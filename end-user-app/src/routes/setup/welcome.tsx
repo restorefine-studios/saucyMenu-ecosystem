@@ -5,6 +5,7 @@ import {
   ShieldCheckIcon,
 } from '@heroicons/react/24/solid'
 import { cn } from '@/lib/utils'
+import { posthog } from '@/lib/posthog'
 
 export const Route = createFileRoute('/setup/welcome')({
   component: Welcome,
@@ -62,6 +63,7 @@ function Welcome() {
 
   const handleFinish = () => {
     localStorage.setItem(WELCOME_SEEN_KEY, '1')
+    posthog.capture('onboarding_completed')
     router.navigate({ to: '/setup' })
   }
 

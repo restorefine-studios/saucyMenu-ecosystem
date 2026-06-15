@@ -1,6 +1,7 @@
 import { userAtom } from '@/atoms/user'
 import SpinnerLoader from '@/components/spinner'
 import { axiosInstance, apiUrl } from '@/lib/utils'
+import { posthog } from '@/lib/posthog'
 import { useMutation } from '@tanstack/react-query'
 import { createFileRoute, useRouter } from '@tanstack/react-router'
 import { useAtom } from 'jotai'
@@ -30,12 +31,17 @@ function SlugEntry() {
     mutationFn: async () => {
       const slugData = await resolveSlug()
       if (!slugData?.data?.id) throw new Error('Restaurant not found')
-      return createSession(slugData.data.id)
+      const session = await createSession(slugData.data.id)
+      return { session, restaurantId: slugData.data.id }
     },
-    onSuccess: (data) => {
+    onSuccess: ({ session: data, restaurantId }) => {
       if (data?.success) {
         localStorage.setItem('saucy-user-token', data.data?.token)
         setUser(data?.data)
+        if (data.data?.sessionId) {
+          posthog.identify(data.data.sessionId, { restaurant_id: restaurantId })
+          posthog.capture('diner_session_started', { restaurant_id: restaurantId, entry: 'qr_slug' })
+        }
         router.navigate({ to: '/setup/welcome' })
       } else {
         toast.warning('Invalid QR code')

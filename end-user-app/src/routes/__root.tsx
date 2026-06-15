@@ -8,12 +8,14 @@ import { NuqsAdapter } from 'nuqs/adapters/tanstack-router'
 import { Toaster } from 'sonner'
 import appCss from '../styles.css?url'
 import '../i18n'
+import { useEffect } from 'react'
 import type { QueryClient } from '@tanstack/react-query'
 import {
   getContext,
   Provider,
 } from '@/integrations/tanstack-query/root-provider'
 import { ThemeProvider } from '@/components/theme-provider'
+import { initPostHog } from '@/lib/posthog'
 
 interface MyRouterContext {
   queryClient: QueryClient
@@ -46,6 +48,10 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
 })
 
 function RootDocument() {
+  useEffect(() => {
+    initPostHog()
+  }, [])
+
   return (
     <html lang="en">
       <head>

@@ -2,6 +2,7 @@ import { apiRoutes } from '@/api-routes'
 import { userAtom } from '@/atoms/user'
 import SpinnerLoader from '@/components/spinner'
 import { axiosInstance } from '@/lib/utils'
+import { posthog } from '@/lib/posthog'
 import { useMutation } from '@tanstack/react-query'
 import { createFileRoute, useRouter } from '@tanstack/react-router'
 import { useAtom } from 'jotai'
@@ -39,6 +40,10 @@ function App() {
         localStorage.setItem('saucy-user-token', data.data?.token)
         // Cookies.set("saucy-user-token", data.data?.token);
         setUser(data?.data)
+        if (data.data?.sessionId) {
+          posthog.identify(data.data.sessionId, { restaurant_id: restaurantId })
+          posthog.capture('diner_session_started', { restaurant_id: restaurantId, entry: 'qr_id' })
+        }
         // await submit(data.data?.token);
         router.navigate({ to: '/setup/welcome' })
       } else {

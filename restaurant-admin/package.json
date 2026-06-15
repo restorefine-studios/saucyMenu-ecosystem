@@ -50,6 +50,7 @@
     "moment": "^2.30.1",
     "nuqs": "^2.4.1",
     "papaparse": "^5.5.3",
+    "posthog-js": "^1.386.8",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-easy-crop": "^5.5.0",

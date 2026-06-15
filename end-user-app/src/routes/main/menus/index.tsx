@@ -12,6 +12,7 @@ import { NewArrivalsCarousel } from '@/components/NewArrivalsCarousel'
 import { SectionNav } from '@/components/SectionNav'
 import { ChevronLeft, Search, MoreVertical, Sparkles, Info, MapPin, Phone, Globe, Clock, Share2, Star as StarIcon, Timer, Tag } from 'lucide-react'
 import { toast } from 'sonner'
+import { posthog } from '@/lib/posthog'
 import {
   Drawer,
   DrawerContent,
@@ -249,7 +250,16 @@ function MenuPage() {
       prev.includes(id) ? prev.filter(f => f !== id) : [...prev, id],
     )
 
+  React.useEffect(() => {
+    if (restaurant?.id) {
+      posthog.register({ restaurant_id: restaurant.id, restaurant_name: restaurant.name })
+      posthog.capture('menu_viewed')
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [restaurant?.id])
+
   const handleItemClick = (item: MenuItem) => {
+    posthog.capture('menu_item_viewed', { item_id: item.id, item_name: item.name })
     setSelectedItemId(item.id)
   }
 
