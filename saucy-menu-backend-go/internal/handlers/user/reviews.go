@@ -24,13 +24,14 @@ func (h *ReviewsHandler) CreateReview(w http.ResponseWriter, r *http.Request) {
 		Rating       int32  `json:"rating"`
 		Comment      string `json:"comment"`
 		ReviewableID string `json:"reviewableId"`
+		Email        string `json:"email"`
 	}
 	if err := json.NewDecoder(r.Body).Decode(&body); err != nil {
 		httpx.WriteError(w, http.StatusBadRequest, "invalid request body")
 		return
 	}
-	if body.ReviewableID == "" || body.Comment == "" {
-		httpx.WriteError(w, http.StatusBadRequest, "rating, comment and reviewableId are required")
+	if body.ReviewableID == "" || body.Comment == "" || body.Email == "" {
+		httpx.WriteError(w, http.StatusBadRequest, "rating, comment, email and reviewableId are required")
 		return
 	}
 
@@ -54,10 +55,12 @@ func (h *ReviewsHandler) CreateReview(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	email := body.Email
 	if err := h.q.CreateReview(r.Context(), sqlc.CreateReviewParams{
 		ReviewableID: reviewableID,
 		Rating:       body.Rating,
 		Comment:      body.Comment,
+		Email:        &email,
 		RestaurantID: rid,
 	}); err != nil {
 		httpx.WriteError(w, http.StatusInternalServerError, "failed to create review")

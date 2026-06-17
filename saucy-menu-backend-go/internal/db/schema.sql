@@ -101,6 +101,7 @@ CREATE TABLE "reviews" (
 	"reviewable_id" uuid NOT NULL,
 	"rating" integer NOT NULL,
 	"comment" text NOT NULL,
+	"email" text,
 	"restaurant_id" uuid NOT NULL,
 	"created_at" timestamp DEFAULT now()
 );

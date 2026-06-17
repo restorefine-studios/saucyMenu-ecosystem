@@ -12,14 +12,15 @@ import (
 )
 
 const createReview = `-- name: CreateReview :exec
-INSERT INTO reviews (id, reviewable_id, rating, comment, restaurant_id, created_at)
-VALUES (gen_random_uuid(), $1, $2, $3, $4, now())
+INSERT INTO reviews (id, reviewable_id, rating, comment, email, restaurant_id, created_at)
+VALUES (gen_random_uuid(), $1, $2, $3, $4, $5, now())
 `
 
 type CreateReviewParams struct {
 	ReviewableID pgtype.UUID `json:"reviewable_id"`
 	Rating       int32       `json:"rating"`
 	Comment      string      `json:"comment"`
+	Email        *string     `json:"email"`
 	RestaurantID pgtype.UUID `json:"restaurant_id"`
 }
 
@@ -28,6 +29,7 @@ func (q *Queries) CreateReview(ctx context.Context, arg CreateReviewParams) erro
 		arg.ReviewableID,
 		arg.Rating,
 		arg.Comment,
+		arg.Email,
 		arg.RestaurantID,
 	)
 	return err
@@ -70,6 +72,77 @@ func (q *Queries) GetAISessionInfo(ctx context.Context, id pgtype.UUID) (GetAISe
 	row := q.db.QueryRow(ctx, getAISessionInfo, id)
 	var i GetAISessionInfoRow
 	err := row.Scan(&i.ID, &i.StripeCustomerID, &i.StripeSubscriptionID)
+	return i, err
+}
+
+const getBulkItemRatings = `-- name: GetBulkItemRatings :many
+SELECT reviewable_id,
+       ROUND(AVG(rating)::numeric, 1) AS avg_rating,
+       COUNT(*) AS review_count
+FROM reviews
+WHERE reviewable_id = ANY($1::uuid[])
+GROUP BY reviewable_id
+`
+
+type GetBulkItemRatingsRow struct {
+	ReviewableID pgtype.UUID    `json:"reviewable_id"`
+	AvgRating    pgtype.Numeric `json:"avg_rating"`
+	ReviewCount  int64          `json:"review_count"`
+}
+
+func (q *Queries) GetBulkItemRatings(ctx context.Context, dollar_1 []pgtype.UUID) ([]GetBulkItemRatingsRow, error) {
+	rows, err := q.db.Query(ctx, getBulkItemRatings, dollar_1)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	var items []GetBulkItemRatingsRow
+	for rows.Next() {
+		var i GetBulkItemRatingsRow
+		if err := rows.Scan(&i.ReviewableID, &i.AvgRating, &i.ReviewCount); err != nil {
+			return nil, err
+		}
+		items = append(items, i)
+	}
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+	return items, nil
+}
+
+const getItemAverageRating = `-- name: GetItemAverageRating :one
+SELECT ROUND(AVG(rating)::numeric, 1) AS avg_rating, COUNT(*) AS review_count
+FROM reviews
+WHERE reviewable_id = $1
+`
+
+type GetItemAverageRatingRow struct {
+	AvgRating   pgtype.Numeric `json:"avg_rating"`
+	ReviewCount int64          `json:"review_count"`
+}
+
+func (q *Queries) GetItemAverageRating(ctx context.Context, reviewableID pgtype.UUID) (GetItemAverageRatingRow, error) {
+	row := q.db.QueryRow(ctx, getItemAverageRating, reviewableID)
+	var i GetItemAverageRatingRow
+	err := row.Scan(&i.AvgRating, &i.ReviewCount)
+	return i, err
+}
+
+const getRestaurantAverageRating = `-- name: GetRestaurantAverageRating :one
+SELECT ROUND(AVG(rating)::numeric, 1) AS avg_rating, COUNT(*) AS review_count
+FROM reviews
+WHERE restaurant_id = $1
+`
+
+type GetRestaurantAverageRatingRow struct {
+	AvgRating   pgtype.Numeric `json:"avg_rating"`
+	ReviewCount int64          `json:"review_count"`
+}
+
+func (q *Queries) GetRestaurantAverageRating(ctx context.Context, restaurantID pgtype.UUID) (GetRestaurantAverageRatingRow, error) {
+	row := q.db.QueryRow(ctx, getRestaurantAverageRating, restaurantID)
+	var i GetRestaurantAverageRatingRow
+	err := row.Scan(&i.AvgRating, &i.ReviewCount)
 	return i, err
 }
 

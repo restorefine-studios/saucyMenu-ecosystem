@@ -82,13 +82,15 @@ func (h *AIHandler) MenuChat(w http.ResponseWriter, r *http.Request) {
 	}
 
 	menuStr, _ := json.MarshalIndent(menuJSON, "", "  ")
-	systemPrompt := fmt.Sprintf(`You are a restaurant assistant. Only answer using the menu items provided in the JSON below. Do not invent menu items.
+	systemPrompt := fmt.Sprintf(`You are a knowledgeable and friendly restaurant assistant. You have full access to this restaurant's menu below and you should use it to give genuinely helpful answers.
 
 Here is the menu:
 
 %s
 
-If a dish or drink matches the user's query, respond **only** with a JSON object like:
+Guidelines:
+
+1. RECOMMENDATIONS — When asked for recommendations, suggestions, or what's good, always pick the best items from the menu based on their descriptions, tags, and type. Never refuse. Respond with this JSON only (no extra text):
 
 {
   "type": "menuItemResults",
@@ -104,7 +106,13 @@ If a dish or drink matches the user's query, respond **only** with a JSON object
   ]
 }
 
-Do not include any other explanation. If nothing matches, say it politely as a single text message.`, string(menuStr))
+2. QUESTIONS ABOUT DISHES — When asked about ingredients, allergens, dietary suitability, spice level, or dish details, answer conversationally in plain text. Use the item's description and tags to reason about likely allergens (e.g. bread = gluten, butter = dairy, garlic = allium). Be specific and honest — if the description mentions an ingredient, call it out. Always add a note to confirm with staff for severe allergies.
+
+3. SEARCH / FILTER — If the user wants dishes matching a criteria (vegetarian, halal, gluten free, under a price, etc.), return matching items as JSON (same format as rule 1).
+
+4. GENERAL CHAT — Answer naturally and helpfully. You know this menu inside out.
+
+Never say you cannot help when the answer can be reasonably inferred from the menu data.`, string(menuStr))
 
 	if err := h.openai.StreamChat(ctx, w, systemPrompt, body.Messages); err != nil {
 		// Stream already started — can't write a JSON error
@@ -145,9 +153,16 @@ func (h *AIHandler) ItemChat(w http.ResponseWriter, r *http.Request) {
 	}
 
 	itemJSON, _ := json.MarshalIndent(item, "", "  ")
-	systemPrompt := fmt.Sprintf(`You are a restaurant assistant. Only answer using the menu item provided in the JSON below. Do not invent menu items. Answer the question in the user's language and do it like a waiter would. You don't take orders, you only answer questions about the menu item and ask the users to order at the restaurant.
+	systemPrompt := fmt.Sprintf(`You are a knowledgeable restaurant assistant helping a diner learn about a specific dish. Answer questions about the dish using only the information provided below. Be conversational and helpful.
 
-Here is the menu item:
+Rules:
+- Answer in the same language the user writes in.
+- Only use the dish data provided — do not invent details.
+- Never suggest ordering, placing an order, or ask if the user wants to order. This is an information app, not an ordering system.
+- Never end your response with prompts like "Would you like to order?" or "Shall I add this to your order?" or anything similar.
+- If asked something not covered by the dish data, say you don't have that detail and suggest asking the staff directly.
+
+Here is the dish:
 
 %s`, string(itemJSON))
 

@@ -80,21 +80,32 @@ func (h *AuthHandler) GetRestaurant(w http.ResponseWriter, r *http.Request) {
 		httpx.WriteError(w, http.StatusBadRequest, "invalid restaurantId in token")
 		return
 	}
-	resto, err := h.q.GetRestaurantForDiner(r.Context(), rid)
+	ctx := r.Context()
+	resto, err := h.q.GetRestaurantForDiner(ctx, rid)
 	if err != nil {
 		httpx.WriteError(w, http.StatusNotFound, "restaurant not found")
 		return
 	}
+
+	var avgRating float64
+	var reviewCount int64
+	if rating, err := h.q.GetRestaurantAverageRating(ctx, rid); err == nil {
+		avgRating = numericToFloat(rating.AvgRating)
+		reviewCount = rating.ReviewCount
+	}
+
 	httpx.WriteSuccess(w, http.StatusOK, map[string]any{
-		"id":          pgUUIDToString(resto.ID),
-		"name":        resto.Name,
-		"description": resto.Description,
-		"image":       resto.Image,
-		"bannerUrl":   resto.BannerUrl,
-		"address":     resto.Address,
-		"phone":       resto.Phone,
-		"website":     resto.Website,
-		"slug":        resto.Slug,
+		"id":            pgUUIDToString(resto.ID),
+		"name":          resto.Name,
+		"description":   resto.Description,
+		"image":         resto.Image,
+		"bannerUrl":     resto.BannerUrl,
+		"address":       resto.Address,
+		"phone":         resto.Phone,
+		"website":       resto.Website,
+		"slug":          resto.Slug,
+		"averageRating": avgRating,
+		"reviewCount":   reviewCount,
 	})
 }
 

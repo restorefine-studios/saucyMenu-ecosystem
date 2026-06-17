@@ -11,8 +11,9 @@ import { Drawer, DrawerContent } from '@/components/ui/drawer'
 import { StarRating } from '@/components/star-rating'
 import SpiceLevel from '@/components/spice-level'
 import SpinnerLoader from '@/components/spinner'
-import { TextArea } from '@/components/ui/input'
+import { Input, TextArea } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
+import { useRouter } from '@tanstack/react-router'
 
 interface Review {
   id: string
@@ -40,9 +41,11 @@ function StarDisplay({ rating }: { rating: number }) {
 }
 
 export function ItemDetailDrawer({ itemId, onClose }: ItemDetailDrawerProps) {
+  const router = useRouter()
   const [user] = useAtom(userAtom)
   const [stars, setStars] = useState(0)
   const [comment, setComment] = useState('')
+  const [email, setEmail] = useState('')
 
   const { data, isLoading } = useDish(itemId ?? '')
 
@@ -60,6 +63,7 @@ export function ItemDetailDrawer({ itemId, onClose }: ItemDetailDrawerProps) {
       const res = await axiosInstance.post(apiRoutes.review, {
         rating: stars,
         comment,
+        email,
         reviewableId: itemId,
         reviewableType: 'dish',
       })
@@ -70,6 +74,7 @@ export function ItemDetailDrawer({ itemId, onClose }: ItemDetailDrawerProps) {
         toast.success('Review submitted!')
         setComment('')
         setStars(0)
+        setEmail('')
         refetchReviews()
       } else {
         toast.warning('Could not submit review')
@@ -103,6 +108,16 @@ export function ItemDetailDrawer({ itemId, onClose }: ItemDetailDrawerProps) {
   const avgRating = reviews.length
     ? Math.round((reviews.reduce((s, r) => s + r.rating, 0) / reviews.length) * 10) / 10
     : item?.averageRating ?? 0
+
+  const handleAIChat = () => {
+    if (!itemId || !item) return
+    onClose()
+    router.navigate({
+      to: '/main/chat/$itemId',
+      params: { itemId },
+      search: { item: item as any, menuId: '' },
+    })
+  }
 
   return (
     <Drawer open={!!itemId} onOpenChange={open => !open && onClose()} direction="bottom">
@@ -139,7 +154,7 @@ export function ItemDetailDrawer({ itemId, onClose }: ItemDetailDrawerProps) {
               </div>
             )}
 
-            <div className="px-5 pt-5 pb-12 space-y-6">
+            <div className="px-5 pt-5 pb-24 space-y-6">
 
               {/* Name + price */}
               <div className="flex items-start justify-between gap-3">
@@ -193,11 +208,11 @@ export function ItemDetailDrawer({ itemId, onClose }: ItemDetailDrawerProps) {
               )}
 
               {/* Ingredients */}
-              {item.ingredients?.filter(i => i.trim()).length > 0 && (
+              {item.ingredients?.filter((i: string) => i.trim()).length > 0 && (
                 <div>
                   <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-2">Ingredients</p>
                   <div className="flex flex-wrap gap-1.5">
-                    {item.ingredients.filter(i => i.trim()).map((ing, idx) => (
+                    {item.ingredients.filter((i: string) => i.trim()).map((ing: string, idx: number) => (
                       <span key={idx} className="text-xs bg-amber-50 text-amber-800 border border-amber-100 px-2.5 py-1 rounded-md capitalize">
                         {ing}
                       </span>
@@ -211,7 +226,7 @@ export function ItemDetailDrawer({ itemId, onClose }: ItemDetailDrawerProps) {
                 <div>
                   <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-2">Dietary</p>
                   <div className="flex flex-wrap gap-1.5">
-                    {item.tags.map((tag, idx) => (
+                    {item.tags.map((tag: any, idx: number) => (
                       <span key={idx} className="text-xs bg-green-50 text-green-700 border border-green-200 px-2.5 py-1 rounded-md capitalize">
                         {tag.name}
                       </span>
@@ -268,7 +283,6 @@ export function ItemDetailDrawer({ itemId, onClose }: ItemDetailDrawerProps) {
               {/* ── Reviews section ─────────────────────────────────────── */}
               <div className="border-t border-gray-100 pt-5 space-y-5">
 
-                {/* Existing reviews */}
                 {reviews.length > 0 && (
                   <div className="space-y-3">
                     <div className="flex items-center justify-between">
@@ -279,7 +293,6 @@ export function ItemDetailDrawer({ itemId, onClose }: ItemDetailDrawerProps) {
                         <span className="text-xs text-gray-400">({reviews.length})</span>
                       </div>
                     </div>
-
                     {reviews.map(rv => (
                       <div key={rv.id} className="bg-gray-50 rounded-xl p-3 space-y-1.5">
                         <div className="flex items-center justify-between">
@@ -292,7 +305,6 @@ export function ItemDetailDrawer({ itemId, onClose }: ItemDetailDrawerProps) {
                   </div>
                 )}
 
-                {/* Write a review */}
                 <div>
                   <p className="text-sm font-bold text-gray-900 mb-3">
                     {reviews.length > 0 ? 'Add your review' : `Be the first to review ${item.name}`}
@@ -300,14 +312,9 @@ export function ItemDetailDrawer({ itemId, onClose }: ItemDetailDrawerProps) {
                   <StarRating initialRating={stars} onChange={setStars} totalStars={5} size={30} />
                   {stars >= 1 && (
                     <div className="mt-3 space-y-2">
-                      <TextArea
-                        value={comment}
-                        onChange={e => setComment(e.target.value)}
-                        rows={3}
-                        placeholder="Share your experience..."
-                        className="text-sm"
-                      />
-                      <Button loading={isPending} onClick={() => submitReview()} className="w-full">
+                      <Input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Your email address" className="text-sm" />
+                      <TextArea value={comment} onChange={e => setComment(e.target.value)} rows={3} placeholder="Share your experience..." className="text-sm" />
+                      <Button loading={isPending} onClick={() => submitReview()} disabled={!email || !comment} className="w-full">
                         Submit Review
                       </Button>
                     </div>
@@ -318,6 +325,33 @@ export function ItemDetailDrawer({ itemId, onClose }: ItemDetailDrawerProps) {
             </div>
           </div>
         )}
+
+        {/* Floating AI button */}
+        {item && (
+          <button
+            onClick={handleAIChat}
+            className="absolute bottom-6 right-4 z-20 ai-ring-item"
+            style={{ width: 60, height: 60 }}
+            aria-label="Ask AI about this dish"
+          >
+            <span className="absolute inset-[3px] rounded-full bg-white flex items-center justify-center">
+              <img src="/saucy-ai-icon.svg" alt="" className="w-9 h-9" />
+            </span>
+          </button>
+        )}
+
+        <style>{`
+          @keyframes item-ai-spin { to { --item-ai-angle: 360deg; } }
+          @property --item-ai-angle { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
+          .ai-ring-item {
+            border-radius: 9999px;
+            background: conic-gradient(from var(--item-ai-angle), #f7941d, #fbbf24, #fff7ed, #fbbf24, #f7941d);
+            animation: item-ai-spin 3s linear infinite;
+            box-shadow: 0 0 16px 4px rgba(247,148,29,0.4);
+            position: absolute;
+          }
+        `}</style>
+
       </DrawerContent>
     </Drawer>
   )

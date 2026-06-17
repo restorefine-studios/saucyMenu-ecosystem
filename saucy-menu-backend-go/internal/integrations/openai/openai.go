@@ -21,6 +21,24 @@ type Message struct {
 	Content string `json:"content"`
 }
 
+// SupportedLanguages mirrors the 12 target languages used across the app.
+var SupportedLanguages = []string{
+	"en-GB", "fr", "es", "de", "it", "pt-PT", "nl", "pl", "ro", "ar", "zh", "ja",
+}
+
+// BuildTranslations returns translations for all supported languages.
+// TODO: replace stub with real GPT-4o translation calls when ready.
+func (c *Client) BuildTranslations(fields map[string]string, _ string) (map[string]map[string]string, error) {
+	result := make(map[string]map[string]string, len(SupportedLanguages))
+	for _, lang := range SupportedLanguages {
+		result[lang] = make(map[string]string, len(fields))
+		for k, v := range fields {
+			result[lang][k] = v // stub: return source text for all languages
+		}
+	}
+	return result, nil
+}
+
 // StreamChat streams a chat completion to w, flushing each chunk as it arrives.
 // systemPrompt is prepended as the system message.
 func (c *Client) StreamChat(ctx context.Context, w http.ResponseWriter, systemPrompt string, messages []Message) error {

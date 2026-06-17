@@ -40,6 +40,7 @@ func New(pool *pgxpool.Pool, cfg *config.Config) http.Handler {
 		asynqClient = queue.NewClient(cfg.UpstashRedisURL)
 	}
 
+
 	allowedOrigins := []string{
 		"https://dashboard.saucymenu.com",
 		"https://saucymenu.com",
@@ -52,7 +53,8 @@ func New(pool *pgxpool.Pool, cfg *config.Config) http.Handler {
 			"http://localhost:5174",        // super-admin
 			"http://localhost:3000",        // end-user-app
 			"http://localhost:3001",
-			"http://192.168.101.3:5173",    // iPhone on local network
+			"http://192.168.101.3:5173",    // restaurant-admin on local network
+			"http://192.168.101.3:3000",    // end-user-app on local network (phone testing)
 		)
 		// Allow the ngrok frontend origin (used for iPhone testing)
 		if cfg.WebAuthnOrigin != "" && cfg.WebAuthnOrigin != "http://localhost:5173" {
@@ -145,9 +147,9 @@ func New(pool *pgxpool.Pool, cfg *config.Config) http.Handler {
 	r.Route("/admin", func(r chi.Router) {
 		r.Use(auth.AdminAuth(q, cfg.BetterAuthSecret))
 		if asynqClient != nil {
-			adminhandler.Routes(r, q, cfg.StripeSecretKey, asynqClient)
+			adminhandler.Routes(r, q, cfg.StripeSecretKey, oai, asynqClient)
 		} else {
-			adminhandler.Routes(r, q, cfg.StripeSecretKey)
+			adminhandler.Routes(r, q, cfg.StripeSecretKey, oai)
 		}
 	})
 

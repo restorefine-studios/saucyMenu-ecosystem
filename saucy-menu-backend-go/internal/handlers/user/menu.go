@@ -219,6 +219,12 @@ func (h *MenuHandler) ListMenuItems(w http.ResponseWriter, r *http.Request) {
 
 	tagRows, _ := h.q.ListItemTagsByItemIDs(ctx, itemIDs)
 	allergenRows, _ := h.q.ListItemAllergensByItemIDs(ctx, itemIDs)
+	ratingRows, _ := h.q.GetBulkItemRatings(ctx, itemIDs)
+
+	ratingsMap := map[string][2]any{}
+	for _, rr := range ratingRows {
+		ratingsMap[pgUUIDToString(rr.ReviewableID)] = [2]any{numericToFloat(rr.AvgRating), rr.ReviewCount}
+	}
 
 	tagsMap := map[string][]map[string]any{}
 	for _, row := range tagRows {
@@ -289,6 +295,7 @@ func (h *MenuHandler) ListMenuItems(w http.ResponseWriter, r *http.Request) {
 			}
 		}
 
+		rr := ratingsMap[mid]
 		result = append(result, map[string]any{
 			"id":              mid,
 			"sectionId":       pgUUIDToString(item.SectionID),
@@ -314,6 +321,8 @@ func (h *MenuHandler) ListMenuItems(w http.ResponseWriter, r *http.Request) {
 			"type":            item.Type,
 			"tags":            tagsMap[mid],
 			"allergens":       allergensMap[mid],
+			"averageRating":   rr[0],
+			"reviewCount":     rr[1],
 		})
 	}
 	httpx.WriteSuccess(w, http.StatusOK, result)
@@ -336,9 +345,21 @@ func (h *MenuHandler) ListClassifiedItems(w http.ResponseWriter, r *http.Request
 		return
 	}
 
+	classifiedIDs := make([]pgtype.UUID, len(items))
+	for i, it := range items {
+		classifiedIDs[i] = it.ID
+	}
+	classifiedRatingRows, _ := h.q.GetBulkItemRatings(r.Context(), classifiedIDs)
+	classifiedRatingsMap := map[string][2]any{}
+	for _, rr := range classifiedRatingRows {
+		classifiedRatingsMap[pgUUIDToString(rr.ReviewableID)] = [2]any{numericToFloat(rr.AvgRating), rr.ReviewCount}
+	}
+
 	toItem := func(it sqlc.ListClassifiedMenuItemsRow) map[string]any {
+		mid := pgUUIDToString(it.ID)
+		rr := classifiedRatingsMap[mid]
 		return map[string]any{
-			"id":                 pgUUIDToString(it.ID),
+			"id":                 mid,
 			"name":               httpx.ResolveTranslatedField(it.Name, it.Translations, "name", lang),
 			"description":        httpx.ResolveTranslatedField(ptrStr(it.Description), it.Translations, "description", lang),
 			"images":             it.Images,
@@ -349,6 +370,8 @@ func (h *MenuHandler) ListClassifiedItems(w http.ResponseWriter, r *http.Request
 			"isPopular":          it.IsPopular,
 			"isNew":              it.IsNew,
 			"isLimitedTime":      it.IsLimitedTime,
+			"averageRating":      rr[0],
+			"reviewCount":        rr[1],
 		}
 	}
 
@@ -539,6 +562,17 @@ func menuItemDetailToMap(item sqlc.GetMenuItemDetailByIDRow, lang string) map[st
 		"type":               item.Type,
 		"createdAt":          pgTimestampToString(item.CreatedAt),
 	}
+}
+
+func numericToFloat(n pgtype.Numeric) float64 {
+	if !n.Valid {
+		return 0
+	}
+	f, err := n.Float64Value()
+	if err != nil || !f.Valid {
+		return 0
+	}
+	return f.Float64
 }
 
 func ptrStr(s *string) string {

@@ -1,5 +1,5 @@
 import { createFileRoute, useRouter } from '@tanstack/react-router'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import {
   ChatBubbleLeftRightIcon,
   ShieldCheckIcon,
@@ -11,7 +11,6 @@ export const Route = createFileRoute('/setup/welcome')({
   component: Welcome,
 })
 
-const WELCOME_SEEN_KEY = 'saucy-welcome-seen'
 const TOTAL_STEPS = 3
 
 function Dots({ step }: { step: number }) {
@@ -49,26 +48,11 @@ function NextButton({
 
 function Welcome() {
   const router = useRouter()
-  const [shouldShow, setShouldShow] = useState<boolean | null>(null)
   const [step, setStep] = useState(0)
 
-  useEffect(() => {
-    if (localStorage.getItem(WELCOME_SEEN_KEY)) {
-      router.navigate({ to: '/setup', replace: true })
-    } else {
-      setShouldShow(true)
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
-
   const handleFinish = () => {
-    localStorage.setItem(WELCOME_SEEN_KEY, '1')
     posthog.capture('onboarding_completed')
     router.navigate({ to: '/setup' })
-  }
-
-  if (!shouldShow) {
-    return <div className="min-h-screen bg-white" />
   }
 
   if (step === 0) {

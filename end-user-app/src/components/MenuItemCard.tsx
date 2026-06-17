@@ -20,6 +20,8 @@ interface MenuItemCardProps {
   variant?: Variant
   badgeLabel?: string
   dimmed?: boolean
+  averageRating?: number
+  reviewCount?: number
   onClick?: () => void
 }
 
@@ -40,6 +42,8 @@ export function MenuItemCard({
   badgeLabel,
   dimmed = false,
   tags,
+  averageRating,
+  reviewCount,
   onClick,
 }: MenuItemCardProps) {
   const [user] = useAtom(userAtom)
@@ -97,13 +101,15 @@ export function MenuItemCard({
 
           {/* Meta row */}
           <div className="flex items-center gap-3 mt-2">
-            <span className="flex items-center gap-1 text-[11px] text-gray-500">
-              <Star className="w-3 h-3 fill-[#F7941D] text-[#F7941D]" />
-              <span className="font-semibold text-gray-700">4.9</span>
-              <span className="text-gray-400">(2.1k)</span>
-            </span>
-            <span className="text-gray-300 text-xs">•</span>
-            <span className="text-[11px] text-gray-500">15–20 min</span>
+            {averageRating != null && averageRating > 0 ? (
+              <span className="flex items-center gap-1 text-[11px] text-gray-500">
+                <Star className="w-3 h-3 fill-[#F7941D] text-[#F7941D]" />
+                <span className="font-semibold text-gray-700">{averageRating}</span>
+                {reviewCount != null && reviewCount > 0 && (
+                  <span className="text-gray-400">({reviewCount})</span>
+                )}
+              </span>
+            ) : null}
           </div>
         </div>
       </div>

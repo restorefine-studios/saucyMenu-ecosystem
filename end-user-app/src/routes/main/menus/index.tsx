@@ -20,6 +20,8 @@ import {
   DrawerTitle,
 } from '@/components/ui/drawer'
 import { ItemDetailDrawer } from '@/components/ItemDetailDrawer'
+import { MenuAIDrawer } from '@/components/MenuAIDrawer'
+import { MenuTourWelcome, MenuTourOverlay, useMenuTour } from '@/components/MenuTour'
 
 export const Route = createFileRoute('/main/menus/')({ component: MenuPage })
 
@@ -39,6 +41,8 @@ interface MenuItem {
   isAvailable?: boolean
   tags?: { id: string; name: string }[]
   allergens?: { id: string; name: string }[]
+  averageRating?: number
+  reviewCount?: number
 }
 
 interface MenuSection {
@@ -63,6 +67,8 @@ interface Restaurant {
   website?: string
   description?: string
   slug?: string
+  averageRating?: number
+  reviewCount?: number
 }
 
 interface ClassifiedItems {
@@ -231,6 +237,7 @@ function MenuPage() {
   const [searchQuery, setSearchQuery] = useState('')
   const [infoOpen, setInfoOpen] = useState(false)
   const [selectedItemId, setSelectedItemId] = useState<string | null>(null)
+  const { showWelcome, showTour, triggerIfFirst, startTour, skipTour, doneTour, replayTour } = useMenuTour()
 
   const { data: restaurantData, isLoading: rLoading } = useRestaurant()
   const { data: menusData, isLoading: mLoading } = useMenus()
@@ -251,6 +258,17 @@ function MenuPage() {
     )
 
   React.useEffect(() => {
+    if (restaurant?.name) {
+      document.title = restaurant.name
+    }
+    return () => { document.title = 'Saucy Menu' }
+  }, [restaurant?.name])
+
+  React.useEffect(() => {
+    if (restaurant?.id) triggerIfFirst()
+  }, [restaurant?.id, triggerIfFirst])
+
+  React.useEffect(() => {
     if (restaurant?.id) {
       posthog.register({ restaurant_id: restaurant.id, restaurant_name: restaurant.name })
       posthog.capture('menu_viewed')
@@ -264,9 +282,11 @@ function MenuPage() {
   }
 
   const handleShare = async () => {
-    const shareUrl = restaurant?.slug
-      ? `${window.location.origin}/r/${restaurant.slug}`
-      : window.location.href
+    if (!restaurant?.slug) {
+      toast.error('No shareable link set up for this restaurant yet')
+      return
+    }
+    const shareUrl = `${window.location.origin}/r/${restaurant.slug}`
     const shareData = {
       title: restaurant?.name ?? 'Saucy Menu',
       text: `Check out the menu for ${restaurant?.name ?? 'this restaurant'} on Saucy Menu`,
@@ -340,6 +360,12 @@ function MenuPage() {
           </button>
           <div className="flex items-center gap-2">
             <button
+              onClick={replayTour}
+              className="w-9 h-9 rounded-full bg-black/30 backdrop-blur-sm flex items-center justify-center"
+            >
+              <span className="text-white text-sm font-bold">?</span>
+            </button>
+            <button
               onClick={handleShare}
               className="w-9 h-9 rounded-full bg-black/30 backdrop-blur-sm flex items-center justify-center"
             >
@@ -376,12 +402,20 @@ function MenuPage() {
           </h2>
         </div>
         <div className="flex items-center justify-center gap-1.5 mt-1 flex-wrap">
-          <StarIcon className="w-3.5 h-3.5 fill-[#F7941D] text-[#F7941D]" />
-          <span className="text-xs font-bold text-gray-800">4.8</span>
-          <span className="text-xs text-gray-400">(1.6k)</span>
+          {restaurant?.averageRating != null && restaurant.averageRating > 0 && (
+            <>
+              <StarIcon className="w-3.5 h-3.5 fill-[#F7941D] text-[#F7941D]" />
+              <span className="text-xs font-bold text-gray-800">{restaurant.averageRating}</span>
+              {restaurant.reviewCount != null && restaurant.reviewCount > 0 && (
+                <span className="text-xs text-gray-400">({restaurant.reviewCount})</span>
+              )}
+            </>
+          )}
           {restaurant?.address && (
             <>
-              <span className="text-gray-300 text-xs">•</span>
+              {(restaurant.averageRating != null && restaurant.averageRating > 0) && (
+                <span className="text-gray-300 text-xs">•</span>
+              )}
               <span className="text-xs text-gray-500 flex items-center gap-0.5">
                 <MapPin className="w-3 h-3" />{restaurant.address.split(',')[0]}
               </span>
@@ -401,7 +435,7 @@ function MenuPage() {
 
       {/* ── New Arrivals carousel (top placement) ── */}
       {(classified?.new?.length ?? 0) > 0 && (
-        <div className="px-4 pb-2">
+        <div className="px-4 pb-2" data-tour="new-arrivals">
           <NewArrivalsCarousel
             items={classified!.new}
             onItemClick={handleItemClick}
@@ -511,9 +545,9 @@ function MenuPage() {
 
 
       {/* ── Sticky section nav + filter pills ── */}
-      <div className="sticky top-20 z-20 bg-white">
+      <div className="sticky top-0 z-20 bg-white shadow-sm">
         {allNavSections.length > 0 && (
-          <div className="border-b border-gray-100 px-4">
+          <div className="border-b border-gray-100 px-4" data-tour="section-nav">
             <SectionNav
               sections={allNavSections}
               activeId={activeSection}
@@ -523,7 +557,7 @@ function MenuPage() {
           </div>
         )}
         {filterOptions.length > 0 && (
-          <div className="px-4 py-2 flex items-center gap-2 overflow-x-auto hide-scrollbar border-b border-gray-50">
+          <div data-tour="filter-pills" className="px-4 py-2 flex items-center gap-2 overflow-x-auto hide-scrollbar border-b border-gray-50">
             {filterOptions.map(f => {
               const active = activeFilters.includes(f.id)
               return (
@@ -555,15 +589,16 @@ function MenuPage() {
               <h2 className="text-xs font-bold uppercase tracking-widest text-gray-400 whitespace-nowrap">Chef's Recommendations</h2>
               <div className="flex-1 h-px bg-gray-200" />
             </div>
-            {classified!.chefsRecommended.map(item => (
-              <MenuItemCard
-                key={item.id}
-                {...item}
-                variant="list"
-                badgeLabel="CHEF'S CHOICE"
-                dimmed={activeFilters.length > 0 && !isItemMatch(item, activeFilters)}
-                onClick={() => handleItemClick(item)}
-              />
+            {classified!.chefsRecommended.map((item, idx) => (
+              <div key={item.id} {...(idx === 0 ? { 'data-tour': 'menu-item' } : {})}>
+                <MenuItemCard
+                  {...item}
+                  variant="list"
+                  badgeLabel="CHEF'S CHOICE"
+                  dimmed={activeFilters.length > 0 && !isItemMatch(item, activeFilters)}
+                  onClick={() => handleItemClick(item)}
+                />
+              </div>
             ))}
           </div>
         )}
@@ -629,6 +664,13 @@ function MenuPage() {
         itemId={selectedItemId}
         onClose={() => setSelectedItemId(null)}
       />
+
+      {/* ── Saucy AI floating chat ── */}
+      <MenuAIDrawer />
+
+      {/* ── Onboarding tour ── */}
+      {showWelcome && <MenuTourWelcome onYes={startTour} onNo={skipTour} />}
+      {showTour && <MenuTourOverlay onDone={doneTour} />}
     </div>
   )
 }

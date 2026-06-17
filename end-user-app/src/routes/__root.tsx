@@ -53,7 +53,7 @@ function RootDocument() {
   }, [])
 
   return (
-    <html lang="en">
+    <html lang="en" style={{ colorScheme: 'light' }}>
       <head>
         <HeadContent />
         <link

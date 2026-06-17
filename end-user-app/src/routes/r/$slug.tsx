@@ -42,7 +42,7 @@ function SlugEntry() {
           posthog.identify(data.data.sessionId, { restaurant_id: restaurantId })
           posthog.capture('diner_session_started', { restaurant_id: restaurantId, entry: 'qr_slug' })
         }
-        router.navigate({ to: '/setup/welcome' })
+        router.navigate({ to: '/setup' })
       } else {
         toast.warning('Invalid QR code')
       }

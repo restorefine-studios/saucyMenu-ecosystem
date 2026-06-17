@@ -42,8 +42,26 @@ ORDER BY created_at DESC
 LIMIT 20;
 
 -- name: CreateReview :exec
-INSERT INTO reviews (id, reviewable_id, rating, comment, restaurant_id, created_at)
-VALUES (gen_random_uuid(), $1, $2, $3, $4, now());
+INSERT INTO reviews (id, reviewable_id, rating, comment, email, restaurant_id, created_at)
+VALUES (gen_random_uuid(), $1, $2, $3, $4, $5, now());
+
+-- name: GetItemAverageRating :one
+SELECT ROUND(AVG(rating)::numeric, 1) AS avg_rating, COUNT(*) AS review_count
+FROM reviews
+WHERE reviewable_id = $1;
+
+-- name: GetRestaurantAverageRating :one
+SELECT ROUND(AVG(rating)::numeric, 1) AS avg_rating, COUNT(*) AS review_count
+FROM reviews
+WHERE restaurant_id = $1;
+
+-- name: GetBulkItemRatings :many
+SELECT reviewable_id,
+       ROUND(AVG(rating)::numeric, 1) AS avg_rating,
+       COUNT(*) AS review_count
+FROM reviews
+WHERE reviewable_id = ANY($1::uuid[])
+GROUP BY reviewable_id;
 
 -- name: GetRestaurantForDiner :one
 SELECT id, name, description, image, banner_url, address, phone, website, slug FROM restaurants WHERE id = $1;

@@ -8,19 +8,28 @@ import (
 
 	auditpkg "github.com/restorefine-studios/saucy-menu-backend-go/internal/audit"
 	"github.com/restorefine-studios/saucy-menu-backend-go/internal/db/sqlc"
+	oaiclient "github.com/restorefine-studios/saucy-menu-backend-go/internal/integrations/openai"
 	"github.com/restorefine-studios/saucy-menu-backend-go/internal/translation"
 )
 
 // Routes mounts all /admin/* sub-routes onto r.
 // The AdminAuth middleware is applied by the parent router.
-func Routes(r chi.Router, q *sqlc.Queries, stripeKey string, asynqClient ...*asynq.Client) http.Handler {
+func Routes(r chi.Router, q *sqlc.Queries, stripeKey string, oai *oaiclient.Client, asynqClient ...*asynq.Client) http.Handler {
 	a := auditpkg.New(q)
 
 	var qc *asynq.Client
 	if len(asynqClient) > 0 {
 		qc = asynqClient[0]
 	}
-	t := translation.NewEnqueuer(qc)
+
+	var t *translation.Enqueuer
+	if qc != nil {
+		t = translation.NewEnqueuer(qc)
+	} else if oai != nil {
+		t = translation.NewEnqueuerWithOpenAI(q, oai)
+	} else {
+		t = translation.NewEnqueuer(nil)
+	}
 
 	authH := NewAuthHandler(q)
 	menuH := NewMenuHandler(q, a, t)
@@ -99,6 +108,12 @@ func Routes(r chi.Router, q *sqlc.Queries, stripeKey string, asynqClient ...*asy
 	r.Get("/subscriptions/system", subH.ListSystemPlans)
 	r.Post("/subscriptions", subH.CreateCheckout)
 	r.Post("/subscriptions/cancel", subH.CancelSubscription)
+
+	// Translation — backfill all existing items
+	if t != nil {
+		retransH := NewRetranslateHandler(q, t)
+		r.Post("/retranslate-all", retransH.RetranslateAll)
+	}
 
 	return r
 }

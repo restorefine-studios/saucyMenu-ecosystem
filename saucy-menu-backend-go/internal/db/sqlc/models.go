@@ -529,6 +529,7 @@ type Review struct {
 	ReviewableID pgtype.UUID      `json:"reviewable_id"`
 	Rating       int32            `json:"rating"`
 	Comment      string           `json:"comment"`
+	Email        *string          `json:"email"`
 	RestaurantID pgtype.UUID      `json:"restaurant_id"`
 	CreatedAt    pgtype.Timestamp `json:"created_at"`
 }
