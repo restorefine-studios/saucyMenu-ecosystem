@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Outlet, useNavigate } from 'react-router-dom'
 import { AdminNavbar } from '@/components/AdminNavbar'
+import { BottomNav } from '@/components/BottomNav'
 import { AppShell } from '@/components/AppShell'
 import { axiosInstance } from '@/lib/utils'
 import apiRoutes from '@/apiRoutes'
@@ -55,9 +56,10 @@ const Admin = () => {
     <AppShell>
       <div className="min-h-screen bg-gray-50">
         <AdminNavbar />
-        <main className="pt-28">
+        <main className="pt-0 md:pt-28 pb-24 md:pb-0">
           <Outlet />
         </main>
+        <BottomNav />
       </div>
     </AppShell>
   )

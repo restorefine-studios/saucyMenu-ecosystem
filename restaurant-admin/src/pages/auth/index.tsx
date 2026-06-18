@@ -1,7 +1,6 @@
 import { Outlet, useNavigate } from "react-router-dom";
 import logo from "../../assets/4f02a2e6c6acd8a847d3ddaba33f3830.png";
 import { useEffect } from "react";
-import { InstallPrompt } from "@/components/InstallPrompt";
 
 const Auth = () => {
   const userString = localStorage.getItem("user");
@@ -27,7 +26,6 @@ const Auth = () => {
       <main>
         <Outlet />
       </main>
-      <InstallPrompt />
     </div>
   );
 };

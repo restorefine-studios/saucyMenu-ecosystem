@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Users, UtensilsCrossed, Bot, Star, Plus, Upload, Eye, CreditCard } from 'lucide-react'
 import { StatCard } from '@/components/StatCard'
+import DashboardHero from './components/DashboardHero'
 import { useAdminStats, useFetchAdminLineChart, useAdminProfile } from '@/hooks/useFetchData'
 import { useNavigate } from 'react-router-dom'
 import { CartesianGrid, Line, LineChart, XAxis, YAxis, ResponsiveContainer, Tooltip } from 'recharts'
@@ -39,8 +40,10 @@ export default function Dashboard() {
   }))
 
   return (
-    <div className="px-10 md:px-16 lg:px-24 pt-10 pb-8 max-w-7xl mx-auto">
-      <h1 className="text-2xl font-bold text-gray-900 mb-6">Dashboard</h1>
+    <div className="px-10 md:px-16 lg:px-24 pt-0 md:pt-10 pb-8 max-w-7xl mx-auto">
+      <h1 className="hidden md:block text-2xl font-bold text-gray-900 mb-6">Dashboard</h1>
+
+      <DashboardHero />
 
       {/* Stats row */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">

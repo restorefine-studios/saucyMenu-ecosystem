@@ -8,6 +8,7 @@ import (
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
 
+	auditpkg "github.com/restorefine-studios/saucy-menu-backend-go/internal/audit"
 	"github.com/restorefine-studios/saucy-menu-backend-go/internal/config"
 	"github.com/restorefine-studios/saucy-menu-backend-go/internal/cron"
 	"github.com/restorefine-studios/saucy-menu-backend-go/internal/db"
@@ -57,7 +58,8 @@ func main() {
 	srv := queue.NewServer(cfg.UpstashRedisURL, 8)
 	mux := asynq.NewServeMux()
 
-	bulkHandler := queue.HandleBulkUpload(q, asynqClient)
+	audit := auditpkg.New(q)
+	bulkHandler := queue.HandleBulkUpload(q, asynqClient, audit)
 	mux.HandleFunc(queue.TypeDishUpload, bulkHandler)
 	mux.HandleFunc(queue.TypeDrinkUpload, bulkHandler)
 	mux.HandleFunc(queue.TypeTranslation, queue.HandleTranslation(q, dl))

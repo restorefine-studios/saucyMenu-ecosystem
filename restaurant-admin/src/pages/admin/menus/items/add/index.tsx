@@ -190,6 +190,7 @@ function Add() {
     onSubmit: async ({ value }) => {
       mutate({
         ...value,
+        price: String(value.price ?? 0),
         ingredients: isEmpty(ingredients[0].name)
           ? []
           : ingredients.map((ingredient) => ingredient.name),
@@ -203,12 +204,13 @@ function Add() {
             isAvailable?: boolean;
           }) => ({
             name: variant.name ?? "",
-            price: variant.price ?? 0,
+            price: String(variant.price ?? 0),
             isAvailable: variant.isAvailable ?? false,
           }),
         ),
         discountType: value.discountType,
-        discountValue: value.discountValue,
+        discountValue:
+          value.discountValue !== undefined ? String(value.discountValue) : undefined,
         discountStartAt: value.discountStartAt,
         discountEndAt: value.discountEndAt,
         discountLabel: value.discountLabel,
@@ -218,7 +220,7 @@ function Add() {
   });
 
   const { mutate, isPending } = useMutation({
-    mutationFn: async (addData: addValues) => {
+    mutationFn: async (addData: Record<string, unknown>) => {
       const response = await axiosInstance.post(apiRoutes.menuItems, addData);
       return response.data;
     },

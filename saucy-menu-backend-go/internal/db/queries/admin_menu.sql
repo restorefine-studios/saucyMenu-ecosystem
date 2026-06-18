@@ -44,6 +44,12 @@ INSERT INTO menu_sections (id, menu_id, name, description, created_at)
 VALUES (gen_random_uuid(), $1, lower($2), $3, now())
 RETURNING id;
 
+-- name: GetMenuSectionByID :one
+SELECT ms.id, ms.menu_id, ms.name, ms.description
+FROM menu_sections ms
+JOIN menu m ON ms.menu_id = m.id
+WHERE ms.id = $1 AND m.restaurant_id = $2;
+
 -- name: ListAdminSectionsByMenu :many
 SELECT id, name, sort_order, menu_id, description, translations
 FROM menu_sections WHERE menu_id = $1 ORDER BY sort_order DESC;

@@ -354,6 +354,37 @@ func (q *Queries) GetMenuByIDForAdmin(ctx context.Context, arg GetMenuByIDForAdm
 	return i, err
 }
 
+const getMenuSectionByID = `-- name: GetMenuSectionByID :one
+SELECT ms.id, ms.menu_id, ms.name, ms.description
+FROM menu_sections ms
+JOIN menu m ON ms.menu_id = m.id
+WHERE ms.id = $1 AND m.restaurant_id = $2
+`
+
+type GetMenuSectionByIDParams struct {
+	ID           pgtype.UUID `json:"id"`
+	RestaurantID pgtype.UUID `json:"restaurant_id"`
+}
+
+type GetMenuSectionByIDRow struct {
+	ID          pgtype.UUID `json:"id"`
+	MenuID      pgtype.UUID `json:"menu_id"`
+	Name        string      `json:"name"`
+	Description *string     `json:"description"`
+}
+
+func (q *Queries) GetMenuSectionByID(ctx context.Context, arg GetMenuSectionByIDParams) (GetMenuSectionByIDRow, error) {
+	row := q.db.QueryRow(ctx, getMenuSectionByID, arg.ID, arg.RestaurantID)
+	var i GetMenuSectionByIDRow
+	err := row.Scan(
+		&i.ID,
+		&i.MenuID,
+		&i.Name,
+		&i.Description,
+	)
+	return i, err
+}
+
 const insertMenuItemAddon = `-- name: InsertMenuItemAddon :exec
 INSERT INTO menu_item_addons (item_id, addon_id) VALUES ($1, $2)
 ON CONFLICT DO NOTHING

@@ -201,7 +201,9 @@ function EditItems() {
           // tags: dishData?.tags ?? [],
           variants: dishData.variants ?? [],
           discountType: dishData.discountType ?? undefined,
-          discountValue: dishData.discountValue ?? undefined,
+          discountValue: dishData.discountValue
+            ? Number(dishData.discountValue)
+            : undefined,
           discountStartAt: dishData.discountStartAt ?? undefined,
           discountEndAt: dishData.discountEndAt ?? undefined,
         }
@@ -232,6 +234,7 @@ function EditItems() {
     onSubmit: async ({ value }) => {
       mutate({
         ...value,
+        price: String(value.price ?? 0),
         ingredients: ingredients?.map((ingredient) => ingredient.name) ?? [],
         // sectionId: sectionId,
         allergens: allergenIds,
@@ -244,7 +247,8 @@ function EditItems() {
         isNew: value.isNew,
         isLimitedTime: value.isLimitedTime,
         discountType: value.discountType,
-        discountValue: value.discountValue,
+        discountValue:
+          value.discountValue !== undefined ? String(value.discountValue) : undefined,
         discountStartAt: value.discountStartAt ? new Date(value.discountStartAt).toISOString() : undefined  ,
         discountEndAt: value.discountEndAt ? new Date(value.discountEndAt).toISOString() : undefined,
         variants: value.variants?.map(
@@ -281,7 +285,7 @@ function EditItems() {
   }, [dishData]);
 
   const { mutate, isPending } = useMutation({
-    mutationFn: async (editData: editValues) => {
+    mutationFn: async (editData: Record<string, unknown>) => {
       const response = await axiosInstance.put(
         apiRoutes.editMenuItem(id),
         editData
@@ -385,6 +389,11 @@ function EditItems() {
       form.setFieldValue("isPopular", dishData?.isPopular ?? false);
       form.setFieldValue("isNew", dishData?.isNew ?? false);
       form.setFieldValue("sectionId", dishData?.sectionId ?? "");
+      form.setFieldValue(
+        "discountValue",
+        dishData?.discountValue ? Number(dishData.discountValue) : undefined,
+      );
+      form.setFieldValue("discountType", dishData?.discountType ?? undefined);
     }
   }, [dishData, form]);
 

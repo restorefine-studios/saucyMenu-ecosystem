@@ -149,7 +149,9 @@ func (h *AddonsHandler) UpdateAddon(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	h.audit.Updated(ctx, sqlc.AuditEntityAddons, id, user.ID, user.RestaurantID, nil, body)
+	h.audit.Updated(ctx, sqlc.AuditEntityAddons, id, user.ID, user.RestaurantID,
+		map[string]any{"name": existing.Name, "price": httpx.NumericToString(existing.Price)},
+		map[string]any{"name": name, "price": httpx.NumericToString(price)})
 	h.t.After(ctx, "addon", pgUUIDToString(id), httpx.LangFromContext(ctx), translation.Fields("name", ptrStr(body.Name)))
 	httpx.WriteSuccess(w, http.StatusOK, map[string]any{"message": "Addon updated successfully"})
 }

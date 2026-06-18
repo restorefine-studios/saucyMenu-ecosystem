@@ -66,6 +66,50 @@ type menuItemBody struct {
 	Variants           []menuItemVariantBody `json:"variants"`
 }
 
+// snapshotMenuItem captures the full item state (including relations) in the
+// same field shape as menuItemBody, so before/after audit log entries can be
+// diffed field-by-field on the frontend.
+func (h *MenuItemsHandler) snapshotMenuItem(ctx context.Context, id pgtype.UUID, restaurantID pgtype.UUID) (map[string]any, error) {
+	item, err := h.q.GetAdminMenuItemByID(ctx, sqlc.GetAdminMenuItemByIDParams{ID: id, RestaurantID: restaurantID})
+	if err != nil {
+		return nil, err
+	}
+
+	ids := []pgtype.UUID{item.ID}
+	tagRows, _ := h.q.ListItemTagsByItemIDs(ctx, ids)
+	allergenRows, _ := h.q.ListItemAllergensByItemIDs(ctx, ids)
+	addonRows, _ := h.q.ListItemAddonsByItemID(ctx, item.ID)
+	variantRows, _ := h.q.ListItemVariantsByItemID(ctx, item.ID)
+
+	tags := make([]string, 0, len(tagRows))
+	for _, t := range tagRows {
+		tags = append(tags, pgUUIDToString(t.ID))
+	}
+	allergens := make([]string, 0, len(allergenRows))
+	for _, a := range allergenRows {
+		allergens = append(allergens, pgUUIDToString(a.ID))
+	}
+	addons := make([]string, 0, len(addonRows))
+	for _, a := range addonRows {
+		addons = append(addons, pgUUIDToString(a.ID))
+	}
+	variants := make([]map[string]any, 0, len(variantRows))
+	for _, v := range variantRows {
+		variants = append(variants, map[string]any{"name": v.Name, "price": httpx.NumericToString(v.Price)})
+	}
+
+	return map[string]any{
+		"name": item.Name, "description": ptrStr(item.Description), "images": item.Images,
+		"price": httpx.NumericToString(item.Price), "type": item.Type,
+		"discountType": item.DiscountType, "discountValue": httpx.NumericToString(item.DiscountValue),
+		"discountLabel": item.DiscountLabel, "ingredients": item.Ingredients, "isAvailable": item.IsAvailable,
+		"spiceLevel": item.SpiceLevel, "cookTime": item.CookTime, "isAlcoholic": item.IsAlcoholic,
+		"hasVariants": item.HasVariants, "isChefsRecommended": item.IsChefsRecommended,
+		"isPopular": item.IsPopular, "isNew": item.IsNew, "isLimitedTime": item.IsLimitedTime,
+		"allergens": allergens, "addOns": addons, "tags": tags, "variants": variants,
+	}, nil
+}
+
 func parsePrice(s string) pgtype.Numeric {
 	if s == "" {
 		return pgtype.Numeric{}
@@ -125,7 +169,8 @@ func (h *MenuItemsHandler) CreateMenuItem(w http.ResponseWriter, r *http.Request
 
 	insertItemRelations(ctx, h.q, h.t, itemID, body.Allergens, body.AddOns, body.Tags, body.Variants,
 		httpx.LangFromContext(ctx))
-	h.audit.Created(ctx, sqlc.AuditEntityMenuItem, itemID, user.ID, user.RestaurantID, body)
+	after, _ := h.snapshotMenuItem(ctx, itemID, user.RestaurantID)
+	h.audit.Created(ctx, sqlc.AuditEntityMenuItem, itemID, user.ID, user.RestaurantID, after)
 	h.t.After(ctx, "menu_item", pgUUIDToString(itemID), httpx.LangFromContext(ctx),
 		translation.Fields(
 			"description", ptrStr(body.Description),
@@ -323,10 +368,8 @@ func (h *MenuItemsHandler) UpdateMenuItem(w http.ResponseWriter, r *http.Request
 	// Verify ownership before any mutation — UpdateMenuItem uses Exec which
 	// returns nil error even on 0 rows, so a cross-tenant ID would silently
 	// pass through and allow relation mutations on another restaurant's item.
-	if _, err := h.q.GetAdminMenuItemByID(ctx, sqlc.GetAdminMenuItemByIDParams{
-		ID:           id,
-		RestaurantID: user.RestaurantID,
-	}); err != nil {
+	before, err := h.snapshotMenuItem(ctx, id, user.RestaurantID)
+	if err != nil {
 		httpx.WriteError(w, http.StatusNotFound, "Menu item not found")
 		return
 	}
@@ -382,7 +425,8 @@ func (h *MenuItemsHandler) UpdateMenuItem(w http.ResponseWriter, r *http.Request
 		}
 	}
 
-	h.audit.Updated(ctx, sqlc.AuditEntityMenuItem, id, user.ID, user.RestaurantID, body, body)
+	after, _ := h.snapshotMenuItem(ctx, id, user.RestaurantID)
+	h.audit.Updated(ctx, sqlc.AuditEntityMenuItem, id, user.ID, user.RestaurantID, before, after)
 	h.t.After(ctx, "menu_item", pgUUIDToString(id), httpx.LangFromContext(ctx),
 		translation.Fields(
 			"description", ptrStr(body.Description),
@@ -436,6 +480,7 @@ func (h *MenuItemsHandler) BulkUpload(w http.ResponseWriter, r *http.Request) {
 		SectionID:    body.SectionID,
 		MenuID:       body.MenuID,
 		Lang:         lang,
+		PerformedBy:  pgUUIDToString(user.ID),
 		Items:        body.Items,
 	}
 
@@ -451,7 +496,7 @@ func (h *MenuItemsHandler) BulkUpload(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Synchronous fallback: run inline (matches the Bun implementation)
-	result := queue.ProcessBulkUploadSync(r.Context(), h.q, nil, payload)
+	result := queue.ProcessBulkUploadSync(r.Context(), h.q, nil, h.audit, payload)
 	httpx.WriteSuccess(w, http.StatusOK, result)
 }
 

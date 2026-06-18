@@ -231,6 +231,28 @@ func (q *Queries) GetAddonByID(ctx context.Context, arg GetAddonByIDParams) (Get
 	return i, err
 }
 
+const getDietTagByID = `-- name: GetDietTagByID :one
+SELECT id, name, key FROM tags WHERE id = $1 AND type = 'diet' AND restaurant_id = $2
+`
+
+type GetDietTagByIDParams struct {
+	ID           pgtype.UUID `json:"id"`
+	RestaurantID pgtype.UUID `json:"restaurant_id"`
+}
+
+type GetDietTagByIDRow struct {
+	ID   pgtype.UUID `json:"id"`
+	Name string      `json:"name"`
+	Key  string      `json:"key"`
+}
+
+func (q *Queries) GetDietTagByID(ctx context.Context, arg GetDietTagByIDParams) (GetDietTagByIDRow, error) {
+	row := q.db.QueryRow(ctx, getDietTagByID, arg.ID, arg.RestaurantID)
+	var i GetDietTagByIDRow
+	err := row.Scan(&i.ID, &i.Name, &i.Key)
+	return i, err
+}
+
 const getUserSubscriptionByUserID = `-- name: GetUserSubscriptionByUserID :one
 SELECT id, stripe_subscription_id, stripe_customer_id, price_id, status, cancel_at_period_end
 FROM user_subscriptions WHERE user_id = $1
@@ -280,8 +302,8 @@ func (q *Queries) InsertAuditLog(ctx context.Context, arg InsertAuditLogParams) 
 		arg.EntityID,
 		arg.Action,
 		arg.PerformedBy,
-		arg.Column5,
-		arg.Column6,
+		string(arg.Column5),
+		string(arg.Column6),
 		arg.RestaurantID,
 	)
 	return err

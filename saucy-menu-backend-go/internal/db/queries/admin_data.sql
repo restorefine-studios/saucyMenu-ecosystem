@@ -28,6 +28,9 @@ SELECT id FROM tags
 WHERE key = $1 AND type = 'diet' AND restaurant_id = $2 AND id != $3
 LIMIT 1;
 
+-- name: GetDietTagByID :one
+SELECT id, name, key FROM tags WHERE id = $1 AND type = 'diet' AND restaurant_id = $2;
+
 -- name: CreateDietTag :one
 INSERT INTO tags (id, name, key, type, restaurant_id, translation_status, created_at)
 VALUES (gen_random_uuid(), lower($1), $2, 'diet', $3, 'pending', now())

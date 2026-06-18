@@ -1,21 +1,15 @@
 import { useAtom } from 'jotai'
 import { userAtom } from '@/atoms/user'
 import { NavLink, useNavigate } from 'react-router-dom'
-import { axiosInstance } from '@/lib/utils'
-import apiRoutes from '@/apiRoutes'
-import { useQuery } from '@tanstack/react-query'
 import { authClient } from '@/lib/auth-client'
-import { Search, Bell, LogOut, Settings } from 'lucide-react'
+import { Bell, LogOut } from 'lucide-react'
 import { useState } from 'react'
 import logo from '@/assets/4f02a2e6c6acd8a847d3ddaba33f3830.png'
 
 const NAV_LINKS = [
-  { to: '/admin/dashboard',    label: 'Dashboard' },
-  { to: '/admin/menus',        label: 'Menus' },
-  { to: '/admin/review',       label: 'Reviews' },
-  { to: '/admin/subscription', label: 'Subscription' },
-  { to: '/admin/audit',        label: 'Audit' },
-  { to: '/admin/settings',     label: 'Settings' },
+  { to: '/admin/dashboard', label: 'Dashboard' },
+  { to: '/admin/restaurants/all-restaurants', label: 'Restaurants' },
+  { to: '/admin/subscriptions', label: 'Subscriptions' },
 ]
 
 export function AdminNavbar() {
@@ -23,17 +17,10 @@ export function AdminNavbar() {
   const navigate = useNavigate()
   const [avatarOpen, setAvatarOpen] = useState(false)
 
-  const { data: profileData } = useQuery({
-    queryKey: ['adminProfile'],
-    queryFn: () => axiosInstance.get(apiRoutes.getAdminProfile).then(r => r.data),
-  })
-
-  const restaurantName = (profileData as any)?.data?.restaurant?.name ?? ''
-  const initials = ((user as any)?.name ?? 'U').slice(0, 2).toUpperCase()
+  const initials = (user?.name ?? 'A').slice(0, 2).toUpperCase()
 
   const handleLogout = async () => {
     await authClient.signOut()
-    localStorage.removeItem('user')
     navigate('/')
   }
 
@@ -47,18 +34,13 @@ export function AdminNavbar() {
           <span className="text-gray-900 font-bold text-lg hidden sm:block">Saucy Menu</span>
         </div>
 
-        {/* Center: restaurant name */}
+        {/* Center: app label */}
         <div className="flex-1 flex justify-center">
-          {restaurantName && (
-            <span className="text-gray-800 font-bold text-sm tracking-wide">{restaurantName}</span>
-          )}
+          <span className="text-gray-800 font-bold text-sm tracking-wide">Super Admin</span>
         </div>
 
         {/* Right: actions */}
         <div className="flex items-center gap-3 shrink-0">
-          <button className="text-gray-500 hover:text-gray-800 transition-colors">
-            <Search className="w-5 h-5" />
-          </button>
           <button className="text-gray-500 hover:text-gray-800 transition-colors">
             <Bell className="w-5 h-5" />
           </button>
@@ -73,13 +55,6 @@ export function AdminNavbar() {
               <>
                 <div className="fixed inset-0 z-40" onClick={() => setAvatarOpen(false)} />
                 <div className="absolute right-0 top-10 bg-white rounded-xl shadow-lg border border-gray-100 py-1 w-44 z-50">
-                  <NavLink
-                    to="/admin/settings"
-                    onClick={() => setAvatarOpen(false)}
-                    className="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
-                  >
-                    <Settings className="w-4 h-4" /> Settings
-                  </NavLink>
                   <button
                     onClick={handleLogout}
                     className="flex items-center gap-2 px-4 py-2 text-sm text-red-600 hover:bg-red-50 w-full text-left"
@@ -93,7 +68,7 @@ export function AdminNavbar() {
         </div>
       </div>
 
-      {/* Nav strip — orange background with pill links (desktop/tablet only; mobile uses BottomNav) */}
+      {/* Nav strip — orange background with pill links */}
       <div className="hidden md:flex bg-[#F7941D] px-8 py-2 items-center justify-center gap-2">
         {NAV_LINKS.map(link => (
           <NavLink

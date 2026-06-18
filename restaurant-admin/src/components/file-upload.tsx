@@ -89,7 +89,7 @@ export function FileUpload({
 
   const uploadToMediaService = async (file: FormData) => {
     const res = await MediaServices.uploadImage(file);
-    return res.data;
+    return res.data.data;
   };
 
   const { mutateAsync: mutateUploadService } = useMutation({
@@ -97,7 +97,7 @@ export function FileUpload({
     onSuccess: (data) => {
       if (data?.success) {
         // ✅ Only set the key if it's NOT a thumbnail
-        if (!data?.key.startsWith("thumbnails")) {
+        if (!data?.key?.startsWith("thumbnails")) {
           setKey(data?.key);
         }
         console.log("image data:", data);
@@ -166,35 +166,40 @@ export function FileUpload({
 
   // console.log(isCropOpen);
 
+  const hasImages = images.length > 0 && !!removeImage;
+
+  const uploadTile = (
+    <div
+      role="button"
+      onClick={openFileDialog}
+      onDragEnter={handleDragEnter}
+      onDragLeave={handleDragLeave}
+      onDragOver={handleDragOver}
+      onDrop={handleDrop}
+      data-dragging={isDragging || undefined}
+      className={`border-border hover:bg-secondary/40 data-[dragging=true]:bg-secondary/60 data-[dragging=true]:border-foreground/40 has-[input:focus]:border-ring has-[input:focus]:ring-ring/50 relative flex items-center justify-center overflow-hidden rounded-lg border border-neutral transition-all duration-200 hover:cursor-pointer ${
+        hasImages ? "w-32 lg:w-40 h-32 lg:h-40" : "w-full h-40 p-8"
+      }`}
+    >
+      <input
+        {...getInputProps()}
+        className="sr-only"
+        aria-label="Upload file"
+      />
+      <div className="flex flex-col items-center justify-center gap-2">
+        <ImageUpIcon className="size-5 text-muted-foreground" />
+        <span className="text-gray-600 text-xs font-semibold text-center">
+          Click to Upload
+        </span>
+      </div>
+    </div>
+  );
+
   return (
     <div className="flex flex-col gap-4 w-full">
-      <div className="relative w-full h-full  lg:h-40 border rounded-lg overflow-hidden">
-        <div
-          role="button"
-          onClick={openFileDialog}
-          onDragEnter={handleDragEnter}
-          onDragLeave={handleDragLeave}
-          onDragOver={handleDragOver}
-          onDrop={handleDrop}
-          data-dragging={isDragging || undefined}
-          className="border-border hover:bg-secondary/40 data-[dragging=true]:bg-secondary/60 data-[dragging=true]:border-foreground/40 has-[input:focus]:border-ring has-[input:focus]:ring-ring/50 relative flex items-center justify-center w-full h-full overflow-hidden rounded-lg border border-neutral p-8 transition-all duration-200 hover:cursor-pointer"
-        >
-          <input
-            {...getInputProps()}
-            className="sr-only"
-            aria-label="Upload file"
-          />
-          <div className="flex flex-col items-center justify-center gap-2">
-            <ImageUpIcon className="size-5 text-muted-foreground" />
-            <span className="text-gray-600 text-xs font-semibold text-center">
-              Click to Upload
-            </span>
-          </div>
-        </div>
-      </div>
-      {images.length > 0 && removeImage && (
-        <div className="space-x-4 flex flex-wrap gap-4">
-          {images.map((url: string, i: number) => (
+      <div className="flex flex-wrap gap-4">
+        {hasImages &&
+          images.map((url: string, i: number) => (
             <div
               key={i}
               className="relative w-32 lg:w-40 h-32 lg:h-40 border rounded-lg overflow-hidden group"
@@ -206,15 +211,15 @@ export function FileUpload({
               />
               <button
                 type="button"
-                onClick={() => removeImage(i)}
+                onClick={() => removeImage!(i)}
                 className="absolute top-1 right-1 text-white rounded-full p-1 hover:cursor-pointer transition-all"
               >
                 <Trash2 color="red" className="w-4 h-4 hover:w-5 hover:h-5" />
               </button>
             </div>
           ))}
-        </div>
-      )}
+        {uploadTile}
+      </div>
 
       {previewForCrop && (
         <CropModal

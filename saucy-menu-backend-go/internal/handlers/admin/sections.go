@@ -115,6 +115,13 @@ func (h *SectionsHandler) UpdateSection(w http.ResponseWriter, r *http.Request) 
 		name = *body.Name
 	}
 	ctx := r.Context()
+
+	before, err := h.q.GetMenuSectionByID(ctx, sqlc.GetMenuSectionByIDParams{ID: id, RestaurantID: user.RestaurantID})
+	if err != nil {
+		httpx.WriteError(w, http.StatusNotFound, "Section not found")
+		return
+	}
+
 	if err := h.q.UpdateMenuSection(ctx, sqlc.UpdateMenuSectionParams{
 		Lower:        name,
 		Description:  body.Description,
@@ -125,7 +132,11 @@ func (h *SectionsHandler) UpdateSection(w http.ResponseWriter, r *http.Request) 
 		return
 	}
 
-	h.audit.Updated(ctx, sqlc.AuditEntityMenuSection, id, user.ID, user.RestaurantID, nil, body)
+	after, _ := h.q.GetMenuSectionByID(ctx, sqlc.GetMenuSectionByIDParams{ID: id, RestaurantID: user.RestaurantID})
+	h.audit.Updated(ctx, sqlc.AuditEntityMenuSection, id, user.ID, user.RestaurantID,
+		map[string]any{"name": before.Name, "description": ptrStr(before.Description)},
+		map[string]any{"name": after.Name, "description": ptrStr(after.Description)},
+	)
 	h.t.After(ctx, "menu_section", pgUUIDToString(id), httpx.LangFromContext(ctx),
 		translation.Fields("name", name, "description", ptrStr(body.Description)))
 	httpx.WriteSuccess(w, http.StatusOK, map[string]any{"message": "Menu section updated successfully"})

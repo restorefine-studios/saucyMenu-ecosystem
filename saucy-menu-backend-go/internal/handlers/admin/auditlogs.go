@@ -1,6 +1,7 @@
 package admin
 
 import (
+	"encoding/json"
 	"net/http"
 	"strconv"
 
@@ -9,6 +10,19 @@ import (
 	"github.com/restorefine-studios/saucy-menu-backend-go/internal/httpx"
 	"github.com/jackc/pgx/v5/pgtype"
 )
+
+// rawJSONOrNil decodes a jsonb audit column for the API response, treating
+// SQL NULL / JSON null / empty bytes as absent.
+func rawJSONOrNil(b []byte) any {
+	if len(b) == 0 {
+		return nil
+	}
+	var v any
+	if err := json.Unmarshal(b, &v); err != nil || v == nil {
+		return nil
+	}
+	return v
+}
 
 type AuditLogsHandler struct{ q *sqlc.Queries }
 
@@ -60,6 +74,8 @@ func (h *AuditLogsHandler) ListAuditLogs(w http.ResponseWriter, r *http.Request)
 			"entity":    log.Entity,
 			"entityId":  pgUUIDToString(log.EntityID),
 			"action":    log.Action,
+			"before":    rawJSONOrNil(log.Before),
+			"after":     rawJSONOrNil(log.After),
 			"createdAt": pgTimestamptzToString(log.CreatedAt),
 			"user": map[string]any{
 				"name":  log.UserName,

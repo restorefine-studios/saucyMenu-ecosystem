@@ -21,6 +21,11 @@ type Config struct {
 	InternalAdminToken   string `env:"INTERNAL_ADMIN_TOKEN"`
 	WebAuthnRPID         string `env:"WEBAUTHN_RPID" envDefault:"localhost"`
 	WebAuthnOrigin       string `env:"WEBAUTHN_ORIGIN" envDefault:"http://localhost:5173"`
+	S3Endpoint           string `env:"S3_ENDPOINT"`
+	S3Region             string `env:"S3_REGION"`
+	S3Bucket             string `env:"S3_BUCKET"`
+	S3AccessKeyID        string `env:"S3_ACCESS_KEY_ID"`
+	S3SecretAccessKey    string `env:"S3_SECRET_ACCESS_KEY"`
 }
 
 // Load reads config from the real OS environment.

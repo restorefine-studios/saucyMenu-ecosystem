@@ -116,13 +116,20 @@ func (h *ClassificationsHandler) UpdateDiet(w http.ResponseWriter, r *http.Reque
 		return
 	}
 
+	before, err := h.q.GetDietTagByID(ctx, sqlc.GetDietTagByIDParams{ID: id, RestaurantID: user.RestaurantID})
+	if err != nil {
+		httpx.WriteError(w, http.StatusNotFound, "Diet not found")
+		return
+	}
+
 	if err := h.q.UpdateDietTag(ctx, sqlc.UpdateDietTagParams{
 		Lower: strings.ToLower(body.Name), Key: key, ID: id, RestaurantID: user.RestaurantID,
 	}); err != nil {
 		httpx.WriteError(w, http.StatusInternalServerError, "Failed to update diet")
 		return
 	}
-	h.audit.Updated(ctx, sqlc.AuditEntityDiets, id, user.ID, user.RestaurantID, nil, body)
+	h.audit.Updated(ctx, sqlc.AuditEntityDiets, id, user.ID, user.RestaurantID,
+		map[string]any{"name": before.Name}, map[string]any{"name": body.Name})
 	h.t.After(ctx, "tag", pgUUIDToString(id), httpx.LangFromContext(ctx), translation.Fields("name", body.Name))
 	httpx.WriteSuccess(w, http.StatusOK, map[string]any{"message": "Diet updated successfully"})
 }

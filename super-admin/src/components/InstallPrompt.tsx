@@ -56,7 +56,7 @@ export function InstallPrompt() {
           alt=""
           className="h-20 w-20 mx-auto rounded-2xl shadow-md"
         />
-        <h2 className="mt-5 text-xl font-bold text-gray-900">Install Saucy Menu</h2>
+        <h2 className="mt-5 text-xl font-bold text-gray-900">Install Saucy Super Admin</h2>
         <p className="mt-2 text-sm text-gray-500">
           Add it to your home screen for quick access and a faster, app-like experience.
         </p>

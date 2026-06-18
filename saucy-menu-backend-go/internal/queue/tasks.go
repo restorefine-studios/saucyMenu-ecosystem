@@ -17,11 +17,12 @@ const (
 
 // BulkUploadPayload is the task payload for dish:upload and drink:upload.
 type BulkUploadPayload struct {
-	RestaurantID string        `json:"restaurantId"`
-	SectionID    string        `json:"sectionId"`
-	MenuID       string        `json:"menuId"`
-	Lang         string        `json:"lang"`
-	Items        []BulkItem    `json:"items"`
+	RestaurantID string     `json:"restaurantId"`
+	SectionID    string     `json:"sectionId"`
+	MenuID       string     `json:"menuId"`
+	Lang         string     `json:"lang"`
+	PerformedBy  string     `json:"performedBy"`
+	Items        []BulkItem `json:"items"`
 }
 
 type BulkItem struct {

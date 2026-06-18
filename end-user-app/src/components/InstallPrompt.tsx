@@ -13,6 +13,10 @@ export function InstallPrompt() {
   const deferredPrompt = useRef<BeforeInstallPromptEvent | null>(null);
 
   useEffect(() => {
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("/sw.js").catch(() => {});
+    }
+
     if (localStorage.getItem(DISMISSED_KEY)) return;
     const ios = /iphone|ipad|ipod/i.test(navigator.userAgent);
     const standalone = window.matchMedia("(display-mode: standalone)").matches;
@@ -52,7 +56,7 @@ export function InstallPrompt() {
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-6">
       <div className="bg-white rounded-3xl shadow-2xl w-full max-w-sm p-8 text-center">
         <img
-          src="/icons/icon-192.png"
+          src="/logo192.png"
           alt=""
           className="h-20 w-20 mx-auto rounded-2xl shadow-md"
         />

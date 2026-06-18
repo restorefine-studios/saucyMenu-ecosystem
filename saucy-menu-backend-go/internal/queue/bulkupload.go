@@ -12,12 +12,13 @@ import (
 	"github.com/jackc/pgx/v5/pgtype"
 	"github.com/rs/zerolog/log"
 
+	auditpkg "github.com/restorefine-studios/saucy-menu-backend-go/internal/audit"
 	"github.com/restorefine-studios/saucy-menu-backend-go/internal/db/sqlc"
 )
 
 // HandleBulkUpload processes a dish:upload or drink:upload task.
 // It mirrors the bulkUploadMenuItems function in bulk-menu.service.ts.
-func HandleBulkUpload(q *sqlc.Queries, client *asynq.Client) asynq.HandlerFunc {
+func HandleBulkUpload(q *sqlc.Queries, client *asynq.Client, audit *auditpkg.Logger) asynq.HandlerFunc {
 	return func(ctx context.Context, t *asynq.Task) error {
 		var payload BulkUploadPayload
 		if err := json.Unmarshal(t.Payload(), &payload); err != nil {
@@ -33,6 +34,7 @@ func HandleBulkUpload(q *sqlc.Queries, client *asynq.Client) asynq.HandlerFunc {
 		if err != nil {
 			return fmt.Errorf("bulkupload: invalid menuId: %w", err)
 		}
+		performedBy, _ := parseUUID(payload.PerformedBy)
 
 		created, failed, errors := 0, 0, []string{}
 
@@ -57,6 +59,10 @@ func HandleBulkUpload(q *sqlc.Queries, client *asynq.Client) asynq.HandlerFunc {
 						sectionID = newSec
 						enqueueTranslationSafe(ctx, client, "menu_section", pgUUIDToString(newSec),
 							payload.Lang, map[string]string{"name": item.Section})
+						if audit != nil {
+							audit.Created(ctx, sqlc.AuditEntityMenuSection, newSec, performedBy, rid,
+								map[string]any{"name": item.Section})
+						}
 					}
 				} else {
 					sectionID = found
@@ -72,6 +78,9 @@ func HandleBulkUpload(q *sqlc.Queries, client *asynq.Client) asynq.HandlerFunc {
 
 			// Insert relations
 			insertBulkRelations(ctx, q, client, itemID, rid, item, payload.Lang)
+			if audit != nil {
+				audit.Created(ctx, sqlc.AuditEntityMenuItem, itemID, performedBy, rid, item)
+			}
 
 			// Enqueue translation for this item
 			fields := map[string]string{}
@@ -193,13 +202,14 @@ func insertBulkRelations(ctx context.Context, q *sqlc.Queries, client *asynq.Cli
 
 // ProcessBulkUploadSync runs the bulk upload logic inline (no queue).
 // Used as a fallback when Redis is not configured.
-func ProcessBulkUploadSync(ctx context.Context, q *sqlc.Queries, client *asynq.Client, payload BulkUploadPayload) map[string]any {
+func ProcessBulkUploadSync(ctx context.Context, q *sqlc.Queries, client *asynq.Client, audit *auditpkg.Logger, payload BulkUploadPayload) map[string]any {
 	rid, err := parseUUID(payload.RestaurantID)
 	if err != nil {
 		return map[string]any{"success": false, "message": "invalid restaurantId"}
 	}
 	baseSectionID, _ := parseUUID(payload.SectionID)
 	menuID, _ := parseUUID(payload.MenuID)
+	performedBy, _ := parseUUID(payload.PerformedBy)
 
 	created, failed := 0, 0
 	errList := []map[string]any{}
@@ -218,6 +228,10 @@ func ProcessBulkUploadSync(ctx context.Context, q *sqlc.Queries, client *asynq.C
 				MenuID: menuID, Lower: item.Section,
 			}); err == nil {
 				sectionID = newSec
+				if audit != nil {
+					audit.Created(ctx, sqlc.AuditEntityMenuSection, newSec, performedBy, rid,
+						map[string]any{"name": item.Section})
+				}
 			}
 		}
 
@@ -228,6 +242,9 @@ func ProcessBulkUploadSync(ctx context.Context, q *sqlc.Queries, client *asynq.C
 			continue
 		}
 		insertBulkRelations(ctx, q, client, itemID, rid, item, payload.Lang)
+		if audit != nil {
+			audit.Created(ctx, sqlc.AuditEntityMenuItem, itemID, performedBy, rid, item)
+		}
 		created++
 		itemIDs = append(itemIDs, pgUUIDToString(itemID))
 	}

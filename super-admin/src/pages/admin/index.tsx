@@ -1,31 +1,16 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { SidebarProvider } from "@/components/ui/sidebar";
 import { Outlet } from "react-router-dom";
-import AppSidebar from "./components/sidebar";
+import { AdminNavbar } from "@/components/AdminNavbar";
+import { BottomNav } from "@/components/BottomNav";
 
 const Admin = () => {
   return (
-    
-      <SidebarProvider
-        style={
-          {
-            "--sidebar-width": "20rem",
-            "--sidebar-width-mobile": "20rem",
-          } as any
-        }
-        // className=" w-[90%] h-[90%] bg-white shadow-inner border border-gray-300 rounded-lg"
-      >
-       
-<AppSidebar />
-    
-  
-       
-      
-        <section className=" w-full ">
-          <Outlet />
-        </section>
-      </SidebarProvider>
-   
+    <div className="min-h-screen bg-gray-50">
+      <AdminNavbar />
+      <main className="pt-0 md:pt-28 pb-24 md:pb-0">
+        <Outlet />
+      </main>
+      <BottomNav />
+    </div>
   );
 };
 export default Admin;

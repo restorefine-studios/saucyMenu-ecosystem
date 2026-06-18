@@ -176,6 +176,13 @@ func (h *MenuHandler) UpdateMenu(w http.ResponseWriter, r *http.Request) {
 	}
 
 	ctx := r.Context()
+
+	before, err := h.q.GetMenuByIDForAdmin(ctx, sqlc.GetMenuByIDForAdminParams{ID: id, RestaurantID: user.RestaurantID})
+	if err != nil {
+		httpx.WriteError(w, http.StatusNotFound, "Menu not found")
+		return
+	}
+
 	if err := h.q.UpdateMenu(ctx, sqlc.UpdateMenuParams{
 		Column1:      body.Name, // COALESCE(NULLIF($1,''), name): nil=no change, string=update
 		Description:  body.Description,
@@ -189,7 +196,11 @@ func (h *MenuHandler) UpdateMenu(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	h.audit.Updated(ctx, sqlc.AuditEntityMenu, id, user.ID, user.RestaurantID, body, body)
+	after, _ := h.q.GetMenuByIDForAdmin(ctx, sqlc.GetMenuByIDForAdminParams{ID: id, RestaurantID: user.RestaurantID})
+	h.audit.Updated(ctx, sqlc.AuditEntityMenu, id, user.ID, user.RestaurantID,
+		map[string]any{"name": before.Name, "description": ptrStr(before.Description), "active": before.Active, "startTime": before.StartTime, "endTime": before.EndTime},
+		map[string]any{"name": after.Name, "description": ptrStr(after.Description), "active": after.Active, "startTime": after.StartTime, "endTime": after.EndTime},
+	)
 	h.t.After(ctx, "menu", pgUUIDToString(id), httpx.LangFromContext(ctx),
 		translation.Fields("name", ptrStr(body.Name), "description", ptrStr(body.Description)))
 	httpx.WriteSuccess(w, http.StatusOK, map[string]any{"message": "Menu Updated Successfully"})

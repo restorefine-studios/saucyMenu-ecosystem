@@ -9,12 +9,13 @@ import (
 	auditpkg "github.com/restorefine-studios/saucy-menu-backend-go/internal/audit"
 	"github.com/restorefine-studios/saucy-menu-backend-go/internal/db/sqlc"
 	oaiclient "github.com/restorefine-studios/saucy-menu-backend-go/internal/integrations/openai"
+	"github.com/restorefine-studios/saucy-menu-backend-go/internal/storage"
 	"github.com/restorefine-studios/saucy-menu-backend-go/internal/translation"
 )
 
 // Routes mounts all /admin/* sub-routes onto r.
 // The AdminAuth middleware is applied by the parent router.
-func Routes(r chi.Router, q *sqlc.Queries, stripeKey string, oai *oaiclient.Client, asynqClient ...*asynq.Client) http.Handler {
+func Routes(r chi.Router, q *sqlc.Queries, stripeKey string, oai *oaiclient.Client, s3 *storage.Client, asynqClient ...*asynq.Client) http.Handler {
 	a := auditpkg.New(q)
 
 	var qc *asynq.Client
@@ -42,6 +43,7 @@ func Routes(r chi.Router, q *sqlc.Queries, stripeKey string, oai *oaiclient.Clie
 	revH := NewReviewsHandler(q)
 	auditH := NewAuditLogsHandler(q)
 	subH := NewSubscriptionsHandler(q, stripeKey)
+	uploadH := NewUploadHandler(s3)
 
 	// Auth
 	r.Post("/auth/setup", authH.Setup)
@@ -103,6 +105,10 @@ func Routes(r chi.Router, q *sqlc.Queries, stripeKey string, oai *oaiclient.Clie
 
 	// Audit — no trailing slash
 	r.Get("/audit", auditH.ListAuditLogs)
+
+	// Upload
+	r.Post("/upload", uploadH.Upload)
+	r.Delete("/upload/{key:.*}", uploadH.Delete)
 
 	// Subscriptions
 	r.Get("/subscriptions/system", subH.ListSystemPlans)

@@ -15,6 +15,7 @@ import {
   Provider,
 } from '@/integrations/tanstack-query/root-provider'
 import { ThemeProvider } from '@/components/theme-provider'
+import { InstallPrompt } from '@/components/InstallPrompt'
 import { initPostHog } from '@/lib/posthog'
 
 interface MyRouterContext {
@@ -70,6 +71,10 @@ function RootDocument() {
           href="/favicon/apple-touch-icon.png"
         />
         <meta name="apple-mobile-web-app-title" content="Saucy Menu" />
+        <meta name="theme-color" content="#000000" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
@@ -103,6 +108,7 @@ function RootDocument() {
               <Outlet />
             </NuqsAdapter>
           </Provider>
+          <InstallPrompt />
           <Scripts />
         </ThemeProvider>
       </body>

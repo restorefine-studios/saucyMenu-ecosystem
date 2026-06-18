@@ -23,6 +23,7 @@ import (
 	oaiclient "github.com/restorefine-studios/saucy-menu-backend-go/internal/integrations/openai"
 	stripeint "github.com/restorefine-studios/saucy-menu-backend-go/internal/integrations/stripe"
 	"github.com/restorefine-studios/saucy-menu-backend-go/internal/queue"
+	"github.com/restorefine-studios/saucy-menu-backend-go/internal/storage"
 )
 
 func New(pool *pgxpool.Pool, cfg *config.Config) http.Handler {
@@ -144,12 +145,14 @@ func New(pool *pgxpool.Pool, cfg *config.Config) http.Handler {
 	})
 
 	// ─── Admin routes (Phase 3) ───────────────────────────────────────────────
+	s3 := storage.New(cfg)
+
 	r.Route("/admin", func(r chi.Router) {
 		r.Use(auth.AdminAuth(q, cfg.BetterAuthSecret))
 		if asynqClient != nil {
-			adminhandler.Routes(r, q, cfg.StripeSecretKey, oai, asynqClient)
+			adminhandler.Routes(r, q, cfg.StripeSecretKey, oai, s3, asynqClient)
 		} else {
-			adminhandler.Routes(r, q, cfg.StripeSecretKey, oai)
+			adminhandler.Routes(r, q, cfg.StripeSecretKey, oai, s3)
 		}
 	})
 
