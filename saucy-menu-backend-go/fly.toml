@@ -1,0 +1,37 @@
+app = "saucy-menu-backend"
+primary_region = "fra"
+
+[build]
+
+[processes]
+  app = "./server"
+  # worker = "./worker"  # uncomment once UPSTASH_REDIS_URL is provisioned
+
+[env]
+  PORT = "8080"
+  NODE_ENV = "production"
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  processes = ["app"]
+  min_machines_running = 1
+  auto_stop_machines = false
+  auto_start_machines = true
+
+  [[http_service.checks]]
+    path = "/healthz"
+    interval = "15s"
+    timeout = "5s"
+    grace_period = "10s"
+    method = "GET"
+
+[[vm]]
+  size = "shared-cpu-1x"
+  memory = "512mb"
+  processes = ["app"]
+
+# [[vm]]
+#   size = "shared-cpu-1x"
+#   memory = "256mb"
+#   processes = ["worker"]
