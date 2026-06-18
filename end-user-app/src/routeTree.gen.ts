@@ -89,13 +89,13 @@ export interface FileRoutesByFullPath {
   '/r/$slug': typeof RSlugRoute
   '/setup/allergenInfo': typeof SetupAllergenInfoRoute
   '/setup/welcome': typeof SetupWelcomeRoute
-  '/setup/': typeof SetupIndexRoute
+  '/setup': typeof SetupIndexRoute
   '/main/chat/$itemId': typeof MainChatItemIdRoute
   '/main/food/$itemId': typeof MainFoodItemIdRoute
   '/main/menus/$menuId': typeof MainMenusMenuIdRoute
   '/main/menus/items': typeof MainMenusItemsRoute
-  '/main/food/': typeof MainFoodIndexRoute
-  '/main/menus/': typeof MainMenusIndexRoute
+  '/main/food': typeof MainFoodIndexRoute
+  '/main/menus': typeof MainMenusIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -134,13 +134,13 @@ export interface FileRouteTypes {
     | '/r/$slug'
     | '/setup/allergenInfo'
     | '/setup/welcome'
-    | '/setup/'
+    | '/setup'
     | '/main/chat/$itemId'
     | '/main/food/$itemId'
     | '/main/menus/$menuId'
     | '/main/menus/items'
-    | '/main/food/'
-    | '/main/menus/'
+    | '/main/food'
+    | '/main/menus'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -198,7 +198,7 @@ declare module '@tanstack/react-router' {
     '/setup/': {
       id: '/setup/'
       path: '/setup'
-      fullPath: '/setup/'
+      fullPath: '/setup'
       preLoaderRoute: typeof SetupIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
@@ -233,14 +233,14 @@ declare module '@tanstack/react-router' {
     '/main/menus/': {
       id: '/main/menus/'
       path: '/main/menus'
-      fullPath: '/main/menus/'
+      fullPath: '/main/menus'
       preLoaderRoute: typeof MainMenusIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/main/food/': {
       id: '/main/food/'
       path: '/main/food'
-      fullPath: '/main/food/'
+      fullPath: '/main/food'
       preLoaderRoute: typeof MainFoodIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
