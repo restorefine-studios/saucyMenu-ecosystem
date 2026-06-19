@@ -31,7 +31,7 @@ function FormFields() {
     queryKey: ["super_form_field_config", FORM_KEY],
     queryFn: async () => {
       const res = await axiosInstance.get(apiRoutes.formConfig(FORM_KEY));
-      return res.data as { fields: FieldConfig[] };
+      return (res.data?.data ?? res.data) as { fields: FieldConfig[] };
     },
   });
 
@@ -53,10 +53,10 @@ function FormFields() {
     },
     onSuccess: (resData) => {
       if (resData.success) {
-        toast.success(resData.message ?? "Saved");
+        toast.success(resData.data?.message ?? "Saved");
         queryClient.invalidateQueries({ queryKey: ["super_form_field_config", FORM_KEY] });
       } else {
-        toast.error(resData.message ?? "Failed to save");
+        toast.error(resData.data?.message ?? "Failed to save");
       }
     },
     onError: (err: AxiosError<{ message: string }>) => {

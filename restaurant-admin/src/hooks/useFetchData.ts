@@ -174,7 +174,7 @@ export const DEFAULT_DISH_ITEM_FIELDS: FieldConfig[] = [
 export const useFormFieldConfig = (formKey: string) => {
   const getConfig = async () => {
     const res = await axiosInstance.get(apiRoutes.formConfig(formKey));
-    return res.data as { fields: FieldConfig[] };
+    return (res.data?.data ?? res.data) as { fields: FieldConfig[] };
   };
   return useQuery({
     queryKey: ["form_field_config", formKey],
