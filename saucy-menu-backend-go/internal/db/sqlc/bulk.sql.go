@@ -98,7 +98,7 @@ type UpdateAddonTranslationsParams struct {
 }
 
 func (q *Queries) UpdateAddonTranslations(ctx context.Context, arg UpdateAddonTranslationsParams) error {
-	_, err := q.db.Exec(ctx, updateAddonTranslations, string(arg.Translations), arg.TranslationStatus, arg.ID)
+	_, err := q.db.Exec(ctx, updateAddonTranslations, arg.Translations, arg.TranslationStatus, arg.ID)
 	return err
 }
 
@@ -114,7 +114,7 @@ type UpdateMenuItemTranslationsParams struct {
 
 // Translation update queries (called by the worker after DeepL)
 func (q *Queries) UpdateMenuItemTranslations(ctx context.Context, arg UpdateMenuItemTranslationsParams) error {
-	_, err := q.db.Exec(ctx, updateMenuItemTranslations, string(arg.Translations), arg.TranslationStatus, arg.ID)
+	_, err := q.db.Exec(ctx, updateMenuItemTranslations, arg.Translations, arg.TranslationStatus, arg.ID)
 	return err
 }
 
@@ -129,7 +129,7 @@ type UpdateMenuItemVariantTranslationsParams struct {
 }
 
 func (q *Queries) UpdateMenuItemVariantTranslations(ctx context.Context, arg UpdateMenuItemVariantTranslationsParams) error {
-	_, err := q.db.Exec(ctx, updateMenuItemVariantTranslations, string(arg.Translations), arg.TranslationStatus, arg.ID)
+	_, err := q.db.Exec(ctx, updateMenuItemVariantTranslations, arg.Translations, arg.TranslationStatus, arg.ID)
 	return err
 }
 
@@ -144,7 +144,7 @@ type UpdateMenuSectionTranslationsParams struct {
 }
 
 func (q *Queries) UpdateMenuSectionTranslations(ctx context.Context, arg UpdateMenuSectionTranslationsParams) error {
-	_, err := q.db.Exec(ctx, updateMenuSectionTranslations, string(arg.Translations), arg.TranslationStatus, arg.ID)
+	_, err := q.db.Exec(ctx, updateMenuSectionTranslations, arg.Translations, arg.TranslationStatus, arg.ID)
 	return err
 }
 
@@ -159,7 +159,7 @@ type UpdateMenuTranslationsParams struct {
 }
 
 func (q *Queries) UpdateMenuTranslations(ctx context.Context, arg UpdateMenuTranslationsParams) error {
-	_, err := q.db.Exec(ctx, updateMenuTranslations, string(arg.Translations), arg.TranslationStatus, arg.ID)
+	_, err := q.db.Exec(ctx, updateMenuTranslations, arg.Translations, arg.TranslationStatus, arg.ID)
 	return err
 }
 
@@ -174,6 +174,6 @@ type UpdateTagTranslationsParams struct {
 }
 
 func (q *Queries) UpdateTagTranslations(ctx context.Context, arg UpdateTagTranslationsParams) error {
-	_, err := q.db.Exec(ctx, updateTagTranslations, string(arg.Translations), arg.TranslationStatus, arg.ID)
+	_, err := q.db.Exec(ctx, updateTagTranslations, arg.Translations, arg.TranslationStatus, arg.ID)
 	return err
 }

@@ -453,3 +453,26 @@ CREATE TABLE IF NOT EXISTS passkey_credentials (
   created_at    TIMESTAMPTZ DEFAULT NOW()
 );
 CREATE INDEX IF NOT EXISTS passkey_credentials_user_id_idx ON passkey_credentials(user_id);
+
+-- >>> form_field_configs for metadata-driven dish-item picker fields
+CREATE TABLE IF NOT EXISTS form_field_configs (
+  id          UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  form_key    TEXT UNIQUE NOT NULL,
+  config      JSONB NOT NULL,
+  updated_at  TIMESTAMPTZ NOT NULL DEFAULT now(),
+  updated_by  UUID
+);
+
+INSERT INTO form_field_configs (form_key, config)
+VALUES (
+  'dish_item',
+  '{
+    "fields": [
+      { "key": "allergens", "label": "Allergens", "visible": true, "required": false, "sortOrder": 0, "optionsSource": { "type": "lookup", "endpoint": "/admin/classifications/allergens" } },
+      { "key": "diets", "label": "Diets", "visible": true, "required": false, "sortOrder": 1, "optionsSource": { "type": "lookup", "endpoint": "/admin/classifications/diets" } },
+      { "key": "addons", "label": "Add-ons", "visible": true, "required": false, "sortOrder": 2, "optionsSource": { "type": "lookup", "endpoint": "/admin/addons" } },
+      { "key": "ingredients", "label": "Ingredients", "visible": true, "required": false, "sortOrder": 3, "optionsSource": { "type": "freetext" } }
+    ]
+  }'::jsonb
+)
+ON CONFLICT (form_key) DO NOTHING;

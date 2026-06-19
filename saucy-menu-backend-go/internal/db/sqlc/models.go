@@ -382,6 +382,14 @@ type Currency struct {
 	Symbol string      `json:"symbol"`
 }
 
+type FormFieldConfig struct {
+	ID        pgtype.UUID        `json:"id"`
+	FormKey   string             `json:"form_key"`
+	Config    []byte             `json:"config"`
+	UpdatedAt pgtype.Timestamptz `json:"updated_at"`
+	UpdatedBy pgtype.UUID        `json:"updated_by"`
+}
+
 type Language struct {
 	ID        pgtype.UUID `json:"id"`
 	Code      string      `json:"code"`
