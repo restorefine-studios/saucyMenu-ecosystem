@@ -148,6 +148,45 @@ export const useAddons = () => {
   });
 };
 
+export interface OptionsSource {
+  type: "lookup" | "freetext";
+  endpoint?: string;
+}
+
+export interface FieldConfig {
+  key: string;
+  label: string;
+  visible: boolean;
+  required: boolean;
+  sortOrder: number;
+  optionsSource: OptionsSource;
+}
+
+export const useFormFieldConfig = (formKey: string) => {
+  const getConfig = async () => {
+    const res = await axiosInstance.get(apiRoutes.formConfig(formKey));
+    return res.data as { fields: FieldConfig[] };
+  };
+  return useQuery({
+    queryKey: ["form_field_config", formKey],
+    queryFn: getConfig,
+    staleTime: 5 * 60 * 1000,
+  });
+};
+
+export const useLookupOptions = (endpoint?: string) => {
+  const getOptions = async () => {
+    const res = await axiosInstance.get(endpoint as string);
+    return (res.data?.data ?? res.data ?? []) as { id: string; name: string }[];
+  };
+  return useQuery({
+    queryKey: ["lookup", endpoint],
+    queryFn: getOptions,
+    enabled: !!endpoint,
+    staleTime: 5 * 60 * 1000,
+  });
+};
+
 // export const useDishTagItemData = (id: string) => {
 //   const getData = async () => {
 //     const res = await axiosInstance.get(apiRoutes.fetchDishTagItem(id));

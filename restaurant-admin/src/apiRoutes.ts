@@ -65,6 +65,7 @@ export default {
   diets: '/admin/classifications/diets',
   fetchSpecificMenuItem: (id: string | undefined) => `/admin/menu-items/${id}`,
   addOns: (id?: string) => id ? `/admin/addons/${id}` : `/admin/addons`,
+  formConfig: (formKey: string) => `admin/form-config/${formKey}`,
   audit: "/admin/audit",
   menusAndSections: "/admin/menu/menus-sections",
   passkeyRegisterBegin: "auth/passkey/register/begin",
