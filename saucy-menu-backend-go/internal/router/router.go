@@ -46,6 +46,7 @@ func New(pool *pgxpool.Pool, cfg *config.Config) http.Handler {
 		"https://dashboard.saucymenu.com",
 		"https://saucymenu.com",
 		"https://menu.saucymenu.com",
+		"https://admin.saucymenu.com",
 		"https://super-admin-79d.pages.dev",
 	}
 	if cfg.NodeEnv == "development" {
