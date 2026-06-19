@@ -44,6 +44,7 @@ func Routes(r chi.Router, q *sqlc.Queries, stripeKey string, oai *oaiclient.Clie
 	auditH := NewAuditLogsHandler(q)
 	subH := NewSubscriptionsHandler(q, stripeKey)
 	uploadH := NewUploadHandler(s3)
+	formFieldConfigH := NewFormFieldConfigHandler(q)
 
 	// Auth
 	r.Post("/auth/setup", authH.Setup)
@@ -109,6 +110,9 @@ func Routes(r chi.Router, q *sqlc.Queries, stripeKey string, oai *oaiclient.Clie
 	// Upload
 	r.Post("/upload", uploadH.Upload)
 	r.Delete("/upload/{key:.*}", uploadH.Delete)
+
+	// Form field config — metadata-driven dish-item picker fields
+	r.Get("/form-config/{formKey}", formFieldConfigH.Get)
 
 	// Subscriptions
 	r.Get("/subscriptions/system", subH.ListSystemPlans)
