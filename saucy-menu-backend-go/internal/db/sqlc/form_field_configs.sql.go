@@ -50,6 +50,6 @@ type UpsertFormFieldConfigParams struct {
 }
 
 func (q *Queries) UpsertFormFieldConfig(ctx context.Context, arg UpsertFormFieldConfigParams) error {
-	_, err := q.db.Exec(ctx, upsertFormFieldConfig, arg.FormKey, arg.Column2, arg.UpdatedBy)
+	_, err := q.db.Exec(ctx, upsertFormFieldConfig, arg.FormKey, string(arg.Column2), arg.UpdatedBy)
 	return err
 }

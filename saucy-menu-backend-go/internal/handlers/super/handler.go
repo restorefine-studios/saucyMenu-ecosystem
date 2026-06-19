@@ -19,6 +19,7 @@ func Routes(r chi.Router, q *sqlc.Queries, cfg *config.Config) http.Handler {
 	statsH := NewStatsHandler(q)
 	subH := NewSubscriptionsHandler(q)
 	allergenH := NewAllergensHandler(q)
+	formFieldConfigH := NewFormFieldConfigHandler(q)
 
 	// Everything below is already behind SuperAdminAuth from the parent router
 	r.Get("/restaurants", restoH.List)
@@ -37,6 +38,9 @@ func Routes(r chi.Router, q *sqlc.Queries, cfg *config.Config) http.Handler {
 	r.Post("/menu/allergens", allergenH.Create)
 	r.Put("/menu/allergens/{id}", allergenH.Update)
 	r.Delete("/menu/allergens/{id}", allergenH.Delete)
+
+	r.Get("/form-config/{formKey}", formFieldConfigH.Get)
+	r.Put("/form-config/{formKey}", formFieldConfigH.Update)
 
 	return r
 }
