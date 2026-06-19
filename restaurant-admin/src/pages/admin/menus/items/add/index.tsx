@@ -4,16 +4,13 @@ import { Button } from "@/components/ui/button";
 import { ReactFormExtendedApi, useForm } from "@tanstack/react-form";
 import { z } from "zod";
 import { useMutation } from "@tanstack/react-query";
-import { axiosInstance, cn, mediaUrl } from "@/lib/utils";
+import { axiosInstance, mediaUrl } from "@/lib/utils";
 import apiRoutes from "@/apiRoutes";
 import { AxiosError } from "axios";
 import { toast } from "sonner";
 import { FileUpload } from "@/components/file-upload";
-import { PlusCircle, Trash2 } from "lucide-react";
-import React, { useCallback, useMemo, useState } from "react";
+import React, { useMemo, useState } from "react";
 // import Category from "./components/category";
-import Diet from "./components/diets";
-import Allergens from "./components/allergens";
 import {
   Select,
   SelectContent,
@@ -23,24 +20,18 @@ import {
 } from "@/components/ui/select";
 import Back from "@/components/back";
 // import Bulk from "./bulk";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import { useAtom } from "jotai";
 import { userAtom } from "@/atoms/user";
 import { Switch } from "@/components/ui/switch";
 import { useTranslation } from "react-i18next";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { isEmpty } from "lodash";
 import { useMenusAndSections } from "../../hooks/use-menu";
 import type { ClassifiedMenuItems } from "../../types";
 import ScreenWrapper from "@/pages/admin/components/screenWrapper";
-import Addons from "./components/addons";
 import { VariantsManager } from "./components/variants-manager";
 import { DiscountManager } from "./components/discount-manager";
-
-interface Ingredient {
-  id: string;
-  name: string;
-}
+import { useFormFieldConfig } from "@/hooks/useFetchData";
+import { MetaPickerField } from "./components/MetaPickerField";
 
 function SwitchCard({
   title,
@@ -73,9 +64,6 @@ function SwitchCard({
 
 function Add() {
   const [user] = useAtom(userAtom);
-  const [ingredients, setIngredients] = useState<Ingredient[]>([
-    { id: "1", name: "" },
-  ]);
   const { sectionId, menuId } = useParams();
   const { t } = useTranslation();
   const navigate = useNavigate();
@@ -159,9 +147,18 @@ function Add() {
     [t],
   );
 
-  const [allergenIds, setAllergenIds] = useState<string[]>([]);
-  const [dietIds, setDietIds] = useState<string[]>([]);
-  const [addonIds, setAddonIds] = useState<string[]>([]);
+  const [pickerValues, setPickerValues] = useState<Record<string, string[]>>({
+    allergens: [],
+    diets: [],
+    addons: [],
+    ingredients: [],
+  });
+  const { data: fieldConfigData } = useFormFieldConfig("dish_item");
+  const sortedFields = useMemo(
+    () =>
+      [...(fieldConfigData?.fields ?? [])].sort((a, b) => a.sortOrder - b.sortOrder),
+    [fieldConfigData?.fields],
+  );
   const form = useForm({
     defaultValues: {
       name: "",
@@ -191,12 +188,10 @@ function Add() {
       mutate({
         ...value,
         price: String(value.price ?? 0),
-        ingredients: isEmpty(ingredients[0].name)
-          ? []
-          : ingredients.map((ingredient) => ingredient.name),
-        tags: [...dietIds],
-        allergens: allergenIds,
-        addOns: addonIds,
+        ingredients: pickerValues.ingredients,
+        tags: [...pickerValues.diets],
+        allergens: pickerValues.allergens,
+        addOns: pickerValues.addons,
         variants: value.variants?.map(
           (variant: {
             name?: string;
@@ -215,7 +210,7 @@ function Add() {
         discountEndAt: value.discountEndAt,
         discountLabel: value.discountLabel,
       });
-      setIngredients([{ id: "1", name: "" }]);
+      setPickerValues({ allergens: [], diets: [], addons: [], ingredients: [] });
     },
   });
 
@@ -237,57 +232,6 @@ function Add() {
       toast.error(err?.response?.data?.message);
     },
   });
-
-  const addIngredient = useCallback(() => {
-    setIngredients((prev) => [
-      ...prev,
-      { id: String(prev.length + 1), name: "" },
-    ]);
-  }, []);
-
-  const removeIngredient = useCallback((id: string) => {
-    setIngredients((prev) =>
-      prev.length > 1 ? prev.filter((ing) => ing.id !== id) : prev,
-    );
-  }, []);
-
-  const updateIngredient = useCallback((id: string, value: string) => {
-    if (!value.includes(",")) {
-      setIngredients((prev) =>
-        prev.map((ing) =>
-          ing.id === id ? { ...ing, name: value } : ing,
-        ),
-      );
-      return;
-    }
-    const parts = value
-      .split(",")
-      .map((s) => s.trim())
-      .filter(Boolean);
-    if (parts.length <= 1) {
-      setIngredients((prev) =>
-        prev.map((ing) =>
-          ing.id === id ? { ...ing, name: value.replace(/,/g, "").trim() } : ing,
-        ),
-      );
-      return;
-    }
-    const [first, ...rest] = parts;
-    setIngredients((prev) => {
-      const idx = prev.findIndex((ing) => ing.id === id);
-      if (idx < 0) return prev;
-      const newIngredients: Ingredient[] = rest.map((name, i) => ({
-        id: `ing-${Date.now()}-${i}`,
-        name,
-      }));
-      return [
-        ...prev.slice(0, idx),
-        { ...prev[idx], name: first },
-        ...newIngredients,
-        ...prev.slice(idx + 1),
-      ];
-    });
-  }, []);
 
   return (
     <ScreenWrapper title={t("admin.menu.addDish.title")}>
@@ -523,65 +467,6 @@ function Add() {
             }
             />
           </div>
-          <section className="w-full mt-8" aria-labelledby="ingredients-heading">
-            <div className="flex items-center justify-between mb-3">
-              <Label id="ingredients-heading" className="text-base font-semibold">
-                {t("admin.menu.addDish.ingredients.title")}
-              </Label>
-              <Button
-                type="button"
-                variant="outline"
-                size="sm"
-                onClick={addIngredient}
-                className="flex items-center gap-1"
-              >
-                <PlusCircle className="h-4 w-4" />
-                {t("admin.menu.addDish.ingredients.btn")}
-              </Button>
-            </div>
-            <ScrollArea className="max-h-[400px] rounded-md border border-gray-200">
-              <div
-                className={cn(
-                  ingredients.length === 1
-                    ? "grid-cols-1"
-                    : ingredients.length === 2
-                      ? "grid-cols-2"
-                      : "grid-cols-3",
-                  "grid gap-2 p-2 min-w-full",
-                )}
-              >
-                {ingredients.map((ingredient) => (
-                  <div
-                    key={ingredient.id}
-                    className="flex items-center gap-2 rounded-md border border-gray-100 bg-gray-50/50 p-1"
-                  >
-                    <InputComponent
-                      id={`ingredient-name-${ingredient.id}`}
-                      value={ingredient.name}
-                      onChange={(e) =>
-                        updateIngredient(ingredient.id, e.target.value)
-                      }
-                      placeholder={t(
-                        "admin.menu.addDish.ingredients.placeholder",
-                      )}
-                      className="border-0 bg-transparent shadow-none flex-1 min-w-0"
-                    />
-                    <Button
-                      type="button"
-                      variant="ghost"
-                      size="icon"
-                      onClick={() => removeIngredient(ingredient.id)}
-                      disabled={ingredients.length === 1}
-                      className="flex-shrink-0 h-9 w-9 text-muted-foreground hover:text-destructive disabled:opacity-50"
-                      aria-label={t("admin.menu.addDish.ingredients.removeBtn")}
-                    >
-                      <Trash2 className="h-4 w-4" />
-                    </Button>
-                  </div>
-                ))}
-              </div>
-            </ScrollArea>
-          </section>
           {/* <Category
             categories={dishTypes ?? []}
             setData={setTagIds}
@@ -664,15 +549,17 @@ function Add() {
             </div>
           </section>
 
-          <div className="mt-8">
-            <Diet setData={setDietIds} data={dietIds} />
-          </div>
-          <div className="mt-8">
-            <Allergens setData={setAllergenIds} data={allergenIds} />
-          </div>
-          <div className="mt-8">
-            <Addons setData={setAddonIds} data={addonIds} />
-          </div>
+          {sortedFields.map((fieldConfig) => (
+            <div className="mt-8" key={fieldConfig.key}>
+              <MetaPickerField
+                config={fieldConfig}
+                value={pickerValues[fieldConfig.key] ?? []}
+                onChange={(v) =>
+                  setPickerValues((prev) => ({ ...prev, [fieldConfig.key]: v }))
+                }
+              />
+            </div>
+          ))}
           <div className="mt-8">
             <VariantsManager
               form={
