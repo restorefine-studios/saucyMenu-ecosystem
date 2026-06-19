@@ -1,19 +1,19 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useCallback, useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { FieldInfo, InputComponent, Label } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { ReactFormExtendedApi, useForm } from "@tanstack/react-form";
 import { z } from "zod";
 import { useMutation } from "@tanstack/react-query";
-import { axiosInstance, cn, mediaUrl } from "@/lib/utils";
+import { axiosInstance, mediaUrl } from "@/lib/utils";
 
 import apiRoutes from "@/apiRoutes";
 import { AxiosError } from "axios";
 import { toast } from "sonner";
 import { FileUpload } from "@/components/file-upload";
-import { PlusCircle, Trash2 } from "lucide-react";
-import { useSpecificMenuItem } from "@/hooks/useFetchData";
+import { useFormFieldConfig, useSpecificMenuItem } from "@/hooks/useFetchData";
+import { MetaPickerField } from "../add/components/MetaPickerField";
 
 import {
   Select,
@@ -22,8 +22,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import Diet from "../add/components/diets";
-import Allergens from "../add/components/allergens";
 import Back from "@/components/back";
 import Delete from "./delete";
 import { userAtom } from "@/atoms/user";
@@ -31,17 +29,10 @@ import { useAtom } from "jotai";
 import { Switch } from "@/components/ui/switch";
 import { useTranslation } from "react-i18next";
 import ScreenWrapper from "@/pages/admin/components/screenWrapper";
-import Addons from "../add/components/addons";
 import { VariantsManager } from "../add/components/variants-manager";
 import { DiscountManager } from "../add/components/discount-manager";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import { useMenusAndSections } from "../../hooks/use-menu";
 import type { ClassifiedMenuItems } from "../../types";
-
-interface Ingredient {
-  id: string;
-  name: string;
-}
 
 function SwitchCard({
   title,
@@ -76,9 +67,6 @@ function EditItems() {
   // const { sectionId } = useParams();
   const navigate = useNavigate();
   const [user] = useAtom(userAtom);
-  const [ingredients, setIngredients] = useState<Ingredient[]>([
-    { id: "1", name: "" },
-  ]);
   const { id } = useParams();
   const { t } = useTranslation();
 
@@ -178,9 +166,18 @@ function EditItems() {
     [menuContainingSection?.sections],
   );
 
-  const [tagIds, setTagIds] = useState<string[]>([]);
-  const [allergenIds, setAllergenIds] = useState<string[]>([]);
-  const [addonIds, setAddonIds] = useState<string[]>([]);
+  const [pickerValues, setPickerValues] = useState<Record<string, string[]>>({
+    allergens: [],
+    diets: [],
+    addons: [],
+    ingredients: [],
+  });
+  const { data: fieldConfigData } = useFormFieldConfig("dish_item");
+  const sortedFields = useMemo(
+    () =>
+      [...(fieldConfigData?.fields ?? [])].sort((a, b) => a.sortOrder - b.sortOrder),
+    [fieldConfigData?.fields],
+  );
   const form = useForm({
     defaultValues: dishData
       ? {
@@ -235,12 +232,12 @@ function EditItems() {
       mutate({
         ...value,
         price: String(value.price ?? 0),
-        ingredients: ingredients?.map((ingredient) => ingredient.name) ?? [],
+        ingredients: pickerValues.ingredients,
         // sectionId: sectionId,
-        allergens: allergenIds,
+        allergens: pickerValues.allergens,
         spiceLevel: value.spiceLevel,
-        addOns: addonIds,
-        tags: tagIds,
+        addOns: pickerValues.addons,
+        tags: pickerValues.diets,
         available: value.available,
         isChefsRecommended: value.isChefsRecommended,
         isPopular: value.isPopular,
@@ -266,24 +263,6 @@ function EditItems() {
     },
   });
 
-  useEffect(() => {
-    if (dishData) {
-      if (dishData?.ingredients?.length > 0) {
-        setIngredients(
-          dishData.ingredients?.map((name: string, index: number) => ({
-            id: String(index + 1),
-            name,
-          }))
-        );
-      } else {
-        setIngredients([{ id: "1", name: "" }]);
-      }
-      const initialTagIds =
-        dishData.tags?.map((tag: { id: string }) => tag.id) || [];
-      setTagIds(initialTagIds);
-    }
-  }, [dishData]);
-
   const { mutate, isPending } = useMutation({
     mutationFn: async (editData: Record<string, unknown>) => {
       const response = await axiosInstance.put(
@@ -305,74 +284,16 @@ function EditItems() {
     },
   });
 
-  const addIngredient = useCallback(() => {
-    setIngredients((prev) => [
-      ...prev,
-      { id: String(prev.length + 1), name: "" },
-    ]);
-  }, []);
-
-  const removeIngredient = useCallback((id: string) => {
-    setIngredients((prev) =>
-      prev.length > 1 ? prev.filter((ing) => ing.id !== id) : prev,
-    );
-  }, []);
-
-  const updateIngredient = useCallback((id: string, value: string) => {
-    if (!value.includes(",")) {
-      setIngredients((prev) =>
-        prev.map((ing) =>
-          ing.id === id ? { ...ing, name: value } : ing,
-        ),
-      );
-      return;
-    }
-    const parts = value
-      .split(",")
-      .map((s) => s.trim())
-      .filter(Boolean);
-    if (parts.length <= 1) {
-      setIngredients((prev) =>
-        prev.map((ing) =>
-          ing.id === id ? { ...ing, name: value.replace(/,/g, "").trim() } : ing,
-        ),
-      );
-      return;
-    }
-    const [first, ...rest] = parts;
-    setIngredients((prev) => {
-      const idx = prev.findIndex((ing) => ing.id === id);
-      if (idx < 0) return prev;
-      const newIngredients: Ingredient[] = rest.map((name, i) => ({
-        id: `ing-${Date.now()}-${i}`,
-        name,
-      }));
-      return [
-        ...prev.slice(0, idx),
-        { ...prev[idx], name: first },
-        ...newIngredients,
-        ...prev.slice(idx + 1),
-      ];
-    });
-  }, []);
-
   useEffect(() => {
     if (dishData) {
-      setIngredients(
-        dishData.ingredients?.map((name: string, index: number) => ({
-          id: String(index + 1),
-          name,
-        })) ?? []
-      );
-
-      setTagIds(dishData?.tags?.map((tag: { id: string }) => tag.id) ?? []);
-      setAllergenIds(
-        dishData?.allergens?.map((allergen: { id: string }) => allergen.id) ??
-          []
-      );
-      setAddonIds(
-        dishData?.addOns?.map((addon: { id: string }) => addon.id) ?? []
-      );
+      setPickerValues({
+        ingredients: dishData?.ingredients ?? [],
+        diets: dishData?.tags?.map((tag: { id: string }) => tag.id) ?? [],
+        allergens:
+          dishData?.allergens?.map((allergen: { id: string }) => allergen.id) ??
+          [],
+        addons: dishData?.addOns?.map((addon: { id: string }) => addon.id) ?? [],
+      });
       form.setFieldValue("variants", dishData?.variants ?? []);
       form.setFieldValue("name", dishData?.name ?? "");
       form.setFieldValue("price", Number(dishData?.price));
@@ -613,67 +534,6 @@ function EditItems() {
               }
             />
           </div>
-          <section className="w-full mt-8" aria-labelledby="edit-ingredients-heading">
-            <div className="flex items-center justify-between mb-3">
-              <Label id="edit-ingredients-heading" className="text-base font-semibold">
-                {t("admin.menu.editDish.variants.ingredients.title")}
-              </Label>
-              <Button
-                type="button"
-                variant="outline"
-                size="sm"
-                onClick={addIngredient}
-                className="flex items-center gap-1"
-              >
-                <PlusCircle className="h-4 w-4" />
-                {t("admin.menu.editDish.variants.ingredients.btn")}
-              </Button>
-            </div>
-            <ScrollArea className="max-h-[400px] rounded-md border border-gray-200">
-              <div
-                className={cn(
-                  ingredients.length === 1
-                    ? "grid-cols-1"
-                    : ingredients.length === 2
-                      ? "grid-cols-2"
-                      : "grid-cols-3",
-                  "grid gap-2 p-2 min-w-full",
-                )}
-              >
-                {ingredients?.map((ingredient) => (
-                  <div
-                    key={ingredient.id}
-                    className="flex items-center gap-2 rounded-md border border-gray-100 bg-gray-50/50 p-1"
-                  >
-                    <InputComponent
-                      id={`ingredient-name-${ingredient.id}`}
-                      value={ingredient.name}
-                      onChange={(e) =>
-                        updateIngredient(ingredient.id, e.target.value)
-                      }
-                      placeholder={t(
-                        "admin.menu.editDish.variants.ingredients.placeholder",
-                      )}
-                      className="border-0 bg-transparent shadow-none flex-1 min-w-0"
-                    />
-                    <Button
-                      type="button"
-                      variant="ghost"
-                      size="icon"
-                      onClick={() => removeIngredient(ingredient.id)}
-                      disabled={ingredients.length === 1}
-                      className="flex-shrink-0 h-9 w-9 text-muted-foreground hover:text-destructive disabled:opacity-50"
-                      aria-label={t(
-                        "admin.menu.editDish.variants.ingredients.removeBtn",
-                      )}
-                    >
-                      <Trash2 className="h-4 w-4" />
-                    </Button>
-                  </div>
-                ))}
-              </div>
-            </ScrollArea>
-          </section>
 
           <section className="mt-8" aria-labelledby="edit-app-sections-heading">
             <Label id="edit-app-sections-heading" className="text-base font-semibold mb-3 block">
@@ -741,15 +601,17 @@ function EditItems() {
             </div>
           </section>
 
-          <div className="mt-8">
-            <Diet setData={setTagIds} data={tagIds} />
-          </div>
-          <div className="mt-8">
-            <Allergens setData={setAllergenIds} data={allergenIds} />
-          </div>
-          <div className="mt-8">
-            <Addons setData={setAddonIds} data={addonIds} />
-          </div>
+          {sortedFields.map((fieldConfig) => (
+            <div className="mt-8" key={fieldConfig.key}>
+              <MetaPickerField
+                config={fieldConfig}
+                value={pickerValues[fieldConfig.key] ?? []}
+                onChange={(v) =>
+                  setPickerValues((prev) => ({ ...prev, [fieldConfig.key]: v }))
+                }
+              />
+            </div>
+          ))}
           <div className="mt-8">
             <VariantsManager
             form={
