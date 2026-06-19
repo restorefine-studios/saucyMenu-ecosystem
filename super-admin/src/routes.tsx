@@ -5,6 +5,7 @@ import Dashboard from "./pages/admin/dashboard";
 import Subscriptions from "./pages/admin/subscriptions";
 import ViewRestaurant from "./pages/admin/Restaurants/components/view";
 import AllRestaurants from "./pages/admin/Restaurants";
+import FormFields from "./pages/admin/FormFields";
 import { RouteObject } from "react-router-dom";
 import { authLoader } from "./lib/authLoader";
 
@@ -46,6 +47,10 @@ export const routes: RouteObject[] = [
       {
         path: "subscriptions",
         element: <Subscriptions />,
+      },
+      {
+        path: "form-fields",
+        element: <FormFields />,
       },
     ],
   },

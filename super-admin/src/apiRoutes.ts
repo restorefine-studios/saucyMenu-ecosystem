@@ -13,4 +13,5 @@ export default {
   totals: "super/stats/total",
   viewRestaurant: (id: string) => `super/restaurants/${id}`,
   restaurantAiUsage: (id: string) => `super/restaurants/${id}/ai-usage`,
+  formConfig: (formKey: string) => `super/form-config/${formKey}`,
 };

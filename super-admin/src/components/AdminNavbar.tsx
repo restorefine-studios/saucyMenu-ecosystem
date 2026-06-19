@@ -10,6 +10,7 @@ const NAV_LINKS = [
   { to: '/admin/dashboard', label: 'Dashboard' },
   { to: '/admin/restaurants/all-restaurants', label: 'Restaurants' },
   { to: '/admin/subscriptions', label: 'Subscriptions' },
+  { to: '/admin/form-fields', label: 'Form Fields' },
 ]
 
 export function AdminNavbar() {
