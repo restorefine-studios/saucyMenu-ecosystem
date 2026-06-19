@@ -29,6 +29,7 @@ export default defineConfig({
       },
       workbox: {
         globPatterns: ["**/*.{js,css,html,ico,png,svg,woff2}"],
+        globIgnores: ["**/globemesh-*.png", "**/emptyfolder.svg"],
         runtimeCaching: [
           {
             urlPattern: ({ url }) =>
