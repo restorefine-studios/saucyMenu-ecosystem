@@ -115,7 +115,7 @@ function MetaPickerField({ config, value, onChange }: {
     return <TagInput label={config.label} value={value} onChange={onChange} required={config.required} />
   }
 
-  const { data: options } = useQuery({
+  const { data: options = [] } = useQuery({
     queryKey: ['lookup', config.optionsSource.endpoint],
     queryFn: () => fetch(config.optionsSource.endpoint).then(r => r.json()),
     staleTime: 5 * 60 * 1000,
@@ -127,7 +127,9 @@ function MetaPickerField({ config, value, onChange }: {
 
 `CheckboxGrid` and `TagInput` are extracted from the existing four components'
 JSX (markup largely unchanged), parameterized by `label`/`options`/`required`
-instead of hardcoded per-component.
+instead of hardcoded per-component. `options` defaults to `[]` while the lookup
+query is loading, so `CheckboxGrid` always receives an array and never flashes
+broken UI on first render.
 
 The parent form (`menus/items/add/index.tsx`) fetches the `dish_item` config once
 (`GET /admin/form-config/dish_item`, same `staleTime: 5 * 60 * 1000` — it only
