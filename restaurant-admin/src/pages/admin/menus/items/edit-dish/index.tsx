@@ -12,7 +12,11 @@ import apiRoutes from "@/apiRoutes";
 import { AxiosError } from "axios";
 import { toast } from "sonner";
 import { FileUpload } from "@/components/file-upload";
-import { useFormFieldConfig, useSpecificMenuItem } from "@/hooks/useFetchData";
+import {
+  DEFAULT_DISH_ITEM_FIELDS,
+  useFormFieldConfig,
+  useSpecificMenuItem,
+} from "@/hooks/useFetchData";
 import { MetaPickerField } from "../add/components/MetaPickerField";
 
 import {
@@ -172,11 +176,13 @@ function EditItems() {
     addons: [],
     ingredients: [],
   });
-  const { data: fieldConfigData } = useFormFieldConfig("dish_item");
+  const { data: fieldConfigData, isError: fieldConfigErrored } = useFormFieldConfig("dish_item");
   const sortedFields = useMemo(
     () =>
-      [...(fieldConfigData?.fields ?? [])].sort((a, b) => a.sortOrder - b.sortOrder),
-    [fieldConfigData?.fields],
+      [...(fieldConfigData?.fields ?? (fieldConfigErrored ? DEFAULT_DISH_ITEM_FIELDS : []))].sort(
+        (a, b) => a.sortOrder - b.sortOrder,
+      ),
+    [fieldConfigData?.fields, fieldConfigErrored],
   );
   const form = useForm({
     defaultValues: dishData

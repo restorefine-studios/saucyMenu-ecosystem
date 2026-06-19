@@ -30,7 +30,7 @@ import type { ClassifiedMenuItems } from "../../types";
 import ScreenWrapper from "@/pages/admin/components/screenWrapper";
 import { VariantsManager } from "./components/variants-manager";
 import { DiscountManager } from "./components/discount-manager";
-import { useFormFieldConfig } from "@/hooks/useFetchData";
+import { DEFAULT_DISH_ITEM_FIELDS, useFormFieldConfig } from "@/hooks/useFetchData";
 import { MetaPickerField } from "./components/MetaPickerField";
 
 function SwitchCard({
@@ -153,11 +153,13 @@ function Add() {
     addons: [],
     ingredients: [],
   });
-  const { data: fieldConfigData } = useFormFieldConfig("dish_item");
+  const { data: fieldConfigData, isError: fieldConfigErrored } = useFormFieldConfig("dish_item");
   const sortedFields = useMemo(
     () =>
-      [...(fieldConfigData?.fields ?? [])].sort((a, b) => a.sortOrder - b.sortOrder),
-    [fieldConfigData?.fields],
+      [...(fieldConfigData?.fields ?? (fieldConfigErrored ? DEFAULT_DISH_ITEM_FIELDS : []))].sort(
+        (a, b) => a.sortOrder - b.sortOrder,
+      ),
+    [fieldConfigData?.fields, fieldConfigErrored],
   );
   const form = useForm({
     defaultValues: {

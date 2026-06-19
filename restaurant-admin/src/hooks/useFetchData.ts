@@ -162,6 +162,15 @@ export interface FieldConfig {
   optionsSource: OptionsSource;
 }
 
+// Mirrors the seeded `dish_item` row in form_field_configs; used when the
+// config fetch fails so the dish form still renders its default fields.
+export const DEFAULT_DISH_ITEM_FIELDS: FieldConfig[] = [
+  { key: "allergens", label: "Allergens", visible: true, required: false, sortOrder: 0, optionsSource: { type: "lookup", endpoint: "/admin/classifications/allergens" } },
+  { key: "diets", label: "Diets", visible: true, required: false, sortOrder: 1, optionsSource: { type: "lookup", endpoint: "/admin/classifications/diets" } },
+  { key: "addons", label: "Add-ons", visible: true, required: false, sortOrder: 2, optionsSource: { type: "lookup", endpoint: "/admin/addons" } },
+  { key: "ingredients", label: "Ingredients", visible: true, required: false, sortOrder: 3, optionsSource: { type: "freetext" } },
+];
+
 export const useFormFieldConfig = (formKey: string) => {
   const getConfig = async () => {
     const res = await axiosInstance.get(apiRoutes.formConfig(formKey));
