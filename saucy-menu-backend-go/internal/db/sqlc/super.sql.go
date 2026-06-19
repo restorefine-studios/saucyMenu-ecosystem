@@ -229,19 +229,25 @@ func (q *Queries) GetPlanByProductID(ctx context.Context, productID string) (Get
 }
 
 const getRestaurantBySlug = `-- name: GetRestaurantBySlug :one
-SELECT id, name, slug FROM restaurants WHERE slug = $1
+SELECT id, name, slug, image FROM restaurants WHERE slug = $1
 `
 
 type GetRestaurantBySlugRow struct {
-	ID   pgtype.UUID `json:"id"`
-	Name *string     `json:"name"`
-	Slug *string     `json:"slug"`
+	ID    pgtype.UUID `json:"id"`
+	Name  *string     `json:"name"`
+	Slug  *string     `json:"slug"`
+	Image *string     `json:"image"`
 }
 
 func (q *Queries) GetRestaurantBySlug(ctx context.Context, slug *string) (GetRestaurantBySlugRow, error) {
 	row := q.db.QueryRow(ctx, getRestaurantBySlug, slug)
 	var i GetRestaurantBySlugRow
-	err := row.Scan(&i.ID, &i.Name, &i.Slug)
+	err := row.Scan(
+		&i.ID,
+		&i.Name,
+		&i.Slug,
+		&i.Image,
+	)
 	return i, err
 }
 

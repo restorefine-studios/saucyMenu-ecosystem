@@ -40,7 +40,7 @@ WHERE id = $5;
 DELETE FROM restaurants WHERE id = $1;
 
 -- name: GetRestaurantBySlug :one
-SELECT id, name, slug FROM restaurants WHERE slug = $1;
+SELECT id, name, slug, image FROM restaurants WHERE slug = $1;
 
 -- name: SetRestaurantSlug :exec
 UPDATE restaurants SET slug = $1 WHERE id = $2;

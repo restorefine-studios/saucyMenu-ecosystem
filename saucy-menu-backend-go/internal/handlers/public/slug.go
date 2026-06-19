@@ -34,9 +34,10 @@ func (h *SlugHandler) Resolve(w http.ResponseWriter, r *http.Request) {
 	}
 
 	httpx.WriteSuccess(w, http.StatusOK, map[string]any{
-		"id":   pgUUIDToString(resto.ID),
-		"name": resto.Name,
-		"slug": resto.Slug,
+		"id":    pgUUIDToString(resto.ID),
+		"name":  resto.Name,
+		"slug":  resto.Slug,
+		"image": resto.Image,
 	})
 }
 

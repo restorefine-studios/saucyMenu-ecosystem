@@ -1,7 +1,8 @@
 import { userAtom } from '@/atoms/user'
 import SpinnerLoader from '@/components/spinner'
-import { axiosInstance, apiUrl } from '@/lib/utils'
+import { axiosInstance, apiUrl, renderMediaUrl } from '@/lib/utils'
 import { posthog } from '@/lib/posthog'
+import { addVisitedRestaurant } from '@/lib/visitedRestaurants'
 import { useMutation } from '@tanstack/react-query'
 import { createFileRoute, useRouter } from '@tanstack/react-router'
 import { useAtom } from 'jotai'
@@ -32,15 +33,21 @@ function SlugEntry() {
       const slugData = await resolveSlug()
       if (!slugData?.data?.id) throw new Error('Restaurant not found')
       const session = await createSession(slugData.data.id)
-      return { session, restaurantId: slugData.data.id }
+      return { session, restaurant: slugData.data }
     },
-    onSuccess: ({ session: data, restaurantId }) => {
+    onSuccess: ({ session: data, restaurant }) => {
       if (data?.success) {
         localStorage.setItem('saucy-user-token', data.data?.token)
         setUser(data?.data)
+        addVisitedRestaurant({
+          slug: restaurant.slug ?? slug,
+          restaurantId: restaurant.id,
+          name: restaurant.name ?? 'Restaurant',
+          image: restaurant.image ? renderMediaUrl(restaurant.image) : null,
+        })
         if (data.data?.sessionId) {
-          posthog.identify(data.data.sessionId, { restaurant_id: restaurantId })
-          posthog.capture('diner_session_started', { restaurant_id: restaurantId, entry: 'qr_slug' })
+          posthog.identify(data.data.sessionId, { restaurant_id: restaurant.id })
+          posthog.capture('diner_session_started', { restaurant_id: restaurant.id, entry: 'qr_slug' })
         }
         router.navigate({ to: '/setup' })
       } else {
