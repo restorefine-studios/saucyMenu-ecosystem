@@ -119,11 +119,11 @@ export function MenuItemCard({
 
           {/* Tags / description */}
           {tags && tags.length > 0 ? (
-            <p className="text-xs text-gray-400 mt-1 line-clamp-1">
+            <p className="text-xs text-gray-400 mt-1 line-clamp-1 pr-20">
               {tags.map(t => t.name).join(' • ')}
             </p>
           ) : description ? (
-            <p className="text-xs text-gray-400 mt-1 line-clamp-1">{description}</p>
+            <p className="text-xs text-gray-400 mt-1 line-clamp-1 pr-20">{description}</p>
           ) : null}
 
           {/* Meta row */}
