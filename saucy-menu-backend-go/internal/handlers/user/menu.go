@@ -365,6 +365,7 @@ func (h *MenuHandler) ListClassifiedItems(w http.ResponseWriter, r *http.Request
 			"images":             it.Images,
 			"price":              httpx.NumericToString(it.Price),
 			"type":               it.Type,
+			"hasVariants":        it.HasVariants,
 			"isAvailable":        it.IsAvailable,
 			"isChefsRecommended": it.IsChefsRecommended,
 			"isPopular":          it.IsPopular,

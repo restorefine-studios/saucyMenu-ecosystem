@@ -183,7 +183,7 @@ func (q *Queries) ListAllMenuItemsForRestaurant(ctx context.Context, restaurantI
 }
 
 const listClassifiedMenuItems = `-- name: ListClassifiedMenuItems :many
-SELECT id, name, description, translations, images, price, type,
+SELECT id, name, description, translations, images, price, type, has_variants,
        is_chefs_recommended, is_popular, is_new, is_limited_time, is_available, created_at
 FROM menu_items
 WHERE restaurant_id = $1
@@ -198,6 +198,7 @@ type ListClassifiedMenuItemsRow struct {
 	Images             []string         `json:"images"`
 	Price              pgtype.Numeric   `json:"price"`
 	Type               string           `json:"type"`
+	HasVariants        *bool            `json:"has_variants"`
 	IsChefsRecommended *bool            `json:"is_chefs_recommended"`
 	IsPopular          *bool            `json:"is_popular"`
 	IsNew              *bool            `json:"is_new"`
@@ -223,6 +224,7 @@ func (q *Queries) ListClassifiedMenuItems(ctx context.Context, restaurantID pgty
 			&i.Images,
 			&i.Price,
 			&i.Type,
+			&i.HasVariants,
 			&i.IsChefsRecommended,
 			&i.IsPopular,
 			&i.IsNew,

@@ -39,7 +39,7 @@ FROM menu_items
 WHERE id = $1 AND restaurant_id = $2;
 
 -- name: ListClassifiedMenuItems :many
-SELECT id, name, description, translations, images, price, type,
+SELECT id, name, description, translations, images, price, type, has_variants,
        is_chefs_recommended, is_popular, is_new, is_limited_time, is_available, created_at
 FROM menu_items
 WHERE restaurant_id = $1
