@@ -183,12 +183,18 @@ func (q *Queries) ListAllMenuItemsForRestaurant(ctx context.Context, restaurantI
 }
 
 const listClassifiedMenuItems = `-- name: ListClassifiedMenuItems :many
-SELECT id, name, description, translations, images, price, type, has_variants,
-       is_chefs_recommended, is_popular, is_new, is_limited_time, is_available, created_at
-FROM menu_items
-WHERE restaurant_id = $1
-  AND (is_chefs_recommended = true OR is_popular = true OR is_new = true OR is_limited_time = true)
+SELECT mi.id, mi.name, mi.description, mi.translations, mi.images, mi.price, mi.type, mi.has_variants,
+       mi.is_chefs_recommended, mi.is_popular, mi.is_new, mi.is_limited_time, mi.is_available, mi.created_at
+FROM menu_items mi
+JOIN menu_sections ms ON mi.section_id = ms.id
+WHERE ms.menu_id = $1 AND mi.restaurant_id = $2
+  AND (mi.is_chefs_recommended = true OR mi.is_popular = true OR mi.is_new = true OR mi.is_limited_time = true)
 `
+
+type ListClassifiedMenuItemsParams struct {
+	MenuID       pgtype.UUID `json:"menu_id"`
+	RestaurantID pgtype.UUID `json:"restaurant_id"`
+}
 
 type ListClassifiedMenuItemsRow struct {
 	ID                 pgtype.UUID      `json:"id"`
@@ -207,8 +213,8 @@ type ListClassifiedMenuItemsRow struct {
 	CreatedAt          pgtype.Timestamp `json:"created_at"`
 }
 
-func (q *Queries) ListClassifiedMenuItems(ctx context.Context, restaurantID pgtype.UUID) ([]ListClassifiedMenuItemsRow, error) {
-	rows, err := q.db.Query(ctx, listClassifiedMenuItems, restaurantID)
+func (q *Queries) ListClassifiedMenuItems(ctx context.Context, arg ListClassifiedMenuItemsParams) ([]ListClassifiedMenuItemsRow, error) {
+	rows, err := q.db.Query(ctx, listClassifiedMenuItems, arg.MenuID, arg.RestaurantID)
 	if err != nil {
 		return nil, err
 	}

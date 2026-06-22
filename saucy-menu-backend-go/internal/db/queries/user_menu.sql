@@ -39,11 +39,12 @@ FROM menu_items
 WHERE id = $1 AND restaurant_id = $2;
 
 -- name: ListClassifiedMenuItems :many
-SELECT id, name, description, translations, images, price, type, has_variants,
-       is_chefs_recommended, is_popular, is_new, is_limited_time, is_available, created_at
-FROM menu_items
-WHERE restaurant_id = $1
-  AND (is_chefs_recommended = true OR is_popular = true OR is_new = true OR is_limited_time = true);
+SELECT mi.id, mi.name, mi.description, mi.translations, mi.images, mi.price, mi.type, mi.has_variants,
+       mi.is_chefs_recommended, mi.is_popular, mi.is_new, mi.is_limited_time, mi.is_available, mi.created_at
+FROM menu_items mi
+JOIN menu_sections ms ON mi.section_id = ms.id
+WHERE ms.menu_id = $1 AND mi.restaurant_id = $2
+  AND (mi.is_chefs_recommended = true OR mi.is_popular = true OR mi.is_new = true OR mi.is_limited_time = true);
 
 -- name: ListMenuSectionsByMenuID :many
 SELECT ms.id, ms.name, ms.description, ms.translations, ms.sort_order, ms.created_at,

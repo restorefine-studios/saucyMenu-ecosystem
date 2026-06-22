@@ -339,7 +339,21 @@ func (h *MenuHandler) ListClassifiedItems(w http.ResponseWriter, r *http.Request
 		return
 	}
 
-	items, err := h.q.ListClassifiedMenuItems(r.Context(), rid)
+	menuIDStr := r.URL.Query().Get("menuId")
+	if menuIDStr == "" {
+		httpx.WriteError(w, http.StatusBadRequest, "menuId is required")
+		return
+	}
+	menuID, err := parseUUID(menuIDStr)
+	if err != nil {
+		httpx.WriteError(w, http.StatusBadRequest, "invalid menuId")
+		return
+	}
+
+	items, err := h.q.ListClassifiedMenuItems(r.Context(), sqlc.ListClassifiedMenuItemsParams{
+		MenuID:       menuID,
+		RestaurantID: rid,
+	})
 	if err != nil {
 		httpx.WriteError(w, http.StatusInternalServerError, "failed to fetch classified items")
 		return
