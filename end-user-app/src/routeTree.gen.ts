@@ -14,6 +14,7 @@ import { Route as SetupIndexRouteImport } from './routes/setup/index'
 import { Route as SetupWelcomeRouteImport } from './routes/setup/welcome'
 import { Route as SetupAllergenInfoRouteImport } from './routes/setup/allergenInfo'
 import { Route as RSlugRouteImport } from './routes/r/$slug'
+import { Route as MainOrderListRouteImport } from './routes/main/order-list'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
 import { Route as MainMenusIndexRouteImport } from './routes/main/menus/index'
 import { Route as MainFoodIndexRouteImport } from './routes/main/food/index'
@@ -45,6 +46,11 @@ const SetupAllergenInfoRoute = SetupAllergenInfoRouteImport.update({
 const RSlugRoute = RSlugRouteImport.update({
   id: '/r/$slug',
   path: '/r/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MainOrderListRoute = MainOrderListRouteImport.update({
+  id: '/main/order-list',
+  path: '/main/order-list',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiChatRoute = ApiChatRouteImport.update({
@@ -86,6 +92,7 @@ const MainChatItemIdRoute = MainChatItemIdRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/api/chat': typeof ApiChatRoute
+  '/main/order-list': typeof MainOrderListRoute
   '/r/$slug': typeof RSlugRoute
   '/setup/allergenInfo': typeof SetupAllergenInfoRoute
   '/setup/welcome': typeof SetupWelcomeRoute
@@ -100,6 +107,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/api/chat': typeof ApiChatRoute
+  '/main/order-list': typeof MainOrderListRoute
   '/r/$slug': typeof RSlugRoute
   '/setup/allergenInfo': typeof SetupAllergenInfoRoute
   '/setup/welcome': typeof SetupWelcomeRoute
@@ -115,6 +123,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/api/chat': typeof ApiChatRoute
+  '/main/order-list': typeof MainOrderListRoute
   '/r/$slug': typeof RSlugRoute
   '/setup/allergenInfo': typeof SetupAllergenInfoRoute
   '/setup/welcome': typeof SetupWelcomeRoute
@@ -131,6 +140,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/api/chat'
+    | '/main/order-list'
     | '/r/$slug'
     | '/setup/allergenInfo'
     | '/setup/welcome'
@@ -145,6 +155,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/api/chat'
+    | '/main/order-list'
     | '/r/$slug'
     | '/setup/allergenInfo'
     | '/setup/welcome'
@@ -159,6 +170,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/api/chat'
+    | '/main/order-list'
     | '/r/$slug'
     | '/setup/allergenInfo'
     | '/setup/welcome'
@@ -174,6 +186,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ApiChatRoute: typeof ApiChatRoute
+  MainOrderListRoute: typeof MainOrderListRoute
   RSlugRoute: typeof RSlugRoute
   SetupAllergenInfoRoute: typeof SetupAllergenInfoRoute
   SetupWelcomeRoute: typeof SetupWelcomeRoute
@@ -221,6 +234,13 @@ declare module '@tanstack/react-router' {
       path: '/r/$slug'
       fullPath: '/r/$slug'
       preLoaderRoute: typeof RSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/main/order-list': {
+      id: '/main/order-list'
+      path: '/main/order-list'
+      fullPath: '/main/order-list'
+      preLoaderRoute: typeof MainOrderListRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/chat': {
@@ -278,6 +298,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ApiChatRoute: ApiChatRoute,
+  MainOrderListRoute: MainOrderListRoute,
   RSlugRoute: RSlugRoute,
   SetupAllergenInfoRoute: SetupAllergenInfoRoute,
   SetupWelcomeRoute: SetupWelcomeRoute,
