@@ -31,12 +31,21 @@ function AllRestaurants() {
   // if (!data || isLoading) return <></>;
 
   return (
-    <ScreenWrapper title="Restaurants" >
-      <div className="bg-white rounded-3xl p-0">
-        <div className="flex flex-col space-y-6">
-          {/* Header with filters and actions */}
-          <div className="flex flex-wrap justify-between items-center gap-4 px-6 pt-6">
-            <div className="flex items-center gap-3">
+    <>
+      {/* Full-bleed hero header */}
+      <div className="relative left-1/2 right-1/2 -mx-[50vw] w-screen bg-gradient-to-br from-[#F7941D] to-[#e07010] px-10 md:px-16 lg:px-24 pt-10 pb-20">
+        <div className="max-w-7xl mx-auto">
+          <h1 className="text-black text-2xl font-bold">Restaurants</h1>
+          <p className="text-black/60 text-sm mt-1">
+            Manage all restaurants on the platform
+          </p>
+        </div>
+      </div>
+
+      <ScreenWrapper>
+        {/* Floating filters card */}
+        <div className="bg-white rounded-2xl shadow-lg border border-gray-100 -mt-14 mb-6 relative flex flex-col md:flex-row md:flex-wrap justify-between items-stretch md:items-center gap-4 px-6 py-5">
+            <div className="flex items-center gap-3 overflow-x-auto">
               <div className="flex gap-2">
                 <Button
                   variant={activeTab === "All" ? "default" : "outline"}
@@ -96,70 +105,63 @@ function AllRestaurants() {
                 </Button>
               </div>
             </div>
-            <div className="flex items-center gap-3">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full md:w-auto">
               <div className="relative flex items-center gap-2 flex-1">
                 <Input
                   placeholder="Search Restaurants"
                   value={searchValue}
                   onChange={(event) => setSearchValue(event.target.value)}
-                  className="indent-5 max-w-sm w-[280px]"
+                  className="indent-5 w-full sm:max-w-sm sm:w-[280px]"
                 />
                 <SearchIcon className="absolute left-3 h-4 w-4 text-gray-400"/>
               </div>
-              <div className="flex flex-wrap justify-between items-center gap-4">
-                <div className="flex items-center gap-3">
-                  <div className="flex gap-2">
-                    <Button
-                      onClick={() => setOpen(true)}
-                      className={`rounded-lg px-6 hover:bg-orange-500 hover:cursor-pointer h-11`}
-                    >
-                      Add Restaurant
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          {/* Divider */}
-          <div className="hidden border-t border-gray-200"></div>
-          {/* Table */}
-
-          <DataTable
-            data={Array.isArray(data?.data) ? data.data : []}
-            columns={cols}
-            headerItems={
               <Button
-                disabled
-                variant="outline"
-                className="bg-gray-100 border-0 hover:bg-gray-200 gap-2"
+                onClick={() => setOpen(true)}
+                className={`rounded-lg px-6 hover:bg-orange-500 hover:cursor-pointer h-11 shrink-0`}
               >
-                <Download className="h-4 w-4" />
-                Export
+                Add Restaurant
               </Button>
-            }
-            filter
-            searchKey="name"
-            search={searchValue}
-            setSearch={setSearchValue}
-            addButton
-            loading={isLoading}
-          />
-          {data?.pagination && (
-            <Paginator
-              totalItems={parseFloat(data.pagination.totalItems)}
-              limit={data.pagination.limit}
-              offset={data.pagination.offset}
-              hasNextPage={data.pagination.hasNextPage}
-              hasPreviousPage={data.pagination.hasPreviousPage}
-              onPageChange={(newOffset) => {
-                setOffset(newOffset);
-              }}
-            />
-          )}
+            </div>
         </div>
-      </div>
+
+        {/* Table */}
+        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+            <DataTable
+              data={Array.isArray(data?.data) ? data.data : []}
+              columns={cols}
+              headerItems={
+                <Button
+                  disabled
+                  variant="outline"
+                  className="bg-gray-100 border-0 hover:bg-gray-200 gap-2"
+                >
+                  <Download className="h-4 w-4" />
+                  Export
+                </Button>
+              }
+              filter
+              searchKey="name"
+              search={searchValue}
+              setSearch={setSearchValue}
+              addButton
+              loading={isLoading}
+            />
+            {data?.pagination && (
+              <Paginator
+                totalItems={parseFloat(data.pagination.totalItems)}
+                limit={data.pagination.limit}
+                offset={data.pagination.offset}
+                hasNextPage={data.pagination.hasNextPage}
+                hasPreviousPage={data.pagination.hasPreviousPage}
+                onPageChange={(newOffset) => {
+                  setOffset(newOffset);
+                }}
+              />
+            )}
+        </div>
       <AddRestaurant open={open} setOpen={setOpen} />
     </ScreenWrapper>
+    </>
   );
 }
 

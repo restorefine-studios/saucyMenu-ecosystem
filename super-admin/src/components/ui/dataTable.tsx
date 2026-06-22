@@ -85,7 +85,7 @@ const DataTable = ({ columns, data, loading }: Props<any>) => {
 
   return (
     <div className="w-full">
-      <div className="rounded-xl">
+      <div className="rounded-xl overflow-x-auto">
         <Table className="bg-white overflow-hidden">
           <TableHeader className="bg-gray-200 rounded-xl">
             {table.getHeaderGroups().map((headerGroup) => (
@@ -95,7 +95,12 @@ const DataTable = ({ columns, data, loading }: Props<any>) => {
               >
                 {headerGroup.headers.map((header) => {
                   return (
-                    <TableHead className="w-fit px-8 py-5 bg-transparent" key={header.id}>
+                    <TableHead
+                      className={`w-fit px-8 py-5 bg-transparent whitespace-nowrap ${
+                        (header.column.columnDef.meta as { className?: string } | undefined)?.className ?? ""
+                      }`}
+                      key={header.id}
+                    >
                       {header.isPlaceholder
                         ? null
                         : flexRender(
@@ -125,7 +130,12 @@ const DataTable = ({ columns, data, loading }: Props<any>) => {
                   data-state={row.getIsSelected() && "selected"}
                 >
                   {row.getVisibleCells().map((cell) => (
-                    <TableCell className="w-fit px-8" key={cell.id}>
+                    <TableCell
+                      className={`w-fit px-8 whitespace-nowrap ${
+                        (cell.column.columnDef.meta as { className?: string } | undefined)?.className ?? ""
+                      }`}
+                      key={cell.id}
+                    >
                       {flexRender(
                         cell.column.columnDef.cell,
                         cell.getContext()

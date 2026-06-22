@@ -10,7 +10,6 @@ import {
   ChartTooltipContent,
 } from "@/components/ui/chart";
 
-import AiImg from "@/assets/globemesh.png";
 import { useRestaurant } from "@/hooks/useFetchData";
 import { axiosInstance } from "@/lib/utils";
 import apiRoutes from "@/apiRoutes";
@@ -77,9 +76,32 @@ function Dashboard() {
   const recentRestaurants = Array.isArray(data?.data) ? data.data.slice(0, 4) : [];
 
   return (
-    <ScreenWrapper title="Dashboard" loading={loading || isLoading}>
+    <>
+      {/* Full-bleed hero header */}
+      <div className="relative left-1/2 right-1/2 -mx-[50vw] w-screen bg-gradient-to-br from-[#F7941D] to-[#e07010] px-10 md:px-16 lg:px-24 pt-10 pb-20">
+        <div className="max-w-7xl mx-auto">
+          <h1 className="text-black text-2xl font-bold">Dashboard</h1>
+          <p className="text-black/60 text-sm mt-1">
+            Overview of your platform performance
+          </p>
+        </div>
+      </div>
+
+      <ScreenWrapper loading={loading || isLoading}>
+      {/* Floating AI credits card */}
+      <div className="bg-white rounded-2xl shadow-lg border border-gray-100 px-5 py-4 flex items-center justify-between -mt-14 mb-8 relative">
+        <div className="flex items-center gap-3">
+          <Bot className="w-6 h-6 text-gray-700" strokeWidth={1.5} />
+          <span className="text-gray-700 font-medium">AI Credits Used</span>
+        </div>
+        <div className="text-right">
+          <p className="text-2xl font-bold text-gray-900">{stats?.totalCreditsUsed ?? 0}</p>
+          <p className="text-xs text-gray-400">+{Number(stats?.creditsThisMonth ?? 0)} this month</p>
+        </div>
+      </div>
+
       {/* Stats row */}
-      <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+      <div className="grid grid-cols-2 gap-4 mb-8">
         <StatCard
           icon={Building2}
           label="Total Restaurants"
@@ -92,62 +114,42 @@ function Dashboard() {
           value={stats?.totalSessions ?? 0}
           sub={`+${Number(stats?.sessionsThisMonth ?? 0)} this month`}
         />
-        <StatCard
-          icon={Bot}
-          label="AI Credits Used"
-          value={stats?.totalCreditsUsed ?? 0}
-          sub={`+${Number(stats?.creditsThisMonth ?? 0)} this month`}
-        />
       </div>
 
-      {/* Chart + Recent restaurants */}
-      <div className="grid grid-cols-1 lg:grid-cols-6 gap-6 mb-6">
-        <div className="lg:col-span-4 bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
-          <h2 className="text-base font-semibold text-gray-900 mb-4">Subscriptions Overview</h2>
-          <ChartContainer className="max-h-[35vh] w-full" config={chartConfig}>
-            <LineChart data={chartData}>
-              <CartesianGrid vertical={false} stroke="#F3F4F6" />
-              <YAxis
-                tick={{ fontSize: 12, fill: "#9CA3AF" }}
-                tickLine={false}
-                axisLine={false}
-                tickMargin={8}
+      {/* Chart */}
+      <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 mb-6">
+        <h2 className="text-base font-semibold text-gray-900 mb-4">Subscriptions Overview</h2>
+        <ChartContainer className="max-h-[35vh] w-full" config={chartConfig}>
+          <LineChart data={chartData}>
+            <CartesianGrid vertical={false} stroke="#F3F4F6" />
+            <YAxis
+              tick={{ fontSize: 12, fill: "#9CA3AF" }}
+              tickLine={false}
+              axisLine={false}
+              tickMargin={8}
+            />
+            <XAxis
+              dataKey="month"
+              tick={{ fontSize: 12, fill: "#9CA3AF" }}
+              tickLine={false}
+              axisLine={false}
+              tickMargin={8}
+              tickFormatter={(value) => format(new Date(value), "MMM yyyy")}
+            />
+            <ChartTooltip cursor content={<ChartTooltipContent />} />
+            {planNames.map((plan, idx) => (
+              <Line
+                key={plan}
+                type="monotone"
+                dataKey={plan}
+                stroke={strokeColors[idx % strokeColors.length]}
+                strokeWidth={3}
+                dot={{ r: 3 }}
               />
-              <XAxis
-                dataKey="month"
-                tick={{ fontSize: 12, fill: "#9CA3AF" }}
-                tickLine={false}
-                axisLine={false}
-                tickMargin={8}
-                tickFormatter={(value) => format(new Date(value), "MMM yyyy")}
-              />
-              <ChartTooltip cursor content={<ChartTooltipContent />} />
-              {planNames.map((plan, idx) => (
-                <Line
-                  key={plan}
-                  type="monotone"
-                  dataKey={plan}
-                  stroke={strokeColors[idx % strokeColors.length]}
-                  strokeWidth={3}
-                  dot={{ r: 3 }}
-                />
-              ))}
-              <Legend />
-            </LineChart>
-          </ChartContainer>
-        </div>
-
-        <div className="lg:col-span-2 bg-black rounded-2xl overflow-hidden relative min-h-[260px]">
-          <div className="flex flex-col gap-1 pl-6 pt-6 z-10 relative">
-            <h2 className="text-white font-medium text-xl">Overall AI Credits Used</h2>
-            <div className="text-[#DAB689] font-semibold text-6xl mt-2">
-              {stats?.totalCreditsUsed}
-            </div>
-          </div>
-          <div className="w-full absolute left-24 bottom-0">
-            <img src={AiImg} alt="globe" className="h-44 object-cover" />
-          </div>
-        </div>
+            ))}
+            <Legend />
+          </LineChart>
+        </ChartContainer>
       </div>
 
       {/* Recent restaurants */}
@@ -180,6 +182,7 @@ function Dashboard() {
         </div>
       </div>
     </ScreenWrapper>
+    </>
   );
 }
 

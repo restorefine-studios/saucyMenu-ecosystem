@@ -15,11 +15,13 @@ export const columns: ColumnDef<Restaurant>[] = [
     accessorKey: "email",
     header: "Email",
     cell: ({ row }) => <p>{row?.original?.email}</p>,
+    meta: { className: "hidden md:table-cell" },
   },
   {
     accessorKey: "address",
     header: "Address",
     cell: ({ row }) => <p>{row.original?.address ?? "N/A"}</p>,
+    meta: { className: "hidden lg:table-cell" },
   },
   // {
   //   accessorKey: "plan",
@@ -32,6 +34,7 @@ export const columns: ColumnDef<Restaurant>[] = [
     accessorKey: "dateAdded",
     header: "Date Added",
     accessorFn: (row) => moment(row.createdAt).format("lll"),
+    meta: { className: "hidden lg:table-cell" },
   },
   {
     accessorKey: "status",

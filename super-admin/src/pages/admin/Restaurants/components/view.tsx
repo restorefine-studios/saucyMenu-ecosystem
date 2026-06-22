@@ -143,34 +143,36 @@ function Restaurants() {
         {/* top side */}
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-5 px-6">
           <Card className="lg:col-span-5 bg-gray-100 rounded-[18px]">
-            <CardContent className="flex-1 flex justify-between">
+            <CardContent className="flex flex-col gap-6">
               <div className="flex gap-3 items-center">
-                <div className=" bg-gradient-to-br from-[#FF8B00] to-[#FF3939] h-8 lg:h-11 w-8 lg:w-11 rounded-full"></div>
+                <div className="shrink-0 bg-gradient-to-br from-[#FF8B00] to-[#FF3939] h-8 lg:h-11 w-8 lg:w-11 rounded-full"></div>
                 <h4 className="font-medium text-lg">{data?.data?.name}</h4>
               </div>
-              <div className="mr-4 flex gap-x-8 gap-y-3 items-center">
+              <div className="flex flex-col sm:flex-row sm:items-start gap-6 sm:gap-10">
                 {data?.data?.address && (
-                  <div className="flex flex-col gap-1 items-start capitalize">
+                  <div className="flex flex-col gap-1 items-start capitalize sm:max-w-xs">
                     {/* <MapPin size={20} /> */}
                     <span className="text-gray-500 text-xs">Location</span>
-                    <span className="font-normal text-md">
+                    <span className="font-normal text-base leading-relaxed break-words">
                       {data?.data?.address}
                     </span>
                   </div>
                 )}
-                <div className="flex flex-col gap-1 items-start capitalize">
-                  {/* <Calendar size={20} /> */}
-                  <span className="text-gray-500 text-xs">Date Joined</span>
-                  <span className="font-normal text-md">
-                    {moment(data?.data?.createdAt).format("LL")}
-                  </span>
-                </div>
-                <div className="flex flex-col gap-1 items-start capitalize">
-                  {/* <User size={20} /> */}
-                  <span className="text-gray-500 text-xs">Status</span>
-                  <span className="font-normal text-md">
-                    {data?.data?.status.toLowerCase()}
-                  </span>
+                <div className="flex gap-8">
+                  <div className="flex flex-col gap-1 items-start capitalize">
+                    {/* <Calendar size={20} /> */}
+                    <span className="text-gray-500 text-xs">Date Joined</span>
+                    <span className="font-normal text-base whitespace-nowrap">
+                      {moment(data?.data?.createdAt).format("LL")}
+                    </span>
+                  </div>
+                  <div className="flex flex-col gap-1 items-start capitalize">
+                    {/* <User size={20} /> */}
+                    <span className="text-gray-500 text-xs">Status</span>
+                    <span className="font-normal text-base whitespace-nowrap">
+                      {data?.data?.status.toLowerCase()}
+                    </span>
+                  </div>
                 </div>
               </div>
             </CardContent>
