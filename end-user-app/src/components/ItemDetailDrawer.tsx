@@ -1,12 +1,14 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useAtom } from 'jotai'
 import { userAtom } from '@/atoms/user'
+import { orderListAtom } from '@/atoms/orderList'
+import { addToOrderList, buildOrderListKey, type OrderListAddon } from '@/lib/orderList'
 import { useDish } from '@/hooks/dishes'
 import { axiosInstance, renderMediaUrl } from '@/lib/utils'
 import { apiRoutes } from '@/api-routes'
 import { useQuery, useMutation } from '@tanstack/react-query'
 import { toast } from 'sonner'
-import { Clock, Star, X } from 'lucide-react'
+import { Clock, Star, X, Minus, Plus } from 'lucide-react'
 import { Drawer, DrawerContent } from '@/components/ui/drawer'
 import { StarRating } from '@/components/star-rating'
 import SpiceLevel from '@/components/spice-level'
@@ -46,6 +48,10 @@ export function ItemDetailDrawer({ itemId, onClose }: ItemDetailDrawerProps) {
   const [stars, setStars] = useState(0)
   const [comment, setComment] = useState('')
   const [email, setEmail] = useState('')
+  const [orderList, setOrderList] = useAtom(orderListAtom)
+  const [selectedVariantId, setSelectedVariantId] = useState<string | null>(null)
+  const [selectedAddonIds, setSelectedAddonIds] = useState<string[]>([])
+  const [orderQty, setOrderQty] = useState(1)
 
   const { data, isLoading } = useDish(itemId ?? '')
 
@@ -104,6 +110,56 @@ export function ItemDetailDrawer({ itemId, onClose }: ItemDetailDrawerProps) {
   const addons = (item as any)?.addons ?? []
   const variants = (item as any)?.variants ?? []
   const allergens = (item as any)?.allergens ?? []
+
+  const selectedAddons: OrderListAddon[] = addons
+    .filter((a: any) => selectedAddonIds.includes(a.id))
+    .map((a: any) => ({ id: a.id, name: a.name, price: parseFloat(a.price) || 0 }))
+  const selectedVariant = variants.find((v: any) => v.id === selectedVariantId)
+  const unitBasePrice = selectedVariant
+    ? parseFloat(selectedVariant.price) || 0
+    : discountInfo
+      ? discountInfo.discounted
+      : parseFloat(String(item?.price ?? '0')) || 0
+  const addonsTotal = selectedAddons.reduce((sum, a) => sum + a.price, 0)
+  const computedUnitPrice = unitBasePrice + addonsTotal
+  const existingKey = item ? buildOrderListKey(item.id, selectedVariantId ?? undefined, selectedAddons) : ''
+  const existingQuantity = orderList.find(l => l.key === existingKey)?.quantity ?? 0
+
+  useEffect(() => {
+    if (!item) return
+    const firstAvailable = variants.find((v: any) => v.isAvailable !== false)
+    setSelectedVariantId(firstAvailable?.id ?? null)
+    setSelectedAddonIds([])
+    setOrderQty(1)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [itemId])
+
+  useEffect(() => {
+    setOrderQty(existingQuantity > 0 ? existingQuantity : 1)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [existingKey])
+
+  const handleConfirmOrderList = () => {
+    if (!item) return
+    setOrderList(list => {
+      const withoutExisting = list.filter(l => l.key !== existingKey)
+      return addToOrderList(
+        withoutExisting,
+        {
+          itemId: item.id,
+          name: item.name,
+          image: imageUrl ?? undefined,
+          basePrice: unitBasePrice,
+          variantId: selectedVariantId ?? undefined,
+          variantName: selectedVariant?.name,
+          addons: selectedAddons,
+        },
+        orderQty,
+      )
+    })
+    toast.success(existingQuantity > 0 ? 'Order list updated' : 'Added to order list')
+    onClose()
+  }
 
   const avgRating = reviews.length
     ? Math.round((reviews.reduce((s, r) => s + r.rating, 0) / reviews.length) * 10) / 10
@@ -254,13 +310,26 @@ export function ItemDetailDrawer({ itemId, onClose }: ItemDetailDrawerProps) {
                 <div>
                   <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-2">Variants</p>
                   <div className="flex flex-wrap gap-2">
-                    {variants.map((v: any) => (
-                      <div key={v.id} className={`flex items-center gap-2 border rounded-xl px-3 py-2 text-sm ${v.isAvailable ? 'border-gray-200' : 'border-gray-100 opacity-50'}`}>
-                        <span className="capitalize text-gray-800">{v.name}</span>
-                        <span className="font-semibold text-[#F7941D]">{user?.currency?.symbol}{v.price}</span>
-                        {!v.isAvailable && <span className="text-xs text-gray-400 bg-gray-100 px-1.5 rounded">unavailable</span>}
-                      </div>
-                    ))}
+                    {variants.map((v: any) => {
+                      const selected = v.id === selectedVariantId
+                      return (
+                        <button
+                          key={v.id}
+                          type="button"
+                          disabled={v.isAvailable === false}
+                          onClick={() => setSelectedVariantId(v.id)}
+                          className={`flex items-center gap-2 border rounded-xl px-3 py-2 text-sm transition-colors ${
+                            selected ? 'border-[#F7941D] bg-orange-50' : 'border-gray-200'
+                          } ${v.isAvailable === false ? 'opacity-50 pointer-events-none' : ''}`}
+                        >
+                          <span className="capitalize text-gray-800">{v.name}</span>
+                          <span className="font-semibold text-[#F7941D]">{user?.currency?.symbol}{v.price}</span>
+                          {v.isAvailable === false && (
+                            <span className="text-xs text-gray-400 bg-gray-100 px-1.5 rounded">unavailable</span>
+                          )}
+                        </button>
+                      )
+                    })}
                   </div>
                 </div>
               )}
@@ -270,12 +339,26 @@ export function ItemDetailDrawer({ itemId, onClose }: ItemDetailDrawerProps) {
                 <div>
                   <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-2">Add-ons</p>
                   <div className="flex flex-wrap gap-2">
-                    {addons.map((a: any) => (
-                      <div key={a.id} className="flex items-center gap-2 border border-gray-200 rounded-xl px-3 py-2 text-sm">
-                        <span className="capitalize text-gray-800">{a.name}</span>
-                        <span className="font-semibold text-[#F7941D]">{user?.currency?.symbol}{a.price}</span>
-                      </div>
-                    ))}
+                    {addons.map((a: any) => {
+                      const selected = selectedAddonIds.includes(a.id)
+                      return (
+                        <button
+                          key={a.id}
+                          type="button"
+                          onClick={() =>
+                            setSelectedAddonIds(prev =>
+                              selected ? prev.filter(id => id !== a.id) : [...prev, a.id],
+                            )
+                          }
+                          className={`flex items-center gap-2 border rounded-xl px-3 py-2 text-sm transition-colors ${
+                            selected ? 'border-[#F7941D] bg-orange-50' : 'border-gray-200'
+                          }`}
+                        >
+                          <span className="capitalize text-gray-800">{a.name}</span>
+                          <span className="font-semibold text-[#F7941D]">{user?.currency?.symbol}{a.price}</span>
+                        </button>
+                      )
+                    })}
                   </div>
                 </div>
               )}
@@ -330,7 +413,7 @@ export function ItemDetailDrawer({ itemId, onClose }: ItemDetailDrawerProps) {
         {item && (
           <button
             onClick={handleAIChat}
-            className="absolute bottom-6 right-4 z-20 ai-ring-item"
+            className="absolute bottom-24 right-4 z-20 ai-ring-item"
             style={{ width: 60, height: 60 }}
             aria-label="Ask AI about this dish"
           >
@@ -338,6 +421,35 @@ export function ItemDetailDrawer({ itemId, onClose }: ItemDetailDrawerProps) {
               <img src="/saucy-ai-icon.svg" alt="" className="w-9 h-9" />
             </span>
           </button>
+        )}
+
+        {/* Sticky add-to-order-list footer */}
+        {item && (
+          <div className="shrink-0 border-t border-gray-100 bg-white px-5 py-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] flex items-center gap-3">
+            <div className="flex items-center gap-2 bg-gray-100 rounded-full px-1 py-1 shrink-0">
+              <button
+                onClick={() => setOrderQty(q => Math.max(1, q - 1))}
+                className="w-8 h-8 rounded-full bg-white flex items-center justify-center"
+                aria-label="Decrease quantity"
+              >
+                <Minus className="w-4 h-4 text-gray-700" />
+              </button>
+              <span className="text-sm font-semibold w-6 text-center">{orderQty}</span>
+              <button
+                onClick={() => setOrderQty(q => q + 1)}
+                className="w-8 h-8 rounded-full bg-white flex items-center justify-center"
+                aria-label="Increase quantity"
+              >
+                <Plus className="w-4 h-4 text-gray-700" />
+              </button>
+            </div>
+            <button
+              onClick={handleConfirmOrderList}
+              className="flex-1 bg-[#F7941D] text-white font-semibold rounded-full py-3 text-sm"
+            >
+              {existingQuantity > 0 ? 'Update' : 'Add to list'} — {user?.currency?.symbol}{(computedUnitPrice * orderQty).toFixed(2)}
+            </button>
+          </div>
         )}
 
         <style>{`
