@@ -106,10 +106,12 @@ function useMenuSections(menuId: string) {
   })
 }
 
-function useClassifiedItems() {
+function useClassifiedItems(menuId: string) {
   return useQuery<{ data: ClassifiedItems }>({
-    queryKey: ['classifiedItems'],
-    queryFn: () => axiosInstance.get(apiRoutes.classifiedItems).then(r => r.data),
+    queryKey: ['classifiedItems', menuId],
+    queryFn: () =>
+      axiosInstance.get(apiRoutes.classifiedItems, { params: { menuId } }).then(r => r.data),
+    enabled: !!menuId,
   })
 }
 
@@ -242,20 +244,28 @@ function MenuPage() {
   const [searchQuery, setSearchQuery] = useState('')
   const [infoOpen, setInfoOpen] = useState(false)
   const [selectedItemId, setSelectedItemId] = useState<string | null>(null)
+  const [selectedMenuId, setSelectedMenuId] = useState<string | null>(null)
   const { showWelcome, showTour, triggerIfFirst, startTour, skipTour, doneTour, replayTour } = useMenuTour()
 
   const { data: restaurantData, isLoading: rLoading } = useRestaurant()
   const { data: menusData, isLoading: mLoading } = useMenus()
-  const { data: classifiedData, isLoading: cLoading } = useClassifiedItems()
   const { data: dietsData } = useDiets()
   const { data: allergensData } = useAllergens()
 
   const restaurant = restaurantData?.data
   const menus: Menu[] = menusData?.data ?? []
-  const classified = classifiedData?.data
   const diets = dietsData?.data ?? []
   const allergens = allergensData?.data ?? []
-  const firstMenu = menus[0]
+  const selectedMenu = menus.find(m => m.id === selectedMenuId) ?? menus[0]
+
+  const { data: classifiedData, isLoading: cLoading } = useClassifiedItems(selectedMenu?.id ?? '')
+  const classified = classifiedData?.data
+
+  const handleMenuTabSelect = (menuId: string) => {
+    setSelectedMenuId(menuId)
+    setActiveSection(null)
+    setNavSections([])
+  }
 
   const toggleFilter = (id: string) =>
     setActiveFilters(prev =>
@@ -560,6 +570,28 @@ function MenuPage() {
       </Drawer>
 
 
+      {/* ── Menu tabs (only when restaurant has more than one menu) ── */}
+      {menus.length > 1 && (
+        <div className="px-4 pb-2 flex items-center gap-2 overflow-x-auto hide-scrollbar">
+          {menus.map(menu => {
+            const active = menu.id === selectedMenu?.id
+            return (
+              <button
+                key={menu.id}
+                onClick={() => handleMenuTabSelect(menu.id)}
+                className={`shrink-0 px-4 py-1.5 rounded-full text-sm font-semibold border transition-colors ${
+                  active
+                    ? 'bg-[#F7941D] text-white border-[#F7941D]'
+                    : 'bg-white text-gray-600 border-gray-200'
+                }`}
+              >
+                {menu.name}
+              </button>
+            )
+          })}
+        </div>
+      )}
+
       {/* ── Sticky section nav + filter pills ── */}
       <div className="sticky top-0 z-20 bg-white shadow-sm">
         {allNavSections.length > 0 && (
@@ -663,9 +695,10 @@ function MenuPage() {
 
 
         {/* Regular menu sections */}
-        {firstMenu && (
+        {selectedMenu && (
           <MenuSectionsLoader
-            menu={firstMenu}
+            key={selectedMenu.id}
+            menu={selectedMenu}
             activeFilters={activeFilters}
             onItemClick={handleItemClick}
             onSectionsReady={handleSectionsReady}
