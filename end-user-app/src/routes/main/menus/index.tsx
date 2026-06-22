@@ -4,13 +4,15 @@ import { axiosInstance, renderMediaUrl } from '@/lib/utils'
 import { apiRoutes } from '@/api-routes'
 import { useQuery } from '@tanstack/react-query'
 import { createFileRoute, useRouter } from '@tanstack/react-router'
-import { useAtom } from 'jotai'
+import { useAtom, useAtomValue } from 'jotai'
 import { userAtom } from '@/atoms/user'
+import { orderListAtom } from '@/atoms/orderList'
+import { getOrderListItemCount } from '@/lib/orderList'
 import SpinnerLoader from '@/components/spinner'
 import { MenuItemCard } from '@/components/MenuItemCard'
 import { NewArrivalsCarousel } from '@/components/NewArrivalsCarousel'
 import { SectionNav } from '@/components/SectionNav'
-import { ChevronLeft, Search, MoreVertical, Sparkles, Info, MapPin, Phone, Globe, Clock, Share2, Star as StarIcon, Timer, Tag } from 'lucide-react'
+import { ChevronLeft, ClipboardList, Search, MoreVertical, Sparkles, Info, MapPin, Phone, Globe, Clock, Share2, Star as StarIcon, Timer, Tag } from 'lucide-react'
 import { toast } from 'sonner'
 import { posthog } from '@/lib/posthog'
 import {
@@ -232,6 +234,8 @@ function MenuSectionsLoader({
 function MenuPage() {
   const router = useRouter()
   const [user] = useAtom(userAtom)
+  const orderList = useAtomValue(orderListAtom)
+  const orderListCount = getOrderListItemCount(orderList)
   const [activeFilters, setActiveFilters] = useState<string[]>([])
   const [activeSection, setActiveSection] = useState<string | null>(null)
   const [navSections, setNavSections] = useState<MenuSection[]>([])
@@ -371,6 +375,17 @@ function MenuPage() {
               className="w-9 h-9 rounded-full bg-black/30 backdrop-blur-sm flex items-center justify-center"
             >
               <Share2 className="w-4 h-4 text-white" />
+            </button>
+            <button
+              onClick={() => router.navigate({ to: '/main/order-list' })}
+              className="relative w-9 h-9 rounded-full bg-black/30 backdrop-blur-sm flex items-center justify-center"
+            >
+              <ClipboardList className="w-4 h-4 text-white" />
+              {orderListCount > 0 && (
+                <span className="absolute -top-1 -right-1 min-w-[16px] h-4 px-1 rounded-full bg-[#F7941D] text-white text-[10px] font-bold flex items-center justify-center">
+                  {orderListCount}
+                </span>
+              )}
             </button>
           </div>
         </div>
