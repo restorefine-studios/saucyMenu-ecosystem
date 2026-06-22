@@ -39,6 +39,7 @@ interface MenuItem {
   isLimitedTime?: boolean
   isNew?: boolean
   isAvailable?: boolean
+  hasVariants?: boolean
   tags?: { id: string; name: string }[]
   allergens?: { id: string; name: string }[]
   averageRating?: number

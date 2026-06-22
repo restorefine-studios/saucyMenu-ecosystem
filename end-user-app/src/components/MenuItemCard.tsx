@@ -1,7 +1,9 @@
 import { useAtom } from 'jotai'
 import { userAtom } from '@/atoms/user'
+import { orderListAtom } from '@/atoms/orderList'
+import { addToOrderList, buildOrderListKey, getOrderListItemQuantity, setOrderListQuantity } from '@/lib/orderList'
 import { renderMediaUrl } from '@/lib/utils'
-import { Star, Plus } from 'lucide-react'
+import { Star, Plus, Minus } from 'lucide-react'
 
 type Variant = 'default' | 'chefs' | 'popular' | 'featured' | 'list'
 
@@ -15,6 +17,7 @@ interface MenuItemCardProps {
   isPopular?: boolean
   isLimitedTime?: boolean
   isAvailable?: boolean
+  hasVariants?: boolean
   tags?: { id: string; name: string }[]
   allergens?: { id: string; name: string }[]
   variant?: Variant
@@ -34,6 +37,7 @@ const BADGE: Record<Variant, { label: string; className: string } | null> = {
 }
 
 export function MenuItemCard({
+  id,
   name,
   description,
   price,
@@ -42,16 +46,39 @@ export function MenuItemCard({
   badgeLabel,
   dimmed = false,
   tags,
+  hasVariants,
   averageRating,
   reviewCount,
   onClick,
 }: MenuItemCardProps) {
   const [user] = useAtom(userAtom)
+  const [orderList, setOrderList] = useAtom(orderListAtom)
   const defaultBadge = BADGE[variant]
   const badge = badgeLabel
     ? { label: badgeLabel, className: defaultBadge?.className ?? 'bg-[#F7941D] text-white' }
     : defaultBadge
   const imageUrl = images && images.length > 0 ? renderMediaUrl(images[0]) : null
+  const numericPrice = typeof price === 'number' ? price : parseFloat(price) || 0
+  const quantityInList = getOrderListItemQuantity(orderList, id)
+
+  const handleAddClick = (e: React.MouseEvent) => {
+    e.stopPropagation()
+    if (hasVariants) {
+      onClick?.()
+      return
+    }
+    setOrderList(list => addToOrderList(list, { itemId: id, name, image: imageUrl ?? undefined, basePrice: numericPrice }, 1))
+  }
+
+  const handleIncrement = (e: React.MouseEvent) => {
+    e.stopPropagation()
+    setOrderList(list => addToOrderList(list, { itemId: id, name, image: imageUrl ?? undefined, basePrice: numericPrice }, 1))
+  }
+
+  const handleDecrement = (e: React.MouseEvent) => {
+    e.stopPropagation()
+    setOrderList(list => setOrderListQuantity(list, buildOrderListKey(id), quantityInList - 1))
+  }
 
   // ── List row (rich card style) ──────────────────────────────────────────────
   if (variant === 'list') {
@@ -110,6 +137,36 @@ export function MenuItemCard({
                 )}
               </span>
             ) : null}
+          </div>
+
+          {/* Add / stepper control, bottom-right */}
+          <div className="absolute bottom-2.5 right-2.5">
+            {quantityInList > 0 && !hasVariants ? (
+              <div className="flex items-center gap-2 bg-gray-900 rounded-full px-1 py-1">
+                <button
+                  onClick={handleDecrement}
+                  className="w-6 h-6 rounded-full bg-white/20 text-white flex items-center justify-center"
+                  aria-label="Decrease quantity"
+                >
+                  <Minus className="w-3 h-3" />
+                </button>
+                <span className="text-white text-xs font-semibold w-4 text-center">{quantityInList}</span>
+                <button
+                  onClick={handleIncrement}
+                  className="w-6 h-6 rounded-full bg-white text-gray-900 flex items-center justify-center"
+                  aria-label="Increase quantity"
+                >
+                  <Plus className="w-3 h-3" />
+                </button>
+              </div>
+            ) : (
+              <button
+                onClick={handleAddClick}
+                className="flex items-center gap-1 bg-[#F7941D] text-white text-xs font-semibold px-3 py-1.5 rounded-full"
+              >
+                <Plus className="w-3 h-3" /> Add
+              </button>
+            )}
           </div>
         </div>
       </div>
