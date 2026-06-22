@@ -7,7 +7,7 @@ import { createFileRoute, useRouter } from '@tanstack/react-router'
 import { useAtom, useAtomValue } from 'jotai'
 import { userAtom } from '@/atoms/user'
 import { orderListAtom } from '@/atoms/orderList'
-import { getOrderListItemCount } from '@/lib/orderList'
+import { getOrderListItemCount, getOrderListTotal } from '@/lib/orderList'
 import SpinnerLoader from '@/components/spinner'
 import { MenuItemCard } from '@/components/MenuItemCard'
 import { NewArrivalsCarousel } from '@/components/NewArrivalsCarousel'
@@ -674,6 +674,22 @@ function MenuPage() {
 
         <div className="pb-24" />
       </div>
+
+      {/* ── Floating order list bar ── */}
+      {orderListCount > 0 && (
+        <button
+          onClick={() => router.navigate({ to: '/main/order-list' })}
+          className="fixed bottom-4 left-4 right-4 z-30 bg-[#F7941D] text-white rounded-full shadow-lg px-5 py-3.5 flex items-center justify-between"
+        >
+          <span className="text-sm font-semibold">
+            {orderListCount} {orderListCount === 1 ? 'Item' : 'Items'}
+          </span>
+          <span className="text-sm font-bold">View Your Order</span>
+          <span className="text-sm font-semibold">
+            {user?.currency?.symbol}{getOrderListTotal(orderList).toFixed(2)}
+          </span>
+        </button>
+      )}
 
       {/* ── Item detail drawer ── */}
       <ItemDetailDrawer
