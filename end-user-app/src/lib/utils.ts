@@ -1,7 +1,6 @@
 import { clsx, type ClassValue } from 'clsx'
 import { twMerge } from 'tailwind-merge'
 import axios from 'axios'
-import { isEmpty } from 'lodash'
 import emptyDish from '@/assets/emptyplate.jpg'
 import plateFork from '@/assets/platefork.png'
 
@@ -36,7 +35,7 @@ axiosInstance.interceptors.request.use(
 )
 
 export const renderMediaUrl = (path: string, type?: 'menuItem') => {
-  if (!path || isEmpty(path)) return type === 'menuItem' ? emptyDish : plateFork
+  if (!path || path.length === 0) return type === 'menuItem' ? emptyDish : plateFork
   if (path.startsWith('http')) return path
 
   return mediaUrl + path
