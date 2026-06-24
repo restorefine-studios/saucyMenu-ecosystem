@@ -31,7 +31,7 @@ function PlanGrid({
   setBilling: (b: "monthly" | "annual") => void
   foundSubscription: SubscriptionListData | undefined
   getBackendPlan: (name: string) => SubscriptionListData | undefined
-  mutate: (product: string) => void
+  mutate: (priceId: string) => void
   isPending: boolean
 }) {
   return (
@@ -137,8 +137,8 @@ function PlanGrid({
                   </div>
                 ) : (
                   <button
-                    onClick={() => backendPlan?.stripeProductId && mutate(backendPlan.stripeProductId)}
-                    disabled={isPending || !backendPlan?.stripeProductId}
+                    onClick={() => backendPlan?.stripePriceId && mutate(backendPlan.stripePriceId)}
+                    disabled={isPending || !backendPlan?.stripePriceId}
                     className={cn(
                       "w-full py-3.5 rounded-2xl text-sm font-bold transition-all",
                       plan.popular ? "bg-white text-[#F7941D] hover:bg-gray-50 shadow-sm" : "bg-gray-900 text-white hover:bg-gray-800"
@@ -177,9 +177,9 @@ function Subscription() {
   const aiCreditsUsed = (statsData as any)?.data?.totalAiCredits ?? 0
 
   const { mutate, isPending } = useMutation({
-    mutationFn: async (product: string) => {
+    mutationFn: async (priceId: string) => {
       const response = await axiosInstance.post(apiRoutes.subscribe, {
-        product,
+        priceId,
         success_url: window.location.href,
       })
       return response.data

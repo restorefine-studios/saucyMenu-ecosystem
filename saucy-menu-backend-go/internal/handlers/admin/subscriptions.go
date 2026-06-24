@@ -59,11 +59,15 @@ func (h *SubscriptionsHandler) CreateCheckout(w http.ResponseWriter, r *http.Req
 	}
 	user := authm.GetAdminUser(r.Context())
 	var body struct {
-		Product    string `json:"product"`
+		PriceID    string `json:"priceId"`
 		SuccessURL string `json:"success_url"`
 	}
 	if err := json.NewDecoder(r.Body).Decode(&body); err != nil {
 		httpx.WriteError(w, http.StatusBadRequest, "invalid request body")
+		return
+	}
+	if body.PriceID == "" {
+		httpx.WriteError(w, http.StatusBadRequest, "priceId is required")
 		return
 	}
 
@@ -75,14 +79,14 @@ func (h *SubscriptionsHandler) CreateCheckout(w http.ResponseWriter, r *http.Req
 		return
 	}
 
-	activePrice, err := stripe.ListActivePriceForProduct(body.Product)
-	if err != nil || activePrice == nil {
-		httpx.WriteError(w, http.StatusBadRequest, "No active price for product")
+	// Make sure the price ID actually belongs to one of our plans before sending it to Stripe.
+	if _, err := h.q.GetPlanByPriceID(ctx, &body.PriceID); err != nil {
+		httpx.WriteError(w, http.StatusBadRequest, "Unknown price for plan")
 		return
 	}
 
 	sess, err := stripe.CreateCheckoutSession(
-		activePrice.ID, user.Email, body.SuccessURL, pgUUIDToString(user.ID),
+		body.PriceID, user.Email, body.SuccessURL, pgUUIDToString(user.ID),
 	)
 	if err != nil {
 		httpx.WriteError(w, http.StatusInternalServerError, "Failed to create checkout session")

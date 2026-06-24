@@ -3,7 +3,6 @@ package stripe
 import (
 	"github.com/stripe/stripe-go/v82"
 	"github.com/stripe/stripe-go/v82/checkout/session"
-	"github.com/stripe/stripe-go/v82/price"
 	"github.com/stripe/stripe-go/v82/subscription"
 	"github.com/stripe/stripe-go/v82/webhook"
 )
@@ -29,20 +28,6 @@ func CreateCheckoutSession(priceID, customerEmail, successURL, userID string) (*
 		Metadata:           map[string]string{"userId": userID, "priceId": priceID},
 	}
 	return session.New(params)
-}
-
-// ListActivePriceForProduct returns the first active price for the given Stripe product ID.
-func ListActivePriceForProduct(productID string) (*stripe.Price, error) {
-	params := &stripe.PriceListParams{
-		Active:  stripe.Bool(true),
-		Product: stripe.String(productID),
-	}
-	params.Filters.AddFilter("limit", "", "1")
-	i := price.List(params)
-	if i.Next() {
-		return i.Price(), nil
-	}
-	return nil, i.Err()
 }
 
 // CancelSubscriptionAtPeriodEnd sets cancel_at_period_end = true on the Stripe subscription.

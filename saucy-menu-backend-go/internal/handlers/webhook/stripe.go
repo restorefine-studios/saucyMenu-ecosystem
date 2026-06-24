@@ -216,6 +216,17 @@ func (h *StripeHandler) Handle(w http.ResponseWriter, r *http.Request) {
 			StripeSubscriptionID_2: sub.ID,
 		})
 
+	case "customer.subscription.deleted":
+		var sub stripelib.Subscription
+		if err := json.Unmarshal(event.Data.Raw, &sub); err != nil {
+			break
+		}
+		_ = h.q.UpdateSubscriptionCancelAtPeriodEnd(ctx, sqlc.UpdateSubscriptionCancelAtPeriodEndParams{
+			CancelAtPeriodEnd:    boolPtr(true),
+			Status:               strPtr("canceled"),
+			StripeSubscriptionID: sub.ID,
+		})
+
 	default:
 		log.Debug().Str("type", string(event.Type)).Msg("unhandled stripe event")
 	}
@@ -225,6 +236,7 @@ func (h *StripeHandler) Handle(w http.ResponseWriter, r *http.Request) {
 }
 
 func strPtr(s string) *string { return &s }
+func boolPtr(b bool) *bool    { return &b }
 
 func parseUUID(s string) (pgtype.UUID, error) {
 	clean := strings.ReplaceAll(s, "-", "")
