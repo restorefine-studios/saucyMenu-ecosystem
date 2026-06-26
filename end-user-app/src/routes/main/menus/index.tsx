@@ -730,8 +730,8 @@ function MenuPage() {
         onClose={() => setSelectedItemId(null)}
       />
 
-      {/* ── Saucy AI floating chat ── */}
-      <MenuAIDrawer />
+      {/* ── Saucy AI floating chat — Pro/Premium plans only ── */}
+      {(restaurant as any)?.aiEnabled && <MenuAIDrawer />}
 
       {/* ── Onboarding tour ── */}
       {showWelcome && <MenuTourWelcome onYes={startTour} onNo={skipTour} />}

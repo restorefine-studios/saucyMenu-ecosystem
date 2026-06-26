@@ -94,6 +94,8 @@ func (h *AuthHandler) GetRestaurant(w http.ResponseWriter, r *http.Request) {
 		reviewCount = rating.ReviewCount
 	}
 
+	aiEnabled, _ := h.q.GetRestaurantAIEnabled(ctx, rid)
+
 	httpx.WriteSuccess(w, http.StatusOK, map[string]any{
 		"id":            pgUUIDToString(resto.ID),
 		"name":          resto.Name,
@@ -106,6 +108,7 @@ func (h *AuthHandler) GetRestaurant(w http.ResponseWriter, r *http.Request) {
 		"slug":          resto.Slug,
 		"averageRating": avgRating,
 		"reviewCount":   reviewCount,
+		"aiEnabled":     aiEnabled,
 	})
 }
 
