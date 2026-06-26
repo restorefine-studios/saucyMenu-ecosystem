@@ -4,6 +4,8 @@ import (
 	"encoding/json"
 	"net/http"
 
+	"github.com/rs/zerolog/log"
+
 	authm "github.com/restorefine-studios/saucy-menu-backend-go/internal/auth"
 	userjwt "github.com/restorefine-studios/saucy-menu-backend-go/internal/auth/jwt"
 	"github.com/restorefine-studios/saucy-menu-backend-go/internal/db/sqlc"
@@ -94,7 +96,11 @@ func (h *AuthHandler) GetRestaurant(w http.ResponseWriter, r *http.Request) {
 		reviewCount = rating.ReviewCount
 	}
 
-	aiEnabled, _ := h.q.GetRestaurantAIEnabled(ctx, rid)
+	aiEnabled, err := h.q.GetRestaurantAIEnabled(ctx, rid)
+	if err != nil {
+		log.Error().Err(err).Str("restaurantId", pgUUIDToString(rid)).Msg("GetRestaurantAIEnabled failed")
+		aiEnabled = false
+	}
 
 	httpx.WriteSuccess(w, http.StatusOK, map[string]any{
 		"id":            pgUUIDToString(resto.ID),
