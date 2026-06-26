@@ -9,13 +9,13 @@ import { Search, Bell, LogOut, Settings } from 'lucide-react'
 import { useState } from 'react'
 import logo from '@/assets/4f02a2e6c6acd8a847d3ddaba33f3830.png'
 
-const NAV_LINKS = [
-  { to: '/admin/dashboard',    label: 'Dashboard' },
-  { to: '/admin/menus',        label: 'Menus' },
-  { to: '/admin/review',       label: 'Reviews' },
-  { to: '/admin/subscription', label: 'Subscription' },
-  { to: '/admin/audit',        label: 'Audit' },
-  { to: '/admin/settings',     label: 'Settings' },
+const ALL_NAV_LINKS = [
+  { to: '/admin/dashboard',    label: 'Dashboard',    requiresSub: true },
+  { to: '/admin/menus',        label: 'Menus',        requiresSub: true },
+  { to: '/admin/review',       label: 'Reviews',      requiresSub: true },
+  { to: '/admin/subscription', label: 'Subscription', requiresSub: false },
+  { to: '/admin/audit',        label: 'Audit',        requiresSub: true },
+  { to: '/admin/settings',     label: 'Settings',     requiresSub: true },
 ]
 
 export function AdminNavbar() {
@@ -27,6 +27,15 @@ export function AdminNavbar() {
     queryKey: ['adminProfile'],
     queryFn: () => axiosInstance.get(apiRoutes.getAdminProfile).then(r => r.data),
   })
+
+  const { data: subData } = useQuery({
+    queryKey: ['subscriptionList'],
+    queryFn: () => axiosInstance.get(apiRoutes.subscriptionList).then(r => r.data),
+    staleTime: 60_000,
+  })
+
+  const hasSubscription = (subData as any)?.data?.some((item: any) => item.subscribed === true)
+  const NAV_LINKS = hasSubscription ? ALL_NAV_LINKS : ALL_NAV_LINKS.filter(l => !l.requiresSub)
 
   const restaurantName = (profileData as any)?.data?.restaurant?.name ?? ''
   const initials = ((user as any)?.name ?? 'U').slice(0, 2).toUpperCase()

@@ -73,15 +73,15 @@ func (h *RestaurantsHandler) List(w http.ResponseWriter, r *http.Request) {
 	result := make([]map[string]any, 0, len(rows))
 	for _, r := range rows {
 		result = append(result, map[string]any{
-			"id":         pgUUIDToString(r.ID),
-			"name":       r.Name,
-			"address":    r.Address,
-			"image":      r.Image,
-			"description":r.Description,
-			"status":     r.Status,
-			"adminEmail": r.AdminEmail,
-			"suspended":  r.Suspended,
-			"createdAt":  pgTimestampToString(r.CreatedAt),
+			"id":          pgUUIDToString(r.ID),
+			"name":        r.Name,
+			"address":     r.Address,
+			"image":       r.Image,
+			"description": r.Description,
+			"status":      r.Status,
+			"email":       r.AdminEmail,
+			"suspended":   r.Suspended,
+			"createdAt":   pgTimestampToString(r.CreatedAt),
 		})
 	}
 	httpx.WritePaginatedSpread(w, http.StatusOK, result, total, limit, offset)

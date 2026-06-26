@@ -75,20 +75,19 @@ export default function LogoUploader({
     onSuccess: (data) => {
       if (data?.success) {
         toast.success(data?.message);
-
-        // ✅ Only set the key if it's NOT a thumbnail
-        if (!data?.key.startsWith("thumbnails")) {
+        if (!data?.key?.startsWith("thumbnails")) {
           setKey(data?.key);
           setOpen(false);
         }
-        console.log("image data:", data);
       } else {
         toast.warning(data?.message);
       }
     },
+    onError: (err: any) => {
+      const msg = err?.response?.data?.message ?? err?.message ?? "Upload failed";
+      toast.error(msg);
+    },
   });
-
-  console.log("type:", type);
 
   const fileInputRef = React.useRef<HTMLInputElement>(null);
 

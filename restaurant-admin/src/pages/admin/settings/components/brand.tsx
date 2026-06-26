@@ -157,13 +157,20 @@ const Brand = ({ brand }: Props) => {
 
                   <div
                     onClick={() => setLogoOpen(true)}
-                    className="pl-4 pr-10 py-6 bg-gray-100 hover:bg-gray-200 border-none rounded-xl hover:cursor-pointer "
+                    className="flex items-center gap-4 pl-4 pr-10 py-4 bg-gray-100 hover:bg-gray-200 border-none rounded-xl hover:cursor-pointer"
                   >
-                    <p className="text-gray-500 text-sm">
-                      {field.state.value
-                        ? getAfterFirstDash(field.state.value)
-                        : "Click to upload logo"}
-                    </p>
+                    {field.state.value ? (
+                      <>
+                        <img
+                          src={mediaUrl + field.state.value}
+                          alt="Logo"
+                          className="h-12 w-12 rounded-full object-cover shrink-0"
+                        />
+                        <p className="text-gray-600 text-sm">Click to change logo</p>
+                      </>
+                    ) : (
+                      <p className="text-gray-500 text-sm">Click to upload logo</p>
+                    )}
                   </div>
                   <Modal
                     open={logoOpen}
@@ -171,15 +178,11 @@ const Brand = ({ brand }: Props) => {
                     title=""
                     size="xl"
                   >
-                    {/* <FileUpload
-                                  setKey={(value) => field.setValue(value)}
-                                  folder="SetupLogo"
-                                /> */}
                     <LogoUploader
                       type="logo"
                       setKey={(value) => field.setValue(value)}
                       folder="SetupLogo"
-                      setOpen={setOpen}
+                      setOpen={setLogoOpen}
                     />
                   </Modal>
                   {field.state.value && (

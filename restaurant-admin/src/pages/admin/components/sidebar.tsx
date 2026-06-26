@@ -148,7 +148,7 @@ const AppSidebar = () => {
           <SidebarGroup>
             <SidebarGroupContent>
               <SidebarMenu>
-                {items.map((item) => (
+                {(foundSubscription ? items : items.filter(i => i.url === '/admin/subscription')).map((item) => (
                   <SidebarMenuItem key={item.title}>
                     {item.hasSubMenu ? (
                       <Collapsible

@@ -55,15 +55,19 @@ func (h *StripeHandler) Handle(w http.ResponseWriter, r *http.Request) {
 	case "checkout.session.completed":
 		var sess stripelib.CheckoutSession
 		if err := json.Unmarshal(event.Data.Raw, &sess); err != nil {
+			log.Error().Err(err).Msg("checkout.session.completed: failed to unmarshal")
 			break
 		}
 		userID := sess.Metadata["userId"]
 		priceID := sess.Metadata["priceId"]
+		log.Info().Str("userId", userID).Str("priceId", priceID).Msg("checkout.session.completed received")
 		if userID == "" {
+			log.Error().Msg("checkout.session.completed: userId missing from metadata")
 			break
 		}
 		uid, err := parseUUID(userID)
 		if err != nil {
+			log.Error().Err(err).Str("userId", userID).Msg("checkout.session.completed: failed to parse userId")
 			break
 		}
 		plan, _ := h.q.GetPlanByPriceID(ctx, &priceID)
@@ -75,14 +79,19 @@ func (h *StripeHandler) Handle(w http.ResponseWriter, r *http.Request) {
 		if sess.Customer != nil {
 			customerID = sess.Customer.ID
 		}
-		_ = h.q.UpsertSubscription(ctx, sqlc.UpsertSubscriptionParams{
+		log.Info().Str("subId", subID).Str("customerId", customerID).Bool("planValid", plan.Valid).Msg("checkout.session.completed: upserting subscription")
+		if err := h.q.UpsertSubscription(ctx, sqlc.UpsertSubscriptionParams{
 			UserID:               uid,
 			StripeSubscriptionID: subID,
 			StripeCustomerID:     customerID,
 			PriceID:              &priceID,
 			Status:               strPtr("active"),
 			PlanID:               plan,
-		})
+		}); err != nil {
+			log.Error().Err(err).Str("userId", userID).Msg("checkout.session.completed: UpsertSubscription failed")
+		} else {
+			log.Info().Str("userId", userID).Msg("checkout.session.completed: subscription saved OK")
+		}
 
 		// Send confirmation email
 		if h.resendKey != "" && sess.CustomerEmail != "" {

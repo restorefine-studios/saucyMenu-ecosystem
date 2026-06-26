@@ -39,8 +39,7 @@ const ReleaseAccount = ({ id, email }: { id: string, email: string }) => {
   });
   return (
     <AlertDialog>
-      <AlertDialogTrigger>
-        {" "}
+      <AlertDialogTrigger asChild>
         <button className="bg-[#284b63] w-fit h-auto p-2 px-3 text-xs rounded-md text-gray-200 hover:cursor-pointer hover:underline">
           Finish Setup
         </button>

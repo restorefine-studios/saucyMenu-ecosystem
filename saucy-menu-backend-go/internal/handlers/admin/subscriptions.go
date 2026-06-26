@@ -93,7 +93,7 @@ func (h *SubscriptionsHandler) CreateCheckout(w http.ResponseWriter, r *http.Req
 		return
 	}
 
-	httpx.WriteSuccess(w, http.StatusOK, map[string]any{"url": sess.URL, "data": sess})
+	httpx.WriteSuccess(w, http.StatusOK, map[string]any{"url": sess.URL})
 }
 
 // POST /admin/subscriptions/cancel

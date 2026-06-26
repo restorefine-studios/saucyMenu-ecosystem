@@ -193,24 +193,27 @@ function Restaurants() {
             <CardContent className="flex flex-col flex-1 justify-between">
               <div className="flex justify-between">
                 <h4 className="font-medium text-lg">AI Credits Overview</h4>
-                <Button
-                  size="sm"
-                  className="hidden bg-transparent hover:bg-transparent text-black  rounded-md items-center gap-1 h-8"
-                >
-                  <DropdownMenu>
-                    <DropdownMenuTrigger>{selectedYear}</DropdownMenuTrigger>
-                    <DropdownMenuContent>
-                      {years.map((year) => (
-                        <DropdownMenuItem
-                          onClick={() => setSelectedYear(year.key)}
-                        >
-                          {year.label}
-                        </DropdownMenuItem>
-                      ))}
-                    </DropdownMenuContent>
-                  </DropdownMenu>
-                  <ChevronDown className="h-4 w-4" />
-                </Button>
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button
+                      size="sm"
+                      className="hidden bg-transparent hover:bg-transparent text-black rounded-md items-center gap-1 h-8"
+                    >
+                      {selectedYear}
+                      <ChevronDown className="h-4 w-4" />
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent>
+                    {years.map((year) => (
+                      <DropdownMenuItem
+                        key={year.key}
+                        onClick={() => setSelectedYear(year.key)}
+                      >
+                        {year.label}
+                      </DropdownMenuItem>
+                    ))}
+                  </DropdownMenuContent>
+                </DropdownMenu>
               </div>
 
               <div className="flex-1 flex items-end">

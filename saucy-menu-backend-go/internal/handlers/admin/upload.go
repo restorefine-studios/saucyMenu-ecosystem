@@ -1,6 +1,7 @@
 package admin
 
 import (
+	"mime"
 	"net/http"
 	"path/filepath"
 	"strings"
@@ -48,6 +49,11 @@ func (h *UploadHandler) Upload(w http.ResponseWriter, r *http.Request) {
 	}
 
 	contentType := header.Header.Get("Content-Type")
+	// Some browsers (and canvas.toBlob wrappers) omit Content-Type on the
+	// multipart part. Fall back to MIME detection by file extension.
+	if contentType == "" {
+		contentType = mime.TypeByExtension(filepath.Ext(header.Filename))
+	}
 	if !strings.HasPrefix(contentType, "image/") {
 		httpx.WriteError(w, http.StatusBadRequest, "only image uploads are allowed")
 		return

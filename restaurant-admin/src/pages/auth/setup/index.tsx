@@ -79,7 +79,7 @@ const Setup = () => {
       if (data?.success) {
         toast.success(data?.message);
         // setUser(data?.data);
-        navigate("/admin/dashboard");
+        navigate("/admin/subscription");
       } else {
         toast.error(data?.message);
       }

@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import {
   Check,
   Settings,
@@ -15,7 +15,7 @@ import { axiosInstance, cn } from "@/lib/utils"
 import { MONTHLY_PLANS, getNextPlan } from "@/lib/plans"
 import { useAdminStats } from "@/hooks/useFetchData"
 import apiRoutes from "@/apiRoutes"
-import { useMutation, useQuery } from "@tanstack/react-query"
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query"
 import { toast } from "sonner"
 import { AxiosError } from "axios"
 
@@ -158,11 +158,17 @@ function PlanGrid({
 
 function Subscription() {
   const navigate = useNavigate()
-  const [searchParams] = useSearchParams()
+  const [searchParams, setSearchParams] = useSearchParams()
+  const queryClient = useQueryClient()
   const [billing, setBilling] = useState<"monthly" | "annual">("monthly")
   const [view, setView] = useState<"summary" | "plans" | "manage">(
     searchParams.get("view") === "plans" ? "plans" : "summary"
   )
+
+  // When Stripe redirects back it appends ?session_id=... — use it to poll
+  // until the webhook lands and the subscription becomes active.
+  const sessionId = searchParams.get("session_id")
+  const [polling, setPolling] = useState(!!sessionId)
 
   const { data, isLoading, refetch } = useQuery<SubscriptionList>({
     queryKey: ["subscriptionList"],
@@ -171,22 +177,39 @@ function Subscription() {
       return response.data
     },
     refetchOnWindowFocus: false,
+    // While polling after payment, refetch every 3 seconds
+    refetchInterval: polling ? 3000 : false,
   })
+
+  useEffect(() => {
+    if (!polling) return
+    const active = (data as any)?.data?.some((item: any) => item.subscribed === true)
+    if (active) {
+      setPolling(false)
+      // Clean up ?session_id from URL
+      setSearchParams(p => { p.delete("session_id"); return p }, { replace: true })
+      queryClient.invalidateQueries({ queryKey: ["subscriptionList"] })
+      toast.success("Payment confirmed — welcome to SaucyMenu!")
+      navigate("/admin/dashboard", { replace: true })
+    }
+  }, [data, polling, navigate, queryClient, setSearchParams])
 
   const { data: statsData } = useAdminStats()
   const aiCreditsUsed = (statsData as any)?.data?.totalAiCredits ?? 0
 
   const { mutate, isPending } = useMutation({
     mutationFn: async (priceId: string) => {
+      const base = window.location.origin + "/admin/subscription"
       const response = await axiosInstance.post(apiRoutes.subscribe, {
         priceId,
-        success_url: window.location.href,
+        success_url: `${base}?session_id={CHECKOUT_SESSION_ID}`,
       })
       return response.data
     },
     onSuccess: (data) => {
-      if (data?.url) window.location.href = data.url
-      else toast.error("Something went wrong")
+      const url = (data as any)?.data?.url
+      if (url) window.location.href = url
+      else toast.error((data as any)?.data?.message ?? "Something went wrong")
     },
     onError: (err: AxiosError<{ message: string }>) => {
       toast.error(err?.response?.data?.message ?? "Something went wrong")

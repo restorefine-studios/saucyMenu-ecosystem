@@ -9,6 +9,9 @@ import {
 } from "@/components/ui/drawer"
 import { CreditCard, FileText, Settings, X } from "lucide-react"
 import { useState } from "react"
+import { useQuery } from "@tanstack/react-query"
+import { axiosInstance } from "@/lib/utils"
+import apiRoutes from "@/apiRoutes"
 
 const TABS = [
   { to: "/admin/dashboard", label: "Home", icon: Home },
@@ -27,7 +30,32 @@ export function BottomNav() {
   const { pathname } = useLocation()
   const [moreOpen, setMoreOpen] = useState(false)
 
+  const { data: subData } = useQuery({
+    queryKey: ['subscriptionList'],
+    queryFn: () => axiosInstance.get(apiRoutes.subscriptionList).then(r => r.data),
+    staleTime: 60_000,
+  })
+  const hasSubscription = (subData as any)?.data?.some((item: any) => item.subscribed === true)
+
   const isMoreActive = MORE_LINKS.some((link) => pathname.startsWith(link.to.split("?")[0]))
+
+  if (!hasSubscription) {
+    return (
+      <nav className="md:hidden fixed bottom-0 inset-x-0 z-40 bg-white border-t border-gray-100 shadow-[0_-4px_12px_rgba(0,0,0,0.04)] pb-[env(safe-area-inset-bottom)]">
+        <div className="flex items-center justify-center px-4 pt-2 pb-2">
+          <NavLink
+            to="/admin/subscription"
+            className={({ isActive }) =>
+              `flex flex-col items-center gap-1 py-1 text-xs font-medium ${isActive ? "text-[#F7941D]" : "text-gray-400"}`
+            }
+          >
+            <CreditCard className="w-5 h-5" />
+            Subscription
+          </NavLink>
+        </div>
+      </nav>
+    )
+  }
 
   return (
     <>

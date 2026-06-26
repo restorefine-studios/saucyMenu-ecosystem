@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Outlet, useNavigate } from 'react-router-dom'
+import { Outlet, useLocation, useNavigate } from 'react-router-dom'
 import { AdminNavbar } from '@/components/AdminNavbar'
 import { BottomNav } from '@/components/BottomNav'
 import { AppShell } from '@/components/AppShell'
@@ -15,10 +15,17 @@ import { posthog } from '@/lib/posthog'
 const Admin = () => {
   const [, setUser] = useAtom(userAtom)
   const navigate = useNavigate()
+  const location = useLocation()
 
   const { data } = useQuery({
     queryKey: ['status'],
     queryFn: () => axiosInstance.get(apiRoutes.status).then(r => r.data),
+  })
+
+  const { data: subscriptionData, isLoading: subLoading } = useQuery({
+    queryKey: ['subscriptionList'],
+    queryFn: () => axiosInstance.get(apiRoutes.subscriptionList).then(r => r.data),
+    staleTime: 60_000,
   })
 
   useEffect(() => {
@@ -51,6 +58,18 @@ const Admin = () => {
       localStorage.removeItem('user')
     }
   }, [data, navigate])
+
+  // Subscription gate — redirect to subscription page until they pay
+  useEffect(() => {
+    if (subLoading) return
+    const isOnSubscriptionPage = location.pathname.startsWith('/admin/subscription')
+    const hasActiveSubscription = (subscriptionData as any)?.data?.some(
+      (item: any) => item.subscribed === true
+    )
+    if (!hasActiveSubscription && !isOnSubscriptionPage) {
+      navigate('/admin/subscription', { replace: true })
+    }
+  }, [subLoading, subscriptionData, location.pathname, navigate])
 
   return (
     <AppShell>
