@@ -2,10 +2,10 @@ package sqlc
 
 import "context"
 
-// GetRestaurantAIEnabled returns true when the restaurant's owner (role='admin')
+// GetRestaurantAIEnabled returns true when the restaurant owner (role='user')
 // holds an active Pro or Premium subscription (anything that isn't Standard).
-// The role check prevents a non-owner user linked to the restaurant from
-// unlocking AI via their own subscription.
+// The role='user' check ensures only the restaurant owner's subscription counts,
+// not a super-admin account that might also be linked to the restaurant.
 func (q *Queries) GetRestaurantAIEnabled(ctx context.Context, restaurantID interface{}) (bool, error) {
 	const query = `
 		SELECT EXISTS (
@@ -14,7 +14,7 @@ func (q *Queries) GetRestaurantAIEnabled(ctx context.Context, restaurantID inter
 			JOIN user_subscriptions us ON us.user_id = u.id
 			JOIN subscriptions_plans sp ON sp.price_id = us.price_id
 			WHERE u.restaurant_id = $1
-			  AND u.role = 'admin'
+			  AND u.role = 'user'
 			  AND us.status IS NOT NULL
 			  AND us.status != 'canceled'
 			  AND sp.name NOT ILIKE 'standard%'
