@@ -41,6 +41,7 @@ function Settings() {
               address:     profile?.restaurant?.address,
               description: profile?.restaurant?.description,
               image:       profile?.restaurant?.image,
+              bannerUrl:   profile?.restaurant?.bannerUrl,
               currencyId:  profile?.restaurant?.currencyId,
             }}
           />

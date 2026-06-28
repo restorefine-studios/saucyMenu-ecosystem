@@ -30,6 +30,7 @@ interface Props {
     description: string | undefined;
     address?: string | undefined;
     image?: string | undefined;
+    bannerUrl?: string | undefined;
     currencyId?: string | undefined;
   };
 }
@@ -69,6 +70,7 @@ const Brand = ({ brand }: Props) => {
       address: brand?.address ?? "",
       languageId: user?.languageId ?? "",
       image: brand?.image ?? "",
+      bannerUrl: brand?.bannerUrl ?? "",
       currencyId: brand?.currencyId ?? "",
     } as customizeValues,
     validators: {
