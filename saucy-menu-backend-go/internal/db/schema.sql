@@ -213,6 +213,7 @@ CREATE TABLE "menu_item_variants" (
 	"name" text NOT NULL,
 	"price" numeric(10, 2) NOT NULL,
 	"is_available" boolean DEFAULT true,
+	"image" text,
 	"created_at" timestamp DEFAULT now()
 );
 --> statement-breakpoint

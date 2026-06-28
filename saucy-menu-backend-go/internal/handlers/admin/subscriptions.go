@@ -4,6 +4,8 @@ import (
 	"encoding/json"
 	"net/http"
 
+	"github.com/rs/zerolog/log"
+
 	authm "github.com/restorefine-studios/saucy-menu-backend-go/internal/auth"
 	"github.com/restorefine-studios/saucy-menu-backend-go/internal/db/sqlc"
 	"github.com/restorefine-studios/saucy-menu-backend-go/internal/httpx"
@@ -26,6 +28,7 @@ func NewSubscriptionsHandler(q *sqlc.Queries, stripeKey ...string) *Subscription
 // GET /admin/subscriptions/system
 func (h *SubscriptionsHandler) ListSystemPlans(w http.ResponseWriter, r *http.Request) {
 	user := authm.GetAdminUser(r.Context())
+	log.Debug().Str("userId", pgUUIDToString(user.ID)).Str("email", user.Email).Msg("ListSystemPlans: checking subscription for user")
 	plans, err := h.q.ListSubscriptionPlansWithStatus(r.Context(), user.ID)
 	if err != nil {
 		httpx.WriteError(w, http.StatusInternalServerError, "failed to fetch plans")

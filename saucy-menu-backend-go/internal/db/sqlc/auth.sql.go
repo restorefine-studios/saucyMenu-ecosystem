@@ -87,15 +87,16 @@ func (q *Queries) CreateSession(ctx context.Context, arg CreateSessionParams) (S
 }
 
 const createUser = `-- name: CreateUser :one
-INSERT INTO users (id, email, name, email_verified, created_at, updated_at)
-VALUES (gen_random_uuid(), $1, $2, false, now(), now())
+INSERT INTO users (id, email, name, role, email_verified, created_at, updated_at)
+VALUES (gen_random_uuid(), $1, $2, $3, false, now(), now())
 RETURNING id, email, name, role, restaurant_id, language_id, setup_complete,
           created_at, updated_at, email_verified, image, suspended, banned, ban_reason, ban_expires
 `
 
 type CreateUserParams struct {
-	Email string `json:"email"`
-	Name  string `json:"name"`
+	Email string  `json:"email"`
+	Name  string  `json:"name"`
+	Role  *string `json:"role"`
 }
 
 type CreateUserRow struct {
@@ -117,7 +118,7 @@ type CreateUserRow struct {
 }
 
 func (q *Queries) CreateUser(ctx context.Context, arg CreateUserParams) (CreateUserRow, error) {
-	row := q.db.QueryRow(ctx, createUser, arg.Email, arg.Name)
+	row := q.db.QueryRow(ctx, createUser, arg.Email, arg.Name, arg.Role)
 	var i CreateUserRow
 	err := row.Scan(
 		&i.ID,

@@ -477,6 +477,7 @@ type MenuItemVariant struct {
 	Name              string           `json:"name"`
 	Price             pgtype.Numeric   `json:"price"`
 	IsAvailable       *bool            `json:"is_available"`
+	Image             *string          `json:"image"`
 	CreatedAt         pgtype.Timestamp `json:"created_at"`
 }
 

@@ -8,6 +8,11 @@ export async function authLoader() {
         throw redirect("/");
     }
 
+    // Only super-admins (role='admin') may use this app
+    if ((session.user as any)?.role !== 'admin') {
+        throw redirect("/?error=wrong_account");
+    }
+
     return { session };
 }
 

@@ -433,8 +433,8 @@ func (q *Queries) InsertMenuItemTag(ctx context.Context, arg InsertMenuItemTagPa
 }
 
 const insertMenuItemVariant = `-- name: InsertMenuItemVariant :one
-INSERT INTO menu_item_variants (id, item_id, name, price, is_available, created_at)
-VALUES (gen_random_uuid(), $1, $2, $3, true, now())
+INSERT INTO menu_item_variants (id, item_id, name, price, is_available, image, created_at)
+VALUES (gen_random_uuid(), $1, $2, $3, true, $4, now())
 RETURNING id
 `
 
@@ -442,10 +442,16 @@ type InsertMenuItemVariantParams struct {
 	ItemID pgtype.UUID    `json:"item_id"`
 	Name   string         `json:"name"`
 	Price  pgtype.Numeric `json:"price"`
+	Image  *string        `json:"image"`
 }
 
 func (q *Queries) InsertMenuItemVariant(ctx context.Context, arg InsertMenuItemVariantParams) (pgtype.UUID, error) {
-	row := q.db.QueryRow(ctx, insertMenuItemVariant, arg.ItemID, arg.Name, arg.Price)
+	row := q.db.QueryRow(ctx, insertMenuItemVariant,
+		arg.ItemID,
+		arg.Name,
+		arg.Price,
+		arg.Image,
+	)
 	var id pgtype.UUID
 	err := row.Scan(&id)
 	return id, err

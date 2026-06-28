@@ -2,10 +2,10 @@ package sqlc
 
 import "context"
 
-// GetRestaurantAIEnabled returns true when the restaurant's *admin* user holds
-// an active Pro or Premium subscription (anything that isn't Standard).
-// Only the admin role is checked — other users linked to the restaurant cannot
-// satisfy this condition via their own subscription.
+// GetRestaurantAIEnabled returns true when the restaurant's owner (role='admin')
+// holds an active Pro or Premium subscription (anything that isn't Standard).
+// The role check prevents a non-owner user linked to the restaurant from
+// unlocking AI via their own subscription.
 func (q *Queries) GetRestaurantAIEnabled(ctx context.Context, restaurantID interface{}) (bool, error) {
 	const query = `
 		SELECT EXISTS (

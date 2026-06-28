@@ -403,7 +403,7 @@ func (q *Queries) ListItemTagsForAI(ctx context.Context, dollar_1 []pgtype.UUID)
 }
 
 const listItemVariantsByItemID = `-- name: ListItemVariantsByItemID :many
-SELECT id, name, price, is_available, translations
+SELECT id, name, price, is_available, translations, image
 FROM menu_item_variants
 WHERE item_id = $1
 `
@@ -414,6 +414,7 @@ type ListItemVariantsByItemIDRow struct {
 	Price        pgtype.Numeric `json:"price"`
 	IsAvailable  *bool          `json:"is_available"`
 	Translations []byte         `json:"translations"`
+	Image        *string        `json:"image"`
 }
 
 func (q *Queries) ListItemVariantsByItemID(ctx context.Context, itemID pgtype.UUID) ([]ListItemVariantsByItemIDRow, error) {
@@ -431,6 +432,7 @@ func (q *Queries) ListItemVariantsByItemID(ctx context.Context, itemID pgtype.UU
 			&i.Price,
 			&i.IsAvailable,
 			&i.Translations,
+			&i.Image,
 		); err != nil {
 			return nil, err
 		}

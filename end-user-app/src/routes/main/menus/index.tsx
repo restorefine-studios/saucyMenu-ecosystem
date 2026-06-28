@@ -162,16 +162,22 @@ function SectionBlock({
   menu,
   section,
   activeFilters,
+  searchQuery,
   onItemClick,
 }: {
   menu: Menu
   section: MenuSection
   activeFilters: string[]
+  searchQuery: string
   onItemClick: (item: MenuItem) => void
 }) {
   const { data } = useMenuItems(menu.id, section.id)
   const items: MenuItem[] = data?.data ?? []
-  if (items.length === 0) return null
+  const q = searchQuery.trim().toLowerCase()
+  const visible = q
+    ? items.filter(i => i.name.toLowerCase().includes(q) || i.description?.toLowerCase().includes(q))
+    : items
+  if (visible.length === 0) return null
 
   return (
     <div id={`section-${section.id}`} className="mb-8">
@@ -181,7 +187,7 @@ function SectionBlock({
         <div className="flex-1 h-px bg-gray-200" />
       </div>
       <div>
-        {items.map(item => (
+        {visible.map(item => (
           <MenuItemCard
             key={item.id}
             {...item}
@@ -200,11 +206,13 @@ function SectionBlock({
 function MenuSectionsLoader({
   menu,
   activeFilters,
+  searchQuery,
   onItemClick,
   onSectionsReady,
 }: {
   menu: Menu
   activeFilters: string[]
+  searchQuery: string
   onItemClick: (item: MenuItem) => void
   onSectionsReady: (sections: MenuSection[]) => void
 }) {
@@ -224,6 +232,7 @@ function MenuSectionsLoader({
           menu={menu}
           section={section}
           activeFilters={activeFilters}
+          searchQuery={searchQuery}
           onItemClick={onItemClick}
         />
       ))}
@@ -328,7 +337,7 @@ function MenuPage() {
 
   const filterOptions = [
     ...diets.slice(0, 4).map(d => ({ id: `diet:${d.id}`, label: d.name })),
-    ...allergens.slice(0, 2).map(a => ({ id: `allergen:${a.id}`, label: a.name })),
+    ...allergens.map(a => ({ id: `allergen:${a.id}`, label: a.name })),
   ]
 
   // Special sections that exist only when they have items — prepended to the regular nav
@@ -366,13 +375,26 @@ function MenuPage() {
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/30" />
 
         {/* Floating action buttons */}
-        <div className="absolute top-4 left-4 right-4 flex items-center justify-between">
+        <div className="absolute top-4 left-4 right-4 flex items-center gap-2">
           <button
             onClick={() => router.history.back()}
-            className="w-9 h-9 rounded-full bg-black/30 backdrop-blur-sm flex items-center justify-center"
+            className="flex-shrink-0 w-9 h-9 rounded-full bg-black/30 backdrop-blur-sm flex items-center justify-center"
           >
             <ChevronLeft className="w-5 h-5 text-white" />
           </button>
+          <div className="flex-1 flex items-center bg-black/30 backdrop-blur-sm rounded-full px-3 gap-2">
+            <Search className="w-4 h-4 text-white/70 flex-shrink-0" />
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={e => setSearchQuery(e.target.value)}
+              placeholder="Search menu..."
+              className="flex-1 bg-transparent text-white placeholder-white/60 text-sm outline-none py-2"
+            />
+            {searchQuery && (
+              <button onClick={() => setSearchQuery('')} className="text-white/70 text-xs">✕</button>
+            )}
+          </div>
           <div className="flex items-center gap-2">
             <button
               onClick={replayTour}
@@ -700,6 +722,7 @@ function MenuPage() {
             key={selectedMenu.id}
             menu={selectedMenu}
             activeFilters={activeFilters}
+            searchQuery={searchQuery}
             onItemClick={handleItemClick}
             onSectionsReady={handleSectionsReady}
           />

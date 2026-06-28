@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { usePasskeySupported, passkeyIsRegistered, useLoginWithPasskey } from "@/hooks/usePasskey";
 import { useForm } from "@tanstack/react-form";
 import { z } from "zod";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { useTranslation } from "react-i18next";
@@ -30,6 +30,12 @@ const loginSchema = z.object({
 const Login = () => {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
+
+  useEffect(() => {
+    if (new URLSearchParams(window.location.search).get('error') === 'wrong_account') {
+      toast.error('This account does not have restaurant admin access.')
+    }
+  }, []);
   const isPasskeySupported = usePasskeySupported();
   const passkeyReady = isPasskeySupported && passkeyIsRegistered();
   const { mutate: passkeyLogin, isPending: passkeyPending } = useLoginWithPasskey(() =>

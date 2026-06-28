@@ -35,9 +35,10 @@ func NewMenuItemsHandler(q *sqlc.Queries, audit *auditpkg.Logger, t *translation
 }
 
 type menuItemVariantBody struct {
-	Name        string `json:"name"`
-	Price       string `json:"price"`
-	IsAvailable *bool  `json:"isAvailable"`
+	Name        string  `json:"name"`
+	Price       string  `json:"price"`
+	IsAvailable *bool   `json:"isAvailable"`
+	Image       *string `json:"image"`
 }
 
 type menuItemBody struct {
@@ -402,7 +403,7 @@ func (h *MenuItemsHandler) UpdateMenuItem(w http.ResponseWriter, r *http.Request
 		lang := httpx.LangFromContext(ctx)
 		for _, v := range body.Variants {
 			if vid, err := h.q.InsertMenuItemVariant(ctx, sqlc.InsertMenuItemVariantParams{
-				ItemID: id, Name: v.Name, Price: parsePrice(v.Price),
+				ItemID: id, Name: v.Name, Price: parsePrice(v.Price), Image: v.Image,
 			}); err == nil {
 				h.t.After(ctx, "variant", pgUUIDToString(vid), lang, translation.Fields("name", v.Name))
 			}
@@ -510,7 +511,7 @@ func insertItemRelations(ctx context.Context, q *sqlc.Queries, t *translation.En
 	}
 	for _, v := range variants {
 		if vid, err := q.InsertMenuItemVariant(ctx, sqlc.InsertMenuItemVariantParams{
-			ItemID: itemID, Name: v.Name, Price: parsePrice(v.Price),
+			ItemID: itemID, Name: v.Name, Price: parsePrice(v.Price), Image: v.Image,
 		}); err == nil {
 			t.After(ctx, "variant", pgUUIDToString(vid), lang, translation.Fields("name", v.Name))
 		}

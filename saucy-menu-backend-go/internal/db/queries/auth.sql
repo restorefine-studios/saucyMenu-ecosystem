@@ -43,8 +43,8 @@ JOIN currencies c ON c.id = r."currencyId"
 WHERE u.id = $1;
 
 -- name: CreateUser :one
-INSERT INTO users (id, email, name, email_verified, created_at, updated_at)
-VALUES (gen_random_uuid(), $1, $2, false, now(), now())
+INSERT INTO users (id, email, name, role, email_verified, created_at, updated_at)
+VALUES (gen_random_uuid(), $1, $2, $3, false, now(), now())
 RETURNING id, email, name, role, restaurant_id, language_id, setup_complete,
           created_at, updated_at, email_verified, image, suspended, banned, ban_reason, ban_expires;
 

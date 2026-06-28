@@ -202,6 +202,7 @@ func (h *Handler) signUp(w http.ResponseWriter, r *http.Request) {
 	newUser, err := h.q.CreateUser(ctx, sqlc.CreateUserParams{
 		Email: body.Email,
 		Name:  body.Name,
+		Role:  func() *string { s := "admin"; return &s }(),
 	})
 	if err != nil {
 		httpx.WriteError(w, http.StatusUnprocessableEntity, "Failed to create user")

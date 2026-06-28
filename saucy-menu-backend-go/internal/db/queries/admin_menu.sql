@@ -142,8 +142,8 @@ ON CONFLICT DO NOTHING;
 DELETE FROM menu_item_variants WHERE item_id = $1;
 
 -- name: InsertMenuItemVariant :one
-INSERT INTO menu_item_variants (id, item_id, name, price, is_available, created_at)
-VALUES (gen_random_uuid(), $1, $2, $3, true, now())
+INSERT INTO menu_item_variants (id, item_id, name, price, is_available, image, created_at)
+VALUES (gen_random_uuid(), $1, $2, $3, true, $4, now())
 RETURNING id;
 
 -- name: DeleteMenuItemAddons :exec

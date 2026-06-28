@@ -193,6 +193,7 @@ func insertBulkRelations(ctx context.Context, q *sqlc.Queries, client *asynq.Cli
 			ItemID: itemID,
 			Name:   v.Name,
 			Price:  parseNumeric(v.Price),
+			Image:  nil,
 		}); err == nil {
 			enqueueTranslationSafe(ctx, client, "variant", pgUUIDToString(vid), "en",
 				map[string]string{"name": v.Name})

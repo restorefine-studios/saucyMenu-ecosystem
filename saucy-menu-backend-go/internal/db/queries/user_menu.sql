@@ -73,7 +73,7 @@ JOIN addons a ON mia.addon_id = a.id
 WHERE mia.item_id = $1;
 
 -- name: ListItemVariantsByItemID :many
-SELECT id, name, price, is_available, translations
+SELECT id, name, price, is_available, translations, image
 FROM menu_item_variants
 WHERE item_id = $1;
 

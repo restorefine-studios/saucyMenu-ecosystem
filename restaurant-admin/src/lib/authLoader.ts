@@ -29,6 +29,11 @@ export async function authLoader() {
         throw redirect("/");
     }
 
+    // Only restaurant owners (role='user') may use this app
+    if ((session.user as any)?.role !== 'user') {
+        throw redirect("/?error=wrong_account");
+    }
+
     return { session };
 }
 

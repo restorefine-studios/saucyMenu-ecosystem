@@ -476,6 +476,7 @@ func (h *MenuHandler) GetMenuItemDetail(w http.ResponseWriter, r *http.Request) 
 			"name":        httpx.ResolveTranslatedField(v.Name, v.Translations, "name", lang),
 			"price":       httpx.NumericToString(v.Price),
 			"isAvailable": v.IsAvailable,
+			"image":       v.Image,
 		})
 	}
 
