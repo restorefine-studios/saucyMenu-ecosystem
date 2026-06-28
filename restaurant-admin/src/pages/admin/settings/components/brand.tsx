@@ -226,13 +226,22 @@ const Brand = ({ brand }: Props) => {
 
                   <div
                     onClick={() => setOpen(true)}
-                    className="pl-4 pr-10 py-6 bg-gray-100 hover:bg-gray-200 border-none rounded-xl hover:cursor-pointer "
+                    className="relative bg-gray-100 hover:bg-gray-200 border-none rounded-xl hover:cursor-pointer overflow-hidden"
                   >
-                    <p className="text-gray-500 text-sm">
-                      {field.state.value
-                        ? getAfterFirstDash(field.state.value)
-                        : "Click to upload banner"}
-                    </p>
+                    {field.state.value ? (
+                      <>
+                        <img
+                          src={mediaUrl + field.state.value}
+                          alt="Banner"
+                          className="w-full h-32 object-cover"
+                        />
+                        <p className="absolute bottom-2 right-3 text-white text-xs bg-black/40 px-2 py-0.5 rounded-full">
+                          Click to change
+                        </p>
+                      </>
+                    ) : (
+                      <p className="text-gray-500 text-sm pl-4 py-6">Click to upload banner</p>
+                    )}
                   </div>
                   <Modal open={open} setOpen={setOpen} title="" size="xl">
                     {/* <FileUpload
