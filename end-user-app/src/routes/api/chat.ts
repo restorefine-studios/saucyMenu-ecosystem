@@ -1,11 +1,11 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { createOpenAI } from "@ai-sdk/openai";
-import { streamText } from "ai";
 
 export const Route = createFileRoute('/api/chat')({
     server: {
         handlers: {
             POST: async ({ request }) => {
+                const { createOpenAI } = await import("@ai-sdk/openai")
+                const { streamText } = await import("ai")
                 const openai = createOpenAI({
                     apiKey: process.env.OPENAI_API_KEY,
                 })
