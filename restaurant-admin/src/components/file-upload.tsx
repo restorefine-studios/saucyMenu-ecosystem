@@ -146,20 +146,16 @@ export function FileUpload({
 
   const handleCropComplete = async (croppedFile: File) => {
     await handleUpload(croppedFile);
+    if (previewForCrop) URL.revokeObjectURL(previewForCrop);
     setPreviewForCrop(null);
-    // setFileToUpload(null);
   };
   // Trigger upload when a file is dropped or selected
   useEffect(() => {
     if (files.length > 0 && files[0]?.file instanceof File && !isCropOpen) {
       const file = files[0].file;
-      const reader = new FileReader();
-      reader.onload = () => {
-        setPreviewForCrop(reader.result as string);
-        // setFileToUpload(file);
-        setIsCropOpen(true);
-      };
-      reader.readAsDataURL(file);
+      const objectUrl = URL.createObjectURL(file);
+      setPreviewForCrop(objectUrl);
+      setIsCropOpen(true);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [files]);
@@ -227,8 +223,8 @@ export function FileUpload({
           imageSrc={previewForCrop}
           onClose={() => {
             setIsCropOpen(false);
+            if (previewForCrop) URL.revokeObjectURL(previewForCrop);
             setPreviewForCrop(null);
-            // setFileToUpload(null);
           }}
           onCropComplete={handleCropComplete}
         />

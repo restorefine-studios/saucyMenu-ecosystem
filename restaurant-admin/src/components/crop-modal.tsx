@@ -76,8 +76,9 @@ export function CropModal({
           <DialogTitle>Crop Image</DialogTitle>
         </DialogHeader>
 
-        <div className="relative w-full h-96 bg-neutral-900 rounded-lg overflow-hidden">
+        <div className="relative w-full h-96 bg-neutral-900 rounded-lg" style={{ overflow: 'visible' }}>
           <Cropper
+            key={imageSrc}
             image={imageSrc}
             crop={crop}
             zoom={zoom}
@@ -87,6 +88,7 @@ export function CropModal({
             onZoomChange={setZoom}
             cropShape="rect"
             showGrid
+            objectFit="contain"
           />
         </div>
 
