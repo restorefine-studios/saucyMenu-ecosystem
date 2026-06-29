@@ -106,12 +106,12 @@ export function ItemDetailDrawer({ itemId, onClose }: ItemDetailDrawerProps) {
     return { orig, discounted: Math.max(0, discounted), label: i.discountLabel, end }
   })()
 
-  const selectedVariant = variants.find((v: any) => v.id === selectedVariantId)
-  const variantImage = selectedVariant?.image ? renderMediaUrl(selectedVariant.image) : null
-  const imageUrl = variantImage ?? (item?.images?.[0] ? renderMediaUrl(item.images[0]) : null)
   const addons = (item as any)?.addons ?? []
   const variants = (item as any)?.variants ?? []
   const allergens = (item as any)?.allergens ?? []
+  const selectedVariant = variants.find((v: any) => v.id === selectedVariantId)
+  const variantImage = selectedVariant?.image ? renderMediaUrl(selectedVariant.image) : null
+  const imageUrl = variantImage ?? (item?.images?.[0] ? renderMediaUrl(item.images[0]) : null)
 
   const selectedAddons: OrderListAddon[] = addons
     .filter((a: any) => selectedAddonIds.includes(a.id))
