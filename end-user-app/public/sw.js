@@ -3,5 +3,14 @@
 self.addEventListener("install", () => self.skipWaiting());
 self.addEventListener("activate", (event) => event.waitUntil(self.clients.claim()));
 self.addEventListener("fetch", (event) => {
-  event.respondWith(fetch(event.request));
+  const { pathname } = new URL(event.request.url);
+  // Don't intercept Vite dev server internals — virtual modules, HMR, source files
+  if (
+    pathname.startsWith("/@") ||
+    pathname.startsWith("/src/") ||
+    pathname.startsWith("/node_modules/")
+  ) {
+    return;
+  }
+  event.respondWith(fetch(event.request).catch(() => Response.error()));
 });

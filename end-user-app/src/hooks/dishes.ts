@@ -139,6 +139,7 @@ export const useDish = (id: string) => {
   }>({
     queryKey: ['dish', id],
     queryFn: getDish,
+    enabled: !!id,
   })
 }
 
