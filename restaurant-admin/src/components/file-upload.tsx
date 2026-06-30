@@ -5,6 +5,7 @@ import { useFileUpload } from "@/hooks/use-file-upload";
 import { useMutation } from "@tanstack/react-query";
 import MediaServices from "@/services/upload.service";
 import { CropModal } from "./crop-modal";
+import { ensureDecodableImage, compressImage } from "@/lib/image";
 
 interface FileUploadProps {
   setKey: (key: string) => void;
@@ -115,16 +116,15 @@ export function FileUpload({
 
     if (!file) return;
 
-    // const compressedFile = await imageCompression(file, {
-    //   maxWidthOrHeight: 512,
-    //   useWebWorker: true,
-    //   fileType: "image/webp", // optional: WebP is smaller
-    //   alwaysKeepResolution: true, // optional: keeps the resolution of the original image
-    // });
+    // Shrink before upload: cap dimensions and re-encode so menu photos stay
+    // sharp but small (full-res phone photos can be 5-15MB).
+    const compressedFile = await compressImage(file, {
+      maxWidthOrHeight: 1600,
+      quality: 0.85,
+    });
 
     const uploads = [
-      { file: file, folder: folder }, // original
-      // { file: compressedFile, folder: `thumbnails/${folder}` }, // thumbnail
+      { file: compressedFile, folder: folder }, // original (compressed)
     ];
 
     for (const { file, folder } of uploads) {
@@ -149,13 +149,32 @@ export function FileUpload({
     if (previewForCrop) URL.revokeObjectURL(previewForCrop);
     setPreviewForCrop(null);
   };
-  // Trigger upload when a file is dropped or selected
+  // Trigger upload when a file is dropped or selected. HEIC/HEIF photos (common
+  // from iPhones) are converted to JPEG first; anything the browser can't decode
+  // is rejected with a message instead of opening a black cropper.
   useEffect(() => {
     if (files.length > 0 && files[0]?.file instanceof File && !isCropOpen) {
       const file = files[0].file;
-      const objectUrl = URL.createObjectURL(file);
-      setPreviewForCrop(objectUrl);
-      setIsCropOpen(true);
+      let cancelled = false;
+      (async () => {
+        try {
+          const decodable = await ensureDecodableImage(file);
+          if (cancelled) return;
+          const objectUrl = URL.createObjectURL(decodable);
+          setPreviewForCrop(objectUrl);
+          setIsCropOpen(true);
+        } catch (err) {
+          if (cancelled) return;
+          toast.error(
+            err instanceof Error
+              ? err.message
+              : "Couldn't open that image. Please upload a JPG or PNG."
+          );
+        }
+      })();
+      return () => {
+        cancelled = true;
+      };
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [files]);

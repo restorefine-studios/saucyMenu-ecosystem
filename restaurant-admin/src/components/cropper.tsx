@@ -6,6 +6,7 @@ import Cropper, { Area } from "react-easy-crop";
 import { toast } from "sonner";
 import { Button } from "./ui/button";
 import { ImageIcon } from "lucide-react";
+import { ensureDecodableImage, compressImage } from "@/lib/image";
 
 interface FileUploadProps {
   setKey: (key: string) => void;
@@ -29,9 +30,18 @@ export default function LogoUploader({
     setCroppedAreaPixels(croppedPixels);
   }, []);
 
-  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleImageChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
-      setImage(e.target.files[0]);
+      try {
+        const decodable = await ensureDecodableImage(e.target.files[0]);
+        setImage(decodable);
+      } catch (err) {
+        toast.error(
+          err instanceof Error
+            ? err.message
+            : "Couldn't open that image. Please upload a JPG or PNG."
+        );
+      }
     }
   };
 
@@ -47,9 +57,14 @@ export default function LogoUploader({
       type: "image/png",
     });
 
+    // Logos keep PNG (transparency); banners are photos so JPEG is fine.
+    const compressedFile = await compressImage(croppedFile, {
+      maxWidthOrHeight: type === "banner" ? 1280 : 512,
+      fileType: type === "banner" ? "image/jpeg" : "image/png",
+    });
+
     const uploads = [
-      { file: croppedFile, folder: folder }, // original
-      // { file: compressedFile, folder: `thumbnails/${folder}` }, // thumbnail
+      { file: compressedFile, folder: folder }, // original (compressed)
     ];
 
     for (const { file, folder } of uploads) {
