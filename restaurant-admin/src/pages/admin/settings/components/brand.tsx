@@ -120,12 +120,6 @@ const Brand = ({ brand }: Props) => {
     },
   });
 
-  function getAfterFirstDash(input: string) {
-    const index = input.indexOf("-");
-    if (index === -1) return ""; // or return input if you want to keep it unchanged
-    return input.slice(index + 1);
-  }
-
   return (
     <>
       <form
