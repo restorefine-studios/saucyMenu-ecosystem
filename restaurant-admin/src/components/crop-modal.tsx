@@ -8,7 +8,7 @@ interface CropModalProps {
   isOpen: boolean;
   imageSrc: string;
   onClose: () => void;
-  onCropComplete: (croppedFile: File) => void;
+  onCropComplete: (croppedFile: File) => void | Promise<void>;
   aspect?: number;
 }
 
@@ -26,6 +26,10 @@ export function CropModal({
   // before opening this modal, but this is a safety net so an undecodable image
   // shows a message instead of a silent black canvas (the old failure mode).
   const [status, setStatus] = useState<"loading" | "ready" | "error">("loading");
+  // Keep the modal open (and the button disabled) until the upload actually
+  // finishes, otherwise the modal closes and the form's Save button — never
+  // gated on upload state — can be clicked before the image key exists.
+  const [isUploading, setIsUploading] = useState(false);
 
   useEffect(() => {
     setStatus("loading");
@@ -72,10 +76,13 @@ export function CropModal({
         image.onerror = () => reject(new Error("Failed to load image"));
         image.src = imageSrc;
       });
-      onCropComplete(file);
+      setIsUploading(true);
+      await onCropComplete(file);
       onClose();
     } catch (err) {
       console.error("Crop error:", err);
+    } finally {
+      setIsUploading(false);
     }
   };
 
@@ -84,7 +91,7 @@ export function CropModal({
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center bg-black/60"
-      onClick={onClose}
+      onClick={isUploading ? undefined : onClose}
     >
       <div
         className="bg-white rounded-2xl shadow-xl w-full max-w-2xl mx-4 p-6 flex flex-col gap-4"
@@ -140,15 +147,21 @@ export function CropModal({
         </div>
 
         <div className="flex justify-end gap-3">
-          <Button variant="outline" onClick={onClose}>
+          <Button
+            type="button"
+            variant="outline"
+            onClick={onClose}
+            disabled={isUploading}
+          >
             Cancel
           </Button>
           <Button
+            type="button"
             onClick={handleUploadClick}
-            disabled={status !== "ready"}
+            disabled={status !== "ready" || isUploading}
             className="bg-[#F7941D] hover:bg-amber-600 text-white disabled:opacity-50"
           >
-            Upload
+            {isUploading ? "Uploading…" : "Upload"}
           </Button>
         </div>
       </div>

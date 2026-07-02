@@ -133,11 +133,16 @@ export function FileUpload({
       formData.append("folder", folder);
 
       try {
-        toast.promise(mutateUploadService(formData), {
+        const uploadPromise = mutateUploadService(formData);
+        toast.promise(uploadPromise, {
           loading: "Uploading...",
           success: "Successfully uploaded",
           error: "Something went wrong",
         });
+        // Wait for the actual network call (and its onSuccess, which pushes
+        // the key into form state) before returning, otherwise callers that
+        // await handleUpload() resolve before the image key exists.
+        await uploadPromise;
       } catch (error) {
         console.error(`Error uploading to ${folder}:`, error);
       }
