@@ -114,7 +114,8 @@ export default function AuditPage() {
   })
 
   const logs  = (data as any)?.data ?? []
-  const total = (data as any)?.meta?.total ?? 0
+  // Backend sends WritePaginatedSpread: { data, pagination: { totalItems } }
+  const total = (data as any)?.pagination?.totalItems ?? (data as any)?.meta?.total ?? 0
 
   if (isLoading) {
     return (

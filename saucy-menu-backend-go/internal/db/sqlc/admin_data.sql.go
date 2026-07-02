@@ -302,8 +302,11 @@ func (q *Queries) InsertAuditLog(ctx context.Context, arg InsertAuditLogParams) 
 		arg.EntityID,
 		arg.Action,
 		arg.PerformedBy,
-		arg.Column5,
-		arg.Column6,
+		// jsonb params must be passed as string, not []byte: under
+		// QueryExecModeSimpleProtocol pgx encodes []byte as bytea hex (\x..),
+		// which Postgres rejects with "invalid input syntax for type json".
+		string(arg.Column5),
+		string(arg.Column6),
 		arg.RestaurantID,
 	)
 	return err

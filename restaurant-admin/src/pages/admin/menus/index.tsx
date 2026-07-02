@@ -36,7 +36,9 @@ function SectionItems({
   const { data, isLoading } = useQuery({
     queryKey: ['menuItems', section.id],
     queryFn: () =>
-      axiosInstance.get(apiRoutes.menuItems, { params: { sectionId: section.id } })
+      // Fetch all items in the section — the backend defaults to limit=10, so
+      // without this a section with >10 items silently hides the rest.
+      axiosInstance.get(apiRoutes.menuItems, { params: { sectionId: section.id, limit: 1000 } })
         .then(r => r.data),
     enabled: !!section.id,
   })

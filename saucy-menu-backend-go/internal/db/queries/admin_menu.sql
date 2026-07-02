@@ -93,7 +93,7 @@ FROM menu_items
 WHERE restaurant_id = $1
   AND (NOT $2 OR section_id = $3)
   AND (NOT $4 OR lower(name) LIKE $5)
-ORDER BY created_at DESC
+ORDER BY created_at DESC, id
 LIMIT $6 OFFSET $7;
 
 -- name: GetAdminMenuItemByID :one
